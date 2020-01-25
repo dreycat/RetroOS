@@ -1,7 +1,9 @@
 import React, { FC } from 'react';
 
+import Desktop from './Desktop';
+
 const App: FC = () => {
-  return <div className="App">test</div>;
+  return <Desktop />;
 };
 
 export default App;
