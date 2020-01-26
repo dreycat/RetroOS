@@ -6,30 +6,26 @@ interface IProps {
   title: string;
   top: number;
   left: number;
-}
-interface IState {
-  shift: any;
+  onClick: () => void;
 }
 
-class Icon extends Component<IProps, IState> {
+class Icon extends Component<IProps> {
   private mainEl = React.createRef<HTMLDivElement>();
   private documentWidth!: number;
   private documentHeight!: number;
+  private initTop!: number;
+  private initLeft!: number;
+  private shiftX!: number;
+  private shiftY!: number;
 
-  state = {
-    shift: { x: 0, y: 0 }
-  };
-
-  drag = (event: any) => {
-    const { shift } = this.state;
-
+  drag = (event: MouseEvent) => {
     const TOP_LIMIT = 32;
     const LEFT_LIMIT = 8;
     const RIGHT_LIMIT = this.documentWidth - 92;
     const BOTTOM_LIMIT = this.documentHeight - 68;
 
-    let left = event.pageX - shift.x;
-    let top = event.pageY - shift.y;
+    let left = event.pageX - this.shiftX;
+    let top = event.pageY - this.shiftY;
 
     if (top < TOP_LIMIT) {
       top = TOP_LIMIT;
@@ -49,32 +45,37 @@ class Icon extends Component<IProps, IState> {
     this.mainEl.current!.style.cursor = 'grabbing';
   };
 
-  clear = () => {
-    document.removeEventListener('mousemove', this.drag);
-    document.removeEventListener('mouseup', this.stopDrag);
-  };
-
   stopDrag = () => {
     this.mainEl.current!.style.cursor = 'pointer';
     this.clear();
   };
 
-  startDrag = (event: any) => {
+  startDrag = (event: React.MouseEvent) => {
     if (event.button !== 0) return;
 
-    const { width, height } = document.documentElement.getClientRects()[0];
-    this.documentWidth = width;
-    this.documentHeight = height;
+    this.documentWidth = document.documentElement.getClientRects()[0].width;
+    this.documentHeight = document.documentElement.getClientRects()[0].height;
 
-    const x = event.clientX - this.mainEl.current!.getBoundingClientRect().left;
-    const y = event.clientY - this.mainEl.current!.getBoundingClientRect().top;
+    this.initTop = this.mainEl.current!.getBoundingClientRect().top;
+    this.initLeft = this.mainEl.current!.getBoundingClientRect().left;
 
-    this.setState({
-      shift: { x, y }
-    });
+    this.shiftX = event.clientX - this.mainEl.current!.getBoundingClientRect().left;
+    this.shiftY = event.clientY - this.mainEl.current!.getBoundingClientRect().top;
 
     document.addEventListener('mousemove', this.drag);
     document.addEventListener('mouseup', this.stopDrag);
+  };
+
+  clear = () => {
+    document.removeEventListener('mousemove', this.drag);
+    document.removeEventListener('mouseup', this.stopDrag);
+  };
+
+  handleOpen = () => {
+    const { top, left } = this.mainEl.current!.getBoundingClientRect();
+    if (this.initTop === top && this.initLeft === left) {
+      this.props.onClick();
+    }
   };
 
   componentWillUnmount() {
@@ -84,7 +85,13 @@ class Icon extends Component<IProps, IState> {
   render() {
     const { title, top, left } = this.props;
     return (
-      <div className={styles.main} ref={this.mainEl} style={{ top, left }} onMouseDown={this.startDrag}>
+      <div
+        className={styles.main}
+        ref={this.mainEl}
+        style={{ top, left }}
+        onMouseDown={this.startDrag}
+        onClick={this.handleOpen}
+      >
         <button>test</button>
         <span>{title}</span>
       </div>

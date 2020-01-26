@@ -9,7 +9,7 @@ const AudioPlayer = () => (
     <Window title="Music" top={200} left={400}>
       AudioPlayer
     </Window>
-    <Icon title="AudioPlayer" left={20} top={40} />;
+    <Icon title="AudioPlayer" left={20} top={40} onClick={() => console.log('open')} />;
   </>
 );
 
