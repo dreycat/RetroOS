@@ -4,6 +4,8 @@ import styles from './Window.module.css';
 
 interface IProps {
   title: string;
+  top: number;
+  left: number;
 }
 interface IState {
   shift: any;
@@ -19,8 +21,16 @@ class Window extends Component<IProps, IState> {
 
   drag = (event: any) => {
     const { shift } = this.state;
-    this.mainEl.current!.style.left = `${event.pageX - shift.x}px`;
-    this.mainEl.current!.style.top = `${event.pageY - shift.y}px`;
+
+    const left = event.pageX - shift.x;
+    let top = event.pageY - shift.y;
+
+    if (top < 24) {
+      top = 24;
+    }
+
+    this.mainEl.current!.style.left = `${left}px`;
+    this.mainEl.current!.style.top = `${top}px`;
     this.headerEl.current!.style.cursor = 'grabbing';
   };
 
@@ -53,9 +63,9 @@ class Window extends Component<IProps, IState> {
   }
 
   render() {
-    const { title, children } = this.props;
+    const { title, children, top, left } = this.props;
     return (
-      <div className={styles.main} ref={this.mainEl}>
+      <div className={styles.main} ref={this.mainEl} style={{ top, left }}>
         <div className={styles.header} ref={this.headerEl} onMouseDown={this.startDrag}>
           <h2 className={styles.title} draggable="false">
             {title}
