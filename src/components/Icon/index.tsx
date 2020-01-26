@@ -2,10 +2,16 @@ import React, { Component } from 'react';
 
 import styles from './Icon.module.css';
 
+type Coords = {
+  top: number;
+  left: number;
+};
+
 interface IProps {
   title: string;
   top: number;
   left: number;
+  onSave: (coords: Coords) => void;
   onClick: () => void;
 }
 
@@ -48,6 +54,10 @@ class Icon extends Component<IProps> {
   stopDrag = () => {
     this.mainEl.current!.style.cursor = 'pointer';
     this.clear();
+    this.props.onSave({
+      top: parseInt(this.mainEl.current!.style.top, 10),
+      left: parseInt(this.mainEl.current!.style.left, 10)
+    });
   };
 
   startDrag = (event: React.MouseEvent) => {

@@ -2,31 +2,32 @@ import React, { Component } from 'react';
 
 import styles from './Window.module.css';
 
+type Coords = {
+  top: number;
+  left: number;
+};
+
 interface IProps {
   title: string;
   top: number;
   left: number;
-}
-interface IState {
-  shift: any;
+  onSave: (coords: Coords) => void;
+  onClose: () => void;
 }
 
-class Window extends Component<IProps, IState> {
+class Window extends Component<IProps> {
   private mainEl = React.createRef<HTMLDivElement>();
   private headerEl = React.createRef<HTMLDivElement>();
+  private shiftX!: number;
+  private shiftY!: number;
 
-  state = {
-    shift: { x: 0, y: 0 }
-  };
+  drag = (event: MouseEvent) => {
+    const TOP_LIMIT = 24;
+    const left = event.pageX - this.shiftX;
+    let top = event.pageY - this.shiftY;
 
-  drag = (event: any) => {
-    const { shift } = this.state;
-
-    const left = event.pageX - shift.x;
-    let top = event.pageY - shift.y;
-
-    if (top < 24) {
-      top = 24;
+    if (top < TOP_LIMIT) {
+      top = TOP_LIMIT;
     }
 
     this.mainEl.current!.style.left = `${left}px`;
@@ -42,17 +43,18 @@ class Window extends Component<IProps, IState> {
   stopDrag = () => {
     this.headerEl.current!.style.cursor = 'grab';
     this.clear();
+
+    this.props.onSave({
+      top: parseInt(this.mainEl.current!.style.top, 10),
+      left: parseInt(this.mainEl.current!.style.left, 10)
+    });
   };
 
-  startDrag = (event: any) => {
+  startDrag = (event: React.MouseEvent) => {
     if (event.button !== 0) return;
 
-    const x = event.clientX - this.mainEl.current!.getBoundingClientRect().left;
-    const y = event.clientY - this.mainEl.current!.getBoundingClientRect().top;
-
-    this.setState({
-      shift: { x, y }
-    });
+    this.shiftX = event.clientX - this.mainEl.current!.getBoundingClientRect().left;
+    this.shiftY = event.clientY - this.mainEl.current!.getBoundingClientRect().top;
 
     document.addEventListener('mousemove', this.drag);
     document.addEventListener('mouseup', this.stopDrag);
@@ -63,7 +65,7 @@ class Window extends Component<IProps, IState> {
   }
 
   render() {
-    const { title, children, top, left } = this.props;
+    const { title, children, top, left, onClose } = this.props;
     return (
       <div className={styles.main} ref={this.mainEl} style={{ top, left }}>
         <div className={styles.header} ref={this.headerEl} onMouseDown={this.startDrag}>
@@ -71,7 +73,7 @@ class Window extends Component<IProps, IState> {
             {title}
           </h2>
           <div className={styles.decor} />
-          <button className={styles.close} />
+          <button className={styles.close} onClick={onClose} />
         </div>
         <div className={styles.body}>{children}</div>
       </div>
