@@ -102,8 +102,8 @@ class Icon extends Component<IProps> {
         onMouseDown={this.startDrag}
         onClick={this.handleOpen}
       >
-        <button>test</button>
-        <span>{title}</span>
+        {this.props.children}
+        <span className={styles.title}>{title}</span>
       </div>
     );
   }

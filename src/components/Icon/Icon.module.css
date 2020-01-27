@@ -1,6 +1,15 @@
 .main {
   display: flex;
   flex-direction: column;
+  align-items: center;
+  justify-content: center;
   cursor: pointer;
   position: fixed;
+}
+
+.title {
+  margin-top: 14px;
+  font-size: 14px;
+  line-height: 1;
+  color: #fff;
 }
