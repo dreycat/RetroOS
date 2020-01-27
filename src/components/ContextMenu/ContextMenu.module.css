@@ -1,0 +1,33 @@
+.background {
+  position: fixed;
+  top: 25px;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1;
+}
+
+.menu {
+  position: fixed;
+  padding: 4px 1px;
+  margin: 0;
+  width: 200px;
+  background-color: rgb(173, 177, 198);
+  border: 1px solid rgba(0, 0, 0, 0.5);
+  box-shadow: inset 1px 1px 1px 0 rgba(255, 255, 255, 0.8), 5px 6px 0 rgba(0, 0, 0, 0.24);
+  list-style: none;
+  outline: none;
+  z-index: 1000000;
+}
+
+.item {
+  color: rgb(34, 34, 34);
+  padding: 0 12px 0 24px;
+  font-size: 14px;
+  line-height: 24px;
+  cursor: pointer;
+}
+.item:hover {
+  background-color: rgb(74, 72, 109);
+  color: #faebd7;
+}
