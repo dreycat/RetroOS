@@ -1,0 +1,7 @@
+.main {
+  display: flex;
+  width: 32px;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
