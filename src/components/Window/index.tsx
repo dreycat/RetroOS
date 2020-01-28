@@ -68,7 +68,7 @@ class Window extends Component<IProps> {
   render() {
     const { title, children, top, left, onClose } = this.props;
     return (
-      <div className={styles.main} ref={this.mainEl} style={{ top, left }}>
+      <div className={styles.main} ref={this.mainEl} style={{ top, left }} onContextMenu={e => e.preventDefault()}>
         <div className={styles.header} ref={this.headerEl} onMouseDown={this.startDrag}>
           <h2 className={styles.title} draggable="false">
             {title}

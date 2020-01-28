@@ -29,7 +29,7 @@
 .decor {
   flex-grow: 1;
   height: 8px;
-  background-image: url('/images/bitmap2.png');
+  background-image: url(./img/square.svg);
   margin: 0 16px;
 }
 

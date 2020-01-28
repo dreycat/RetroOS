@@ -35,7 +35,12 @@ const ContextMenu = () => {
     <>
       <div className={styles.background} onContextMenu={contextHandler} />
       {isOpen && (
-        <ul className={styles.menu} style={{ top: coords.y, left: coords.x }} ref={menuEl}>
+        <ul
+          className={styles.menu}
+          style={{ top: coords.y, left: coords.x }}
+          ref={menuEl}
+          onContextMenu={e => e.preventDefault()}
+        >
           <li className={styles.item}>Упорядочить значки</li>
           <li className={styles.item}>Перезагрузить</li>
         </ul>

@@ -5,7 +5,7 @@ import FullScreen from '../FullScreen';
 import styles from './Taskbar.module.css';
 
 const Taskbar = () => (
-  <div className={styles.main}>
+  <div className={styles.main} onContextMenu={e => e.preventDefault()}>
     <div className={styles.expander} />
     <Clock />
     <FullScreen />

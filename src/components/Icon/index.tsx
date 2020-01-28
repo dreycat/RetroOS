@@ -101,6 +101,7 @@ class Icon extends Component<IProps> {
         style={{ top, left }}
         onMouseDown={this.startDrag}
         onClick={this.handleOpen}
+        onContextMenu={e => e.preventDefault()}
       >
         {this.props.children}
         <span className={styles.title}>{title}</span>
