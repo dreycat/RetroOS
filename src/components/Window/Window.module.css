@@ -66,3 +66,14 @@
 .body {
   overflow: auto;
 }
+
+@keyframes slide-in-bottom {
+  0% {
+    transform: translateZ(-1100px) translateY(1000px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateZ(0) translateY(0);
+    opacity: 1;
+  }
+}

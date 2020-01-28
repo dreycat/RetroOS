@@ -6,7 +6,7 @@ const SHIFT_MENU = 4;
 
 const ContextMenu = () => {
   const [coords, setCoords] = useState();
-  const [isOpen, setOpen] = useState();
+  const [isOpen, setOpen] = useState(false);
   const menuEl = useRef<HTMLUListElement>(null);
 
   const contextHandler = useCallback((event: React.MouseEvent) => {

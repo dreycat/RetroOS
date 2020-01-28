@@ -1,4 +1,5 @@
 import React from 'react';
+import { CSSTransition } from 'react-transition-group';
 
 import Icon from '../Icon';
 
@@ -17,7 +18,7 @@ const AudioPlayer = () => {
 
   return (
     <>
-      {isOpen && (
+      <CSSTransition in={isOpen} timeout={300} classNames="window" unmountOnExit>
         <Window
           title="Music"
           top={storeWindowCoords.top}
@@ -27,7 +28,7 @@ const AudioPlayer = () => {
         >
           AudioPlayer
         </Window>
-      )}
+      </CSSTransition>
       <Icon
         title="AudioPlayer"
         top={storeIconCoords.top}
