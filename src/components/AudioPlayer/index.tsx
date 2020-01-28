@@ -6,7 +6,9 @@ import Window from '../Window';
 import useWindow from '../../hooks/useWindow';
 import useIcon from '../../hooks/useIcon';
 
-import { ReactComponent as PlayerIcon } from './img/ipod.svg';
+import Player from './Player';
+
+import { ReactComponent as PlayerIcon } from './images/ipod.svg';
 
 const AudioPlayer = () => {
   const { isOpen, handleOpen, onClose, storeWindowCoords, saveWindowPosition } = useWindow(
@@ -25,7 +27,7 @@ const AudioPlayer = () => {
         onClose={onClose}
         onSave={saveWindowPosition}
       >
-        AudioPlayer
+        <Player />
       </Window>
       <Icon
         title="AudioPlayer"

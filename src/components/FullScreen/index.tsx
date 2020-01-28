@@ -2,7 +2,7 @@ import React from 'react';
 
 import styles from './FullScreen.module.css';
 
-import { ReactComponent as SquareIcon } from './img/square.svg';
+import { ReactComponent as SquareIcon } from './images/square.svg';
 
 const toggleFullscreen = () => {
   try {
