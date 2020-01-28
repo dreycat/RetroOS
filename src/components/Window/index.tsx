@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 
+import withTransition from '../../hocs/withTransition';
 import styles from './Window.module.css';
 
 type Coords = {
@@ -81,4 +82,4 @@ class Window extends Component<IProps> {
   }
 }
 
-export default Window;
+export default withTransition(300, 'window')(Window);
