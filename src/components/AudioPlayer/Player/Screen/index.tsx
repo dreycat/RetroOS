@@ -11,7 +11,7 @@ interface IProps {
   isMuted: boolean;
 }
 
-const Screen: FC<IProps> = ({ time, duration, volume, isPlaying, isMuted }) => (
+const Screen: FC<IProps> = ({ time, isPlaying }) => (
   <div className={`${styles.main} border`}>
     <span className={styles.radio}>radio</span>
     {isPlaying ? <span className={styles.play} /> : <span className={styles.pause} />}
