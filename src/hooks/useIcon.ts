@@ -1,4 +1,6 @@
-import { useState, useEffect, useCallback } from 'react';
+import { useState, useCallback } from 'react';
+
+import getStorageData from '../utils/getStarogeData';
 
 type Coords = {
   top: number;
@@ -6,18 +8,11 @@ type Coords = {
 };
 
 export default (defaultPosition: Coords, saveName: string) => {
-  const [storeIconCoords, setCoords] = useState(defaultPosition);
-
-  useEffect(() => {
-    const raw = localStorage.getItem(`${saveName}Coords`);
-    if (raw) {
-      setCoords(JSON.parse(raw));
-    }
-  }, [saveName]);
+  const [storeIconCoords] = useState(getStorageData(`${saveName}_coords`, defaultPosition));
 
   const saveIconPosition = useCallback(
     (coords: Coords) => {
-      localStorage.setItem(`${saveName}Coords`, JSON.stringify(coords));
+      localStorage.setItem(`${saveName}_coords`, JSON.stringify(coords));
     },
     [saveName]
   );

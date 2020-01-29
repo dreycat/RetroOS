@@ -1,12 +1,19 @@
-import React, { useRef, useState, useMemo, useCallback, useEffect } from 'react';
+import React, { useRef, useState, useMemo, useEffect } from 'react';
+
+import getStorageData from '../utils/getStarogeData';
+
+enum Keys {
+  Volume = 'audio_player_volume',
+  Muted = 'audio_player_is_muted'
+}
 
 export default (defaultSrc: string) => {
   const ref = useRef<HTMLAudioElement>(null);
   const [time, setTime] = useState(0);
   const [duration, setDuration] = useState(0);
-  const [volume, setVolume] = useState(1);
+  const [volume, setVolume] = useState(getStorageData(Keys.Volume, 1));
   const [isPlaying, setPlaying] = useState(false);
-  const [isMuted, setMuted] = useState(false);
+  const [isMuted, setMuted] = useState(getStorageData(Keys.Muted, false));
   const [src, setSrc] = useState(defaultSrc);
 
   const audio = useMemo(() => {
@@ -22,19 +29,25 @@ export default (defaultSrc: string) => {
   }, [src]);
 
   useEffect(() => {
-    if (ref.current) {
-      ref.current.volume = volume;
-      ref.current.muted = isMuted;
-    }
-  }, [volume, isMuted]);
+    localStorage.setItem(Keys.Volume, JSON.stringify(volume));
+    if (!ref.current) return;
+    ref.current.volume = volume;
+  }, [volume]);
 
   useEffect(() => {
-    if (isPlaying && ref.current) {
-      ref.current.play();
-    } else if (!isPlaying && ref.current) {
-      ref.current.pause();
+    localStorage.setItem(Keys.Muted, JSON.stringify(isMuted));
+    if (!ref.current) return;
+    ref.current.muted = isMuted;
+  }, [isMuted]);
+
+  useEffect(() => {
+    if (!ref.current) return;
+    if (isPlaying) {
+      ref.current!.play();
+    } else if (!isPlaying) {
+      ref.current!.pause();
     }
-  }, [src, isPlaying]);
+  }, [isPlaying, audio]);
 
   return {
     audio,

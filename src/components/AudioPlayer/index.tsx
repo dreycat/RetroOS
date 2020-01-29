@@ -13,9 +13,9 @@ import { ReactComponent as PlayerIcon } from './images/ipod.svg';
 const AudioPlayer = () => {
   const { isOpen, handleOpen, onClose, storeWindowCoords, saveWindowPosition } = useWindow(
     { top: 200, left: 400 },
-    'AudioPlayer'
+    'audio_player'
   );
-  const { storeIconCoords, saveIconPosition } = useIcon({ top: 60, left: 60 }, 'AudioPlayerIcon');
+  const { storeIconCoords, saveIconPosition } = useIcon({ top: 60, left: 60 }, 'audio_player_icon');
 
   return (
     <>

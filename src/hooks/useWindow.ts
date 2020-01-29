@@ -1,26 +1,25 @@
 import { useState, useEffect, useCallback } from 'react';
 
+import getStorageData from '../utils/getStarogeData';
+
 type Coords = {
   top: number;
   left: number;
 };
 
 export default (defaultPosition: Coords, saveName: string) => {
-  const [isOpen, setOpen] = useState(() => {
-    const raw = localStorage.getItem(`${saveName}IsOpen`);
-    return raw ? JSON.parse(raw) : false;
-  });
-  const [storeWindowCoords, setCoords] = useState(defaultPosition);
+  const [isOpen, setOpen] = useState(getStorageData(`${saveName}_is_open`, false));
+  const [storeWindowCoords, setCoords] = useState(getStorageData(`${saveName}_coords`, defaultPosition));
 
   useEffect(() => {
-    const raw = localStorage.getItem(`${saveName}Coords`);
+    const raw = localStorage.getItem(`${saveName}_coords`);
     if (raw) {
       setCoords(JSON.parse(raw));
     }
   }, [isOpen, saveName]);
 
   useEffect(() => {
-    localStorage.setItem(`${saveName}IsOpen`, JSON.stringify(isOpen));
+    localStorage.setItem(`${saveName}_is_open`, JSON.stringify(isOpen));
   }, [isOpen, saveName]);
 
   const handleOpen = useCallback(() => setOpen(!isOpen), [isOpen]);
@@ -28,7 +27,7 @@ export default (defaultPosition: Coords, saveName: string) => {
 
   const saveWindowPosition = useCallback(
     (coords: Coords) => {
-      localStorage.setItem(`${saveName}Coords`, JSON.stringify(coords));
+      localStorage.setItem(`${saveName}_coords`, JSON.stringify(coords));
     },
     [saveName]
   );
