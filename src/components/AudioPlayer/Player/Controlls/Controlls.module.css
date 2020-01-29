@@ -1,0 +1,12 @@
+.control {
+  border: none;
+  background-color: transparent;
+  outline: none;
+  margin: 0;
+  padding: 4px;
+  cursor: pointer;
+}
+
+.mirror {
+  transform: rotateY(180deg);
+}

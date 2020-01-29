@@ -2,6 +2,8 @@ import React from 'react';
 
 import useAudio from '../../../hooks/useAudio';
 
+import Screen from './Screen';
+import Controlls from './Controlls';
 import styles from './Player.module.css';
 
 const Player = () => {
@@ -10,10 +12,8 @@ const Player = () => {
   return (
     <div className={styles.main}>
       {audio}
-      <button onClick={() => controlls.setPlaying(true)}>play</button>
-      <button onClick={() => controlls.setPlaying(false)}>pause</button>
-      <button onClick={() => controlls.setMuted(true)}>mute</button>
-      <button onClick={() => controlls.setMuted(false)}>unmute</button>
+      <Screen {...state} />
+      <Controlls setPlaying={controlls.setPlaying} isPlaing={state.isPlaying} />
       <button onClick={() => controlls.setVolume(0.1)}>0.1</button>
       <button onClick={() => controlls.setVolume(0.5)}>0.5</button>
       <button onClick={() => controlls.setVolume(0.7)}>0.7</button>

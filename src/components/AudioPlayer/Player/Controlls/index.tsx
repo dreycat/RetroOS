@@ -1,20 +1,32 @@
-import React from 'react';
+import React, { FC } from 'react';
 
 import styles from './Controlls.module.css';
 
-const Controlls = () => (
+import { ReactComponent as PlayIcon } from './images/play.svg';
+import { ReactComponent as PauseIcon } from './images/pause.svg';
+import { ReactComponent as NextIcon } from './images/next.svg';
+
+interface IProps {
+  setPlaying: React.Dispatch<any>;
+  isPlaing: boolean;
+}
+
+const Controlls: FC<IProps> = ({ setPlaying, isPlaing }) => (
   <div className={styles.controls}>
     <button className={styles.control}>
-      <img className="control-icon" src="/icons/previous.svg" alt="prev" />
+      <NextIcon width={24} height={24} className={styles.mirror} />
     </button>
+    {isPlaing ? (
+      <button className={styles.control} onClick={() => setPlaying(false)}>
+        <PauseIcon width={24} height={24} />
+      </button>
+    ) : (
+      <button className={styles.control} onClick={() => setPlaying(true)}>
+        <PlayIcon width={24} height={24} />
+      </button>
+    )}
     <button className={styles.control}>
-      <img className={styles.controlIcon} src="/icons/play.svg" alt="play" />
-    </button>
-    <button className={styles.control}>
-      <img className={styles.controlIcon} src="/icons/pause.svg" alt="pause" />
-    </button>
-    <button className={styles.control}>
-      <img className={styles.controlIcon} src="/icons/next.svg" alt="next" />
+      <NextIcon width={24} height={24} />
     </button>
   </div>
 );

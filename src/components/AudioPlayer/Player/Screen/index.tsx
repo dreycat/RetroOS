@@ -1,13 +1,21 @@
-import React from 'react';
+import React, { FC } from 'react';
 
+import transformTime from '../../../../utils/transformTime';
 import styles from './Screen.module.css';
 
-const Screen = () => (
-  <div className={styles.main}>
+interface IProps {
+  time: number;
+  duration: number;
+  volume: number;
+  isPlaying: boolean;
+  isMuted: boolean;
+}
+
+const Screen: FC<IProps> = ({ time, duration, volume, isPlaying, isMuted }) => (
+  <div className={`${styles.main} border`}>
     <span className={styles.radio}>radio</span>
-    <span className={styles.pause} />
-    <span className={styles.play} />
-    <span className={styles.prettyTime}>"pretty time"</span>
+    {isPlaying ? <span className={styles.play} /> : <span className={styles.pause} />}
+    <span className={styles.prettyTime}>{transformTime(time)}</span>
   </div>
 );
 

@@ -1,0 +1,8 @@
+:global {
+  .border {
+    border-bottom: 1px solid #cfd4e8;
+    border-right: 1px solid #cfd4e8;
+    border-top: 1px solid #595c69;
+    border-left: 1px solid #595c69;
+  }
+}

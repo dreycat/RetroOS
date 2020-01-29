@@ -8,7 +8,7 @@ type Coords = {
 };
 
 export default (defaultPosition: Coords, saveName: string) => {
-  const [storeIconCoords] = useState(getStorageData(`${saveName}_coords`, defaultPosition));
+  const [storeIconCoords] = useState<Coords>(getStorageData(`${saveName}_coords`, defaultPosition));
 
   const saveIconPosition = useCallback(
     (coords: Coords) => {

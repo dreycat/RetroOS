@@ -11,9 +11,9 @@ export default (defaultSrc: string) => {
   const ref = useRef<HTMLAudioElement>(null);
   const [time, setTime] = useState(0);
   const [duration, setDuration] = useState(0);
-  const [volume, setVolume] = useState(getStorageData(Keys.Volume, 1));
+  const [volume, setVolume] = useState<number>(getStorageData(Keys.Volume, 1));
   const [isPlaying, setPlaying] = useState(false);
-  const [isMuted, setMuted] = useState(getStorageData(Keys.Muted, false));
+  const [isMuted, setMuted] = useState<boolean>(getStorageData(Keys.Muted, false));
   const [src, setSrc] = useState(defaultSrc);
 
   const audio = useMemo(() => {

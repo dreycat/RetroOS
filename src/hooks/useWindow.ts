@@ -8,8 +8,8 @@ type Coords = {
 };
 
 export default (defaultPosition: Coords, saveName: string) => {
-  const [isOpen, setOpen] = useState(getStorageData(`${saveName}_is_open`, false));
-  const [storeWindowCoords, setCoords] = useState(getStorageData(`${saveName}_coords`, defaultPosition));
+  const [isOpen, setOpen] = useState<boolean>(getStorageData(`${saveName}_is_open`, false));
+  const [storeWindowCoords, setCoords] = useState<Coords>(getStorageData(`${saveName}_coords`, defaultPosition));
 
   useEffect(() => {
     const raw = localStorage.getItem(`${saveName}_coords`);

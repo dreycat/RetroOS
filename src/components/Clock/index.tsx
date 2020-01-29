@@ -10,9 +10,9 @@ const conf = {
 
 const getTime = () => {
   const date = new Date();
-  const minutes = date.getMinutes();
   const hours = date.getHours();
-  return `${date.toLocaleDateString('ru-RU', conf)} ${hours}:${(minutes < 10 ? '0' : '') + minutes}`;
+  const minutes = date.getMinutes();
+  return `${date.toLocaleDateString('en-US', conf)} ${hours}:${(minutes < 10 ? '0' : '') + minutes}`;
 };
 
 const Clock = () => {

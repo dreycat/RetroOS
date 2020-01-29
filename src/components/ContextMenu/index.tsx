@@ -41,8 +41,8 @@ const ContextMenu = () => {
           ref={menuEl}
           onContextMenu={e => e.preventDefault()}
         >
-          <li className={styles.item}>Упорядочить значки</li>
-          <li className={styles.item}>Перезагрузить</li>
+          <li className={styles.item}>sort icons</li>
+          <li className={styles.item}>reset</li>
         </ul>
       )}
     </>
