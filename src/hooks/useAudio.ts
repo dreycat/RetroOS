@@ -88,6 +88,18 @@ export default (playlist: Track[]) => {
     }
   }, [playlist, trackId]);
 
+  const seek = useCallback(
+    (time: number) => {
+      const element = ref.current;
+      if (!element || duration === Infinity || duration === undefined || duration === null) {
+        return;
+      }
+      time = Math.min(duration, Math.max(0, time));
+      element.currentTime = time;
+    },
+    [duration]
+  );
+
   return {
     audio,
     state: {
@@ -105,7 +117,8 @@ export default (playlist: Track[]) => {
       setMuted,
       setTrack,
       nextTrack,
-      prevTrack
+      prevTrack,
+      seek
     }
   };
 };

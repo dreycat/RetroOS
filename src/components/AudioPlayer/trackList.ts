@@ -3,13 +3,13 @@ export default [
     id: 0,
     name: 'SoundHelix: Song 7',
     url: 'https://www.soundhelix.com/examples/mp3/SoundHelix-Song-7.mp3',
-    title: 'song 7'
+    title: 'test song 7'
   },
   {
     id: 1,
     name: 'SoundHelix: Song 3',
     url: 'https://www.soundhelix.com/examples/mp3/SoundHelix-Song-3.mp3',
-    title: 'song 3'
+    title: 'test song 3'
   },
   {
     id: 2,

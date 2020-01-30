@@ -7,18 +7,22 @@ interface IProps {
   screen: React.ReactNode;
   marquee: React.ReactNode;
   volumeControl: React.ReactNode;
+  progress: React.ReactNode;
 }
 
-const PlayerLayout: FC<IProps> = ({ controlls, screen, marquee, volumeControl }) => (
+const PlayerLayout: FC<IProps> = ({ controlls, screen, marquee, volumeControl, progress }) => (
   <div className={styles.main}>
-    <div>
-      {screen}
-      {controlls}
+    <div className={styles.row}>
+      <div>
+        {screen}
+        {controlls}
+      </div>
+      <div>
+        {marquee}
+        {volumeControl}
+      </div>
     </div>
-    <div>
-      {marquee}
-      {volumeControl}
-    </div>
+    {progress}
   </div>
 );
 

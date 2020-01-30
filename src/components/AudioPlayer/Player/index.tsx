@@ -10,6 +10,7 @@ import Controlls from './Controlls';
 import VolumeControl from './VolumeControl';
 import Playlist from './Playlist';
 import PlayerLayout from '../../Layouts/PlayerLayout';
+import Progress from './Progress';
 import styles from './Player.module.css';
 
 const Player = () => {
@@ -31,6 +32,7 @@ const Player = () => {
             />
           }
           volumeControl={<VolumeControl volume={state.volume} setVolume={controlls.setVolume} />}
+          progress={<Progress duration={state.duration} time={state.time} seek={controlls.seek} />}
         />
         <Playlist list={list} setTrack={controlls.setTrack} currentTrack={state.trackId} />
       </div>
