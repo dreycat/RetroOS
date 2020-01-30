@@ -1,0 +1,28 @@
+.main {
+  padding: 8px;
+  border-top: 1px solid;
+  box-shadow: inset 1px 1px 1px 0 rgba(255, 255, 255, 0.8);
+}
+
+.playlist {
+  margin: 0;
+  padding: 4px 0;
+  list-style: none;
+  background-color: rgb(33, 32, 47);
+}
+
+.track {
+  cursor: pointer;
+  font-size: 12px;
+  line-height: 1;
+  padding: 4px 8px;
+  color: #acb1c6;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  transition: color 0.3s;
+}
+
+.current {
+  color: #faebd7;
+}

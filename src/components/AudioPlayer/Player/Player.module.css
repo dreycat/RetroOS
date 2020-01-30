@@ -1,8 +1,15 @@
-:global {
-  .border {
-    border-bottom: 1px solid #cfd4e8;
-    border-right: 1px solid #cfd4e8;
-    border-top: 1px solid #595c69;
-    border-left: 1px solid #595c69;
-  }
+.main {
+}
+
+.pre {
+  position: fixed;
+  top: 24px;
+  right: 0;
+  width: 200px;
+  background-color: blue;
+  color: #fff;
+  font-weight: bold;
+  margin: 0;
+  padding: 12px;
+  line-height: 17px;
 }

@@ -7,14 +7,16 @@ import { ReactComponent as PauseIcon } from './images/pause.svg';
 import { ReactComponent as NextIcon } from './images/next.svg';
 
 interface IProps {
-  setPlaying: React.Dispatch<any>;
   isPlaing: boolean;
+  setPlaying: React.Dispatch<React.SetStateAction<boolean>>;
+  prevTrack: () => void;
+  nextTrack: () => void;
 }
 
-const Controlls: FC<IProps> = ({ setPlaying, isPlaing }) => (
+const Controlls: FC<IProps> = ({ setPlaying, isPlaing, prevTrack, nextTrack }) => (
   <div className={styles.controls}>
     <button className={styles.control}>
-      <NextIcon width={24} height={24} className={styles.mirror} />
+      <NextIcon width={24} height={24} className={styles.mirror} onClick={() => prevTrack()} />
     </button>
     {isPlaing ? (
       <button className={styles.control} onClick={() => setPlaying(false)}>
@@ -26,7 +28,7 @@ const Controlls: FC<IProps> = ({ setPlaying, isPlaing }) => (
       </button>
     )}
     <button className={styles.control}>
-      <NextIcon width={24} height={24} />
+      <NextIcon width={24} height={24} onClick={() => nextTrack()} />
     </button>
   </div>
 );

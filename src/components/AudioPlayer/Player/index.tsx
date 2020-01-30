@@ -2,27 +2,40 @@ import React from 'react';
 
 import useAudio from '../../../hooks/useAudio';
 
+import list from '../trackList';
+
 import Screen from './Screen';
+import Marquee from './Marquee';
 import Controlls from './Controlls';
+import VolumeControl from './VolumeControl';
+import Playlist from './Playlist';
+import PlayerLayout from '../../Layouts/PlayerLayout';
 import styles from './Player.module.css';
 
 const Player = () => {
-  const { audio, state, controlls } = useAudio('http://ice2.somafm.com/thetrip-128-mp3');
+  const { audio, state, controlls } = useAudio(list);
 
   return (
-    <div className={styles.main}>
-      {audio}
-      <Screen {...state} />
-      <Controlls setPlaying={controlls.setPlaying} isPlaing={state.isPlaying} />
-      <button onClick={() => controlls.setVolume(0.1)}>0.1</button>
-      <button onClick={() => controlls.setVolume(0.5)}>0.5</button>
-      <button onClick={() => controlls.setVolume(0.7)}>0.7</button>
-      <button onClick={() => controlls.setVolume(1)}>1</button>
-      <button onClick={() => controlls.setSrc('https://www.soundhelix.com/examples/mp3/SoundHelix-Song-7.mp3')}>
-        change track
-      </button>
-      <pre>{JSON.stringify(state)}</pre>
-    </div>
+    <>
+      <div className={styles.main}>
+        {audio}
+        <PlayerLayout
+          screen={<Screen {...state} />}
+          marquee={<Marquee>{state.curentTrack.title}</Marquee>}
+          controlls={
+            <Controlls
+              setPlaying={controlls.setPlaying}
+              prevTrack={controlls.prevTrack}
+              nextTrack={controlls.nextTrack}
+              isPlaing={state.isPlaying}
+            />
+          }
+          volumeControl={<VolumeControl volume={state.volume} setVolume={controlls.setVolume} />}
+        />
+        <Playlist list={list} setTrack={controlls.setTrack} currentTrack={state.trackId} />
+      </div>
+      <pre className={styles.pre}>{JSON.stringify(state, null, 2)}</pre>
+    </>
   );
 };
 
