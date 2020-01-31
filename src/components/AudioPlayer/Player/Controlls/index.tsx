@@ -13,22 +13,24 @@ interface IProps {
   nextTrack: () => void;
 }
 
+const ICON_SIZE = 24;
+
 const Controlls: FC<IProps> = ({ setPlaying, isPlaing, prevTrack, nextTrack }) => (
   <div className={styles.controls}>
     <button className={styles.control}>
-      <NextIcon width={24} height={24} className={styles.mirror} onClick={() => prevTrack()} />
+      <NextIcon className={styles.mirror} width={ICON_SIZE} height={ICON_SIZE} onClick={() => prevTrack()} />
     </button>
     {isPlaing ? (
       <button className={styles.control} onClick={() => setPlaying(false)}>
-        <PauseIcon width={24} height={24} />
+        <PauseIcon width={ICON_SIZE} height={ICON_SIZE} />
       </button>
     ) : (
       <button className={styles.control} onClick={() => setPlaying(true)}>
-        <PlayIcon width={24} height={24} />
+        <PlayIcon width={ICON_SIZE} height={ICON_SIZE} />
       </button>
     )}
     <button className={styles.control}>
-      <NextIcon width={24} height={24} onClick={() => nextTrack()} />
+      <NextIcon width={ICON_SIZE} height={ICON_SIZE} onClick={() => nextTrack()} />
     </button>
   </div>
 );

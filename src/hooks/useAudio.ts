@@ -17,7 +17,6 @@ type Track = {
 
 const checkTrack = (playlist: Track[], getTrackId: () => number) => () => {
   const trackId = getTrackId();
-  if (typeof trackId !== 'number') return 0;
   const index = playlist.findIndex(({ id }) => id === trackId);
   return index === -1 ? 0 : trackId;
 };
@@ -26,8 +25,8 @@ export default (playlist: Track[]) => {
   const ref = useRef<HTMLAudioElement>(null);
   const [time, setTime] = useState(0);
   const [duration, setDuration] = useState(0);
-  const [volume, setVolume] = useState<number>(getStorageData(Keys.Volume, 1));
   const [isPlaying, setPlaying] = useState(false);
+  const [volume, setVolume] = useState<number>(getStorageData(Keys.Volume, 1));
   const [isMuted, setMuted] = useState<boolean>(getStorageData(Keys.Muted, false));
   const [trackId, setTrack] = useState<number>(checkTrack(playlist, getStorageData(Keys.Track, 0)));
 
@@ -63,9 +62,9 @@ export default (playlist: Track[]) => {
   useEffect(() => {
     if (!ref.current) return;
     if (isPlaying) {
-      ref.current!.play();
+      ref.current.play();
     } else if (!isPlaying) {
-      ref.current!.pause();
+      ref.current.pause();
     }
   }, [isPlaying, audio]);
 

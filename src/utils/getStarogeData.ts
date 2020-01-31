@@ -1,5 +1,4 @@
-// TODO: переписать на дженерики
-export default (key: string, defaultValue: any) => () => {
+export default <T>(key: string, defaultValue: T) => (): T => {
   const raw = localStorage.getItem(key);
   return raw ? JSON.parse(raw) : defaultValue;
 };
