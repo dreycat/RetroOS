@@ -1,9 +1,5 @@
 import React from 'react';
 
-import useAudio from '../../../hooks/useAudio';
-
-import list from '../trackList';
-
 import Screen from './Screen';
 import Marquee from './Marquee';
 import Controlls from './Controlls';
@@ -12,9 +8,11 @@ import Playlist from './Playlist';
 import PlayerLayout from '../../Layouts/PlayerLayout';
 import Progress from './Progress';
 import styles from './Player.module.css';
+import playlist from './playlist';
+import useAudio from '../../../hooks/useAudio';
 
 const Player = () => {
-  const { audio, state, controlls } = useAudio(list);
+  const { audio, state, controlls } = useAudio(playlist);
 
   return (
     <>
@@ -25,7 +23,8 @@ const Player = () => {
           marquee={<Marquee>{state.curentTrack.title}</Marquee>}
           controlls={
             <Controlls
-              setPlaying={controlls.setPlaying}
+              play={controlls.play}
+              pause={controlls.pause}
               prevTrack={controlls.prevTrack}
               nextTrack={controlls.nextTrack}
               isPlaing={state.isPlaying}
@@ -34,7 +33,7 @@ const Player = () => {
           volumeControl={<VolumeControl volume={state.volume} setVolume={controlls.setVolume} />}
           progress={<Progress duration={state.duration} time={state.time} seek={controlls.seek} />}
         />
-        <Playlist list={list} setTrack={controlls.setTrack} currentTrack={state.trackId} />
+        <Playlist list={playlist} setTrack={controlls.setTrack} currentTrack={state.trackId} />
       </div>
       <pre className={styles.pre}>{JSON.stringify(state, null, 2)}</pre>
     </>

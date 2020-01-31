@@ -1,12 +1,8 @@
 import React, { Component } from 'react';
 
 import withTransition from '../../hocs/withTransition';
+import { Coords } from '../../interfaces/coords';
 import styles from './Window.module.css';
-
-type Coords = {
-  top: number;
-  left: number;
-};
 
 interface IProps {
   title: string;

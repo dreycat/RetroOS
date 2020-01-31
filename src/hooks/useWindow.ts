@@ -1,11 +1,7 @@
 import { useState, useEffect, useCallback } from 'react';
 
 import getStorageData from '../utils/getStarogeData';
-
-type Coords = {
-  top: number;
-  left: number;
-};
+import { Coords } from '../interfaces/coords';
 
 export default (defaultPosition: Coords, saveName: string) => {
   const [isOpen, setOpen] = useState<boolean>(getStorageData(`${saveName}_is_open`, false));

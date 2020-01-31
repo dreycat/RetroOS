@@ -2,12 +2,7 @@ import React, { FC } from 'react';
 
 import styles from './Playlist.module.css';
 
-type Track = {
-  id: number;
-  name: string;
-  url: string;
-  title: string;
-};
+import { Track } from '../../../../interfaces/track';
 
 interface IProps {
   list: Track[];

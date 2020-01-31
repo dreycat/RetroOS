@@ -1,11 +1,7 @@
 import React, { Component } from 'react';
 
 import styles from './Icon.module.css';
-
-type Coords = {
-  top: number;
-  left: number;
-};
+import { Coords } from '../../interfaces/coords';
 
 interface IProps {
   title: string;

@@ -3,18 +3,13 @@ import React, { useRef, useState, useMemo, useEffect, useCallback } from 'react'
 import getStorageData from '../utils/getStarogeData';
 import compose from '../utils/compose';
 
+import { Track } from '../interfaces/track';
+
 enum Keys {
   Volume = 'audio_player_volume',
   Muted = 'audio_player_is_muted',
   Track = 'audio_player_track_id'
 }
-
-type Track = {
-  id: number;
-  name: string;
-  url: string;
-  title: string;
-};
 
 const checkTrack = (playlist: Track[]) => (trackId: number) => {
   const index = playlist.findIndex(({ id }) => id === trackId);
@@ -68,7 +63,7 @@ export default (playlist: Track[]) => {
     }
   }, [isPlaying, audio]);
 
-  // TODO: rewrite
+  // TODO: rewrite nextTrack and prevTrack
   const nextTrack = useCallback(() => {
     const len = playlist.length;
     if (len === 0) return;
@@ -111,9 +106,11 @@ export default (playlist: Track[]) => {
       curentTrack: playlist[trackId]
     },
     controlls: {
-      setPlaying,
+      play: () => setPlaying(true),
+      pause: () => setPlaying(false),
+      mute: () => setMuted(true),
+      unmute: () => setMuted(false),
       setVolume,
-      setMuted,
       setTrack,
       nextTrack,
       prevTrack,

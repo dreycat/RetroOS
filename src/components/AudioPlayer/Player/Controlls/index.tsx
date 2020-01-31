@@ -8,24 +8,25 @@ import { ReactComponent as NextIcon } from './images/next.svg';
 
 interface IProps {
   isPlaing: boolean;
-  setPlaying: React.Dispatch<React.SetStateAction<boolean>>;
+  play: () => void;
+  pause: () => void;
   prevTrack: () => void;
   nextTrack: () => void;
 }
 
 const ICON_SIZE = 24;
 
-const Controlls: FC<IProps> = ({ setPlaying, isPlaing, prevTrack, nextTrack }) => (
+const Controlls: FC<IProps> = ({ play, pause, isPlaing, prevTrack, nextTrack }) => (
   <div className={styles.controls}>
     <button className={styles.control}>
       <NextIcon className={styles.mirror} width={ICON_SIZE} height={ICON_SIZE} onClick={() => prevTrack()} />
     </button>
     {isPlaing ? (
-      <button className={styles.control} onClick={() => setPlaying(false)}>
+      <button className={styles.control} onClick={pause}>
         <PauseIcon width={ICON_SIZE} height={ICON_SIZE} />
       </button>
     ) : (
-      <button className={styles.control} onClick={() => setPlaying(true)}>
+      <button className={styles.control} onClick={play}>
         <PlayIcon width={ICON_SIZE} height={ICON_SIZE} />
       </button>
     )}
