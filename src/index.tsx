@@ -5,6 +5,7 @@ import App from './components/App';
 
 import './styles/base.css';
 import './styles/global.css';
+import './styles/variables.css';
 
 ReactDOM.render(<App />, document.getElementById('root'));
 

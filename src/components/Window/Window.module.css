@@ -4,7 +4,7 @@
   box-shadow: inset 1px 1px 1px 0 rgba(255, 255, 255, 0.8), 5px 6px 0 rgba(0, 0, 0, 0.24);
   /* transform: translate3d(0, 0, 0); */
   /* animation: slide-in-bottom 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94) both; */
-  background-color: rgb(173, 177, 198);
+  background-color: var(--main-color);
   z-index: 3;
 }
 

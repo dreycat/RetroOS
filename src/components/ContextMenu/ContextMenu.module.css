@@ -9,10 +9,10 @@
 
 .menu {
   position: fixed;
-  padding: 4px 1px;
+  padding: 1px;
   margin: 0;
   width: 200px;
-  background-color: rgb(173, 177, 198);
+  background-color: var(--main-color);
   border: 1px solid rgba(0, 0, 0, 0.5);
   box-shadow: inset 1px 1px 1px 0 rgba(255, 255, 255, 0.8), 5px 6px 0 rgba(0, 0, 0, 0.24);
   list-style: none;
@@ -24,7 +24,7 @@
   color: rgb(34, 34, 34);
   padding: 0 12px 0 24px;
   font-size: 14px;
-  line-height: 24px;
+  line-height: 28px;
   cursor: pointer;
 }
 .item:hover {

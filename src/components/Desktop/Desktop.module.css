@@ -1,8 +1,8 @@
 .main {
   overflow: hidden;
   min-height: 100vh;
-  background-color: rgb(100, 98, 145);
-  background-image: url(../../static/wallpapers/wp1.jpg);
+  background-color: var(--main-bg-color);
+  background-image: var(--main-bg-image);
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center center;
