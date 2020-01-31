@@ -1,5 +1,6 @@
 import React, { FC } from 'react';
 
+import checkRadio from '../../../../utils/checkRadio';
 import styles from './Progress.module.css';
 
 interface IProps {
@@ -15,10 +16,10 @@ const Progress: FC<IProps> = ({ duration, time, seek }) => (
     name="track"
     aria-label="progress"
     min="0"
-    value={duration && duration !== Infinity ? time : 0}
+    value={checkRadio(duration) ? 0 : time}
     step="1"
     onChange={e => seek(parseInt(e.target.value))}
-    max={duration && duration !== Infinity ? duration : 0}
+    max={checkRadio(duration) ? 0 : duration}
   />
 );
 

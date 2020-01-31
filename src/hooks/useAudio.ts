@@ -2,6 +2,7 @@ import React, { useRef, useState, useMemo, useEffect, useCallback } from 'react'
 
 import getStorageData from '../utils/getStarogeData';
 import compose from '../utils/compose';
+import checkRadio from '../utils/checkRadio';
 
 import { Track } from '../interfaces/track';
 
@@ -85,7 +86,7 @@ export default (playlist: Track[]) => {
   const seek = useCallback(
     (time: number) => {
       const element = ref.current;
-      if (!element || duration === Infinity || duration === undefined || duration === null) {
+      if (!element || checkRadio(duration)) {
         return;
       }
       time = Math.min(duration, Math.max(0, time));
