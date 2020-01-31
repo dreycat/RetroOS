@@ -17,7 +17,7 @@ interface IProps {
 const ICON_SIZE = 24;
 
 const Controlls: FC<IProps> = ({ play, pause, isPlaing, prevTrack, nextTrack }) => (
-  <div className={styles.controls}>
+  <div>
     <button className={styles.control}>
       <NextIcon className={styles.mirror} width={ICON_SIZE} height={ICON_SIZE} onClick={() => prevTrack()} />
     </button>

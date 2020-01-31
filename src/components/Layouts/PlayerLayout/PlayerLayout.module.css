@@ -5,3 +5,16 @@
 .row {
   display: flex;
 }
+
+.screen {
+  padding-right: 8px;
+}
+
+.controlls {
+  padding: 8px 0;
+}
+
+.volume {
+  padding-top: 14px;
+  font-size: 0;
+}

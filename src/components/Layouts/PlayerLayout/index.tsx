@@ -13,15 +13,13 @@ interface IProps {
 const PlayerLayout: FC<IProps> = ({ controlls, screen, marquee, volumeControl, progress }) => (
   <div className={styles.main}>
     <div className={styles.row}>
-      <div>
-        {screen}
-        {controlls}
-      </div>
+      <div className={styles.screen}>{screen}</div>
       <div>
         {marquee}
-        {volumeControl}
+        <div className={styles.volume}>{volumeControl}</div>
       </div>
     </div>
+    <div className={styles.controlls}>{controlls}</div>
     {progress}
   </div>
 );

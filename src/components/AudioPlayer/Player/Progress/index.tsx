@@ -15,7 +15,7 @@ const Progress: FC<IProps> = ({ duration, time, seek }) => (
     name="track"
     aria-label="progress"
     min="0"
-    value={time}
+    value={duration && duration !== Infinity ? time : 0}
     step="1"
     onChange={e => seek(parseInt(e.target.value))}
     max={duration && duration !== Infinity ? duration : 0}
