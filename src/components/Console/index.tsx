@@ -2,42 +2,40 @@ import React from 'react';
 
 import Icon from '../Icon';
 import Window from '../Window';
-import Player from './Player';
 import useWindow from '../../hooks/useWindow';
 import useIcon from '../../hooks/useIcon';
 
-import { ReactComponent as PlayerIcon } from './images/ipod.svg';
+import { ReactComponent as ConsoleIcon } from './images/console.svg';
 
-const AudioPlayer = () => {
+const Console = () => {
   const { isOpen, handleOpen, onClose, storeWindowCoords, saveWindowPosition } = useWindow(
-    { top: 200, left: 400 },
-    'audio_player'
+    { top: 233, left: 652 },
+    'console'
   );
-  const { storeIconCoords, saveIconPosition } = useIcon({ top: 60, left: 60 }, 'audio_player_icon');
-
+  const { storeIconCoords, saveIconPosition } = useIcon({ top: 180, left: 69 }, 'console_icon');
   return (
     <>
       <Window
         isOpen={isOpen}
-        title="Music"
+        title="Console"
         top={storeWindowCoords.top}
         left={storeWindowCoords.left}
         onClose={onClose}
         onSave={saveWindowPosition}
       >
-        <Player />
+        <span>test</span>
       </Window>
       <Icon
-        title="AudioPlayer"
+        title="Console"
         top={storeIconCoords.top}
         left={storeIconCoords.left}
         onClick={handleOpen}
         onSave={saveIconPosition}
       >
-        <PlayerIcon width={40} height={40} />
+        <ConsoleIcon width={40} height={40} />
       </Icon>
     </>
   );
 };
 
-export default AudioPlayer;
+export default Console;

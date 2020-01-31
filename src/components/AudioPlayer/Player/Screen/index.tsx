@@ -1,6 +1,7 @@
 import React, { FC } from 'react';
 
 import transformTime from '../../../../utils/transformTime';
+import checkRadio from '../../../../utils/checkRadio';
 import styles from './Screen.module.css';
 
 interface IProps {
@@ -13,7 +14,7 @@ interface IProps {
 
 const Screen: FC<IProps> = ({ time, isPlaying, duration }) => (
   <div className={`${styles.main} border`}>
-    {duration === Infinity && <span className={styles.radio}>radio</span>}
+    {checkRadio(duration) && <span className={styles.radio}>radio</span>}
     {isPlaying ? <span className={styles.play} /> : <span className={styles.pause} />}
     <span className={styles.prettyTime}>{transformTime(time)}</span>
   </div>
