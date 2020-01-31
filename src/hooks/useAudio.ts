@@ -1,6 +1,7 @@
 import React, { useRef, useState, useMemo, useEffect, useCallback } from 'react';
 
 import getStorageData from '../utils/getStarogeData';
+import compose from '../utils/compose';
 
 enum Keys {
   Volume = 'audio_player_volume',
@@ -15,8 +16,7 @@ type Track = {
   title: string;
 };
 
-const checkTrack = (playlist: Track[], getTrackId: () => number) => () => {
-  const trackId = getTrackId();
+const checkTrack = (playlist: Track[]) => (trackId: number) => {
   const index = playlist.findIndex(({ id }) => id === trackId);
   return index === -1 ? 0 : trackId;
 };
@@ -28,7 +28,7 @@ export default (playlist: Track[]) => {
   const [isPlaying, setPlaying] = useState(false);
   const [volume, setVolume] = useState<number>(getStorageData(Keys.Volume, 1));
   const [isMuted, setMuted] = useState<boolean>(getStorageData(Keys.Muted, false));
-  const [trackId, setTrack] = useState<number>(checkTrack(playlist, getStorageData(Keys.Track, 0)));
+  const [trackId, setTrack] = useState<number>(compose(checkTrack(playlist), getStorageData(Keys.Track, 0)));
 
   const audio = useMemo(() => {
     console.log('create audio element');
