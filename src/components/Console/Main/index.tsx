@@ -19,13 +19,13 @@ const Main = () => {
     [dispatch]
   );
 
+  const handleClick = useCallback(() => {
+    inputEl.current?.focus();
+  }, []);
+
   useEffect(() => {
     inputEl.current?.scrollIntoView();
   }, [messages]);
-
-  const handleClick = () => {
-    inputEl.current?.focus();
-  };
 
   return (
     <div className={`${styles.main} border`} onClick={handleClick}>
