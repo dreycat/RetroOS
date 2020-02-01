@@ -14,15 +14,24 @@
 
 .item {
   color: #faebd7;
-  padding: 6px 4px;
+  padding: 0 4px;
   margin: 0;
+}
+
+.input,
+.pre,
+.wrapper::after {
+  font-size: 14px;
+  font-family: 'Roboto Mono', monospace;
+  color: #faebd7;
+  line-height: 26px;
+  letter-spacing: 0.16px;
 }
 
 .pre {
   margin: 0;
   padding: 0;
   user-select: text;
-  font-size: 14px;
 }
 
 .pre::selection {
@@ -31,31 +40,25 @@
 }
 
 .input {
+  height: 26px;
   width: 100%;
-  padding: 4px;
+  margin: 0;
+  padding: 0;
   background-color: transparent;
   border: none;
-  font-family: 'Roboto Mono', monospace;
-  color: #faebd7;
   caret-color: #faebd7;
   outline: none;
-  font-size: 14px;
-  line-height: 1;
 }
 
 .wrapper {
   position: relative;
-  padding-left: 60px;
+  padding-left: 64px;
 }
 
 .wrapper::after {
   content: 'root >';
   position: absolute;
   top: 50%;
-  transform: translateY(-50%);
   left: 4px;
-  font-size: 14px;
-  font-family: 'Roboto Mono', monospace;
-  color: #faebd7;
-  line-height: 1;
+  transform: translateY(-50%);
 }

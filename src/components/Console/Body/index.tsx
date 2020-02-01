@@ -1,17 +1,14 @@
 import React, { FC, useRef, useCallback, useEffect } from 'react';
 
-import apps from '../../../consoleApps';
 import styles from './Body.module.css';
 
-type Command = keyof typeof apps;
-
-interface Message {
+interface IMessage {
   text: string;
 }
 
 interface IProps {
-  messages: Message[];
-  dispatch: (command: Command, arg: string, raw: string) => void;
+  messages: IMessage[];
+  dispatch: (command: string, arg: string, raw: string) => void;
 }
 
 const Body: FC<IProps> = ({ messages, dispatch }) => {
@@ -23,7 +20,6 @@ const Body: FC<IProps> = ({ messages, dispatch }) => {
       if (key === 'Enter') {
         const raw = currentTarget.value;
         const [command, arg] = currentTarget.value.split(' ');
-        // @ts-ignore
         dispatch(command, arg, raw);
         currentTarget.value = '';
       }

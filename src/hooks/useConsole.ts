@@ -6,16 +6,21 @@ interface IMessage {
   text: string;
 }
 
-type Command = keyof typeof apps;
+const userPrefix = 'root >';
 
 export default () => {
   const [messages, setMessages] = useState<IMessage[]>([]);
 
   const dispatch = useCallback(
-    (command: Command, arg: string, raw: string) => {
+    (command: string, arg: string, raw: string) => {
+      if (command === 'clear' || command === 'cls') {
+        setMessages([]);
+        return;
+      }
+      // @ts-ignore
       const app = apps[command] || apps.default;
       const text = app(arg);
-      setMessages([...messages, { text: `root > ${raw}` }, { text }]);
+      setMessages([...messages, { text: `${userPrefix} ${raw}` }, { text }]);
     },
     [messages]
   );
