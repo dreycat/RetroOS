@@ -11,7 +11,7 @@ interface Message {
 
 interface IProps {
   messages: Message[];
-  dispatch: (command: Command, arg: string) => void;
+  dispatch: (command: Command, arg: string, raw: string) => void;
 }
 
 const Body: FC<IProps> = ({ messages, dispatch }) => {
@@ -21,9 +21,10 @@ const Body: FC<IProps> = ({ messages, dispatch }) => {
   const handleKeyPress = useCallback(
     ({ key, currentTarget }: React.KeyboardEvent<HTMLInputElement>) => {
       if (key === 'Enter') {
+        const raw = currentTarget.value;
         const [command, arg] = currentTarget.value.split(' ');
         // @ts-ignore
-        dispatch(command, arg);
+        dispatch(command, arg, raw);
         currentTarget.value = '';
       }
     },
@@ -47,7 +48,9 @@ const Body: FC<IProps> = ({ messages, dispatch }) => {
           </li>
         ))}
       </ul>
-      <input className={styles.input} type="text" onKeyPress={handleKeyPress} ref={inputEl} autoFocus />
+      <div className={styles.wrapper}>
+        <input className={styles.input} type="text" onKeyPress={handleKeyPress} ref={inputEl} autoFocus />
+      </div>
     </div>
   );
 };

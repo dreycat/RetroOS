@@ -12,10 +12,10 @@ export default () => {
   const [messages, setMessages] = useState<IMessage[]>([]);
 
   const dispatch = useCallback(
-    (command: Command, arg: string) => {
+    (command: Command, arg: string, raw: string) => {
       const app = apps[command] || apps.default;
       const text = app(arg);
-      setMessages([...messages, { text }]);
+      setMessages([...messages, { text: `root > ${raw}` }, { text }]);
     },
     [messages]
   );
