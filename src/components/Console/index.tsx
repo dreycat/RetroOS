@@ -4,6 +4,7 @@ import Icon from '../Icon';
 import Window from '../Window';
 import useWindow from '../../hooks/useWindow';
 import useIcon from '../../hooks/useIcon';
+import Main from './Main';
 
 import { ReactComponent as ConsoleIcon } from './images/console.svg';
 
@@ -23,7 +24,7 @@ const Console = () => {
         onClose={onClose}
         onSave={saveWindowPosition}
       >
-        <span>test</span>
+        <Main />
       </Window>
       <Icon
         title="Console"
@@ -32,7 +33,7 @@ const Console = () => {
         onClick={handleOpen}
         onSave={saveIconPosition}
       >
-        <ConsoleIcon width={40} height={40} />
+        <ConsoleIcon width={36} height={36} />
       </Icon>
     </>
   );

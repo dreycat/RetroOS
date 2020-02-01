@@ -3,7 +3,8 @@ body {
   font-family: 'IBM Plex Sans', sans-serif;
 }
 
-code {
+code,
+pre {
   font-family: 'Roboto Mono', monospace;
 }
 
