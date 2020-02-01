@@ -1,6 +1,6 @@
 import { useState, useCallback } from 'react';
 
-import apps from '../consoleApps';
+import apps from '../components/Console/apps';
 
 interface IMessage {
   text: string;
