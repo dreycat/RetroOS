@@ -4,10 +4,10 @@ import styles from './Icon.module.css';
 import { Coords } from '../../interfaces/coords';
 
 interface IProps {
-  title: string;
+  name: string;
   top: number;
   left: number;
-  onSave: (coords: Coords) => void;
+  saveIconPosition: (coords: Coords) => void;
   onClick: () => void;
 }
 
@@ -50,7 +50,7 @@ class Icon extends Component<IProps> {
   stopDrag = () => {
     this.mainEl.current!.style.cursor = 'pointer';
     this.clear();
-    this.props.onSave({
+    this.props.saveIconPosition({
       top: parseInt(this.mainEl.current!.style.top, 10),
       left: parseInt(this.mainEl.current!.style.left, 10)
     });
@@ -89,7 +89,7 @@ class Icon extends Component<IProps> {
   }
 
   render() {
-    const { title, top, left } = this.props;
+    const { name, top, left } = this.props;
     return (
       <div
         className={styles.main}
@@ -100,7 +100,7 @@ class Icon extends Component<IProps> {
         onContextMenu={e => e.preventDefault()}
       >
         {this.props.children}
-        <span className={styles.title}>{title}</span>
+        <span className={styles.name}>{name}</span>
       </div>
     );
   }

@@ -20,24 +20,25 @@ const Application: FC<IProps> = ({ name, icon, defaultWindowPosition, defaultIco
     `${name.toLocaleLowerCase()}_window`
   );
   const { storeIconCoords, saveIconPosition } = useIcon(defaultIconPosition, `${name.toLocaleLowerCase()}_icon`);
+
   return (
     <>
       <Window
         isOpen={isOpen}
-        title={name}
+        name={name}
         top={storeWindowCoords.top}
         left={storeWindowCoords.left}
         onClose={onClose}
-        onSave={saveWindowPosition}
+        saveWindowPosition={saveWindowPosition}
       >
         {children}
       </Window>
       <Icon
-        title={name}
+        name={name}
         top={storeIconCoords.top}
         left={storeIconCoords.left}
         onClick={handleOpen}
-        onSave={saveIconPosition}
+        saveIconPosition={saveIconPosition}
       >
         {icon}
       </Icon>

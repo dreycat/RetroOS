@@ -5,10 +5,10 @@ import { Coords } from '../../interfaces/coords';
 import styles from './Window.module.css';
 
 interface IProps {
-  title: string;
+  name: string;
   top: number;
   left: number;
-  onSave: (coords: Coords) => void;
+  saveWindowPosition: (coords: Coords) => void;
   onClose: () => void;
 }
 
@@ -41,7 +41,7 @@ class Window extends Component<IProps> {
     this.headerEl.current!.style.cursor = 'grab';
     this.clear();
 
-    this.props.onSave({
+    this.props.saveWindowPosition({
       top: parseInt(this.mainEl.current!.style.top, 10),
       left: parseInt(this.mainEl.current!.style.left, 10)
     });
@@ -62,12 +62,12 @@ class Window extends Component<IProps> {
   }
 
   render() {
-    const { title, children, top, left, onClose } = this.props;
+    const { name, children, top, left, onClose } = this.props;
     return (
       <div className={styles.main} ref={this.mainEl} style={{ top, left }} onContextMenu={e => e.preventDefault()}>
         <div className={styles.header} ref={this.headerEl} onMouseDown={this.startDrag}>
-          <h2 className={styles.title} draggable="false">
-            {title}
+          <h2 className={styles.name} draggable="false">
+            {name}
           </h2>
           <div className={styles.decor} />
           <button className={styles.close} onClick={onClose} />

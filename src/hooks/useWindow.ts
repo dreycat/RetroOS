@@ -8,13 +8,6 @@ export default (defaultPosition: Coords, saveName: string) => {
   const [storeWindowCoords, setCoords] = useState<Coords>(getStorageData(`${saveName}_coords`, defaultPosition));
 
   useEffect(() => {
-    const raw = localStorage.getItem(`${saveName}_coords`);
-    if (raw) {
-      setCoords(JSON.parse(raw));
-    }
-  }, [isOpen, saveName]);
-
-  useEffect(() => {
     localStorage.setItem(`${saveName}_is_open`, JSON.stringify(isOpen));
   }, [isOpen, saveName]);
 
@@ -24,15 +17,16 @@ export default (defaultPosition: Coords, saveName: string) => {
   const saveWindowPosition = useCallback(
     (coords: Coords) => {
       localStorage.setItem(`${saveName}_coords`, JSON.stringify(coords));
+      setCoords(coords);
     },
     [saveName]
   );
 
   return {
     isOpen,
-    storeWindowCoords,
     handleOpen,
     onClose,
+    storeWindowCoords,
     saveWindowPosition
   };
 };
