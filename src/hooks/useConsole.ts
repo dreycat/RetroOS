@@ -13,7 +13,6 @@ export default () => {
 
   const dispatch = useCallback(
     (command: string, arg: string, raw: string) => {
-      if (command.trim() === '') return;
       if (command === 'clear' || command === 'cls') {
         setMessages([]);
         return;

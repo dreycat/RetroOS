@@ -11,7 +11,9 @@ const Main = () => {
     ({ key, currentTarget }: React.KeyboardEvent<HTMLInputElement>) => {
       if (key === 'Enter') {
         const raw = currentTarget.value;
-        const [command, arg] = currentTarget.value.split(' ');
+        const line = raw.trim();
+        if (line === '') return;
+        const [command, arg] = line.split(' ');
         dispatch(command, arg, raw);
         currentTarget.value = '';
       }
