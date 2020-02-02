@@ -3,13 +3,12 @@ import React, { Component } from 'react';
 import withTransition from '../../hocs/withTransition';
 import { Coords } from '../../interfaces/coords';
 import styles from './Window.module.css';
+import getStarogeData from '../../utils/getStarogeData';
 
 interface IProps {
   name: string;
-  top: number;
-  left: number;
-  saveWindowPosition: (coords: Coords) => void;
   onClose: () => void;
+  defaultPosition: Coords;
 }
 
 class Window extends Component<IProps> {
@@ -37,14 +36,29 @@ class Window extends Component<IProps> {
     document.removeEventListener('mouseup', this.stopDrag);
   };
 
+  setPosition = () => {
+    const { top, left } = getStarogeData<Coords>(
+      `${this.props.name.toLowerCase()}_window_coords`,
+      this.props.defaultPosition
+    )();
+    this.mainEl.current!.style.left = `${left}px`;
+    this.mainEl.current!.style.top = `${top}px`;
+  };
+
+  savePosition = () => {
+    localStorage.setItem(
+      `${this.props.name.toLowerCase()}_window_coords`,
+      JSON.stringify({
+        top: parseInt(this.mainEl.current!.style.top, 10),
+        left: parseInt(this.mainEl.current!.style.left, 10)
+      })
+    );
+  };
+
   stopDrag = () => {
     this.headerEl.current!.style.cursor = 'grab';
+    this.savePosition();
     this.clear();
-
-    this.props.saveWindowPosition({
-      top: parseInt(this.mainEl.current!.style.top, 10),
-      left: parseInt(this.mainEl.current!.style.left, 10)
-    });
   };
 
   startDrag = (event: React.MouseEvent) => {
@@ -57,14 +71,18 @@ class Window extends Component<IProps> {
     document.addEventListener('mouseup', this.stopDrag);
   };
 
+  componentDidMount() {
+    this.setPosition();
+  }
+
   componentWillUnmount() {
     this.clear();
   }
 
   render() {
-    const { name, children, top, left, onClose } = this.props;
+    const { name, children, onClose } = this.props;
     return (
-      <div className={styles.main} ref={this.mainEl} style={{ top, left }} onContextMenu={e => e.preventDefault()}>
+      <div className={styles.main} ref={this.mainEl} onContextMenu={e => e.preventDefault()}>
         <div className={styles.header} ref={this.headerEl} onMouseDown={this.startDrag}>
           <h2 className={styles.name} draggable="false">
             {name}

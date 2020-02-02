@@ -3,14 +3,14 @@ import { useState, useCallback } from 'react';
 import getStorageData from '../utils/getStarogeData';
 import { Coords } from '../interfaces/coords';
 
-export default (defaultPosition: Coords, saveName: string) => {
-  const [storeIconCoords] = useState<Coords>(getStorageData(`${saveName}_coords`, defaultPosition));
+export default (defaultPosition: Coords, name: string) => {
+  const [storeIconCoords] = useState<Coords>(getStorageData(`${name}_coords`, defaultPosition));
 
   const saveIconPosition = useCallback(
     (coords: Coords) => {
-      localStorage.setItem(`${saveName}_coords`, JSON.stringify(coords));
+      localStorage.setItem(`${name}_coords`, JSON.stringify(coords));
     },
-    [saveName]
+    [name]
   );
 
   return { storeIconCoords, saveIconPosition };
