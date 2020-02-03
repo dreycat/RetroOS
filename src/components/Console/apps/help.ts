@@ -4,4 +4,5 @@ cowsay [some text]
 date
 release
 clear or cls
+reset
 `;

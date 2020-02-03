@@ -4,6 +4,11 @@ import styles from './ContextMenu.module.css';
 
 const SHIFT_MENU = 4;
 
+const reset = () => {
+  localStorage.clear();
+  window.location.reload();
+};
+
 const ContextMenu = () => {
   const [coords, setCoords] = useState();
   const [isOpen, setOpen] = useState(false);
@@ -42,7 +47,9 @@ const ContextMenu = () => {
           onContextMenu={e => e.preventDefault()}
         >
           <li className={styles.item}>Settings</li>
-          <li className={styles.item}>Reset</li>
+          <li className={styles.item} onClick={reset}>
+            Reset
+          </li>
         </ul>
       )}
     </>

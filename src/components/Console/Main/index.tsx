@@ -1,9 +1,16 @@
-import React, { useRef, useCallback, useEffect } from 'react';
+import React, { FC, useRef, useCallback, useEffect } from 'react';
 
 import useConsole from '../../../hooks/useConsole';
 import styles from './Main.module.css';
 
-const Main = () => {
+interface IProps {
+  size: {
+    height: number;
+    width: number;
+  };
+}
+
+const Main: FC<IProps> = ({ size }) => {
   const inputEl = useRef<HTMLInputElement>(null);
   const { messages, dispatch } = useConsole();
 
@@ -30,7 +37,7 @@ const Main = () => {
   }, [messages]);
 
   return (
-    <div className={`${styles.main} border`} onClick={handleClick}>
+    <div className={`${styles.main} border`} onClick={handleClick} style={{ height: size.height, width: size.width }}>
       <ul className={styles.list}>
         {messages.map(({ text }, id) => (
           <li className={styles.item} key={id}>
