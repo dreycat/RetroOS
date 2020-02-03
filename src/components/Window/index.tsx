@@ -54,7 +54,7 @@ class Window extends Component<IProps> {
   };
 
   calculateIndex = () => {
-    const { name } = this.props;
+    const name = this.props.name.toLowerCase();
     const raw = localStorage.getItem('z_index');
 
     if (raw) {
