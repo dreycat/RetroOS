@@ -17,6 +17,18 @@ class Window extends Component<IProps> {
   private shiftX!: number;
   private shiftY!: number;
 
+  startDrag = (event: React.MouseEvent) => {
+    if (event.button !== 0) return;
+
+    this.shiftX = event.clientX - this.mainEl.current!.getBoundingClientRect().left;
+    this.shiftY = event.clientY - this.mainEl.current!.getBoundingClientRect().top;
+
+    document.addEventListener('mousemove', this.drag);
+    document.addEventListener('mouseup', this.stopDrag);
+
+    this.calculateIndex();
+  };
+
   drag = (event: MouseEvent) => {
     const TOP_LIMIT = 24;
     const left = event.pageX - this.shiftX;
@@ -26,9 +38,14 @@ class Window extends Component<IProps> {
       top = TOP_LIMIT;
     }
 
-    this.mainEl.current!.style.left = `${left}px`;
-    this.mainEl.current!.style.top = `${top}px`;
+    this.applyCoords({ top, left });
     this.headerEl.current!.style.cursor = 'grabbing';
+  };
+
+  stopDrag = () => {
+    this.headerEl.current!.style.cursor = 'grab';
+    this.savePosition();
+    this.clear();
   };
 
   clear = () => {
@@ -36,13 +53,32 @@ class Window extends Component<IProps> {
     document.removeEventListener('mouseup', this.stopDrag);
   };
 
-  setPosition = () => {
-    const { top, left } = getStarogeData<Coords>(
+  calculateIndex = () => {
+    const { name } = this.props;
+    const raw = localStorage.getItem('z_index');
+
+    if (raw) {
+      const data = JSON.parse(raw);
+      const indexes: number[] = Object.values(data);
+      const maxIndex = Math.max(...indexes);
+      const index = maxIndex + 1;
+
+      this.saveIndex({ ...data, [name]: index });
+      this.applyIndex(index);
+    } else {
+      const index = 100;
+
+      this.saveIndex({ [name]: index });
+      this.applyIndex(index);
+    }
+  };
+
+  setPositionFromStorage = () => {
+    const coords = getStarogeData<Coords>(
       `${this.props.name.toLowerCase()}_window_coords`,
       this.props.defaultPosition
     )();
-    this.mainEl.current!.style.left = `${left}px`;
-    this.mainEl.current!.style.top = `${top}px`;
+    this.applyCoords(coords);
   };
 
   savePosition = () => {
@@ -55,24 +91,24 @@ class Window extends Component<IProps> {
     );
   };
 
-  stopDrag = () => {
-    this.headerEl.current!.style.cursor = 'grab';
-    this.savePosition();
-    this.clear();
+  saveIndex = (data: object) => {
+    localStorage.setItem('z_index', JSON.stringify(data));
   };
 
-  startDrag = (event: React.MouseEvent) => {
-    if (event.button !== 0) return;
+  applyIndex = (index: number) => {
+    if (this.mainEl.current) {
+      this.mainEl.current.style.zIndex = `${index}`;
+    }
+  };
 
-    this.shiftX = event.clientX - this.mainEl.current!.getBoundingClientRect().left;
-    this.shiftY = event.clientY - this.mainEl.current!.getBoundingClientRect().top;
-
-    document.addEventListener('mousemove', this.drag);
-    document.addEventListener('mouseup', this.stopDrag);
+  applyCoords = ({ left, top }: Coords) => {
+    this.mainEl.current!.style.left = `${left}px`;
+    this.mainEl.current!.style.top = `${top}px`;
   };
 
   componentDidMount() {
-    this.setPosition();
+    this.setPositionFromStorage();
+    this.calculateIndex();
   }
 
   componentWillUnmount() {
@@ -82,7 +118,12 @@ class Window extends Component<IProps> {
   render() {
     const { name, children, onClose } = this.props;
     return (
-      <div className={styles.main} ref={this.mainEl} onContextMenu={e => e.preventDefault()}>
+      <div
+        className={styles.main}
+        ref={this.mainEl}
+        onContextMenu={e => e.preventDefault()}
+        onClick={this.calculateIndex}
+      >
         <div className={styles.header} ref={this.headerEl} onMouseDown={this.startDrag}>
           <h2 className={styles.name} draggable="false">
             {name}
