@@ -15,7 +15,7 @@ interface IProps {
 }
 
 const Application: FC<IProps> = ({ name, icon, defaultWindowPosition, defaultIconPosition, children }) => {
-  const { isOpen, handleOpen, onClose } = useWindow(name);
+  const { isOpen, toggle, onClose } = useWindow(name);
   const { storeIconCoords, saveIconPosition } = useIcon(name, defaultIconPosition);
 
   return (
@@ -27,7 +27,7 @@ const Application: FC<IProps> = ({ name, icon, defaultWindowPosition, defaultIco
         name={name}
         top={storeIconCoords.top}
         left={storeIconCoords.left}
-        onClick={handleOpen}
+        onClick={toggle}
         saveIconPosition={saveIconPosition}
       >
         {icon}

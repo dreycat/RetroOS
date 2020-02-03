@@ -10,12 +10,12 @@ export default (name: string) => {
     localStorage.setItem(storageName, JSON.stringify(isOpen));
   }, [isOpen, storageName]);
 
-  const handleOpen = useCallback(() => setOpen(!isOpen), [isOpen]);
+  const toggle = useCallback(() => setOpen(!isOpen), [isOpen]);
   const onClose = useCallback(() => setOpen(false), []);
 
   return {
     isOpen,
-    handleOpen,
+    toggle,
     onClose
   };
 };
