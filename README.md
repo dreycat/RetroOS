@@ -1,1 +1,3 @@
-## RetrowaveOS
+## SomaOS
+
+Just for Fun
