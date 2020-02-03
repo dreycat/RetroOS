@@ -11,11 +11,11 @@
 
 @keyframes slide-out-bottom {
   0% {
-    transform: translateZ(0) translateY(0);
+    transform: translateY(0);
     opacity: 1;
   }
   100% {
-    transform: translateZ(-1100px) translateY(1000px);
+    transform: translateY(200px) scale(0.3);
     opacity: 0;
   }
 }

@@ -6,6 +6,4 @@
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center center;
-  perspective: 500px;
-  perspective-origin: calc(50% + 120px) 50%;
 }

@@ -24,7 +24,7 @@
   font-size: 14px;
   font-family: 'Roboto Mono', monospace;
   color: #faebd7;
-  line-height: 26px;
+  line-height: 20px;
   letter-spacing: 0.16px;
 }
 
@@ -40,7 +40,7 @@
 }
 
 .input {
-  height: 26px;
+  height: 20px;
   width: 100%;
   margin: 0;
   padding: 0;
@@ -53,6 +53,7 @@
 .wrapper {
   position: relative;
   padding-left: 64px;
+  font-size: 0;
 }
 
 .wrapper::after {

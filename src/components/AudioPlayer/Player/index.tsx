@@ -15,28 +15,25 @@ const Player = () => {
   const { audio, state, controlls } = useAudio(playlist);
 
   return (
-    <>
-      <div className={styles.main}>
-        {audio}
-        <PlayerLayout
-          screen={<Screen {...state} />}
-          marquee={<Marquee>{state.curentTrack.title}</Marquee>}
-          controlls={
-            <Controlls
-              play={controlls.play}
-              pause={controlls.pause}
-              prevTrack={controlls.prevTrack}
-              nextTrack={controlls.nextTrack}
-              isPlaing={state.isPlaying}
-            />
-          }
-          volumeControl={<VolumeControl volume={state.volume} setVolume={controlls.setVolume} />}
-          progress={<Progress duration={state.duration} time={state.time} seek={controlls.seek} />}
-        />
-        <Playlist list={playlist} setTrack={controlls.setTrack} currentTrack={state.trackId} />
-      </div>
-      <pre className={styles.pre}>{JSON.stringify(state, null, 2)}</pre>
-    </>
+    <div className={styles.main}>
+      {audio}
+      <PlayerLayout
+        screen={<Screen {...state} />}
+        marquee={<Marquee>{state.curentTrack.title}</Marquee>}
+        controlls={
+          <Controlls
+            play={controlls.play}
+            pause={controlls.pause}
+            prevTrack={controlls.prevTrack}
+            nextTrack={controlls.nextTrack}
+            isPlaing={state.isPlaying}
+          />
+        }
+        volumeControl={<VolumeControl volume={state.volume} setVolume={controlls.setVolume} />}
+        progress={<Progress duration={state.duration} time={state.time} seek={controlls.seek} />}
+      />
+      <Playlist list={playlist} setTrack={controlls.setTrack} currentTrack={state.trackId} />
+    </div>
   );
 };
 

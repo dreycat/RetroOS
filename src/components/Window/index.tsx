@@ -14,8 +14,8 @@ interface IProps {
 class Window extends Component<IProps> {
   private mainEl = React.createRef<HTMLDivElement>();
   private headerEl = React.createRef<HTMLDivElement>();
-  private shiftX!: number;
-  private shiftY!: number;
+  private shiftX = 0;
+  private shiftY = 0;
 
   startDrag = (event: React.MouseEvent) => {
     if (event.button !== 0) return;
