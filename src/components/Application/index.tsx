@@ -15,8 +15,8 @@ interface IProps {
 }
 
 const Application: FC<IProps> = ({ name, icon, defaultWindowPosition, defaultIconPosition, children }) => {
-  const { isOpen, handleOpen, onClose } = useWindow(`${name.toLocaleLowerCase()}_window`);
-  const { storeIconCoords, saveIconPosition } = useIcon(defaultIconPosition, `${name.toLocaleLowerCase()}_icon`);
+  const { isOpen, handleOpen, onClose } = useWindow(name);
+  const { storeIconCoords, saveIconPosition } = useIcon(name, defaultIconPosition);
 
   return (
     <>
