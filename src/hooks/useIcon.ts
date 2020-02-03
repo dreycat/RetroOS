@@ -1,14 +1,14 @@
 import { useState, useCallback, useMemo } from 'react';
 
 import getStorageData from '../utils/getStarogeData';
-import { Coords } from '../interfaces/coords';
+import { ICoords } from '../interfaces';
 
-export default (name: string, defaultPosition: Coords) => {
+export default (name: string, defaultPosition: ICoords) => {
   const storageName = useMemo(() => `${name.toLowerCase()}_icon_coords`, [name]);
-  const [storeIconCoords] = useState<Coords>(getStorageData(storageName, defaultPosition));
+  const [storeIconCoords] = useState<ICoords>(getStorageData(storageName, defaultPosition));
 
   const saveIconPosition = useCallback(
-    (coords: Coords) => {
+    (coords: ICoords) => {
       localStorage.setItem(storageName, JSON.stringify(coords));
     },
     [storageName]

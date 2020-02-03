@@ -5,13 +5,13 @@ import Window from '../Window';
 import useWindow from '../../hooks/useWindow';
 import useIcon from '../../hooks/useIcon';
 
-import { Coords } from '../../interfaces/coords';
+import { ICoords } from '../../interfaces';
 
 interface IProps {
   name: string;
   icon: React.ReactNode;
-  defaultWindowPosition: Coords;
-  defaultIconPosition: Coords;
+  defaultWindowPosition: ICoords;
+  defaultIconPosition: ICoords;
 }
 
 const Application: FC<IProps> = ({ name, icon, defaultWindowPosition, defaultIconPosition, children }) => {

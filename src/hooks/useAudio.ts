@@ -4,7 +4,7 @@ import getStorageData from '../utils/getStarogeData';
 import compose from '../utils/compose';
 import checkRadio from '../utils/checkRadio';
 
-import { Track } from '../interfaces/track';
+import { ITrack } from '../interfaces';
 
 enum Keys {
   Volume = 'audio_player_volume',
@@ -12,12 +12,12 @@ enum Keys {
   Track = 'audio_player_track_id'
 }
 
-const checkTrack = (playlist: Track[]) => (trackId: number) => {
+const checkTrack = (playlist: ITrack[]) => (trackId: number) => {
   const index = playlist.findIndex(({ id }) => id === trackId);
   return index === -1 ? 0 : trackId;
 };
 
-export default (playlist: Track[]) => {
+export default (playlist: ITrack[]) => {
   const ref = useRef<HTMLAudioElement>(null);
   const [time, setTime] = useState(0);
   const [duration, setDuration] = useState(0);

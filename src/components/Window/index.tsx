@@ -1,14 +1,14 @@
 import React, { Component } from 'react';
 
 import withTransition from '../../hocs/withTransition';
-import { Coords } from '../../interfaces/coords';
+import { ICoords } from '../../interfaces';
 import styles from './Window.module.css';
 import getStarogeData from '../../utils/getStarogeData';
 
 interface IProps {
   name: string;
   onClose: () => void;
-  defaultPosition: Coords;
+  defaultPosition: ICoords;
 }
 
 class Window extends Component<IProps> {
@@ -74,7 +74,7 @@ class Window extends Component<IProps> {
   };
 
   setPositionFromStorage = () => {
-    const coords = getStarogeData<Coords>(
+    const coords = getStarogeData<ICoords>(
       `${this.props.name.toLowerCase()}_window_coords`,
       this.props.defaultPosition
     )();
@@ -101,7 +101,7 @@ class Window extends Component<IProps> {
     }
   };
 
-  applyCoords = ({ left, top }: Coords) => {
+  applyCoords = ({ left, top }: ICoords) => {
     this.mainEl.current!.style.left = `${left}px`;
     this.mainEl.current!.style.top = `${top}px`;
   };

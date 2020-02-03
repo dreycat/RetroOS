@@ -4,6 +4,7 @@
   overflow-x: hidden;
   overflow-y: scroll;
   background-color: rgb(33, 32, 47);
+  cursor: text;
 }
 
 .list {

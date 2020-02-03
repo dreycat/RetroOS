@@ -2,10 +2,10 @@ import React, { FC } from 'react';
 
 import styles from './Playlist.module.css';
 
-import { Track } from '../../../../interfaces/track';
+import { ITrack } from '../../../../interfaces';
 
 interface IProps {
-  list: Track[];
+  list: ITrack[];
   currentTrack: number;
   setTrack: React.Dispatch<React.SetStateAction<number>>;
 }

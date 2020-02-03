@@ -1,13 +1,13 @@
 import React, { Component } from 'react';
 
 import styles from './Icon.module.css';
-import { Coords } from '../../interfaces/coords';
+import { ICoords } from '../../interfaces';
 
 interface IProps {
   name: string;
   top: number;
   left: number;
-  saveIconPosition: (coords: Coords) => void;
+  saveIconPosition: (coords: ICoords) => void;
   onClick: () => void;
 }
 
