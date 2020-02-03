@@ -25,6 +25,7 @@ export default (playlist: ITrack[]) => {
   const [volume, setVolume] = useState<number>(getStorageData(Keys.Volume, 1));
   const [isMuted, setMuted] = useState<boolean>(getStorageData(Keys.Muted, false));
   const [trackId, setTrack] = useState<number>(compose(checkTrack(playlist), getStorageData(Keys.Track, 0)));
+  const [error, setError] = useState(false);
 
   const audio = useMemo(() => {
     const src = playlist.find(({ id }) => id === trackId)?.url ?? playlist[0].url;
@@ -57,7 +58,16 @@ export default (playlist: ITrack[]) => {
   useEffect(() => {
     if (!ref.current) return;
     if (isPlaying) {
-      ref.current.play();
+      ref.current
+        .play()
+        .then(() => {
+          setError(false);
+        })
+        .catch(error => {
+          setPlaying(false);
+          setError(true);
+          console.log('AudioPlayer Error: ', error);
+        });
     } else if (!isPlaying) {
       ref.current.pause();
     }
@@ -101,7 +111,8 @@ export default (playlist: ITrack[]) => {
       isPlaying,
       isMuted,
       trackId,
-      curentTrack: playlist[trackId]
+      curentTrack: playlist[trackId],
+      error
     },
     controlls: {
       play: () => setPlaying(true),

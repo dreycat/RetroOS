@@ -19,7 +19,7 @@ const Player = () => {
       {audio}
       <PlayerLayout
         screen={<Screen {...state} />}
-        marquee={<Marquee>{state.curentTrack.title}</Marquee>}
+        marquee={<Marquee error={state.error}>{state.curentTrack.title}</Marquee>}
         controlls={
           <Controlls
             play={controlls.play}
