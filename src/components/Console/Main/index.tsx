@@ -13,8 +13,8 @@ const Main = () => {
         const raw = currentTarget.value;
         const line = raw.trim();
         if (line === '') return;
-        const [command, arg] = line.split(' ');
-        dispatch(command, arg, raw);
+        const [command, ...arg] = line.split(' ');
+        dispatch(command, arg.join(' '), raw);
         currentTarget.value = '';
       }
     },

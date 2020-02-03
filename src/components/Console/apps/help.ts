@@ -3,4 +3,5 @@ Commands:
 cowsay [some text]
 date
 release
+clear or cls
 `;
