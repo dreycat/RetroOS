@@ -12,3 +12,10 @@
 .expander {
   margin: 0 auto;
 }
+
+.logo {
+  padding: 0 8px;
+  font-size: 14px;
+  line-height: 24px;
+  letter-spacing: 0.2px;
+}

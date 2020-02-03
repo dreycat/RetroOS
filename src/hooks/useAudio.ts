@@ -27,7 +27,6 @@ export default (playlist: ITrack[]) => {
   const [trackId, setTrack] = useState<number>(compose(checkTrack(playlist), getStorageData(Keys.Track, 0)));
 
   const audio = useMemo(() => {
-    console.log('create audio element');
     const src = playlist.find(({ id }) => id === trackId)?.url ?? playlist[0].url;
     return React.createElement('audio', {
       ref,
@@ -69,7 +68,6 @@ export default (playlist: ITrack[]) => {
     const len = playlist.length;
     if (len === 0) return;
     if (trackId < len - 1) {
-      console.log('next');
       setTrack(trackId + 1);
     }
   }, [playlist, trackId]);
@@ -78,7 +76,6 @@ export default (playlist: ITrack[]) => {
     const len = playlist.length;
     if (len === 0) return;
     if (trackId > 0) {
-      console.log('prev');
       setTrack(trackId - 1);
     }
   }, [playlist, trackId]);
