@@ -1,1 +1,1 @@
-export default () => window.innerWidth <= 1000;
+export default () => window.innerWidth < 950;
