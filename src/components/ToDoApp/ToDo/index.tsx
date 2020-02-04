@@ -23,6 +23,11 @@ const ToDo = () => {
       event.preventDefault();
       setList([...list, { id: uuid(), text, done: false }]);
       setText('');
+      setTimeout(() => {
+        if (listEl.current) {
+          listEl.current.scrollTop = listEl.current.scrollHeight;
+        }
+      }, 0);
     },
     [list, text]
   );
@@ -43,9 +48,6 @@ const ToDo = () => {
 
   useEffect(() => {
     localStorage.setItem('todos', JSON.stringify(list));
-    if (listEl.current) {
-      listEl.current.scrollTop = listEl.current.scrollHeight;
-    }
   }, [list]);
 
   return (
