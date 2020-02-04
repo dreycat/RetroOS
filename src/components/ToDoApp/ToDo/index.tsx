@@ -74,9 +74,11 @@ const ToDo: FC<IProps> = ({ size }) => {
           </li>
         ))}
       </ul>
-      <form onSubmit={handleSubmit}>
+      <form className={styles.form} onSubmit={handleSubmit}>
+        <div className={styles.line} />
         <input
           className={styles.input}
+          autoFocus
           type="text"
           value={text}
           onChange={(event: React.ChangeEvent<HTMLInputElement>) => {
