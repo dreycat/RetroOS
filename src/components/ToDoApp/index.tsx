@@ -1,6 +1,7 @@
 import React from 'react';
 
 import Application from '../Application';
+import ToDo from './ToDo';
 import isMobile from '../../utils/isMobile';
 import { ReactComponent as Icon } from './images/icon.svg';
 
@@ -15,7 +16,7 @@ const ToDoApp = () => {
       defaultWindowPosition={defaultWindowPosition}
       icon={<Icon width={46} height={46} />}
     >
-      <span>test</span>
+      <ToDo />
     </Application>
   );
 };

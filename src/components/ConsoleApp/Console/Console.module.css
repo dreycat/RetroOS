@@ -34,8 +34,8 @@
 }
 
 .pre::selection {
-  color: rgb(33, 32, 47) !important;
-  background-color: #faebd7 !important;
+  color: rgb(33, 32, 47);
+  background-color: #faebd7;
 }
 
 .input {
