@@ -1,4 +1,4 @@
-import React, { useState, useCallback, useEffect, useRef } from 'react';
+import React, { FC, useState, useCallback, useEffect, useRef } from 'react';
 import { v4 as uuid } from 'uuid';
 
 import getStarogeData from '../../../utils/getStarogeData';
@@ -13,7 +13,14 @@ type ListItem = {
   done: boolean;
 };
 
-const ToDo = () => {
+interface IProps {
+  size: {
+    height: number;
+    width: number;
+  };
+}
+
+const ToDo: FC<IProps> = ({ size }) => {
   const [list, setList] = useState<ListItem[]>(getStarogeData('todos', []));
   const [text, setText] = useState('');
   const listEl = useRef<HTMLUListElement>(null);
@@ -53,7 +60,7 @@ const ToDo = () => {
   }, [list]);
 
   return (
-    <div className={`${styles.main} border`}>
+    <div className={`${styles.main} border`} style={{ height: size.height, width: size.width }}>
       <ul className={styles.list} ref={listEl}>
         {list.map(({ id, text, done }) => (
           <li className={done ? `${styles.item} ${styles.done}` : styles.item} key={id}>

@@ -8,6 +8,7 @@ import { ReactComponent as Icon } from './images/icon.svg';
 const ToDoApp = () => {
   const defaultIconPosition = isMobile() ? { top: 241, left: 27 } : { top: 286, left: 73 };
   const defaultWindowPosition = isMobile() ? { top: 117, left: 97 } : { top: 167, left: 818 };
+  const size = isMobile() ? { height: 292, width: 275 } : { height: 360, width: 460 };
 
   return (
     <Application
@@ -16,7 +17,7 @@ const ToDoApp = () => {
       defaultWindowPosition={defaultWindowPosition}
       icon={<Icon width={46} height={46} />}
     >
-      <ToDo />
+      <ToDo size={size} />
     </Application>
   );
 };
