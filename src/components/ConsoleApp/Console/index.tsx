@@ -1,7 +1,7 @@
 import React, { FC, useRef, useCallback, useEffect } from 'react';
 
 import useConsole from '../../../hooks/useConsole';
-import styles from './Main.module.css';
+import styles from './Console.module.css';
 
 interface IProps {
   size: {
@@ -10,7 +10,7 @@ interface IProps {
   };
 }
 
-const Main: FC<IProps> = ({ size }) => {
+const Console: FC<IProps> = ({ size }) => {
   const inputEl = useRef<HTMLInputElement>(null);
   const { messages, dispatch } = useConsole();
 
@@ -52,4 +52,4 @@ const Main: FC<IProps> = ({ size }) => {
   );
 };
 
-export default Main;
+export default Console;

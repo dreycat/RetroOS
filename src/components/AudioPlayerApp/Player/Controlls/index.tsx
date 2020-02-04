@@ -1,10 +1,9 @@
 import React, { FC } from 'react';
 
-import styles from './Controlls.module.css';
-
 import { ReactComponent as PlayIcon } from './images/play.svg';
 import { ReactComponent as PauseIcon } from './images/pause.svg';
 import { ReactComponent as NextIcon } from './images/next.svg';
+import styles from './Controlls.module.css';
 
 interface IProps {
   isPlaing: boolean;

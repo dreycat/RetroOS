@@ -1,16 +1,18 @@
 import React, { FC } from 'react';
 
 import Taskbar from '../Taskbar';
-import AudioPlayer from '../AudioPlayer';
+import AudioPlayerApp from '../AudioPlayerApp';
+import ConsoleApp from '../ConsoleApp';
+import ToDoApp from '../ToDoApp';
 import ContexMenu from '../ContextMenu';
-import Console from '../Console';
 import styles from './Desktop.module.css';
 
 const Desktop: FC = () => (
   <div className={styles.main}>
     <Taskbar />
-    <AudioPlayer />
-    <Console />
+    <AudioPlayerApp />
+    <ConsoleApp />
+    <ToDoApp />
     <ContexMenu />
   </div>
 );
