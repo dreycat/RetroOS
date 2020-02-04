@@ -21,7 +21,9 @@ const ToDo = () => {
   const handleSubmit = useCallback(
     (event: React.FormEvent) => {
       event.preventDefault();
-      setList([...list, { id: uuid(), text, done: false }]);
+      const str = text.trim();
+      if (!str) return;
+      setList([...list, { id: uuid(), text: str, done: false }]);
       setText('');
       setTimeout(() => {
         if (listEl.current) {
