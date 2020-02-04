@@ -1,7 +1,7 @@
 import React from 'react';
 
 import Application from '../Application';
-import Player from './Player';
+import AudioPlayer from './AudioPlayer';
 import isMobile from '../../utils/isMobile';
 import { ReactComponent as Icon } from './images/icon.svg';
 
@@ -16,7 +16,7 @@ const AudioPlayerApp = () => {
       defaultIconPosition={defaultIconPosition}
       defaultWindowPosition={defaultWindowPosition}
     >
-      <Player />
+      <AudioPlayer />
     </Application>
   );
 };

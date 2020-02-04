@@ -5,19 +5,19 @@ import Marquee from './Marquee';
 import Controlls from './Controlls';
 import VolumeControl from './VolumeControl';
 import Playlist from './Playlist';
-import PlayerLayout from '../../Layouts/PlayerLayout';
 import Progress from './Progress';
-import styles from './Player.module.css';
 import playlist from './playlist';
 import useAudio from '../../../hooks/useAudio';
+import AudioPlayerLayout from '../../Layouts/AudioPlayerLayout';
+import styles from './Player.module.css';
 
-const Player = () => {
+const AudioPlayer = () => {
   const { audio, state, controlls } = useAudio(playlist);
 
   return (
     <div className={styles.main}>
       {audio}
-      <PlayerLayout
+      <AudioPlayerLayout
         screen={<Screen {...state} />}
         marquee={<Marquee error={state.error}>{state.curentTrack.title}</Marquee>}
         controlls={
@@ -37,4 +37,4 @@ const Player = () => {
   );
 };
 
-export default Player;
+export default AudioPlayer;

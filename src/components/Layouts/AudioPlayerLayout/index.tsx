@@ -1,6 +1,6 @@
 import React, { FC } from 'react';
 
-import styles from './PlayerLayout.module.css';
+import styles from './AudioPlayerLayout.module.css';
 
 interface IProps {
   controlls: React.ReactNode;
@@ -10,7 +10,7 @@ interface IProps {
   progress: React.ReactNode;
 }
 
-const PlayerLayout: FC<IProps> = ({ controlls, screen, marquee, volumeControl, progress }) => (
+const AudioPlayerLayout: FC<IProps> = ({ controlls, screen, marquee, volumeControl, progress }) => (
   <div className={styles.main}>
     <div className={styles.row}>
       <div className={styles.screen}>{screen}</div>
@@ -24,4 +24,4 @@ const PlayerLayout: FC<IProps> = ({ controlls, screen, marquee, volumeControl, p
   </div>
 );
 
-export default PlayerLayout;
+export default AudioPlayerLayout;
