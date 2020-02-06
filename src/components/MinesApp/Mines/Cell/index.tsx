@@ -13,11 +13,12 @@ interface IProps {
   value: string | number;
   y: number;
   x: number;
-  handleClick?: (y: number, x: number, ctx: boolean) => void;
+  handleLeftClick?: (x: number, y: number) => void;
+  handleRightClick?: (x: number, y: number) => void;
 }
 const colors = ['empty', 'green', 'yellow', 'lightOrange', 'orange', 'darkOrange', 'lightRed', 'red', 'darkRed'];
 
-const Cell: FC<IProps> = ({ value, y, x, handleClick = () => {} }) => {
+const Cell: FC<IProps> = ({ value, y, x, handleLeftClick = () => {}, handleRightClick = () => {} }) => {
   let body: Body = '';
   let color = styles.empty;
 
@@ -38,8 +39,8 @@ const Cell: FC<IProps> = ({ value, y, x, handleClick = () => {} }) => {
   return (
     <li
       className={`${styles.main} ${color}`}
-      onClick={() => handleClick(y, x, false)}
-      onContextMenu={() => handleClick(y, x, true)}
+      onClick={() => handleLeftClick(y, x)}
+      onContextMenu={() => handleRightClick(y, x)}
     >
       {body}
     </li>

@@ -17,33 +17,47 @@ const Mines = () => {
   const [flags, setFlags] = useState(0);
   const [statusGame, setStatusGame] = useState<Game>(Game.Process);
 
-  const handleClick = useCallback(
-    (y: number, x: number, ctx: boolean) => {
-      const clone = deepClone(userField);
-      // I apologize for the bad code
-      if (clone[y][x] !== Cell.Open) {
-        if (ctx && clone[y][x] === Cell.Flag) {
-          clone[y][x] = Cell.Suspense;
-          setFlags(flag => flag - 1);
-        } else if (ctx && flags < MINES) {
-          clone[y][x] = Cell.Flag;
-          setFlags(flag => flag + 1);
-        }
-        if (!ctx && clone[y][x] === Cell.Flag) {
-          setFlags(flag => flag - 1);
-        }
-        if (!ctx) {
-          clone[y][x] = Cell.Open;
-        }
-        if (!ctx && field[y][x] === Cell.Mine) {
-          setStatusGame(Game.Fail);
-          return;
-        }
+  const handleLeftClick = useCallback(
+    (y: number, x: number) => {
+      if (userField[y][x] === Cell.Open) return;
+      if (field[y][x] === Cell.Mine) {
+        setStatusGame(Game.Fail);
+        return;
       }
 
+      const clone = deepClone(userField);
+
+      if (clone[y][x] === Cell.Flag) {
+        setFlags(flag => flag - 1);
+      }
+
+      clone[y][x] = Cell.Open;
       setUserField(clone);
     },
-    [userField, flags, field]
+    [userField, field]
+  );
+
+  const handleRightClick = useCallback(
+    (y: number, x: number) => {
+      if (userField[y][x] === Cell.Open) return;
+
+      const clone = deepClone(userField);
+
+      if (clone[y][x] === Cell.Flag) {
+        clone[y][x] = Cell.Suspense;
+        setFlags(flag => flag - 1);
+        setUserField(clone);
+        return;
+      }
+
+      if (flags < MINES) {
+        clone[y][x] = Cell.Flag;
+        setFlags(flag => flag + 1);
+        setUserField(clone);
+        return;
+      }
+    },
+    [userField, flags]
   );
 
   const reset = useCallback(() => {
@@ -56,7 +70,9 @@ const Mines = () => {
   return (
     <div className={styles.wrapper}>
       <Board field={field} />
-      {statusGame !== Game.Fail && <Board field={userField} handleClick={handleClick} />}
+      {statusGame !== Game.Fail && (
+        <Board field={userField} handleLeftClick={handleLeftClick} handleRightClick={handleRightClick} />
+      )}
       {statusGame === Game.Fail && (
         <button className={styles.reset} onClick={reset}>
           New Game

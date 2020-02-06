@@ -7,13 +7,23 @@ import { Field } from '../types';
 
 interface IProps {
   field: Field;
-  handleClick?: (x: number, y: number, ctx: boolean) => void;
+  handleLeftClick?: (x: number, y: number) => void;
+  handleRightClick?: (x: number, y: number) => void;
 }
 
-const Board: FC<IProps> = ({ field, handleClick }) => (
+const Board: FC<IProps> = ({ field, handleLeftClick, handleRightClick }) => (
   <ul className={styles.main}>
     {field.map((row, y) =>
-      row.map((cell, x) => <Cell value={cell} x={x} y={y} handleClick={handleClick} key={`${x + y}`} />)
+      row.map((cell, x) => (
+        <Cell
+          value={cell}
+          x={x}
+          y={y}
+          handleLeftClick={handleLeftClick}
+          handleRightClick={handleRightClick}
+          key={`${x + y}`}
+        />
+      ))
     )}
   </ul>
 );
