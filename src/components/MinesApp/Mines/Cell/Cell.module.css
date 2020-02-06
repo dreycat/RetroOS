@@ -1,0 +1,65 @@
+.main {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 32px;
+  height: 32px;
+  background-color: #ccc;
+  border: 1px solid #ccc;
+  font-family: 'Roboto Mono', monospace;
+  line-height: 1;
+  cursor: pointer;
+}
+
+.empty {
+  background-color: #ccc;
+}
+
+.green {
+  background-color: #ddfac3;
+}
+
+.yellow {
+  background-color: #ecedbf;
+}
+
+.lightOrange {
+  background-color: #eddab4;
+}
+
+.orange {
+  background-color: #edc38a;
+}
+
+.darkOrange {
+  background-color: #eda98a;
+}
+
+.lightRed {
+  background-color: #ed8a8a;
+}
+
+.red {
+  background-color: #f16a6a;
+}
+
+.darkRed {
+  background-color: #e45252;
+}
+
+.mine {
+  background-color: #eb4e4e;
+}
+
+.flag,
+.suspense {
+  background-color: #ccc;
+  border-bottom: 2px solid #7d7d7d;
+  border-top: 2px solid #fff;
+  border-left: 2px solid #fff;
+  border-right: 2px solid #7d7d7d;
+}
+
+.open {
+  background-color: transparent;
+}

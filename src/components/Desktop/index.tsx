@@ -5,6 +5,7 @@ import AudioPlayerApp from '../AudioPlayerApp';
 import ConsoleApp from '../ConsoleApp';
 import ToDoApp from '../ToDoApp';
 import ContexMenu from '../ContextMenu';
+import Mines from '../MinesApp';
 import styles from './Desktop.module.css';
 
 const Desktop: FC = () => (
@@ -13,6 +14,7 @@ const Desktop: FC = () => (
     <AudioPlayerApp />
     <ConsoleApp />
     <ToDoApp />
+    <Mines />
     <ContexMenu />
   </div>
 );
