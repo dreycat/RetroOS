@@ -26,7 +26,7 @@ interface IProps {
 }
 
 const Cell: FC<IProps> = ({ value, y, x, handleLeftClick = () => {}, handleRightClick = () => {} }) => {
-  let body: Body = '';
+  let body: Body = null;
   let color = styles.empty;
 
   if (value === ECell.Mine) {

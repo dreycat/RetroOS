@@ -21,25 +21,21 @@ const Mines = () => {
 
   const handleLeftClick = useCallback(
     (y: number, x: number) => {
-      if (userField[y][x] === Cell.Open) return;
+      if (userField[y][x] === Cell.Open || userField[y][x] === Cell.Flag) return;
       if (field[y][x] === Cell.Mine) {
         setStatusGame(Game.Fail);
         return;
       }
 
-      if (userField[y][x] === Cell.Flag) {
-        setFlags(flag => flag - 1);
-      }
+      const cloneUserField = clicker(userField, field, y, x);
 
-      const clone = clicker(userField, field, y, x);
-
-      if (hasUserWon(clone, MINES)) {
+      if (hasUserWon(cloneUserField, MINES)) {
         setStatusGame(Game.Win);
-        setUserField(clone);
+        setUserField(cloneUserField);
         return;
       }
 
-      setUserField(clone);
+      setUserField(cloneUserField);
     },
     [userField, field]
   );
@@ -48,19 +44,19 @@ const Mines = () => {
     (y: number, x: number) => {
       if (userField[y][x] === Cell.Open) return;
 
-      const clone: Field = deepClone(userField);
+      const cloneUserField: Field = deepClone(userField);
 
-      if (clone[y][x] === Cell.Flag) {
-        clone[y][x] = Cell.Suspense;
+      if (cloneUserField[y][x] === Cell.Flag) {
+        cloneUserField[y][x] = Cell.Suspense;
         setFlags(flag => flag - 1);
-        setUserField(clone);
+        setUserField(cloneUserField);
         return;
       }
 
       if (flags < MINES) {
-        clone[y][x] = Cell.Flag;
+        cloneUserField[y][x] = Cell.Flag;
         setFlags(flag => flag + 1);
-        setUserField(clone);
+        setUserField(cloneUserField);
         return;
       }
     },
