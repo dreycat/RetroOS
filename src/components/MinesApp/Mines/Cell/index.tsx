@@ -7,6 +7,14 @@ import { ReactComponent as MineIcon } from '../../images/mine2.svg';
 
 import { Cell as ECell } from '../enums';
 
+const colors = ['empty', 'green', 'yellow', 'lightOrange', 'orange', 'darkOrange', 'lightRed', 'red', 'darkRed'];
+const styleMapper = {
+  [ECell.Flag]: 'flag',
+  [ECell.Mine]: 'mine',
+  [ECell.Open]: 'open',
+  [ECell.Suspense]: 'suspense'
+};
+
 type Body = string | number | ReactNode;
 
 interface IProps {
@@ -16,7 +24,6 @@ interface IProps {
   handleLeftClick?: (x: number, y: number) => void;
   handleRightClick?: (x: number, y: number) => void;
 }
-const colors = ['empty', 'green', 'yellow', 'lightOrange', 'orange', 'darkOrange', 'lightRed', 'red', 'darkRed'];
 
 const Cell: FC<IProps> = ({ value, y, x, handleLeftClick = () => {}, handleRightClick = () => {} }) => {
   let body: Body = '';
@@ -31,7 +38,7 @@ const Cell: FC<IProps> = ({ value, y, x, handleLeftClick = () => {}, handleRight
   }
 
   if (typeof value === 'string') {
-    color = styles[value] || styles.empty;
+    color = styles[styleMapper[value as ECell]] || styles.empty;
   } else if (typeof value === 'number') {
     color = styles[colors[value]] || styles.empty;
   }

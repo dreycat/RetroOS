@@ -1,8 +1,8 @@
 export enum Cell {
-  Open = 'open',
-  Flag = 'flag',
-  Mine = 'mine',
-  Suspense = 'suspense'
+  Open = 'o',
+  Flag = 'f',
+  Mine = 'm',
+  Suspense = 's'
 }
 
 export enum Game {

@@ -4,6 +4,7 @@ import Board from './Board';
 import styles from './Mines.module.css';
 import generateField, { getEmptyField } from './generateField';
 import deepClone from '../../../utils/deepClone';
+import hasUserWon from './hasUserWon';
 
 import { Field } from './types';
 import { Cell, Game } from './enums';
@@ -25,13 +26,18 @@ const Mines = () => {
         return;
       }
 
-      const clone = deepClone(userField);
+      const clone: Field = deepClone(userField);
 
       if (clone[y][x] === Cell.Flag) {
         setFlags(flag => flag - 1);
       }
 
       clone[y][x] = Cell.Open;
+
+      if (hasUserWon(clone, MINES)) {
+        setStatusGame(Game.Win);
+      }
+
       setUserField(clone);
     },
     [userField, field]
@@ -41,7 +47,7 @@ const Mines = () => {
     (y: number, x: number) => {
       if (userField[y][x] === Cell.Open) return;
 
-      const clone = deepClone(userField);
+      const clone: Field = deepClone(userField);
 
       if (clone[y][x] === Cell.Flag) {
         clone[y][x] = Cell.Suspense;

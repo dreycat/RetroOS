@@ -21,7 +21,7 @@ const Board: FC<IProps> = ({ field, handleLeftClick, handleRightClick }) => (
           y={y}
           handleLeftClick={handleLeftClick}
           handleRightClick={handleRightClick}
-          key={`${x + y}`}
+          key={x + y}
         />
       ))
     )}
