@@ -1,6 +1,9 @@
 export type Row = (number | string)[];
+
 export type Field = Row[];
-export type Coord = {
+
+export type Neighbor = {
   x: number;
   y: number;
+  value: string | number;
 };

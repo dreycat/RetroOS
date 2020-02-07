@@ -1,8 +1,9 @@
 import compose from '../../../utils/compose';
 
-import { Field, Row } from './types';
+import getNeighbors from './getNeighbors';
 import deepClone from '../../../utils/deepClone';
 import random from '../../../utils/random';
+import { Field, Neighbor } from './types';
 import { Cell } from './enums';
 
 const getEmptyField = (length: number, fill: number | string) => (): Field =>
@@ -23,27 +24,10 @@ const setMines = (mines: number) => (field: Field) => {
   return set(field, mines);
 };
 
-const getСell = (field: Field, y: number, x: number) => {
-  return field[y] && field[y][x] !== undefined ? field[y][x] : null;
-};
-
-const countMines = (neighbors: Row) => {
-  return neighbors.reduce((accum: number, curr: string | number) => {
-    return curr === Cell.Mine ? accum + 1 : accum;
+const countMines = (neighbors: Neighbor[]) => {
+  return neighbors.reduce((accum, curr) => {
+    return curr.value === Cell.Mine ? accum + 1 : accum;
   }, 0);
-};
-
-const getNeighbors = (field: Field, y: number, x: number) => {
-  return [
-    getСell(field, y, x + 1),
-    getСell(field, y, x - 1),
-    getСell(field, y - 1, x + 1),
-    getСell(field, y - 1, x),
-    getСell(field, y - 1, x - 1),
-    getСell(field, y + 1, x + 1),
-    getСell(field, y + 1, x),
-    getСell(field, y + 1, x - 1)
-  ].filter(cell => cell !== null) as (string | number)[];
 };
 
 const calc = (field: Field) => {
