@@ -1,11 +1,6 @@
-import { Field } from './types';
+import { Field, Coord } from './types';
 import { Cell } from './enums';
 import deepClone from '../../../utils/deepClone';
-
-type Coord = {
-  x: number;
-  y: number;
-};
 
 const getСell = (field: Field, y: number, x: number) => {
   return field[y] && field[y][x] !== undefined ? { y, x } : null;
@@ -29,10 +24,9 @@ export default (userField: Field, field: Field, y: number, x: number): Field => 
   cloneUserField[y][x] = Cell.Open;
 
   const opener = (y: number, x: number) => {
-    const neighbors = getNeighbors(cloneUserField, y, x);
-    neighbors.forEach(neighbor => {
-      const value = cloneUserField[neighbor.y][neighbor.x];
-      if (value !== Cell.Flag && value !== Cell.Open && value === Cell.Suspense) {
+    getNeighbors(cloneUserField, y, x).forEach(neighbor => {
+      const cell = cloneUserField[neighbor.y][neighbor.x];
+      if (cell !== Cell.Flag && cell !== Cell.Open && cell === Cell.Suspense) {
         cloneUserField[neighbor.y][neighbor.x] = Cell.Open;
         if (field[neighbor.y][neighbor.x] === 0) {
           opener(neighbor.y, neighbor.x);

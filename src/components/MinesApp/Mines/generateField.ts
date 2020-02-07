@@ -59,4 +59,4 @@ const calc = (field: Field) => {
 };
 
 export { getEmptyField };
-export default (size: number, mines: number): (() => Field) => compose(calc, setMines(mines), getEmptyField(size, 0));
+export default (size: number, mines: number) => compose(calc, setMines(mines), getEmptyField(size, 0));
