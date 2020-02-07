@@ -5,6 +5,7 @@ import styles from './Mines.module.css';
 import generateField, { getEmptyField } from './generateField';
 import deepClone from '../../../utils/deepClone';
 import hasUserWon from './hasUserWon';
+import clicker from './clicker';
 
 import { Field } from './types';
 import { Cell, Game } from './enums';
@@ -26,16 +27,16 @@ const Mines = () => {
         return;
       }
 
-      const clone: Field = deepClone(userField);
-
-      if (clone[y][x] === Cell.Flag) {
+      if (userField[y][x] === Cell.Flag) {
         setFlags(flag => flag - 1);
       }
 
-      clone[y][x] = Cell.Open;
+      const clone = clicker(userField, field, y, x);
 
       if (hasUserWon(clone, MINES)) {
         setStatusGame(Game.Win);
+        setUserField(clone);
+        return;
       }
 
       setUserField(clone);
@@ -82,6 +83,11 @@ const Mines = () => {
       {statusGame === Game.Fail && (
         <button className={styles.reset} onClick={reset}>
           New Game
+        </button>
+      )}
+      {statusGame === Game.Win && (
+        <button className={styles.reset} onClick={reset}>
+          Win!
         </button>
       )}
     </div>

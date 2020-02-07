@@ -24,7 +24,7 @@ const setMines = (mines: number) => (field: Field) => {
 };
 
 const getСell = (field: Field, y: number, x: number) => {
-  return field[y] ? field[y][x] : null;
+  return field[y] && field[y][x] !== undefined ? field[y][x] : null;
 };
 
 const countMines = (neighbors: Row) => {
@@ -33,7 +33,7 @@ const countMines = (neighbors: Row) => {
   }, 0);
 };
 
-const getNeighbors = (field: Field, y: number, x: number): Row => {
+const getNeighbors = (field: Field, y: number, x: number) => {
   return [
     getСell(field, y, x + 1),
     getСell(field, y, x - 1),
