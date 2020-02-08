@@ -19,14 +19,12 @@ type Body = string | number | ReactNode;
 
 interface IProps {
   value: string | number;
-  y: number;
   x: number;
-  handleLeftClick?: (x: number, y: number) => void;
-  handleRightClick?: (x: number, y: number) => void;
+  y: number;
   sellSize: number;
 }
 
-const Cell: FC<IProps> = ({ value, y, x, sellSize, handleLeftClick = () => {}, handleRightClick = () => {} }) => {
+const Cell: FC<IProps> = ({ value, x, y, sellSize }) => {
   let body: Body = null;
   let color = styles.empty;
 
@@ -45,12 +43,7 @@ const Cell: FC<IProps> = ({ value, y, x, sellSize, handleLeftClick = () => {}, h
   }
 
   return (
-    <li
-      style={{ width: sellSize, height: sellSize }}
-      className={`${styles.main} ${color}`}
-      onClick={() => handleLeftClick(y, x)}
-      onContextMenu={() => handleRightClick(y, x)}
-    >
+    <li style={{ width: sellSize, height: sellSize }} className={`${styles.main} ${color}`} data-x={x} data-y={y}>
       {body}
     </li>
   );

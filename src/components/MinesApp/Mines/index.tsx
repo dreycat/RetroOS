@@ -24,14 +24,14 @@ const Mines: FC<IProps> = ({ fieldWidth, fieldHeight, mines, sellSize }) => {
   const [statusGame, setStatusGame] = useState<Game>(Game.Process);
 
   const handleLeftClick = useCallback(
-    (y: number, x: number) => {
+    (x: number, y: number) => {
       if (userField[y][x] === Cell.Open || userField[y][x] === Cell.Flag) return;
       if (field[y][x] === Cell.Mine) {
         setStatusGame(Game.Fail);
         return;
       }
 
-      const cloneUserField = clicker(userField, field, y, x);
+      const cloneUserField = clicker(userField, field, x, y);
 
       if (hasUserWon(cloneUserField, mines)) {
         setStatusGame(Game.Win);
@@ -45,7 +45,7 @@ const Mines: FC<IProps> = ({ fieldWidth, fieldHeight, mines, sellSize }) => {
   );
 
   const handleRightClick = useCallback(
-    (y: number, x: number) => {
+    (x: number, y: number) => {
       if (userField[y][x] === Cell.Open) return;
 
       const cloneUserField: Field = deepClone(userField);

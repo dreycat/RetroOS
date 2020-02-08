@@ -35,7 +35,7 @@ const calc = (field: Field) => {
   for (let y = 0; y < field.length; y++) {
     for (let x = 0; x < field[0].length; x++) {
       if (field[y][x] !== Cell.Mine) {
-        field[y][x] = countMines(getNeighbors(field, y, x));
+        field[y][x] = countMines(getNeighbors(field, x, y));
       }
     }
   }
