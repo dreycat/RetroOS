@@ -11,13 +11,15 @@ import { Field } from './types';
 import { Cell, Game } from './enums';
 
 interface IProps {
-  size: number;
+  fieldWidth: number;
+  fieldHeight: number;
   mines: number;
+  sellSize: number;
 }
 
-const Mines: FC<IProps> = ({ size, mines }) => {
-  const [field, setField] = useState<Field>(generateField(size, mines));
-  const [userField, setUserField] = useState<Field>(getEmptyField(size, Cell.Suspense));
+const Mines: FC<IProps> = ({ fieldWidth, fieldHeight, mines, sellSize }) => {
+  const [field, setField] = useState<Field>(generateField(fieldWidth, fieldHeight, mines));
+  const [userField, setUserField] = useState<Field>(getEmptyField(fieldWidth, fieldHeight, Cell.Suspense));
   const [flags, setFlags] = useState(0);
   const [statusGame, setStatusGame] = useState<Game>(Game.Process);
 
@@ -66,17 +68,24 @@ const Mines: FC<IProps> = ({ size, mines }) => {
   );
 
   const reset = useCallback(() => {
-    setField(generateField(size, mines));
-    setUserField(getEmptyField(size, Cell.Suspense));
+    setField(generateField(fieldWidth, fieldHeight, mines));
+    setUserField(getEmptyField(fieldWidth, fieldHeight, Cell.Suspense));
     setFlags(0);
     setStatusGame(Game.Process);
-  }, [mines, size]);
+  }, [fieldWidth, fieldHeight, mines]);
 
   return (
-    <div className={styles.wrapper} style={{ width: size * 32, height: size * 32 }}>
-      <Board field={field} size={size} />
+    <div className={styles.wrapper} style={{ width: fieldWidth * sellSize, height: fieldHeight * sellSize }}>
+      <Board field={field} fieldWidth={fieldWidth} fieldHeight={fieldHeight} sellSize={sellSize} />
       {statusGame !== Game.Fail && (
-        <Board field={userField} size={size} handleLeftClick={handleLeftClick} handleRightClick={handleRightClick} />
+        <Board
+          field={userField}
+          fieldWidth={fieldWidth}
+          fieldHeight={fieldHeight}
+          sellSize={sellSize}
+          handleLeftClick={handleLeftClick}
+          handleRightClick={handleRightClick}
+        />
       )}
       {statusGame === Game.Fail && (
         <button className={styles.reset} onClick={reset}>

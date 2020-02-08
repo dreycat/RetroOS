@@ -23,9 +23,10 @@ interface IProps {
   x: number;
   handleLeftClick?: (x: number, y: number) => void;
   handleRightClick?: (x: number, y: number) => void;
+  sellSize: number;
 }
 
-const Cell: FC<IProps> = ({ value, y, x, handleLeftClick = () => {}, handleRightClick = () => {} }) => {
+const Cell: FC<IProps> = ({ value, y, x, sellSize, handleLeftClick = () => {}, handleRightClick = () => {} }) => {
   let body: Body = null;
   let color = styles.empty;
 
@@ -45,6 +46,7 @@ const Cell: FC<IProps> = ({ value, y, x, handleLeftClick = () => {}, handleRight
 
   return (
     <li
+      style={{ width: sellSize, height: sellSize }}
       className={`${styles.main} ${color}`}
       onClick={() => handleLeftClick(y, x)}
       onContextMenu={() => handleRightClick(y, x)}
