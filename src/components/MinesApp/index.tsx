@@ -1,7 +1,7 @@
 import React from 'react';
 
 import Application from '../Application';
-import Mines from './Mines';
+import FirstScreen from './FirstScreen';
 import isMobile from '../../utils/isMobile';
 
 import { ReactComponent as Icon } from './images/icon.svg';
@@ -17,7 +17,7 @@ const MinesApp = () => {
       defaultWindowPosition={defaultWindowPosition}
       icon={<Icon height={36} width={36} />}
     >
-      <Mines />
+      <FirstScreen />
     </Application>
   );
 };

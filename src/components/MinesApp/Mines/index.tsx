@@ -1,4 +1,4 @@
-import React, { useState, useCallback } from 'react';
+import React, { FC, useState, useCallback } from 'react';
 
 import Board from './Board';
 import styles from './Mines.module.css';
@@ -10,12 +10,14 @@ import clicker from './clicker';
 import { Field } from './types';
 import { Cell, Game } from './enums';
 
-const MINES = 10;
-const FIELD_SIZE = 8;
+interface IProps {
+  size: number;
+  mines: number;
+}
 
-const Mines = () => {
-  const [field, setField] = useState<Field>(generateField(FIELD_SIZE, MINES));
-  const [userField, setUserField] = useState<Field>(getEmptyField(FIELD_SIZE, Cell.Suspense));
+const Mines: FC<IProps> = ({ size, mines }) => {
+  const [field, setField] = useState<Field>(generateField(size, mines));
+  const [userField, setUserField] = useState<Field>(getEmptyField(size, Cell.Suspense));
   const [flags, setFlags] = useState(0);
   const [statusGame, setStatusGame] = useState<Game>(Game.Process);
 
@@ -29,7 +31,7 @@ const Mines = () => {
 
       const cloneUserField = clicker(userField, field, y, x);
 
-      if (hasUserWon(cloneUserField, MINES)) {
+      if (hasUserWon(cloneUserField, mines)) {
         setStatusGame(Game.Win);
         setUserField(cloneUserField);
         return;
@@ -37,7 +39,7 @@ const Mines = () => {
 
       setUserField(cloneUserField);
     },
-    [userField, field]
+    [userField, field, mines]
   );
 
   const handleRightClick = useCallback(
@@ -53,28 +55,28 @@ const Mines = () => {
         return;
       }
 
-      if (flags < MINES) {
+      if (flags < mines) {
         cloneUserField[y][x] = Cell.Flag;
         setFlags(flag => flag + 1);
         setUserField(cloneUserField);
         return;
       }
     },
-    [userField, flags]
+    [userField, flags, mines]
   );
 
   const reset = useCallback(() => {
-    setField(generateField(FIELD_SIZE, MINES));
-    setUserField(getEmptyField(FIELD_SIZE, Cell.Suspense));
+    setField(generateField(size, mines));
+    setUserField(getEmptyField(size, Cell.Suspense));
     setFlags(0);
     setStatusGame(Game.Process);
-  }, []);
+  }, [mines, size]);
 
   return (
-    <div className={styles.wrapper}>
-      <Board field={field} />
+    <div className={styles.wrapper} style={{ width: size * 32, height: size * 32 }}>
+      <Board field={field} size={size} />
       {statusGame !== Game.Fail && (
-        <Board field={userField} handleLeftClick={handleLeftClick} handleRightClick={handleRightClick} />
+        <Board field={userField} size={size} handleLeftClick={handleLeftClick} handleRightClick={handleRightClick} />
       )}
       {statusGame === Game.Fail && (
         <button className={styles.reset} onClick={reset}>
