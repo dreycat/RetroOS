@@ -76,7 +76,7 @@ const Mines: FC<IProps> = ({ fieldWidth, fieldHeight, mines, sellSize }) => {
 
   return (
     <div className={styles.wrapper} style={{ width: fieldWidth * sellSize, height: fieldHeight * sellSize }}>
-      <Board field={field} fieldWidth={fieldWidth} fieldHeight={fieldHeight} sellSize={sellSize} />
+      <Board field={field} fieldWidth={fieldWidth} fieldHeight={fieldHeight} sellSize={sellSize} zIndex={10} />
       {statusGame !== Game.Fail && (
         <Board
           field={userField}
@@ -85,15 +85,16 @@ const Mines: FC<IProps> = ({ fieldWidth, fieldHeight, mines, sellSize }) => {
           sellSize={sellSize}
           handleLeftClick={handleLeftClick}
           handleRightClick={handleRightClick}
+          zIndex={11}
         />
       )}
       {statusGame === Game.Fail && (
-        <button className={styles.reset} onClick={reset}>
+        <button className={styles.reset} onClick={reset} style={{ zIndex: 12 }}>
           New Game
         </button>
       )}
       {statusGame === Game.Win && (
-        <button className={styles.reset} onClick={reset}>
+        <button className={styles.reset} onClick={reset} style={{ zIndex: 13 }}>
           Win!
         </button>
       )}

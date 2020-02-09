@@ -28,7 +28,7 @@ const FirstScreen = () => {
         onClick={() => {
           const fieldWidth = Math.floor(window.innerWidth / CELL_SIZE) - 3;
           const fieldHeight = Math.floor(window.innerHeight / CELL_SIZE) - 3;
-          const mines = Math.floor((fieldHeight * fieldWidth) / 8);
+          const mines = Math.floor((fieldHeight * fieldWidth) / 5);
           handleClick(fieldWidth, fieldHeight, mines);
         }}
       >

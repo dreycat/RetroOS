@@ -1,6 +1,7 @@
-import React, { FC } from 'react';
+import React, { FC, useRef, useEffect } from 'react';
 
-import Cell from '../Cell';
+import renderCell from '../Cell/renderCell';
+import renderGrid from '../Cell/renderGrid';
 import styles from './Board.module.css';
 
 import { Field } from '../types';
@@ -10,27 +11,46 @@ interface IProps {
   fieldHeight: number;
   sellSize: number;
   field: Field;
+  zIndex: number;
   handleLeftClick?: (x: number, y: number) => void;
   handleRightClick?: (x: number, y: number) => void;
 }
+
+const SCALE = window.devicePixelRatio || 2;
 
 const Board: FC<IProps> = ({
   fieldWidth,
   fieldHeight,
   sellSize,
   field,
+  zIndex,
   handleLeftClick = () => {},
   handleRightClick = () => {}
 }) => {
+  const canvas = useRef<HTMLCanvasElement>(null);
+
+  const width = fieldWidth * sellSize;
+  const height = fieldHeight * sellSize;
+
+  useEffect(() => {
+    const ctx = canvas.current?.getContext('2d');
+    if (!ctx || !canvas.current) return;
+
+    canvas.current.width = width * SCALE;
+    canvas.current.height = height * SCALE;
+
+    ctx.scale(SCALE, SCALE);
+    ctx.clearRect(0, 0, width, height);
+
+    field.forEach((row, y) => row.forEach((value, x) => renderCell(ctx, x, y, value, sellSize)));
+
+    renderGrid(ctx, width, height, sellSize);
+  }, [canvas, width, height, field, sellSize]);
+
   const onClick = (event: React.MouseEvent) => {
-    // @ts-ignore
-    const cell = event.nativeEvent.target?.closest('li');
-    console.dir(event.nativeEvent.target);
-    if (!cell || !cell.dataset.x || !cell.dataset.y) {
-      return;
-    }
-    const x = parseInt(cell.dataset.x, 10);
-    const y = parseInt(cell.dataset.y, 10);
+    const x = Math.floor(event.nativeEvent.offsetX / sellSize);
+    const y = Math.floor(event.nativeEvent.offsetY / sellSize);
+
     if (event.button === 0) {
       handleLeftClick(x, y);
     } else if (event.button === 2) {
@@ -39,14 +59,13 @@ const Board: FC<IProps> = ({
   };
 
   return (
-    <ul
+    <canvas
       className={styles.main}
-      style={{ width: fieldWidth * sellSize, height: fieldHeight * sellSize }}
+      ref={canvas}
+      style={{ width, height, zIndex }}
       onClick={onClick}
       onContextMenu={onClick}
-    >
-      {field.map((row, y) => row.map((cell, x) => <Cell x={x} y={y} key={x + y} value={cell} sellSize={sellSize} />))}
-    </ul>
+    />
   );
 };
 
