@@ -3,11 +3,6 @@ const font =
   '16px -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, ' +
   'Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif';
 
-type Coord = {
-  x: number;
-  y: number;
-};
-
 const drawNumber = (ctx: CanvasRenderingContext2D, x: number, y: number, value: any, sellSize: number) => {
   const cx = x * sellSize;
   const cy = y * sellSize;

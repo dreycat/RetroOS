@@ -5,6 +5,7 @@ import styles from './Mines.module.css';
 import generateField, { getEmptyField } from './generateField';
 import deepClone from '../../../utils/deepClone';
 import hasUserWon from './hasUserWon';
+import Header from './Header';
 import clicker from './clicker';
 
 import { Field } from './types';
@@ -21,7 +22,7 @@ const Mines: FC<IProps> = ({ fieldWidth, fieldHeight, mines, sellSize }) => {
   const [field, setField] = useState<Field>(generateField(fieldWidth, fieldHeight, mines));
   const [userField, setUserField] = useState<Field>(getEmptyField(fieldWidth, fieldHeight, Cell.Suspense));
   const [flags, setFlags] = useState(0);
-  const [statusGame, setStatusGame] = useState<Game>(Game.Process);
+  const [statusGame, setStatusGame] = useState<Game>(Game.Start);
 
   const handleLeftClick = useCallback(
     (x: number, y: number) => {
@@ -71,33 +72,31 @@ const Mines: FC<IProps> = ({ fieldWidth, fieldHeight, mines, sellSize }) => {
     setField(generateField(fieldWidth, fieldHeight, mines));
     setUserField(getEmptyField(fieldWidth, fieldHeight, Cell.Suspense));
     setFlags(0);
-    setStatusGame(Game.Process);
+    setStatusGame(Game.Start);
   }, [fieldWidth, fieldHeight, mines]);
 
   return (
-    <div className={styles.wrapper} style={{ width: fieldWidth * sellSize, height: fieldHeight * sellSize }}>
-      <Board field={field} fieldWidth={fieldWidth} fieldHeight={fieldHeight} sellSize={sellSize} zIndex={10} />
-      {statusGame !== Game.Fail && (
-        <Board
-          field={userField}
-          fieldWidth={fieldWidth}
-          fieldHeight={fieldHeight}
-          sellSize={sellSize}
-          handleLeftClick={handleLeftClick}
-          handleRightClick={handleRightClick}
-          zIndex={11}
-        />
-      )}
-      {statusGame === Game.Fail && (
-        <button className={styles.reset} onClick={reset} style={{ zIndex: 12 }}>
-          New Game
-        </button>
-      )}
-      {statusGame === Game.Win && (
-        <button className={styles.reset} onClick={reset} style={{ zIndex: 13 }}>
-          Win!
-        </button>
-      )}
+    <div>
+      <Header flags={flags} mines={mines} statusGame={statusGame} />
+      <div className={styles.wrapper} style={{ width: fieldWidth * sellSize, height: fieldHeight * sellSize }}>
+        <Board field={field} fieldWidth={fieldWidth} fieldHeight={fieldHeight} sellSize={sellSize} zIndex={10} />
+        {statusGame !== Game.Fail && (
+          <Board
+            field={userField}
+            fieldWidth={fieldWidth}
+            fieldHeight={fieldHeight}
+            sellSize={sellSize}
+            handleLeftClick={handleLeftClick}
+            handleRightClick={handleRightClick}
+            zIndex={11}
+          />
+        )}
+        {(statusGame === Game.Fail || statusGame === Game.Win) && (
+          <button className={styles.reset} onClick={reset} style={{ zIndex: 12 }}>
+            New Game
+          </button>
+        )}
+      </div>
     </div>
   );
 };

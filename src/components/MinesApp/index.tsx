@@ -8,7 +8,7 @@ import { ReactComponent as Icon } from './images/icon.svg';
 
 const MinesApp = () => {
   const defaultIconPosition = isMobile() ? { top: 354, left: 32 } : { top: 412, left: 75 };
-  const defaultWindowPosition = isMobile() ? { top: 24, left: window.innerWidth - 300 } : { top: 205, left: 816 };
+  const defaultWindowPosition = { top: 47, left: 54 };
 
   return (
     <Application

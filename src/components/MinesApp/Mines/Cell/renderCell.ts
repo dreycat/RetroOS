@@ -1,5 +1,6 @@
 import { Cell } from '../enums';
-import { drawFlag, drawNumber, drawOpenCell, drawSuspense, drawMine } from './painter';
+import { drawFlag, drawNumber, drawOpenCell, drawSuspense } from './painter';
+import drawMine from './drawMine';
 
 const mapper = {
   [Cell.Flag]: drawFlag,

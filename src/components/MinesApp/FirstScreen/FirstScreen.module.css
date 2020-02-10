@@ -1,0 +1,25 @@
+.main {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  width: 380px;
+  padding: 16px;
+  background-color: #dee1e6;
+}
+
+.button {
+  border: none;
+  width: calc(50% - 32px);
+  padding: 16px 0;
+  margin: 16px;
+  font-family: 'Roboto Mono', monospace;
+  font-size: 18px;
+  line-height: 26px;
+  background-color: var(--main-color);
+}
+
+.mines {
+  display: block;
+  font-size: 14px;
+  color: #232323;
+}

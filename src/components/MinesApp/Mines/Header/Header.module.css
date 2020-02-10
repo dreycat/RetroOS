@@ -1,0 +1,60 @@
+.main {
+  display: flex;
+  position: relative;
+  justify-content: space-between;
+  width: 100%;
+  padding: 8px;
+  background-color: rgb(33, 32, 47);
+  color: #faebd7;
+  line-height: 1;
+  font-family: 'Roboto Mono', monospace;
+  overflow: hidden;
+}
+
+.flags {
+  display: flex;
+  align-items: center;
+}
+
+.flagIcon {
+  margin-right: 8px;
+}
+
+.wrapper {
+  position: relative;
+}
+
+.balloon,
+.balloonTwo {
+  position: absolute;
+}
+
+.balloon {
+  top: -40px;
+  right: calc(100% + 6px);
+  animation: move 2.5s linear infinite both;
+}
+
+.balloonTwo {
+  top: -50px;
+  left: 100%;
+  animation: moveTwo 3.5s linear infinite both;
+}
+
+@keyframes move {
+  from {
+    top: 40px;
+  }
+  to {
+    top: -40px;
+  }
+}
+
+@keyframes moveTwo {
+  from {
+    top: 50px;
+  }
+  to {
+    top: -50px;
+  }
+}

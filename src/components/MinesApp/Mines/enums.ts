@@ -8,5 +8,5 @@ export enum Cell {
 export enum Game {
   Win = 'win',
   Fail = 'fail',
-  Process = 'process'
+  Start = 'start'
 }
