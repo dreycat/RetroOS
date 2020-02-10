@@ -2,15 +2,26 @@
   position: relative;
 }
 
-.reset {
+.background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 12;
+}
+
+.resetButton {
   position: absolute;
   top: 50%;
   left: 50%;
+  padding: 8px 16px;
   transform: translate(-50%, -50%);
-  background-color: #ccc;
+  background-color: #acb1c6;
   border-bottom: 2px solid #7d7d7d;
   border-top: 2px solid #fff;
   border-left: 2px solid #fff;
   border-right: 2px solid #7d7d7d;
-  padding: 8px 16px;
+  z-index: 13;
 }

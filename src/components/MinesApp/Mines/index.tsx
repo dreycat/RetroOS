@@ -92,9 +92,11 @@ const Mines: FC<IProps> = ({ fieldWidth, fieldHeight, mines, sellSize }) => {
           />
         )}
         {(statusGame === Game.Fail || statusGame === Game.Win) && (
-          <button className={styles.reset} onClick={reset} style={{ zIndex: 12 }}>
-            New Game
-          </button>
+          <div className={styles.background}>
+            <button className={styles.resetButton} onClick={reset}>
+              New Game
+            </button>
+          </div>
         )}
       </div>
     </div>
