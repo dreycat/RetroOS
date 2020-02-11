@@ -13,8 +13,8 @@ const setMines = (mines: number) => (field: Field) => {
   field = deepClone(field);
   const set = (field: Field, mines: number): Field => {
     if (!mines) return field;
-    const y = random(field.length);
-    const x = random(field[0].length);
+    const y = random(0, field.length);
+    const x = random(0, field[0].length);
     if (field[y][x] !== Cell.Mine) {
       field[y][x] = Cell.Mine;
       mines -= 1;
