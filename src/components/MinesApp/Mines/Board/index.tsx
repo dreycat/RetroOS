@@ -1,7 +1,7 @@
 import React, { FC, useRef, useEffect } from 'react';
 
-import renderCell from '../Cell/renderCell';
-import renderGrid from '../Cell/renderGrid';
+import renderCell from '../Cell';
+import renderGrid from './renderGrid';
 import styles from './Board.module.css';
 
 import { Field } from '../types';
