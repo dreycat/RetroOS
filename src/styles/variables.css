@@ -1,11 +1,11 @@
 :root {
   --main-color: rgb(173, 177, 198);
   --main-bg-color: rgb(100, 98, 145);
-  --main-bg-image: url(../static/wallpapers/wp1.jpg);
+  --main-bg-image: url('/static/wallpapers/wp1.jpg');
 }
 
 :root.two {
   --main-color: rgb(194, 198, 173);
   --main-bg-color: rgb(125, 145, 98);
-  --main-bg-image: url(../static/wallpapers/wp0.jpg);
+  --main-bg-image: url('/static/wallpapers/wp0.jpg');
 }
