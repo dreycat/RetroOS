@@ -1,4 +1,4 @@
 export default () => {
   localStorage.clear();
-  window.location.reload();
+  return 'clear local storage';
 };

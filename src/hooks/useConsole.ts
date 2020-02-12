@@ -2,6 +2,8 @@ import { useState, useCallback } from 'react';
 
 import apps from '../components/ConsoleApp/apps';
 
+type Apps = keyof typeof apps;
+
 interface IMessage {
   text: string;
 }
@@ -17,8 +19,7 @@ export default () => {
         setMessages([]);
         return;
       }
-      // @ts-ignore
-      const app = apps[command] || apps.default;
+      const app = apps[command as Apps] || apps.default;
       const text = app(arg);
       setMessages([...messages, { text: `${userPrefix} ${raw}` }, { text }]);
     },
