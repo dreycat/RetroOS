@@ -1,4 +1,4 @@
 export default () => {
   localStorage.clear();
-  return 'clear local storage';
+  return 'cleared local storage';
 };
