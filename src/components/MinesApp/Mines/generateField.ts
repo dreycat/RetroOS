@@ -1,5 +1,4 @@
 import compose from '../../../utils/compose';
-import tap from '../../../utils/tap';
 import getNeighbors from './getNeighbors';
 import deepClone from '../../../utils/deepClone';
 import random from '../../../utils/random';
@@ -44,11 +43,4 @@ const calc = (field: Field) => {
 
 export { getEmptyField };
 export default (fieldWidth: number, fieldHeight: number, mines: number) =>
-  compose(
-    tap('calc'),
-    calc,
-    tap('set mines'),
-    setMines(mines),
-    tap('empty'),
-    getEmptyField(fieldWidth, fieldHeight, 0)
-  );
+  compose(calc, setMines(mines), getEmptyField(fieldWidth, fieldHeight, 0));
