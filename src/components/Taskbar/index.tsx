@@ -6,7 +6,7 @@ import styles from './Taskbar.module.css';
 
 const Taskbar = () => (
   <div className={styles.main} onContextMenu={e => e.preventDefault()}>
-    <span className={styles.logo}>RetroOS</span>
+    <h1 className={styles.logo}>RetroOS</h1>
     <div className={styles.expander} />
     <Clock />
     <FullScreen />
