@@ -4,6 +4,7 @@ import Icon from '../Icon';
 import Window from '../Window';
 import useWindow from '../../hooks/useWindow';
 import useIcon from '../../hooks/useIcon';
+import ApplicationErrorBoundary from '../ApplicationErrorBoundary';
 
 import { ICoords } from '../../interfaces';
 
@@ -21,7 +22,7 @@ const Application: FC<IProps> = ({ name, icon, defaultWindowPosition, defaultIco
   return (
     <>
       <Window isOpen={isOpen} name={name} onClose={onClose} defaultPosition={defaultWindowPosition}>
-        {children}
+        <ApplicationErrorBoundary>{children}</ApplicationErrorBoundary>
       </Window>
       <Icon
         name={name}
