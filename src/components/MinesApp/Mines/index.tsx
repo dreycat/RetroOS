@@ -32,15 +32,15 @@ const Mines: FC<IProps> = ({ fieldWidth, fieldHeight, mines, sellSize }) => {
         return;
       }
 
-      const cloneUserField = clicker(userField, field, x, y);
+      const newUserField = clicker(userField, field, x, y);
 
-      if (hasUserWon(cloneUserField, mines)) {
+      if (hasUserWon(newUserField, mines)) {
         setStatusGame(Game.Win);
-        setUserField(cloneUserField);
+        setUserField(newUserField);
         return;
       }
 
-      setUserField(cloneUserField);
+      setUserField(newUserField);
     },
     [userField, field, mines]
   );
