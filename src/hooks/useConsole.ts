@@ -1,6 +1,6 @@
 import { useState, useCallback } from 'react';
 
-import apps from '../components/ConsoleApp/apps';
+import apps from '../components/Console/apps';
 
 type Apps = keyof typeof apps;
 

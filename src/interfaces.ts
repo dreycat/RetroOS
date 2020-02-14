@@ -9,3 +9,8 @@ export interface ITrack {
   url: string;
   title: string;
 }
+
+export interface IWindowSize {
+  height: number;
+  width: number;
+}
