@@ -33,8 +33,8 @@ const ContextMenu = () => {
     };
   }, [isOpen]);
 
-  const toggleSettings = useCallback(() => {
-    dispatch({ type: 'toggle', payload: 'settings' });
+  const openSettings = useCallback(() => {
+    dispatch({ type: 'open', payload: 'settings' });
   }, [dispatch]);
 
   return (
@@ -47,7 +47,7 @@ const ContextMenu = () => {
           ref={menuEl}
           onContextMenu={e => e.preventDefault()}
         >
-          <li className={styles.item} onClick={toggleSettings}>
+          <li className={styles.item} onClick={openSettings}>
             Settings
           </li>
           <li className={styles.item} onClick={reset}>
