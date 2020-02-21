@@ -4,7 +4,8 @@ import Taskbar from '../Taskbar';
 import AudioPlayerApp from '../Apps/AudioPlayerApp';
 import ConsoleApp from '../Apps/ConsoleApp';
 import ToDoApp from '../Apps/ToDoApp';
-import Mines from '../Apps/MinesApp';
+import MinesApp from '../Apps/MinesApp';
+import SettingsApp from '../Apps/SettingsApp';
 import ContexMenu from '../ContextMenu';
 import styles from './Desktop.module.css';
 
@@ -14,7 +15,8 @@ const Desktop: FC = () => (
     <AudioPlayerApp />
     <ConsoleApp />
     <ToDoApp />
-    <Mines />
+    <MinesApp />
+    <SettingsApp />
     <ContexMenu />
   </div>
 );

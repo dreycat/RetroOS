@@ -1,5 +1,6 @@
-import React, { useState, useCallback, useEffect, useRef } from 'react';
+import React, { useState, useContext, useCallback, useEffect, useRef } from 'react';
 
+import { OpenerContext } from '../../contexts/OpenerProvider';
 import styles from './ContextMenu.module.css';
 
 const SHIFT_MENU = 4;
@@ -12,6 +13,7 @@ const reset = () => {
 const ContextMenu = () => {
   const [coords, setCoords] = useState();
   const [isOpen, setOpen] = useState(false);
+  const { dispatch } = useContext(OpenerContext);
   const menuEl = useRef<HTMLUListElement>(null);
 
   const contextHandler = useCallback((event: React.MouseEvent) => {
@@ -20,21 +22,20 @@ const ContextMenu = () => {
     setOpen(true);
   }, []);
 
-  const onClickOutsideHandler = useCallback(
-    event => {
-      if (isOpen && !menuEl.current!.contains(event.target)) {
-        setOpen(false);
-      }
-    },
-    [isOpen]
-  );
-
   useEffect(() => {
-    window.addEventListener('click', onClickOutsideHandler);
-    return () => {
-      window.removeEventListener('click', onClickOutsideHandler);
+    const closeMenu = () => {
+      if (!isOpen) return;
+      setOpen(false);
     };
-  }, [onClickOutsideHandler]);
+    window.addEventListener('click', closeMenu);
+    return () => {
+      window.removeEventListener('click', closeMenu);
+    };
+  }, [isOpen]);
+
+  const toggleSettings = useCallback(() => {
+    dispatch({ type: 'toggle', payload: 'settings' });
+  }, [dispatch]);
 
   return (
     <>
@@ -46,7 +47,9 @@ const ContextMenu = () => {
           ref={menuEl}
           onContextMenu={e => e.preventDefault()}
         >
-          <li className={styles.item}>Settings</li>
+          <li className={styles.item} onClick={toggleSettings}>
+            Settings
+          </li>
           <li className={styles.item} onClick={reset}>
             Reset
           </li>
