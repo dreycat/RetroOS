@@ -8,14 +8,15 @@ import { Apps } from '../../types';
 
 interface IProps {
   name: Apps;
+  label: string;
   defaultWindowPosition: ICoords;
 }
 
-const ContextApplication: FC<IProps> = ({ name, defaultWindowPosition, children }) => {
+const ContextApplication: FC<IProps> = ({ name, label, defaultWindowPosition, children }) => {
   const { isOpen, onClose } = useWindow(name);
 
   return (
-    <Window name={name} isOpen={isOpen} onClose={onClose} defaultPosition={defaultWindowPosition}>
+    <Window name={name} label={label} isOpen={isOpen} onClose={onClose} defaultPosition={defaultWindowPosition}>
       <ApplicationErrorBoundary>{children}</ApplicationErrorBoundary>
     </Window>
   );

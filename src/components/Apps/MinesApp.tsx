@@ -12,7 +12,7 @@ const MinesApp = () => {
   return (
     <Application
       name="mines"
-      iconTitle="Mines"
+      label="Mines"
       defaultIconPosition={defaultIconPosition}
       defaultWindowPosition={defaultWindowPosition}
       icon={<Icon height={36} width={36} />}

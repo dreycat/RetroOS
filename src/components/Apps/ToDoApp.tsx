@@ -13,7 +13,7 @@ const ToDoApp = () => {
   return (
     <Application
       name="todo"
-      iconTitle="ToDo"
+      label="ToDo"
       defaultIconPosition={defaultIconPosition}
       defaultWindowPosition={defaultWindowPosition}
       icon={<Icon width={46} height={46} />}

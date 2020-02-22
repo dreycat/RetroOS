@@ -8,6 +8,7 @@ import styles from './Window.module.css';
 
 interface IProps {
   name: Apps;
+  label: string;
   onClose: () => void;
   defaultPosition: ICoords;
 }
@@ -114,7 +115,7 @@ class Window extends Component<IProps> {
   }
 
   render() {
-    const { name, children, onClose } = this.props;
+    const { label, children, onClose } = this.props;
     return (
       <div
         className={styles.main}
@@ -124,7 +125,7 @@ class Window extends Component<IProps> {
       >
         <div className={styles.header} ref={this.headerEl} onMouseDown={this.startDrag}>
           <h2 className={styles.name} draggable="false">
-            {name}
+            {label}
           </h2>
           <div className={styles.decor} />
           <button className={styles.close} onClick={onClose} />

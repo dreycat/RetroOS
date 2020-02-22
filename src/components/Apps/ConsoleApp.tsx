@@ -13,7 +13,7 @@ const ConsoleApp = () => {
   return (
     <Application
       name="console"
-      iconTitle="Console"
+      label="Console"
       icon={<Icon width={36} height={36} />}
       defaultIconPosition={defaultIconPosition}
       defaultWindowPosition={defaultWindowPosition}

@@ -7,7 +7,7 @@ const SettingsApp = () => {
   const defaultWindowPosition = { top: 163, left: 716 };
 
   return (
-    <ContextApplication name="settings" defaultWindowPosition={defaultWindowPosition}>
+    <ContextApplication name="settings" label="Settings" defaultWindowPosition={defaultWindowPosition}>
       <Settings />
     </ContextApplication>
   );

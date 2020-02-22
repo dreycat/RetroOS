@@ -12,7 +12,7 @@ const AudioPlayerApp = () => {
   return (
     <Application
       name="audioplayer"
-      iconTitle="Audio Player"
+      label="Audio Player"
       icon={<Icon width={40} height={40} />}
       defaultIconPosition={defaultIconPosition}
       defaultWindowPosition={defaultWindowPosition}

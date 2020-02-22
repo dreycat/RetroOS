@@ -4,7 +4,7 @@ import { ICoords } from '../../interfaces';
 import styles from './Icon.module.css';
 
 interface IProps {
-  title: string;
+  label: string;
   top: number;
   left: number;
   saveIconPosition: (coords: ICoords) => void;
@@ -89,7 +89,7 @@ class Icon extends Component<IProps> {
   }
 
   render() {
-    const { title, top, left } = this.props;
+    const { label, top, left } = this.props;
     return (
       <div
         className={styles.main}
@@ -100,7 +100,7 @@ class Icon extends Component<IProps> {
         onContextMenu={e => e.preventDefault()}
       >
         {this.props.children}
-        <span className={styles.name}>{title}</span>
+        <span className={styles.name}>{label}</span>
       </div>
     );
   }
