@@ -1,13 +1,13 @@
 import React, { FC } from 'react';
 
 import Desktop from './Desktop';
-import OpenerProvider from '../contexts/OpenerProvider';
+import WindowsProvider from '../contexts/WindowsProvider';
 
 const App: FC = () => {
   return (
-    <OpenerProvider>
+    <WindowsProvider>
       <Desktop />
-    </OpenerProvider>
+    </WindowsProvider>
   );
 };
 

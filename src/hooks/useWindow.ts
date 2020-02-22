@@ -1,10 +1,10 @@
 import { useContext, useCallback } from 'react';
 
-import { OpenerContext } from '../contexts/OpenerProvider';
+import { WindowsContext } from '../contexts/WindowsProvider';
 import { Apps } from '../types';
 
 export default (name: Apps) => {
-  const { state, dispatch } = useContext(OpenerContext);
+  const { state, dispatch } = useContext(WindowsContext);
 
   const isOpen = state[name] ?? false;
 
