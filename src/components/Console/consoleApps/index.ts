@@ -5,7 +5,7 @@ import date from './date';
 import help from './help';
 import reset from './reset';
 
-const apps = {
+const consoleApps = {
   cowsay,
   release,
   date,
@@ -14,4 +14,4 @@ const apps = {
   default: error
 };
 
-export default apps;
+export default consoleApps;

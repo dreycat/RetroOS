@@ -1,22 +1,18 @@
-import React, { FC, useContext, useCallback } from 'react';
+import React, { FC } from 'react';
 
 import Window from '../Window';
 import ApplicationErrorBoundary from '../ApplicationErrorBoundary';
-import { OpenerContext, ContextApps } from '../../contexts/OpenerProvider';
+import useWindow from '../../hooks/useWindow';
 import { ICoords } from '../../interfaces';
+import { Apps } from '../../types';
 
 interface IProps {
-  name: ContextApps;
+  name: Apps;
   defaultWindowPosition: ICoords;
 }
 
 const ContextApplication: FC<IProps> = ({ name, defaultWindowPosition, children }) => {
-  const { state, dispatch } = useContext(OpenerContext);
-
-  const isOpen = state[name];
-  const onClose = useCallback(() => {
-    dispatch({ type: 'close', payload: name });
-  }, [dispatch, name]);
+  const { isOpen, onClose } = useWindow(name);
 
   return (
     <Window name={name} isOpen={isOpen} onClose={onClose} defaultPosition={defaultWindowPosition}>

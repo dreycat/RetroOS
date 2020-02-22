@@ -1,6 +1,6 @@
-import React, { useState, useContext, useCallback, useEffect, useRef } from 'react';
+import React, { useState, useCallback, useEffect, useRef } from 'react';
 
-import { OpenerContext } from '../../contexts/OpenerProvider';
+import useWindow from '../../hooks/useWindow';
 import styles from './ContextMenu.module.css';
 
 const SHIFT_MENU = 4;
@@ -13,8 +13,8 @@ const reset = () => {
 const ContextMenu = () => {
   const [coords, setCoords] = useState();
   const [isOpen, setOpen] = useState(false);
-  const { dispatch } = useContext(OpenerContext);
   const menuEl = useRef<HTMLUListElement>(null);
+  const { onOpen: openSettings } = useWindow('settings');
 
   const contextHandler = useCallback((event: React.MouseEvent) => {
     event.preventDefault();
@@ -32,10 +32,6 @@ const ContextMenu = () => {
       window.removeEventListener('click', closeMenu);
     };
   }, [isOpen]);
-
-  const openSettings = useCallback(() => {
-    dispatch({ type: 'open', payload: 'settings' });
-  }, [dispatch]);
 
   return (
     <>

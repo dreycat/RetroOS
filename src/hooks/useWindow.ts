@@ -1,21 +1,30 @@
-import { useState, useEffect, useCallback, useMemo } from 'react';
+import { useContext, useCallback } from 'react';
 
-import getStorageData from '../utils/getStarogeData';
+import { OpenerContext } from '../contexts/OpenerProvider';
 
-export default (name: string) => {
-  const storageName = useMemo(() => `${name.toLowerCase()}_window_is_open`, [name]);
-  const [isOpen, setOpen] = useState<boolean>(getStorageData(storageName, false));
+import { Apps } from '../types';
 
-  useEffect(() => {
-    localStorage.setItem(storageName, JSON.stringify(isOpen));
-  }, [isOpen, storageName]);
+export default (name: Apps) => {
+  const { state, dispatch } = useContext(OpenerContext);
 
-  const toggle = useCallback(() => setOpen(!isOpen), [isOpen]);
-  const onClose = useCallback(() => setOpen(false), []);
+  const isOpen = state[name] ?? false;
+
+  const onOpen = useCallback(() => {
+    dispatch({ type: 'open', payload: name });
+  }, [dispatch, name]);
+
+  const onClose = useCallback(() => {
+    dispatch({ type: 'close', payload: name });
+  }, [dispatch, name]);
+
+  const toggle = useCallback(() => {
+    dispatch({ type: 'toggle', payload: name });
+  }, [dispatch, name]);
 
   return {
     isOpen,
-    toggle,
-    onClose
+    onOpen,
+    onClose,
+    toggle
   };
 };

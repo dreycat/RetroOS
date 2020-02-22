@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
 
-import styles from './Icon.module.css';
 import { ICoords } from '../../interfaces';
+import styles from './Icon.module.css';
 
 interface IProps {
-  name: string;
+  title: string;
   top: number;
   left: number;
   saveIconPosition: (coords: ICoords) => void;
@@ -89,7 +89,7 @@ class Icon extends Component<IProps> {
   }
 
   render() {
-    const { name, top, left } = this.props;
+    const { title, top, left } = this.props;
     return (
       <div
         className={styles.main}
@@ -100,7 +100,7 @@ class Icon extends Component<IProps> {
         onContextMenu={e => e.preventDefault()}
       >
         {this.props.children}
-        <span className={styles.name}>{name}</span>
+        <span className={styles.name}>{title}</span>
       </div>
     );
   }

@@ -1,12 +1,13 @@
 import React, { Component } from 'react';
 
 import withTransition from '../../hocs/withTransition';
-import { ICoords } from '../../interfaces';
-import styles from './Window.module.css';
 import getStarogeData from '../../utils/getStarogeData';
+import { ICoords } from '../../interfaces';
+import { Apps } from '../../types';
+import styles from './Window.module.css';
 
 interface IProps {
-  name: string;
+  name: Apps;
   onClose: () => void;
   defaultPosition: ICoords;
 }
@@ -54,7 +55,7 @@ class Window extends Component<IProps> {
   };
 
   calculateIndex = () => {
-    const name = this.props.name.toLowerCase();
+    const { name } = this.props;
     const raw = localStorage.getItem('z_index');
 
     if (raw) {
@@ -74,16 +75,13 @@ class Window extends Component<IProps> {
   };
 
   setPositionFromStorage = () => {
-    const coords = getStarogeData<ICoords>(
-      `${this.props.name.toLowerCase()}_window_coords`,
-      this.props.defaultPosition
-    )();
+    const coords = getStarogeData<ICoords>(`${this.props.name}_window_coords`, this.props.defaultPosition)();
     this.applyCoords(coords);
   };
 
   savePosition = () => {
     localStorage.setItem(
-      `${this.props.name.toLowerCase()}_window_coords`,
+      `${this.props.name}_window_coords`,
       JSON.stringify({
         top: parseInt(this.mainEl.current!.style.top, 10),
         left: parseInt(this.mainEl.current!.style.left, 10)

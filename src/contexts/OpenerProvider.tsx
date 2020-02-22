@@ -1,18 +1,20 @@
 import React, { FC, useReducer, createContext, useEffect } from 'react';
 
 import getStorageData from '../utils/getStarogeData';
+import { Apps } from '../types';
 
-const initialState = { settings: false };
+const initialState = {
+  audioplayer: false,
+  console: false,
+  mines: false,
+  settings: false,
+  todo: false
+};
+
 const STORAGE_KEY = 'opener_state';
 
 type State = typeof initialState;
-export type ContextApps = keyof typeof initialState;
-
-type Action =
-  | { type: 'open'; payload: ContextApps }
-  | { type: 'close'; payload: ContextApps }
-  | { type: 'toggle'; payload: ContextApps };
-
+type Action = { type: 'open'; payload: Apps } | { type: 'close'; payload: Apps } | { type: 'toggle'; payload: Apps };
 type ContextProps = { state: State; dispatch: React.Dispatch<Action> };
 
 const OpenerContext = createContext({} as ContextProps);
