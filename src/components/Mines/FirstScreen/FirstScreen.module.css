@@ -16,6 +16,7 @@
   font-size: 18px;
   line-height: 26px;
   background-color: var(--main-color);
+  transition: background-color 0.5s;
 }
 
 .mines {

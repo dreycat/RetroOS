@@ -4,8 +4,20 @@
   --main-bg-image: url('/images/wallpapers/wp1.jpg');
 }
 
-:root.two {
-  --main-color: rgb(194, 198, 173);
-  --main-bg-color: rgb(125, 145, 98);
+:root.green {
+  --main-color: rgb(173, 198, 178);
+  --main-bg-color: rgb(98, 145, 144);
   --main-bg-image: url('/images/wallpapers/wp0.jpg');
+}
+
+:root.yellow {
+  --main-color: rgb(222, 209, 191);
+  --main-bg-color: rgb(98, 145, 128);
+  --main-bg-image: url('/images/wallpapers/wp9.jpg');
+}
+
+:root.colorless {
+  --main-color: rgb(186, 186, 186);
+  --main-bg-color: rgb(119, 119, 126);
+  --main-bg-image: url('/images/wallpapers/wp10.jpg');
 }

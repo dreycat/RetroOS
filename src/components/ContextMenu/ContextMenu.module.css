@@ -13,6 +13,7 @@
   margin: 0;
   width: 200px;
   background-color: var(--main-color);
+  transition: background-color 0.5s;
   border: 1px solid rgba(0, 0, 0, 0.5);
   box-shadow: inset 1px 1px 1px 0 rgba(255, 255, 255, 0.8), 5px 6px 0 rgba(0, 0, 0, 0.24);
   list-style: none;

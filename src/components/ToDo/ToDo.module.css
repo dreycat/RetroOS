@@ -18,6 +18,7 @@
   padding: 4px 8px 3px;
   overflow-x: hidden;
   border-bottom: 1px solid var(--main-color);
+  transition: background-color 0.5s;
 }
 
 .item::selection {
