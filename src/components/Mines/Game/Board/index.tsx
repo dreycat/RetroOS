@@ -2,9 +2,8 @@ import React, { FC, useRef, useEffect } from 'react';
 
 import renderCell from '../Cell';
 import renderGrid from './renderGrid';
-import styles from './Board.module.css';
-
 import { Field } from '../types';
+import styles from './Board.module.css';
 
 interface IProps {
   fieldWidth: number;

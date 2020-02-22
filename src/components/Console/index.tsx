@@ -1,9 +1,8 @@
 import React, { FC, useRef, useCallback, useEffect } from 'react';
 
 import useConsole from '../../hooks/useConsole';
-import styles from './Console.module.css';
-
 import { IWindowSize } from '../../interfaces';
+import styles from './Console.module.css';
 
 interface IProps {
   size: IWindowSize;

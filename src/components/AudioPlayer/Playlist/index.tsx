@@ -1,7 +1,6 @@
 import React, { FC } from 'react';
 
 import styles from './Playlist.module.css';
-
 import { ITrack } from '../../../interfaces';
 
 interface IProps {

@@ -3,7 +3,6 @@ import React, { useRef, useState, useMemo, useEffect, useCallback } from 'react'
 import getStorageData from '../utils/getStarogeData';
 import compose from '../utils/compose';
 import isRadio from '../utils/isRadio';
-
 import { ITrack } from '../interfaces';
 
 enum Keys {

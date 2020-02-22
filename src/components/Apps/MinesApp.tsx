@@ -3,7 +3,6 @@ import React from 'react';
 import Application from '../Application';
 import Mines from '../Mines';
 import isMobile from '../../utils/isMobile';
-
 import { ReactComponent as Icon } from './icons/MinesIcon.svg';
 
 const MinesApp = () => {

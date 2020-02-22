@@ -1,7 +1,6 @@
 import { useContext, useCallback } from 'react';
 
 import { OpenerContext } from '../contexts/OpenerProvider';
-
 import { Apps } from '../types';
 
 export default (name: Apps) => {

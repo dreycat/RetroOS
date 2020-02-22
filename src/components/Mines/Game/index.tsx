@@ -6,10 +6,9 @@ import hasUserWon from './hasUserWon';
 import Header from './Header';
 import clicker from './clicker';
 import deepClone from '../../../utils/deepClone';
-import styles from './Game.module.css';
-
 import { Field } from './types';
 import { Cell, StatusGame } from './enums';
+import styles from './Game.module.css';
 
 interface IProps {
   fieldWidth: number;

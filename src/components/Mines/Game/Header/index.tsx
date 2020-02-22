@@ -1,12 +1,11 @@
 import React, { FC } from 'react';
 
 import Timer from '../../../Timer';
-import styles from './Header.module.css';
-
 import { ReactComponent as FlagIcon } from './images/flag.svg';
 import { ReactComponent as Balloon } from './images/balloon.svg';
 import { ReactComponent as BalloonTwo } from './images/balloon2.svg';
 import { StatusGame } from '../enums';
+import styles from './Header.module.css';
 
 interface IProps {
   flags: number;
