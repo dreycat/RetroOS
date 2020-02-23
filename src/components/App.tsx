@@ -2,10 +2,10 @@ import React, { FC } from 'react';
 
 import Desktop from './Desktop';
 import WindowsProvider from '../contexts/WindowsProvider';
-import setTheme from '../utils/setTheme';
+import { initTheme } from '../utils/themes';
 
 const App: FC = () => {
-  setTheme();
+  initTheme();
   return (
     <WindowsProvider>
       <Desktop />

@@ -1,0 +1,26 @@
+.fieldset {
+  border: 1px solid #222b35;
+  padding: 20px;
+  margin: 8px;
+  min-width: 216px;
+}
+
+.legend {
+  color: #222b35;
+  line-height: 24px;
+  font-size: 14px;
+  font-weight: 400;
+}
+
+.select {
+  width: 100%;
+}
+
+.select {
+  outline: none;
+  border-radius: 0;
+  padding: 4px;
+  background-color: #faebd7;
+  color: #222b35;
+  cursor: pointer;
+}

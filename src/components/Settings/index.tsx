@@ -1,9 +1,8 @@
 import React from 'react';
 
+import ThemesTab from './ThemesTab';
 import preloadImages from '../../utils/preloadImages';
-import { Themes } from '../../types';
 
-const themes: Themes[] = ['default', 'green', 'yellow', 'colorless'];
 const images = [
   '/images/wallpapers/wp0.jpg',
   '/images/wallpapers/wp1.jpg',
@@ -14,22 +13,7 @@ const images = [
 const Settings = () => {
   preloadImages(images);
 
-  const setTheme = (theme: Themes) => {
-    const element = document.documentElement;
-    themes.forEach(item => element.classList.remove(item));
-    localStorage.setItem('theme', theme);
-    if (theme === 'default') return;
-    element.classList.add(theme);
-  };
-
-  return (
-    <>
-      <button onClick={() => setTheme('default')}>default</button>
-      <button onClick={() => setTheme('green')}>green</button>
-      <button onClick={() => setTheme('yellow')}>yellow</button>
-      <button onClick={() => setTheme('colorless')}>colorless</button>
-    </>
-  );
+  return <ThemesTab />;
 };
 
 export default Settings;
