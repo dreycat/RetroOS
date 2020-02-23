@@ -28,9 +28,18 @@ const ContextMenu = () => {
       if (!isOpen) return;
       setOpen(false);
     };
+
+    const onClickOutsideHandler = (event: MouseEvent) => {
+      if (isOpen && !menuEl.current!.contains(event.target as Node)) {
+        setOpen(false);
+      }
+    };
+
     window.addEventListener('click', closeMenu);
+    window.addEventListener('mousedown', onClickOutsideHandler);
     return () => {
       window.removeEventListener('click', closeMenu);
+      window.removeEventListener('mousedown', onClickOutsideHandler);
     };
   }, [isOpen]);
 
