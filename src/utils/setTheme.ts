@@ -1,7 +1,7 @@
 import { Themes } from '../types';
 
 export default () => {
-  const storageTheme = localStorage.getItem('theme') as Themes | null;
-  const theme: Themes = storageTheme ?? 'blue';
+  const theme = localStorage.getItem('theme') as Themes | null;
+  if (theme === 'default' || !theme) return;
   document.documentElement.classList.add(theme);
 };
