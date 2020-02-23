@@ -15,6 +15,7 @@ const ContextMenu = () => {
   const [isOpen, setOpen] = useState(false);
   const menuEl = useRef<HTMLUListElement>(null);
   const { onOpen: openSettings } = useWindow('settings');
+  const { onOpen: openConsole } = useWindow('console');
 
   const contextHandler = useCallback((event: React.MouseEvent) => {
     event.preventDefault();
@@ -45,6 +46,9 @@ const ContextMenu = () => {
         >
           <li className={styles.item} onClick={openSettings}>
             Settings
+          </li>
+          <li className={styles.item} onClick={openConsole}>
+            Console
           </li>
           <li className={styles.item} onClick={reset}>
             Reset
