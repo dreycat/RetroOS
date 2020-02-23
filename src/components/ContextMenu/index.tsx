@@ -30,7 +30,7 @@ const ContextMenu = () => {
     };
 
     const onClickOutsideHandler = (event: MouseEvent) => {
-      if (isOpen && !menuEl.current!.contains(event.target as Node)) {
+      if (isOpen && !menuEl.current!.contains(event.target as Node) && event.button === 0) {
         setOpen(false);
       }
     };
