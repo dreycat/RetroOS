@@ -1,20 +1,17 @@
 import React, { FC } from 'react';
 
 import transformTime from '../../../utils/transformTime';
-import isRadio from '../../../utils/isRadio';
 import styles from './Screen.module.css';
 
 interface IProps {
   time: number;
-  duration: number;
-  volume: number;
   isPlaying: boolean;
-  isMuted: boolean;
+  isRadio: boolean;
 }
 
-const Screen: FC<IProps> = ({ time, isPlaying, duration }) => (
+const Screen: FC<IProps> = ({ time, isPlaying, isRadio }) => (
   <div className={`${styles.main} border`}>
-    {isRadio(duration) && <span className={styles.radio}>radio</span>}
+    {isRadio && <span className={styles.radio}>radio</span>}
     {isPlaying ? <span className={styles.play} /> : <span className={styles.pause} />}
     <span className={styles.prettyTime}>{transformTime(time)}</span>
   </div>

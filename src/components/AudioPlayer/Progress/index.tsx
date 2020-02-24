@@ -1,15 +1,15 @@
 import React, { FC, ChangeEvent } from 'react';
 
-import isRadio from '../../../utils/isRadio';
 import Range from '../Range';
 
 interface IProps {
   duration: number;
+  isRadio: boolean;
   time: number;
   seek: (time: number) => void;
 }
 
-const Progress: FC<IProps> = ({ duration, time, seek }) => (
+const Progress: FC<IProps> = ({ isRadio, duration, time, seek }) => (
   <Range
     type="range"
     name="track"
@@ -17,9 +17,9 @@ const Progress: FC<IProps> = ({ duration, time, seek }) => (
     min="0"
     step="1"
     onChange={(e: ChangeEvent<HTMLInputElement>) => seek(parseInt(e.target.value))}
-    value={isRadio(duration) ? 0 : time}
-    max={isRadio(duration) ? 0 : duration}
-    disabled={isRadio(duration)}
+    value={isRadio ? 0 : time}
+    max={isRadio ? 0 : duration}
+    disabled={isRadio}
   />
 );
 

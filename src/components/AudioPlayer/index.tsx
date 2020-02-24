@@ -30,7 +30,9 @@ const AudioPlayer = () => {
           />
         }
         volumeControl={<VolumeControl volume={state.volume} setVolume={controlls.setVolume} />}
-        progress={<Progress duration={state.duration} time={state.time} seek={controlls.seek} />}
+        progress={
+          <Progress duration={state.duration} time={state.time} isRadio={state.isRadio} seek={controlls.seek} />
+        }
       />
       <Playlist list={playlist} setTrack={controlls.setTrack} currentTrack={state.trackId} />
     </div>

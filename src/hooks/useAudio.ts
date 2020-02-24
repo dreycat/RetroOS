@@ -2,7 +2,6 @@ import React, { useRef, useState, useMemo, useEffect, useCallback } from 'react'
 
 import getStorageData from '../utils/getStarogeData';
 import compose from '../utils/compose';
-import isRadio from '../utils/isRadio';
 import { ITrack } from '../interfaces';
 
 enum Keys {
@@ -92,13 +91,13 @@ export default (playlist: ITrack[]) => {
   const seek = useCallback(
     (time: number) => {
       const element = ref.current;
-      if (!element || isRadio(duration)) {
+      if (!element || playlist[trackId].isRadio) {
         return;
       }
       time = Math.min(duration, Math.max(0, time));
       element.currentTime = time;
     },
-    [duration]
+    [duration, trackId, playlist]
   );
 
   return {
@@ -111,6 +110,7 @@ export default (playlist: ITrack[]) => {
       isMuted,
       trackId,
       curentTrack: playlist[trackId],
+      isRadio: playlist[trackId].isRadio,
       error
     },
     controlls: {

@@ -8,6 +8,7 @@ export interface ITrack {
   name: string;
   url: string;
   title: string;
+  isRadio: boolean;
 }
 
 export interface IWindowSize {
