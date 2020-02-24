@@ -1,6 +1,6 @@
-import React, { FC } from 'react';
+import React, { FC, ChangeEvent } from 'react';
 
-import styles from './VolumeControl.module.css';
+import Range from '../Range';
 
 interface IProps {
   setVolume: React.Dispatch<React.SetStateAction<number>>;
@@ -8,8 +8,7 @@ interface IProps {
 }
 
 const VolumeControl: FC<IProps> = ({ setVolume, volume }) => (
-  <input
-    className={styles.main}
+  <Range
     type="range"
     name="track"
     min="0"
@@ -17,7 +16,7 @@ const VolumeControl: FC<IProps> = ({ setVolume, volume }) => (
     step="0.01"
     aria-label="volume control"
     value={volume}
-    onChange={e => setVolume(parseFloat(e.target.value))}
+    onChange={(e: ChangeEvent<HTMLInputElement>) => setVolume(parseFloat(e.target.value))}
   />
 );
 

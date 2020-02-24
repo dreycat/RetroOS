@@ -1,7 +1,7 @@
-import React, { FC } from 'react';
+import React, { FC, ChangeEvent } from 'react';
 
 import isRadio from '../../../utils/isRadio';
-import styles from './Progress.module.css';
+import Range from '../Range';
 
 interface IProps {
   duration: number;
@@ -10,16 +10,16 @@ interface IProps {
 }
 
 const Progress: FC<IProps> = ({ duration, time, seek }) => (
-  <input
-    className={styles.main}
+  <Range
     type="range"
     name="track"
     aria-label="progress"
     min="0"
-    value={isRadio(duration) ? 0 : time}
     step="1"
-    onChange={e => seek(parseInt(e.target.value))}
+    onChange={(e: ChangeEvent<HTMLInputElement>) => seek(parseInt(e.target.value))}
+    value={isRadio(duration) ? 0 : time}
     max={isRadio(duration) ? 0 : duration}
+    disabled={isRadio(duration)}
   />
 );
 
