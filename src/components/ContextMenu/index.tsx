@@ -24,21 +24,13 @@ const ContextMenu = () => {
   }, []);
 
   useEffect(() => {
-    const closeMenu = () => {
-      if (!isOpen) return;
-      setOpen(false);
-    };
-
     const onClickOutsideHandler = (event: MouseEvent) => {
       if (isOpen && !menuEl.current!.contains(event.target as Node) && event.button === 0) {
         setOpen(false);
       }
     };
-
-    window.addEventListener('click', closeMenu);
     window.addEventListener('mousedown', onClickOutsideHandler);
     return () => {
-      window.removeEventListener('click', closeMenu);
       window.removeEventListener('mousedown', onClickOutsideHandler);
     };
   }, [isOpen]);
@@ -52,6 +44,7 @@ const ContextMenu = () => {
           style={{ top: coords.y, left: coords.x }}
           ref={menuEl}
           onContextMenu={e => e.preventDefault()}
+          onClick={() => setOpen(false)}
         >
           <li className={styles.item} onClick={openSettings}>
             Settings
