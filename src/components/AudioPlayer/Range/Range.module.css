@@ -21,7 +21,7 @@
   height: 12px;
   width: 21px;
   border-radius: 0px;
-  background: var(--main-color);
+  background: #fdf6e3;
   cursor: pointer;
   -webkit-appearance: none;
   margin-top: -2.7px;
@@ -44,7 +44,7 @@
   height: 12px;
   width: 21px;
   border-radius: 0px;
-  background: var(--main-color);
+  background: #fdf6e3;
   cursor: pointer;
 }
 .main::-ms-track {
@@ -73,7 +73,7 @@
   height: 12px;
   width: 21px;
   border-radius: 0px;
-  background: var(--main-color);
+  background: #fdf6e3;
   cursor: pointer;
   height: 7px;
 }
