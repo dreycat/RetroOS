@@ -1,3 +1,2 @@
-export default (duration: number) => {
-  return duration === Infinity || duration === undefined || duration === null;
-};
+// stub
+export default (duration: number) => true;
