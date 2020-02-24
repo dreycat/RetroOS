@@ -20,7 +20,10 @@
 
 ::-webkit-scrollbar-thumb {
   background: var(--main-color);
-  box-shadow: inset 1px 1px 1px 0 rgba(255, 255, 255, 0.2);
+  border-bottom: 1px solid #7d7d7d;
+  border-top: 1px solid #fff;
+  border-left: 1px solid #fff;
+  border-right: 1px solid #7d7d7d;
 }
 
 @keyframes slide-out-bottom {
