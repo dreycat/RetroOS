@@ -2,6 +2,7 @@
   -webkit-appearance: none;
   width: 100%;
   margin: 2.5px 0;
+  height: 7px;
 }
 .main:focus {
   outline: none;
