@@ -9,6 +9,20 @@
   animation: slide-out-bottom 0.3s cubic-bezier(0.55, 0.085, 0.68, 0.53) both;
 }
 
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 2px rgba(0, 0, 0, 0.2);
+  background: rgba(255, 255, 255, 0.1);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--main-color);
+  box-shadow: inset 1px 1px 1px 0 rgba(255, 255, 255, 0.2);
+}
+
 @keyframes slide-out-bottom {
   0% {
     transform: translateY(0);
