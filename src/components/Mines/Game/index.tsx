@@ -93,7 +93,7 @@ const Game: FC<IProps> = ({ fieldWidth, fieldHeight, mines, sellSize }) => {
         {(statusGame === StatusGame.Fail || statusGame === StatusGame.Win) && (
           <div className={styles.background}>
             <button className={styles.resetButton} onClick={reset}>
-              New Game
+              New
             </button>
           </div>
         )}

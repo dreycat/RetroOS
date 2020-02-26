@@ -16,9 +16,11 @@
   position: absolute;
   top: 50%;
   left: 50%;
-  padding: 8px 16px;
+  padding: 6px 12px;
   font-family: 'Roboto Mono', monospace;
-  font-size: 18px;
+  font-size: 16px;
+  color: #21202f;
+  line-height: 1;
   transform: translate(-50%, -50%);
   background-color: var(--main-color);
   transition: background-color 0.5s;
