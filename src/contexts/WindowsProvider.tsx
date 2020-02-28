@@ -8,7 +8,8 @@ const initialState = {
   console: false,
   mines: false,
   settings: false,
-  todo: false
+  todo: false,
+  dungeon: false
 };
 
 const STORAGE_KEY = 'windows_state';

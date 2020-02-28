@@ -1,4 +1,1 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" version="1.1" viewBox="0 0 4 4" height="4" width="4">
-  <rect y="1" x="1" height="2" width="2" fill="#2c3e50" />
-</svg>
+<svg xmlns="http://www.w3.org/2000/svg" height="4" width="4"><path fill="#2c3e50" d="M1 1h2v2H1z"/></svg>

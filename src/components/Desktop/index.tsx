@@ -6,6 +6,7 @@ import ConsoleApp from '../Apps/ConsoleApp';
 import ToDoApp from '../Apps/ToDoApp';
 import MinesApp from '../Apps/MinesApp';
 import SettingsApp from '../Apps/SettingsApp';
+import DungeonApp from '../Apps/DungeonApp';
 import ContexMenu from '../ContextMenu';
 import styles from './Desktop.module.css';
 
@@ -17,6 +18,7 @@ const Desktop: FC = () => (
     <ToDoApp />
     <MinesApp />
     <SettingsApp />
+    <DungeonApp />
     <ContexMenu />
   </div>
 );
