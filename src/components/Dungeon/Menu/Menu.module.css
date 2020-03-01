@@ -1,0 +1,27 @@
+.menu {
+  position: absolute;
+  bottom: 24px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 24px;
+  color: #fff;
+  list-style: none;
+  text-align: center;
+  font-family: 'Roboto Mono', monospace;
+  z-index: 11;
+}
+
+.menuItem {
+  padding: 8px 12px;
+  cursor: pointer;
+}
+
+.background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 10;
+}
