@@ -47,8 +47,24 @@ export default class Painter {
         if (cell === Cell.Portal) {
           this.drawPortal({ x, y });
         }
+        if (cell === Cell.Box) {
+          this.drawBox({ x, y });
+        }
+        if (cell === Cell.Gold) {
+          this.drawGold({ x, y });
+        }
       }
     }
+  }
+
+  drawBox({ x, y }: Coords) {
+    this.drawPath({ x, y });
+    this.ctx.drawImage(this.sprite, 256, 0, 32, 32, x * 32, y * 32, 32, 32);
+  }
+
+  drawGold({ x, y }: Coords) {
+    this.drawPath({ x, y });
+    this.ctx.drawImage(this.sprite, 288, 0, 32, 32, x * 32, y * 32, 32, 32);
   }
 
   drawPath({ x, y }: Coords) {
@@ -61,7 +77,7 @@ export default class Painter {
 
   drawKey({ x, y }: Coords) {
     this.drawPath({ x, y });
-    this.ctx.drawImage(this.sprite, 64, 0, 32, 32, x * 32, y * 32, 32, 32);
+    this.ctx.drawImage(this.sprite, 224, 0, 32, 32, x * 32, y * 32, 32, 32);
   }
 
   drawDoor({ x, y }: Coords) {
@@ -82,9 +98,11 @@ export default class Painter {
   drawEnemy({ x, y }: Coords, direction: Direction) {
     if (direction === 'right') {
       this.ctx.drawImage(this.sprite, 32, 0, 32, 32, x * 32, y * 32, 32, 32);
-      return;
+    } else if (direction === 'left') {
+      this.ctx.drawImage(this.sprite, 0, 0, 32, 32, x * 32, y * 32, 32, 32);
+    } else if (direction === 'down' || direction === 'up') {
+      this.ctx.drawImage(this.sprite, 64, 0, 32, 32, x * 32, y * 32, 32, 32);
     }
-    this.ctx.drawImage(this.sprite, 0, 0, 32, 32, x * 32, y * 32, 32, 32);
   }
 
   drawStatusBar(keys: number, totalKeys: number, level: number, hearts: number) {
