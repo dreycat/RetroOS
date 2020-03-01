@@ -1,4 +1,7 @@
-import { Map, Coords } from '../types';
+import { Map, Coords, Direction } from '../types';
+import { Cell } from '../enums';
+
+import sprite from './images/sprite.png';
 
 export default class Painter {
   private readonly font =
@@ -8,14 +11,19 @@ export default class Painter {
   private readonly colors = {
     0: '#0e0307',
     1: '#543933',
-    K: '#ccc',
+    K: '#543933',
     D: '#FFDEAD',
     P: '#87CEFA	',
     B: '#FFA07A',
     G: 'gold'
   };
 
-  constructor(private readonly ctx: CanvasRenderingContext2D) {}
+  private readonly sprite: HTMLImageElement;
+
+  constructor(private readonly ctx: CanvasRenderingContext2D) {
+    this.sprite = new Image();
+    this.sprite.src = sprite;
+  }
 
   drawMap(map: Map) {
     for (let y = 0; y < map.length; y++) {
@@ -24,8 +32,46 @@ export default class Painter {
         const color = this.colors[cell];
         this.ctx.fillStyle = color;
         this.ctx.fillRect(x * 32, y * 32, 32, 32);
+        if (cell === Cell.Wall) {
+          this.drawWall({ x, y });
+        }
+        if (cell === Cell.Path) {
+          this.drawPath({ x, y });
+        }
+        if (cell === Cell.Key) {
+          this.drawKey({ x, y });
+        }
+        if (cell === Cell.Door) {
+          this.drawDoor({ x, y });
+        }
+        if (cell === Cell.Portal) {
+          this.drawPortal({ x, y });
+        }
       }
     }
+  }
+
+  drawPath({ x, y }: Coords) {
+    this.ctx.drawImage(this.sprite, 128, 0, 32, 32, x * 32, y * 32, 32, 32);
+  }
+
+  drawWall({ x, y }: Coords) {
+    this.ctx.drawImage(this.sprite, 96, 0, 32, 32, x * 32, y * 32, 32, 32);
+  }
+
+  drawKey({ x, y }: Coords) {
+    this.drawPath({ x, y });
+    this.ctx.drawImage(this.sprite, 64, 0, 32, 32, x * 32, y * 32, 32, 32);
+  }
+
+  drawDoor({ x, y }: Coords) {
+    this.drawPath({ x, y });
+    this.ctx.drawImage(this.sprite, 160, 0, 32, 32, x * 32, y * 32, 32, 32);
+  }
+
+  drawPortal({ x, y }: Coords) {
+    this.drawPath({ x, y });
+    this.ctx.drawImage(this.sprite, 192, 0, 32, 32, x * 32, y * 32, 32, 32);
   }
 
   drawPlayer({ x, y }: Coords) {
@@ -33,17 +79,12 @@ export default class Painter {
     this.ctx.fillRect(x * 32, y * 32, 32, 32);
   }
 
-  drawEnemy({ x, y }: Coords) {
-    this.ctx.fillStyle = 'green';
-    this.ctx.fillRect(x * 32, y * 32, 32, 32);
-  }
-
-  drawFail() {
-    this.ctx.font = `bold 72px ${this.font}`;
-    this.ctx.textAlign = 'center';
-    this.ctx.textBaseline = 'middle';
-    this.ctx.fillStyle = 'red';
-    this.ctx.fillText('Fail', 256, 256);
+  drawEnemy({ x, y }: Coords, direction: Direction) {
+    if (direction === 'right') {
+      this.ctx.drawImage(this.sprite, 32, 0, 32, 32, x * 32, y * 32, 32, 32);
+      return;
+    }
+    this.ctx.drawImage(this.sprite, 0, 0, 32, 32, x * 32, y * 32, 32, 32);
   }
 
   drawStatusBar(keys: number, totalKeys: number, level: number, hearts: number) {
