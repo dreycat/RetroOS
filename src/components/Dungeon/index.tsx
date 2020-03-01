@@ -4,6 +4,7 @@ import Game from './Game';
 import Menu from './Menu';
 import { StatusGame } from './enums';
 import styles from './Dungeon.module.css';
+import getStarogeData from '../../utils/getStarogeData';
 import levels from './Game/levels';
 
 const Dungeon = () => {
@@ -12,8 +13,13 @@ const Dungeon = () => {
 
   const teleport = useCallback(() => {
     if (levels.length - 1 > level) {
-      setLevel(level + 1);
+      const nextLevel = level + 1;
+      setLevel(nextLevel);
       setStatusGame(StatusGame.Start);
+      const savedLevel = getStarogeData('dungeon_level', 0)();
+      if (nextLevel > savedLevel) {
+        localStorage.setItem('dungeon_level', nextLevel.toString());
+      }
     }
   }, [level]);
 

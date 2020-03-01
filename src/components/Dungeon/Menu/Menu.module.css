@@ -3,17 +3,23 @@
   bottom: 24px;
   left: 50%;
   transform: translateX(-50%);
-  font-size: 24px;
+  font-size: 30px;
   color: #fff;
   list-style: none;
   text-align: center;
   font-family: 'Roboto Mono', monospace;
   z-index: 11;
+  animation: slide-in-bottom 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
 }
 
 .menuItem {
   padding: 8px 12px;
   cursor: pointer;
+  transition: color 0.5s;
+}
+
+.menuItem:hover {
+  color: gold;
 }
 
 .background {
@@ -24,4 +30,53 @@
   bottom: 0;
   background-color: rgba(0, 0, 0, 0.5);
   z-index: 10;
+}
+
+.loadMenu {
+  background-color: rgba(0, 0, 0, 1);
+  position: absolute;
+  display: flex;
+  flex-wrap: wrap;
+  align-content: flex-start;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  font-size: 16px;
+  z-index: 100;
+}
+
+.savedLevel,
+.level {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 128px;
+  height: 128px;
+  border: 2px solid #a5a5a5;
+  cursor: pointer;
+  background-color: #ccc;
+  transition: background-color 0.5s;
+}
+
+.savedLevel {
+  background-color: red;
+}
+
+.savedLevel:hover {
+  background-color: #a5a5a5;
+}
+
+@keyframes slide-in-bottom {
+  0% {
+    transform: translateY(1000px) translateX(-50%);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0) translateX(-50%);
+    opacity: 1;
+  }
 }

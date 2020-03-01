@@ -2,7 +2,8 @@ export enum StatusGame {
   Win = 'win',
   Fail = 'fail',
   Start = 'start',
-  Init = 'init'
+  Init = 'init',
+  Load = 'load'
 }
 
 export enum Cell {

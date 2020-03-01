@@ -52,7 +52,7 @@ export default class Painter {
     this.ctx.textBaseline = 'middle';
     this.ctx.fillStyle = 'gold';
     this.ctx.fillText(`Keys: ${keys} / ${totalKeys}`, 66, 16);
-    this.ctx.fillText(`Level: ${level}`, 260, 16);
+    this.ctx.fillText(`Level: ${level + 1}`, 260, 16);
     this.ctx.fillText(`Hears: ${hearts} / 3`, 442, 16);
   }
 }
