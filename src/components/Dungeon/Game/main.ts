@@ -2,13 +2,13 @@ import Player from './player';
 import Bot from './bot';
 import Painter from './painter';
 import levels from './levels';
-
+import getPlayerDirection from './getPlayerDirection';
 import deepClone from '../../../utils/deepClone';
 import random from '../../../utils/random';
 import { Direction, Coords, Map } from '../types';
 import { Cell } from '../enums';
 
-export default (ctx: CanvasRenderingContext2D, level: number, teleport: () => void, setFail: () => void) => {
+export default (ctx: CanvasRenderingContext2D, level: number, teleport: () => void, finishGame: () => void) => {
   const painter = new Painter(ctx);
   const player = new Player({ ...levels[level].player });
   const bots = levels[level].enemies.map(({ coords, direction, speed }) => new Bot({ ...coords }, direction, speed));
@@ -29,11 +29,14 @@ export default (ctx: CanvasRenderingContext2D, level: number, teleport: () => vo
     return mapper[direction](coords);
   };
 
-  const openPortal = () => {
+  const opener = () => {
     for (let y = 0; y < map.length; y++) {
       for (let x = 0; x < map[0].length; x++) {
-        if (map[y][x] === Cell.Door) {
+        const cell = map[y][x];
+        if (cell === Cell.Door) {
           map[y][x] = Cell.Portal;
+        } else if (cell === Cell.Box) {
+          map[y][x] = Cell.Gold;
         }
       }
     }
@@ -48,20 +51,31 @@ export default (ctx: CanvasRenderingContext2D, level: number, teleport: () => vo
       map[nextStep.y][nextStep.x] = Cell.Path;
     }
     if (keys === totalKeys) {
-      openPortal();
+      opener();
     }
     if (nextCell === Cell.Portal) {
       teleport();
       return;
     }
+    if (nextCell === Cell.Gold) {
+      console.log('final');
+      return;
+    }
     player.coords = { ...nextStep };
   };
 
-  const arrows = ['ArrowUp', 'ArrowDown', 'ArrowLeft', 'ArrowRight'];
-
   const keydownHandler = ({ code }: KeyboardEvent) => {
-    if (!arrows.includes(code)) return;
-    driver(code.slice(5).toLowerCase() as Direction);
+    const direction = getPlayerDirection(code);
+
+    if (direction) {
+      driver(direction);
+      return;
+    }
+
+    if (code === 'Escape') {
+      finishGame();
+      return;
+    }
   };
 
   const botControl = (bot: Bot) => {
@@ -98,7 +112,7 @@ export default (ctx: CanvasRenderingContext2D, level: number, teleport: () => vo
 
     if (player.isDead) {
       painter.drawFail();
-      setFail();
+      finishGame();
       return;
     }
     painter.drawPlayer(player.coords);

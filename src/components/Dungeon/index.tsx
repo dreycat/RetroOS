@@ -17,7 +17,7 @@ const Dungeon = () => {
     }
   }, [level]);
 
-  const setFail = useCallback(() => {
+  const finishGame = useCallback(() => {
     setStatusGame(StatusGame.Fail);
   }, []);
 
@@ -26,7 +26,7 @@ const Dungeon = () => {
       {statusGame !== StatusGame.Start && (
         <Menu setLevel={setLevel} setStatusGame={setStatusGame} statusGame={statusGame} />
       )}
-      {statusGame === StatusGame.Start && <Game level={level} setFail={setFail} teleport={teleport} />}
+      {statusGame === StatusGame.Start && <Game level={level} finishGame={finishGame} teleport={teleport} />}
     </div>
   );
 };

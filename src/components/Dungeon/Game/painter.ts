@@ -9,8 +9,10 @@ export default class Painter {
     0: '#0e0307',
     1: '#543933',
     K: '#ccc',
-    D: 'gold',
-    P: 'blue'
+    D: '#FFDEAD',
+    P: '#87CEFA	',
+    B: '#FFA07A',
+    G: 'gold'
   };
 
   constructor(private readonly ctx: CanvasRenderingContext2D) {}

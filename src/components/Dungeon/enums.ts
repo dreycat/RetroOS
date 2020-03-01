@@ -8,7 +8,9 @@ export enum StatusGame {
 export enum Cell {
   Wall = 0,
   Path = 1,
-  Door = 'D',
   Key = 'K',
-  Portal = 'P'
+  Door = 'D',
+  Portal = 'P',
+  Box = 'B',
+  Gold = 'G'
 }
