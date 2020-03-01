@@ -2,7 +2,7 @@ import Character from './character';
 import { Direction, Coords } from '../types';
 import random from '../../../utils/random';
 
-export default class Bot extends Character {
+export default class Enemy extends Character {
   private directions: Direction[];
   constructor(coords: Coords, public direction: Direction = 'left', public speed: number) {
     super(coords);

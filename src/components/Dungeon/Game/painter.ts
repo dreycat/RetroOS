@@ -33,7 +33,7 @@ export default class Painter {
     this.ctx.fillRect(x * 32, y * 32, 32, 32);
   }
 
-  drawBot({ x, y }: Coords) {
+  drawEnemy({ x, y }: Coords) {
     this.ctx.fillStyle = 'green';
     this.ctx.fillRect(x * 32, y * 32, 32, 32);
   }

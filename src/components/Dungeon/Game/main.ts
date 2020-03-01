@@ -1,57 +1,58 @@
 import Player from './player';
-import Bot from './bot';
+import Enemy from './enemy';
 import Painter from './painter';
 import levels from './levels';
 import getPlayerDirection from './getPlayerDirection';
+import opener from './opener';
+import getNextStep from './getNextStep';
 import deepClone from '../../../utils/deepClone';
 import random from '../../../utils/random';
-import { Direction, Coords, Map } from '../types';
+import { Direction, Map } from '../types';
 import { Cell } from '../enums';
 
 export default (ctx: CanvasRenderingContext2D, level: number, teleport: () => void, finishGame: () => void) => {
   const painter = new Painter(ctx);
   const player = new Player({ ...levels[level].player });
-  const bots = levels[level].enemies.map(({ coords, direction, speed }) => new Bot({ ...coords }, direction, speed));
+  const enemies = levels[level].enemies.map(
+    ({ coords, direction, speed }) => new Enemy({ ...coords }, direction, speed)
+  );
   const map: Map = deepClone(levels[level].map);
   const totalKeys = map.flat().reduce((accum: number, curr) => (curr === Cell.Key ? accum + 1 : accum), 0);
+  let requestAnimationID: number;
   let keys = 0;
 
-  let requestID: number;
+  const enemyController = (enemy: Enemy) => {
+    const nextStep = getNextStep(enemy.coords, enemy.direction);
+    const nextCell = map[nextStep.y][nextStep.x];
 
-  const mapper = {
-    up: (coords: Coords) => ({ ...coords, y: coords.y - 1 }),
-    down: (coords: Coords) => ({ ...coords, y: coords.y + 1 }),
-    left: (coords: Coords) => ({ ...coords, x: coords.x - 1 }),
-    right: (coords: Coords) => ({ ...coords, x: coords.x + 1 })
-  };
-
-  const getNextStep = (coords: Coords, direction: Direction) => {
-    return mapper[direction](coords);
-  };
-
-  const opener = () => {
-    for (let y = 0; y < map.length; y++) {
-      for (let x = 0; x < map[0].length; x++) {
-        const cell = map[y][x];
-        if (cell === Cell.Door) {
-          map[y][x] = Cell.Portal;
-        } else if (cell === Cell.Box) {
-          map[y][x] = Cell.Gold;
-        }
-      }
+    if (nextCell === Cell.Wall || nextCell === Cell.Door) {
+      enemy.changeDirection();
+      return;
     }
+    if (
+      (nextStep.x === player.coords.x && nextStep.y === player.coords.y) ||
+      (enemy.coords.x === player.coords.x && enemy.coords.y === player.coords.y)
+    ) {
+      player.damage();
+    }
+    if (random(0, 6) === 0) {
+      enemy.changeDirection();
+    }
+
+    enemy.coords = { ...nextStep };
   };
 
-  const driver = (direction: Direction) => {
+  const playerController = (direction: Direction) => {
     const nextStep = getNextStep(player.coords, direction);
     const nextCell = map[nextStep.y][nextStep.x];
+
     if (nextCell === Cell.Wall) return;
     if (nextCell === Cell.Key) {
       keys += 1;
       map[nextStep.y][nextStep.x] = Cell.Path;
     }
     if (keys === totalKeys) {
-      opener();
+      opener(map);
     }
     if (nextCell === Cell.Portal) {
       teleport();
@@ -61,6 +62,7 @@ export default (ctx: CanvasRenderingContext2D, level: number, teleport: () => vo
       console.log('final');
       return;
     }
+
     player.coords = { ...nextStep };
   };
 
@@ -68,62 +70,38 @@ export default (ctx: CanvasRenderingContext2D, level: number, teleport: () => vo
     const direction = getPlayerDirection(code);
 
     if (direction) {
-      driver(direction);
+      playerController(direction);
       return;
     }
-
     if (code === 'Escape') {
       finishGame();
       return;
     }
   };
 
-  const botControl = (bot: Bot) => {
-    const nextStep = getNextStep(bot.coords, bot.direction);
-    const nextCell = map[nextStep.y][nextStep.x];
-    if (nextCell === Cell.Wall || nextCell === Cell.Door) {
-      bot.changeDirection();
-      return;
-    }
-
-    if (
-      (nextStep.x === player.coords.x && nextStep.y === player.coords.y) ||
-      (bot.coords.x === player.coords.x && bot.coords.y === player.coords.y)
-    ) {
-      player.damage();
-    }
-    if (random(0, 6) === 0) {
-      bot.changeDirection();
-    }
-    bot.coords = { ...nextStep };
-  };
-
-  const botIDS = bots.map(bot => {
-    return setInterval(() => botControl(bot), bot.speed);
-  });
-
-  document.addEventListener('keydown', keydownHandler);
-
   const render = () => {
     painter.drawMap(map);
     painter.drawStatusBar(keys, totalKeys, level, player.hearts);
-
-    bots.forEach(bot => painter.drawBot(bot.coords));
+    enemies.forEach(enemy => painter.drawEnemy(enemy.coords));
 
     if (player.isDead) {
       painter.drawFail();
       finishGame();
       return;
     }
+
     painter.drawPlayer(player.coords);
-    requestID = requestAnimationFrame(render);
+    requestAnimationID = requestAnimationFrame(render);
   };
 
-  requestID = requestAnimationFrame(render);
+  requestAnimationID = requestAnimationFrame(render);
+
+  const enemyIDS = enemies.map(enemy => setInterval(() => enemyController(enemy), enemy.speed));
+  document.addEventListener('keydown', keydownHandler);
 
   return () => {
-    botIDS.forEach(id => clearInterval(id));
+    cancelAnimationFrame(requestAnimationID);
+    enemyIDS.forEach(id => clearInterval(id));
     document.removeEventListener('keydown', keydownHandler);
-    cancelAnimationFrame(requestID);
   };
 };

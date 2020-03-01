@@ -1,0 +1,12 @@
+import { Direction, Coords } from '../types';
+
+const mapper = {
+  up: (coords: Coords) => ({ ...coords, y: coords.y - 1 }),
+  down: (coords: Coords) => ({ ...coords, y: coords.y + 1 }),
+  left: (coords: Coords) => ({ ...coords, x: coords.x - 1 }),
+  right: (coords: Coords) => ({ ...coords, x: coords.x + 1 })
+};
+
+export default (coords: Coords, direction: Direction) => {
+  return mapper[direction](coords);
+};
