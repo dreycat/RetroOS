@@ -82,14 +82,14 @@ export default (ctx: CanvasRenderingContext2D, level: number, teleport: () => vo
   const render = () => {
     painter.drawMap(map);
     painter.drawStatusBar(keys, totalKeys, level, player.hearts);
-    enemies.forEach(enemy => painter.drawEnemy(enemy.coords, enemy.direction));
+    enemies.forEach(enemy => painter.drawEnemy(enemy.coords.x, enemy.coords.y, enemy.direction));
 
     if (player.isDead) {
       finishGame();
       return;
     }
 
-    painter.drawPlayer(player.coords);
+    painter.drawPlayer(player.coords.x, player.coords.y);
     requestAnimationID = requestAnimationFrame(render);
   };
 

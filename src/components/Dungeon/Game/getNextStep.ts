@@ -1,6 +1,8 @@
 import { Direction, Coords } from '../types';
 
-const mapper = {
+type Mapper = { [K in Direction]: (coords: Coords) => Coords };
+
+const mapper: Mapper = {
   up: (coords: Coords) => ({ ...coords, y: coords.y - 1 }),
   down: (coords: Coords) => ({ ...coords, y: coords.y + 1 }),
   left: (coords: Coords) => ({ ...coords, x: coords.x - 1 }),
