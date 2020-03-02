@@ -17,7 +17,6 @@ const Menu: FC<IProps> = ({ statusGame, setStatusGame, setLevel }) => (
         <li
           className={styles.menuItem}
           onClick={() => {
-            console.log('Try again');
             setStatusGame(StatusGame.Start);
           }}
         >
