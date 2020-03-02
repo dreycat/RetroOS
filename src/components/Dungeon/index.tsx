@@ -2,6 +2,7 @@ import React, { useState, useCallback } from 'react';
 
 import Game from './Game';
 import Menu from './Menu';
+import LoadMenu from './LoadMenu';
 import { StatusGame } from './enums';
 import styles from './Dungeon.module.css';
 import getStarogeData from '../../utils/getStarogeData';
@@ -27,12 +28,20 @@ const Dungeon = () => {
     setStatusGame(StatusGame.Fail);
   }, []);
 
+  const win = useCallback(() => {
+    setStatusGame(StatusGame.Win);
+  }, []);
+
   return (
     <div className={styles.main}>
       {statusGame !== StatusGame.Start && (
         <Menu setLevel={setLevel} setStatusGame={setStatusGame} statusGame={statusGame} />
       )}
-      {statusGame === StatusGame.Start && <Game level={level} finishGame={finishGame} teleport={teleport} />}
+      {statusGame === StatusGame.Load && <LoadMenu setLevel={setLevel} setStatusGame={setStatusGame} />}
+      {statusGame === StatusGame.Start && <Game level={level} finishGame={finishGame} teleport={teleport} win={win} />}
+      {statusGame === StatusGame.Init && <div className={styles.init} />}
+      {statusGame === StatusGame.Win && <div className={styles.win} />}
+      {statusGame === StatusGame.Fail && <div className={styles.fail} />}
     </div>
   );
 };

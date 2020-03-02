@@ -10,9 +10,10 @@ interface IProps {
   level: number;
   teleport: () => void;
   finishGame: () => void;
+  win: () => void;
 }
 
-const Game: FC<IProps> = ({ level, teleport, finishGame }) => {
+const Game: FC<IProps> = ({ level, teleport, finishGame, win }) => {
   const canvas = useRef<HTMLCanvasElement>(null);
 
   useEffect(() => {
@@ -22,9 +23,9 @@ const Game: FC<IProps> = ({ level, teleport, finishGame }) => {
     canvas.current.height = height * scale;
     ctx.scale(scale, scale);
 
-    const clear = main(ctx, level, teleport, finishGame);
+    const clear = main(ctx, level, teleport, finishGame, win);
     return () => clear();
-  }, [level, teleport, finishGame]);
+  }, [level, teleport, finishGame, win]);
 
   return <canvas ref={canvas} style={{ width, height }} />;
 };

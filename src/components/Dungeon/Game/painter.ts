@@ -6,10 +6,6 @@ type Mapper = { [K in Square]: (x: number, y: number) => void };
 type CharacterDriver = { [K in Direction]: (x: number, y: number) => void };
 
 export default class Painter {
-  private readonly font =
-    ' -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, ' +
-    'Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif';
-
   private readonly sprite: HTMLImageElement;
   private readonly mapper: Mapper;
   private readonly enemyDriver: CharacterDriver;
@@ -94,13 +90,13 @@ export default class Painter {
     this.enemyDriver[direction]?.(x, y);
   };
 
-  drawStatusBar = (keys: number, totalKeys: number, level: number, hearts: number) => {
-    this.ctx.font = `16px ${this.font}`;
+  drawStatusBar = (keys: number, totalKeys: number, level: number, lives: number) => {
+    this.ctx.font = `16px "Roboto Mono", monospace`;
     this.ctx.textAlign = 'center';
     this.ctx.textBaseline = 'middle';
     this.ctx.fillStyle = 'gold';
     this.ctx.fillText(`Keys: ${keys} / ${totalKeys}`, 66, 16);
     this.ctx.fillText(`Level: ${level + 1}`, 260, 16);
-    this.ctx.fillText(`Hears: ${hearts} / 3`, 442, 16);
+    this.ctx.fillText(`Lives: ${lives} / 3`, 442, 16);
   };
 }

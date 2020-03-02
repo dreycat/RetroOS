@@ -5,3 +5,35 @@
   height: 512px;
   font-size: 0;
 }
+
+.win,
+.fail,
+.init {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 7;
+}
+
+.init,
+.win,
+.fail {
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  background-color: #ccc;
+}
+
+.init {
+  background-image: url(./Game/images/init.jpg);
+}
+
+.win {
+  background-image: url(./Game/images/win.jpg);
+}
+
+.fail {
+  background-image: url(./Game/images/fail.jpg);
+}

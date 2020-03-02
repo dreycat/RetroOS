@@ -10,7 +10,13 @@ import random from '../../../utils/random';
 import { Direction, Map } from '../types';
 import { Cell } from '../enums';
 
-export default (ctx: CanvasRenderingContext2D, level: number, teleport: () => void, finishGame: () => void) => {
+export default (
+  ctx: CanvasRenderingContext2D,
+  level: number,
+  teleport: () => void,
+  finishGame: () => void,
+  win: () => void
+) => {
   const painter = new Painter(ctx);
   const player = new Player({ ...levels[level].player });
   const enemies = levels[level].enemies.map(
@@ -59,7 +65,7 @@ export default (ctx: CanvasRenderingContext2D, level: number, teleport: () => vo
       return;
     }
     if (nextCell === Cell.Gold) {
-      console.log('final');
+      win();
       return;
     }
     player.direction = direction;
@@ -81,7 +87,7 @@ export default (ctx: CanvasRenderingContext2D, level: number, teleport: () => vo
 
   const render = () => {
     painter.drawMap(map);
-    painter.drawStatusBar(keys, totalKeys, level, player.hearts);
+    painter.drawStatusBar(keys, totalKeys, level, player.lives);
     enemies.forEach(enemy => painter.drawEnemy(enemy.coords.x, enemy.coords.y, enemy.direction));
 
     if (player.isDead) {
