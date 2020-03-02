@@ -1,10 +1,10 @@
 import Character from './character';
-import { Coords } from '../types';
+import { Coords, Direction } from '../types';
 
 export default class Player extends Character {
   private _dead: boolean;
 
-  constructor(coords: Coords, public hearts = 3) {
+  constructor(coords: Coords, public hearts = 3, public direction: Direction = 'down') {
     super(coords);
     this._dead = false;
   }

@@ -62,7 +62,7 @@ export default (ctx: CanvasRenderingContext2D, level: number, teleport: () => vo
       console.log('final');
       return;
     }
-
+    player.direction = direction;
     player.coords = { ...nextStep };
   };
 
@@ -89,7 +89,7 @@ export default (ctx: CanvasRenderingContext2D, level: number, teleport: () => vo
       return;
     }
 
-    painter.drawPlayer(player.coords.x, player.coords.y);
+    painter.drawPlayer(player.coords.x, player.coords.y, player.direction);
     requestAnimationID = requestAnimationFrame(render);
   };
 

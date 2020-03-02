@@ -3,6 +3,7 @@ import { Map, Direction, Square } from '../types';
 import sprite from './images/sprite.png';
 
 type Mapper = { [K in Square]: (x: number, y: number) => void };
+type CharacterDriver = { [K in Direction]: (x: number, y: number) => void };
 
 export default class Painter {
   private readonly font =
@@ -11,6 +12,8 @@ export default class Painter {
 
   private readonly sprite: HTMLImageElement;
   private readonly mapper: Mapper;
+  private readonly enemyDriver: CharacterDriver;
+  private readonly playerDriver: CharacterDriver;
 
   constructor(private readonly ctx: CanvasRenderingContext2D) {
     this.sprite = new Image();
@@ -24,7 +27,18 @@ export default class Painter {
       B: this.drawBox,
       G: this.drawGold
     };
+    this.enemyDriver = this.createCharacterDriver(32, 0, 64, 96);
+    this.playerDriver = this.createCharacterDriver(448, 416, 352, 384);
   }
+
+  createCharacterDriver = (right: number, left: number, down: number, up: number) => {
+    return {
+      right: (x: number, y: number) => this.drawCell(x, y, right),
+      left: (x: number, y: number) => this.drawCell(x, y, left),
+      down: (x: number, y: number) => this.drawCell(x, y, down),
+      up: (x: number, y: number) => this.drawCell(x, y, up)
+    };
+  };
 
   drawCell = (x: number, y: number, sx: number) => {
     this.ctx.drawImage(this.sprite, sx, 0, 32, 32, x * 32, y * 32, 32, 32);
@@ -67,26 +81,17 @@ export default class Painter {
     for (let y = 0; y < map.length; y++) {
       for (let x = 0; x < map[0].length; x++) {
         const cell = map[y][x];
-        this.mapper[cell](x, y);
+        this.mapper[cell]?.(x, y);
       }
     }
   };
 
-  drawPlayer = (x: number, y: number) => {
-    this.ctx.fillStyle = 'red';
-    this.ctx.fillRect(x * 32, y * 32, 32, 32);
+  drawPlayer = (x: number, y: number, direction: Direction) => {
+    this.playerDriver[direction]?.(x, y);
   };
 
   drawEnemy = (x: number, y: number, direction: Direction) => {
-    if (direction === 'right') {
-      this.drawCell(x, y, 32);
-    } else if (direction === 'left') {
-      this.drawCell(x, y, 0);
-    } else if (direction === 'down') {
-      this.drawCell(x, y, 64);
-    } else if (direction === 'up') {
-      this.drawCell(x, y, 96);
-    }
+    this.enemyDriver[direction]?.(x, y);
   };
 
   drawStatusBar = (keys: number, totalKeys: number, level: number, hearts: number) => {

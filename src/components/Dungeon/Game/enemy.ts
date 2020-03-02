@@ -14,6 +14,6 @@ export default class Enemy extends Character {
   }
 
   move() {
-    this[this.direction]();
+    this[this.direction]?.();
   }
 }

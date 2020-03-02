@@ -10,5 +10,5 @@ const mapper: Mapper = {
 };
 
 export default (coords: Coords, direction: Direction) => {
-  return mapper[direction](coords);
+  return mapper[direction]?.(coords);
 };
