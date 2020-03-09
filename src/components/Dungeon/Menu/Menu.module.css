@@ -3,7 +3,7 @@
   bottom: 24px;
   left: 50%;
   transform: translateX(-50%);
-  font-size: 30px;
+  font-size: 24px;
   color: #fff;
   list-style: none;
   text-align: center;
@@ -24,11 +24,9 @@
   color: gold;
 }
 
-
-
 @keyframes slide-in-bottom {
   0% {
-    transform: translateY(1000px) translateX(-50%);
+    transform: translateY(512px) translateX(-50%);
     opacity: 0;
   }
   100% {

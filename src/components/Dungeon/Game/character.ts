@@ -1,6 +1,6 @@
 import { Coords } from '../types';
 
-export default class Character {
+export default abstract class Character {
   constructor(public coords: Coords) {}
 
   up() {
