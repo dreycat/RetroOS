@@ -1,7 +1,7 @@
-import { Coords } from '../types';
+import { Direction, Coords } from '../types';
 
 export default abstract class Character {
-  constructor(public coords: Coords) {}
+  constructor(public coords: Coords, public direction: Direction) {}
 
   up() {
     if (this.coords.y > 0) {

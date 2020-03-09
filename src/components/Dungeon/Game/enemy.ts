@@ -4,8 +4,8 @@ import random from '../../../utils/random';
 
 export default class Enemy extends Character {
   private directions: Direction[];
-  constructor(coords: Coords, public direction: Direction = 'left', public speed: number) {
-    super(coords);
+  constructor(coords: Coords, direction: Direction = 'left', public speed: number) {
+    super(coords, direction);
     this.directions = ['down', 'left', 'right', 'up'];
   }
 
