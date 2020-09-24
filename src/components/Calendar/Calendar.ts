@@ -16,22 +16,18 @@ export default class Calendar<T> {
   nextPage() {
     this.cursor += 1;
     this._setMonth();
-    console.log('next');
-
     return this.presenter(this.date);
   }
 
   prevPage() {
     this.cursor -= 1;
     this._setMonth();
-    console.log('prev');
     return this.presenter(this.date);
   }
 
   currentPage() {
     this.cursor = 0;
     this._setMonth();
-    console.log('curr');
     return this.presenter(this.date);
   }
 }
