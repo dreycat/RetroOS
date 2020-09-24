@@ -1,0 +1,69 @@
+.main {
+  --size: 30px;
+  padding: 8px;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: calc(var(--size) * 7);
+}
+
+.month {
+  margin: 0;
+  padding: 0;
+  font-size: 16px;
+  font-weight: normal;
+  color: #222b35;
+}
+
+.calendar {
+  display: flex;
+  flex-wrap: wrap;
+  width: calc(var(--size) * 7);
+}
+
+.shadow,
+.day,
+.letter {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: var(--size);
+  height: var(--size);
+  font-size: 12px;
+  color: #fff;
+}
+
+.day {
+  color: #fff;
+}
+
+.shadow {
+  color: #222b35;
+}
+
+.prev,
+.next {
+  padding: 12px;
+  background-color: transparent;
+  border: none;
+  outline: none;
+}
+
+.prev::after,
+.next::after {
+  display: block;
+  content: '';
+  border-bottom: 4px solid transparent;
+  border-top: 4px solid transparent;
+}
+
+.prev::after {
+  border-right: 4px solid #222b35;
+}
+
+.next::after {
+  border-left: 4px solid #222b35;
+}

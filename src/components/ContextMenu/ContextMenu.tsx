@@ -30,7 +30,7 @@ const ContextMenu = () => {
 
   useEffect(() => {
     const onClickOutsideHandler = (event: MouseEvent) => {
-      if (isOpen && !menuEl.current!.contains(event.target as Node) && event.button === 0) {
+      if (isOpen && !menuEl.current?.contains(event.target as Node) && event.button === 0) {
         setOpen(false);
       }
     };
@@ -48,7 +48,7 @@ const ContextMenu = () => {
           className={styles.menu}
           style={{ top: coords.y, left: coords.x }}
           ref={menuEl}
-          onContextMenu={e => e.preventDefault()}
+          onContextMenu={(e) => e.preventDefault()}
           onClick={() => setOpen(false)}
         >
           <li className={styles.item} onClick={openSettings}>

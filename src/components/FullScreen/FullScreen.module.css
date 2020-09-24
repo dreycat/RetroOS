@@ -4,4 +4,10 @@
   justify-content: center;
   align-items: center;
   cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.main:hover,
+.main:focus {
+  background-color: rgba(255, 255, 255, 0.2);
 }

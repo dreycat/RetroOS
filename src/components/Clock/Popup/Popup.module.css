@@ -1,0 +1,41 @@
+.popup {
+  position: fixed;
+  top: 42px;
+  right: 14px;
+  background-color: var(--main-color);
+  border-radius: 3px;
+  box-shadow: inset 1px 1px 1px 0 rgba(255, 255, 255, 0.8), 5px 6px 0 rgba(0, 0, 0, 0.24);
+  animation: fade-in 0.3s cubic-bezier(0.55, 0.085, 0.68, 0.53) both;
+}
+
+.popup::after,
+.popup::before {
+  position: absolute;
+  display: block;
+  content: '';
+  border-left: 16px solid transparent;
+  border-right: 16px solid transparent;
+}
+
+.popup::after {
+  top: -14px;
+  right: 62px;
+  border-bottom: 16px solid var(--main-color);
+  z-index: 1000;
+}
+
+.popup::before {
+  top: -16px;
+  right: 62px;
+  border-bottom: 16px solid rgba(255, 255, 255, 0.8);
+  z-index: 999;
+}
+
+@keyframes fade-in {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}

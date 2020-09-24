@@ -9,6 +9,10 @@
   animation: slide-out-bottom 0.3s cubic-bezier(0.55, 0.085, 0.68, 0.53) both;
 }
 
+.fade-exit-active {
+  animation: fade-out 0.3s cubic-bezier(0.55, 0.085, 0.68, 0.53) both;
+}
+
 ::-webkit-scrollbar {
   width: 8px;
 }
@@ -33,6 +37,15 @@
   }
   100% {
     transform: translateY(200px) scale(0.3);
+    opacity: 0;
+  }
+}
+
+@keyframes fade-out {
+  0% {
+    opacity: 1;
+  }
+  100% {
     opacity: 0;
   }
 }
