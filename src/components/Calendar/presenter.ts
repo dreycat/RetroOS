@@ -1,10 +1,10 @@
-import { getPreviusMounth, getDay, getDate, moveToLastDayOfMonth } from '../../utils/date';
+import { getPreviusMonth, getDay, getDate, moveToLastDayOfMonth } from '../../utils/date';
 import compose from '../../utils/compose';
 
 const getLastDayInMonth = compose(getDay, moveToLastDayOfMonth);
 const getDaysInMonth = compose(getDate, moveToLastDayOfMonth);
-const getLastDayInPreviusMonth = compose(getDay, moveToLastDayOfMonth, getPreviusMounth);
-const getDaysInPreviusMonth = compose(getDate, moveToLastDayOfMonth, getPreviusMounth);
+const getLastDayInPreviusMonth = compose(getDay, moveToLastDayOfMonth, getPreviusMonth);
+const getDaysInPreviusMonth = compose(getDate, moveToLastDayOfMonth, getPreviusMonth);
 
 type Result = {
   date: Date;
