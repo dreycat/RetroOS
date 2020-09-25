@@ -33,14 +33,21 @@
   width: var(--size);
   height: var(--size);
   font-size: 12px;
-  color: #fff;
+  line-height: 1;
 }
 
-.day {
-  color: #fff;
+.day,
+.letter {
+  color: #fdf6e3;
 }
 
 .shadow {
+  color: #222b35;
+}
+
+.today {
+  border-radius: 50%;
+  background-color: #fdf6e3;
   color: #222b35;
 }
 

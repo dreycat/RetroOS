@@ -7,7 +7,7 @@ export default class Calendar<T> {
     this.cursor = 0;
   }
 
-  _setMonth() {
+  private setMonth() {
     const date = new Date();
     date.setMonth(date.getMonth() + this.cursor);
     this.date = date;
@@ -15,19 +15,19 @@ export default class Calendar<T> {
 
   nextPage() {
     this.cursor += 1;
-    this._setMonth();
+    this.setMonth();
     return this.presenter(this.date);
   }
 
   prevPage() {
     this.cursor -= 1;
-    this._setMonth();
+    this.setMonth();
     return this.presenter(this.date);
   }
 
   currentPage() {
     this.cursor = 0;
-    this._setMonth();
+    this.setMonth();
     return this.presenter(this.date);
   }
 }
