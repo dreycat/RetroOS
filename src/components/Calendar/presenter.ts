@@ -1,12 +1,12 @@
 import { getPreviusMonth, getDay, getDate, moveToLastDayOfMonth } from '../../utils/date';
 import compose from '../../utils/compose';
 
-const getLastDayInMonth = compose(getDay, moveToLastDayOfMonth);
 const getDaysInMonth = compose(getDate, moveToLastDayOfMonth);
-const getLastDayInPreviusMonth = compose(getDay, moveToLastDayOfMonth, getPreviusMonth);
 const getDaysInPreviusMonth = compose(getDate, moveToLastDayOfMonth, getPreviusMonth);
+const getLastDayOfMonth = compose(getDay, moveToLastDayOfMonth);
+const getLastDayOfPreviusMonth = compose(getDay, moveToLastDayOfMonth, getPreviusMonth);
 
-type Result = {
+type Page = {
   date: Date;
   prevMonth: string[];
   currentMonth: string[];
@@ -21,31 +21,36 @@ const getPrettyDay = (number: number): string => {
 };
 
 const presenter = (date: Date) => {
-  const result: Result = {
+  const rows = 6;
+  const firstDayOfMonth = 1;
+  const daysInWeek = 7;
+  const daysInMonth = getDaysInMonth(date);
+  const daysInPreviusMonth = getDaysInPreviusMonth(date);
+  const lastDayOfMonth = getLastDayOfMonth(date);
+  const lastDayOfPreviusMonth = getLastDayOfPreviusMonth(date);
+  const page: Page = {
     date,
     prevMonth: [],
     currentMonth: [],
     nextMonth: [],
   };
 
-  for (let i = getDaysInPreviusMonth(date) - getLastDayInPreviusMonth(date); i <= getDaysInPreviusMonth(date); i++) {
-    result.prevMonth.push(getPrettyDay(i));
+  for (let i = daysInPreviusMonth - lastDayOfPreviusMonth; i <= daysInPreviusMonth; i++) {
+    page.prevMonth.push(getPrettyDay(i));
   }
 
-  for (let i = 1; i <= getDaysInMonth(date); i++) {
-    result.currentMonth.push(getPrettyDay(i));
+  for (let i = firstDayOfMonth; i <= daysInMonth; i++) {
+    page.currentMonth.push(getPrettyDay(i));
   }
 
-  const daysInWeek = 7;
-  const rows = 6;
-  const weeks = Math.ceil((result.prevMonth.length + result.currentMonth.length) / daysInWeek);
+  const weeks = Math.ceil((page.prevMonth.length + page.currentMonth.length) / daysInWeek);
   const extraDays = weeks < rows ? daysInWeek : 0;
 
-  for (let i = 1; i < daysInWeek - getLastDayInMonth(date) + extraDays; i++) {
-    result.nextMonth.push(getPrettyDay(i));
+  for (let i = firstDayOfMonth; i < daysInWeek - lastDayOfMonth + extraDays; i++) {
+    page.nextMonth.push(getPrettyDay(i));
   }
 
-  return result;
+  return page;
 };
 
 export default presenter;
