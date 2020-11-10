@@ -21,6 +21,7 @@ const ContextMenu = () => {
   const menuEl = useRef<HTMLUListElement>(null);
   const { onOpen: openSettings } = useWindow('settings');
   const { onOpen: openConsole } = useWindow('console');
+  const { onOpen: openScreesaver } = useWindow('screensaver');
 
   const contextHandler = useCallback((event: React.MouseEvent) => {
     event.preventDefault();
@@ -53,6 +54,9 @@ const ContextMenu = () => {
         >
           <li className={styles.item} onClick={openSettings}>
             Settings
+          </li>
+          <li className={styles.item} onClick={openScreesaver}>
+            Screesaver
           </li>
           <li className={styles.item} onClick={openConsole}>
             Console

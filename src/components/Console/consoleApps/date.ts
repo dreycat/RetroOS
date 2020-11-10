@@ -6,7 +6,7 @@ const conf = {
   year: 'numeric',
   hour: 'numeric',
   minute: 'numeric',
-  hour12: false
+  hour12: false,
 };
 
 export default () => {
