@@ -1,0 +1,18 @@
+.main {
+  width: 400px;
+}
+
+.file-list {
+  display: flex;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.file-list > li {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 16px;
+  cursor: pointer;
+}

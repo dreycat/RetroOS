@@ -4,12 +4,13 @@ import getStorageData from '../utils/getStarogeData';
 import { Apps } from '../types';
 
 const initialState = {
+  explorer: false,
   audioplayer: false,
   console: false,
   mines: false,
   settings: false,
   todo: false,
-  dungeon: false
+  dungeon: false,
 };
 
 const STORAGE_KEY = 'windows_state';
