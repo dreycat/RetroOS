@@ -4,6 +4,7 @@ import release from './release';
 import date from './date';
 import help from './help';
 import reset from './reset';
+import matrix from './matrix';
 
 const consoleApps = {
   cowsay,
@@ -11,7 +12,8 @@ const consoleApps = {
   date,
   help,
   reset,
-  default: error
+  matrix,
+  default: error,
 };
 
 export default consoleApps;

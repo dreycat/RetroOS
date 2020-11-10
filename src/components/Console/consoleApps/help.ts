@@ -5,4 +5,5 @@ date
 release
 clear or cls
 reset
+matrix
 `;

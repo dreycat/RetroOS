@@ -1,6 +1,7 @@
 import React, { FC, useRef, useCallback, useEffect } from 'react';
 
 import useConsole from '../../hooks/useConsole';
+import useWindow from '../../hooks/useWindow';
 import { IWindowSize } from '../../interfaces';
 import styles from './Console.module.css';
 
@@ -11,6 +12,7 @@ interface IProps {
 const Console: FC<IProps> = ({ size }) => {
   const inputEl = useRef<HTMLInputElement>(null);
   const { messages, dispatch } = useConsole();
+  const { onOpen: openScreesaver } = useWindow('screensaver');
 
   const handleKeyPress = useCallback(
     ({ key, currentTarget }: React.KeyboardEvent<HTMLInputElement>) => {
@@ -18,12 +20,15 @@ const Console: FC<IProps> = ({ size }) => {
         const raw = currentTarget.value;
         const line = raw.trim();
         if (line === '') return;
+        if (line === 'matrix') {
+          openScreesaver();
+        }
         const [command, ...arg] = line.split(' ');
         dispatch(command, arg.join(' '), raw);
         currentTarget.value = '';
       }
     },
-    [dispatch]
+    [dispatch, openScreesaver]
   );
 
   const handleClick = useCallback(() => {
