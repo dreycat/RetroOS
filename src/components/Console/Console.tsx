@@ -12,7 +12,7 @@ interface IProps {
 const Console: FC<IProps> = ({ size }) => {
   const inputEl = useRef<HTMLInputElement>(null);
   const { messages, dispatch } = useConsole();
-  const { onOpen: openScreesaver } = useWindow('screensaver');
+  const { onOpen: openScreensaver } = useWindow('screensaver');
 
   const handleKeyPress = useCallback(
     ({ key, currentTarget }: React.KeyboardEvent<HTMLInputElement>) => {
@@ -21,14 +21,14 @@ const Console: FC<IProps> = ({ size }) => {
         const line = raw.trim();
         if (line === '') return;
         if (line === 'matrix') {
-          openScreesaver();
+          openScreensaver();
         }
         const [command, ...arg] = line.split(' ');
         dispatch(command, arg.join(' '), raw);
         currentTarget.value = '';
       }
     },
-    [dispatch, openScreesaver]
+    [dispatch, openScreensaver]
   );
 
   const handleClick = useCallback(() => {
