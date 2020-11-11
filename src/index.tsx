@@ -1,6 +1,6 @@
 import React, { StrictMode } from 'react';
 import ReactDOM from 'react-dom';
-import * as serviceWorker from './serviceWorker';
+import * as serviceWorkerRegistration from './serviceWorkerRegistration';
 import App from './components/App';
 
 import './styles/base.css';
@@ -14,4 +14,4 @@ ReactDOM.render(
   document.getElementById('root')
 );
 
-serviceWorker.register();
+serviceWorkerRegistration.register();
