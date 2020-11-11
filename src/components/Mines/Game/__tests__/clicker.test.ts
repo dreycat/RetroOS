@@ -1,5 +1,5 @@
-import clicker from '../clicker';
-import generateField, { getEmptyField } from '../generateField';
+import { clicker } from '../clicker';
+import { getEmptyField, generateField } from '../generateField';
 
 import { Cell } from '../enums';
 

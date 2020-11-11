@@ -1,4 +1,4 @@
-import hasUserWon from '../hasUserWon';
+import { hasUserWon } from '../hasUserWon';
 import { getEmptyField } from '../generateField';
 import { Cell } from '../enums';
 

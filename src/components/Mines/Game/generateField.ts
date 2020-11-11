@@ -1,4 +1,4 @@
-import getNeighbors from './getNeighbors';
+import { getNeighbors } from './getNeighbors';
 import compose from '../../../utils/compose';
 import { deepClone } from '../../../utils/deepClone';
 import { random } from '../../../utils/random';

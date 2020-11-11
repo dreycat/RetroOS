@@ -1,4 +1,4 @@
-import getNeighbors from './getNeighbors';
+import { getNeighbors } from './getNeighbors';
 import { deepClone } from '../../../utils/deepClone';
 
 import { Field } from './types';

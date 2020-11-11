@@ -1,4 +1,4 @@
-import generateField, { getEmptyField } from '../generateField';
+import { getEmptyField, generateField } from '../generateField';
 
 import { Cell } from '../enums';
 
@@ -20,6 +20,6 @@ describe('getEmptyField function:', () => {
     expect(field).toHaveLength(2);
     expect(field[0]).toHaveLength(4);
     expect(field[0]).toContain(0);
-    expect(field[0].every(item => item === 0)).toBe(true);
+    expect(field[0].every((item) => item === 0)).toBe(true);
   });
 });
