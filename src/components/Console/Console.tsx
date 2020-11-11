@@ -1,7 +1,7 @@
 import React, { FC, useRef, useCallback, useEffect } from 'react';
 
-import useConsole from '../../hooks/useConsole';
-import useWindow from '../../hooks/useWindow';
+import { useConsole } from '../../hooks/useConsole';
+import { useWindow } from '../../hooks/useWindow';
 import { IWindowSize } from '../../interfaces';
 import styles from './Console.module.css';
 

@@ -10,7 +10,7 @@ interface IMessage {
 
 const userPrefix = 'root >';
 
-export default () => {
+export const useConsole = () => {
   const [messages, setMessages] = useState<IMessage[]>([]);
 
   const dispatch = useCallback(
@@ -28,6 +28,6 @@ export default () => {
 
   return {
     messages,
-    dispatch
+    dispatch,
   };
 };

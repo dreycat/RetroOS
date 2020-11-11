@@ -1,6 +1,6 @@
 import React, { useState, useCallback, useEffect, useRef } from 'react';
 
-import useWindow from '../../hooks/useWindow';
+import { useWindow } from '../../hooks/useWindow';
 import styles from './ContextMenu.module.css';
 
 const SHIFT_MENU = 4;

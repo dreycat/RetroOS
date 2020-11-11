@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 
-import withTransition from '../../hocs/withTransition';
-import getStarogeData from '../../utils/getStarogeData';
+import { withTransition } from '../../hocs/withTransition';
+import { getStorageData } from '../../utils/getStorageData';
 import { ICoords } from '../../interfaces';
 import { Apps } from '../../types';
 import styles from './Window.module.css';
@@ -76,7 +76,7 @@ class Window extends Component<IProps> {
   };
 
   setPositionFromStorage = () => {
-    const coords = getStarogeData<ICoords>(`${this.props.name}_window_coords`, this.props.defaultPosition)();
+    const coords = getStorageData<ICoords>(`${this.props.name}_window_coords`, this.props.defaultPosition)();
     this.applyCoords(coords);
   };
 
@@ -85,7 +85,7 @@ class Window extends Component<IProps> {
       `${this.props.name}_window_coords`,
       JSON.stringify({
         top: parseInt(this.mainEl.current!.style.top, 10),
-        left: parseInt(this.mainEl.current!.style.left, 10)
+        left: parseInt(this.mainEl.current!.style.left, 10),
       })
     );
   };
@@ -120,7 +120,7 @@ class Window extends Component<IProps> {
       <div
         className={styles.main}
         ref={this.mainEl}
-        onContextMenu={e => e.preventDefault()}
+        onContextMenu={(e) => e.preventDefault()}
         onClick={this.calculateIndex}
       >
         <div className={styles.header} ref={this.headerEl} onMouseDown={this.startDrag}>

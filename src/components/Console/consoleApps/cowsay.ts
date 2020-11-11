@@ -1,4 +1,4 @@
-export default (text: string) => {
+export const cowsay = (text: string) => {
   if (!text) {
     text = 'Hello!';
   }

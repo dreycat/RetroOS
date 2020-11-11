@@ -1,8 +1,8 @@
 import React, { FC } from 'react';
 
 import { StatusGame } from '../enums';
-import levels from '../Game/levels';
-import getStarogeData from '../../../utils/getStarogeData';
+import { levels } from '../Game/levels';
+import { getStorageData } from '../../../utils/getStorageData';
 import styles from './LoadMenu.module.css';
 
 interface IProps {
@@ -11,11 +11,11 @@ interface IProps {
 }
 
 const LoadMenu: FC<IProps> = ({ setStatusGame, setLevel }) => {
-  const savedLevel = getStarogeData('dungeon_level', 0)();
+  const savedLevel = getStorageData('dungeon_level', 0)();
 
   return (
     <ul className={styles.loadMenu}>
-      {Array.from({ length: levels.length }, (_, i) => i).map(level => {
+      {Array.from({ length: levels.length }, (_, i) => i).map((level) => {
         return savedLevel >= level ? (
           <li
             className={styles.savedLevel}

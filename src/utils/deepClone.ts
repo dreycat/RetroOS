@@ -1,1 +1,1 @@
-export default (x: any) => JSON.parse(JSON.stringify(x));
+export const deepClone = (x: any) => JSON.parse(JSON.stringify(x));

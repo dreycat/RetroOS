@@ -1,5 +1,6 @@
 import React, { useCallback, useEffect } from 'react';
-import useWindow from '../../hooks/useWindow';
+
+import { useWindow } from '../../hooks/useWindow';
 import ApplicationErrorBoundary from '../ApplicationErrorBoundary';
 import Screensaver from '../Screensaver';
 

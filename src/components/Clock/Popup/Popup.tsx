@@ -1,7 +1,7 @@
 import React, { FC } from 'react';
 
 import Calendar from '../../Calendar';
-import withTransition from '../../../hocs/withTransition';
+import { withTransition } from '../../../hocs/withTransition';
 import styles from './Popup.module.css';
 
 interface IProps {

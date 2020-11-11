@@ -1,7 +1,7 @@
 import React, { FC, useState, useCallback, useEffect, useRef } from 'react';
 import { v4 as uuid } from 'uuid';
 
-import getStarogeData from '../../utils/getStarogeData';
+import { getStorageData } from '../../utils/getStorageData';
 import { ReactComponent as DeleteIcon } from './images/delete.svg';
 import { ReactComponent as DoneIcon } from './images/done.svg';
 import { ReactComponent as NotDoneIcon } from './images/not_done.svg';
@@ -21,7 +21,7 @@ interface IProps {
 }
 
 const ToDo: FC<IProps> = ({ size }) => {
-  const [list, setList] = useState<ListItem[]>(getStarogeData('todos', []));
+  const [list, setList] = useState<ListItem[]>(getStorageData('todos', []));
   const [text, setText] = useState('');
   const listEl = useRef<HTMLUListElement>(null);
 
@@ -42,15 +42,15 @@ const ToDo: FC<IProps> = ({ size }) => {
   );
 
   const handleDelete = useCallback(
-    idx => {
+    (idx) => {
       setList(list.filter(({ id }) => id !== idx));
     },
     [list]
   );
 
   const handleToggle = useCallback(
-    idx => {
-      setList(list.map(item => (item.id === idx ? { ...item, done: !item.done } : item)));
+    (idx) => {
+      setList(list.map((item) => (item.id === idx ? { ...item, done: !item.done } : item)));
     },
     [list]
   );

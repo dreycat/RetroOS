@@ -1,23 +1,23 @@
 :root {
   --main-color: rgb(173, 177, 198);
   --main-bg-color: rgb(100, 98, 145);
-  --main-bg-image: url('/images/wallpapers/wp0.jpg');
+  --main-bg-image: url('/src/assets/images/wallpapers/wp0.jpg');
 }
 
 :root.green {
   --main-color: rgb(173, 198, 178);
   --main-bg-color: rgb(98, 145, 144);
-  --main-bg-image: url('/images/wallpapers/wp1.jpg');
+  --main-bg-image: url('/src/assets/images/wallpapers/wp1.jpg');
 }
 
 :root.yellow {
   --main-color: rgb(222, 209, 191);
   --main-bg-color: rgb(98, 145, 128);
-  --main-bg-image: url('/images/wallpapers/wp2.jpg');
+  --main-bg-image: url('/src/assets/images/wallpapers/wp2.jpg');
 }
 
 :root.colorless {
   --main-color: rgb(186, 186, 186);
   --main-bg-color: rgb(119, 119, 126);
-  --main-bg-image: url('/images/wallpapers/wp3.jpg');
+  --main-bg-image: url('/src/assets/images/wallpapers/wp3.jpg');
 }

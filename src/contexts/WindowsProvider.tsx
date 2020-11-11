@@ -1,6 +1,6 @@
 import React, { FC, useReducer, createContext, useEffect } from 'react';
 
-import getStorageData from '../utils/getStarogeData';
+import { getStorageData } from '../utils/getStorageData';
 import { Apps } from '../types';
 
 const initialState = {

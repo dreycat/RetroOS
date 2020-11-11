@@ -1,11 +1,11 @@
 import React, { FC, useState, useCallback } from 'react';
 
 import Board from './Board';
-import generateField, { getEmptyField } from './generateField';
-import hasUserWon from './hasUserWon';
 import Header from './Header';
-import clicker from './clicker';
-import deepClone from '../../../utils/deepClone';
+import { getEmptyField, generateField } from './generateField';
+import { hasUserWon } from './hasUserWon';
+import { clicker } from './clicker';
+import { deepClone } from '../../../utils/deepClone';
 import { Field } from './types';
 import { Cell, StatusGame } from './enums';
 import styles from './Game.module.css';
@@ -52,14 +52,14 @@ const Game: FC<IProps> = ({ fieldWidth, fieldHeight, mines, sellSize }) => {
 
       if (cloneUserField[y][x] === Cell.Flag) {
         cloneUserField[y][x] = Cell.Suspense;
-        setFlags(flag => flag - 1);
+        setFlags((flag) => flag - 1);
         setUserField(cloneUserField);
         return;
       }
 
       if (flags < mines) {
         cloneUserField[y][x] = Cell.Flag;
-        setFlags(flag => flag + 1);
+        setFlags((flag) => flag + 1);
         setUserField(cloneUserField);
         return;
       }

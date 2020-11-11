@@ -2,8 +2,8 @@ import React, { FC } from 'react';
 
 import Icon from '../Icon';
 import Window from '../Window';
-import useWindow from '../../hooks/useWindow';
-import useIcon from '../../hooks/useIcon';
+import { useWindow } from '../../hooks/useWindow';
+import { useIcon } from '../../hooks/useIcon';
 import ApplicationErrorBoundary from '../ApplicationErrorBoundary';
 import { ICoords } from '../../interfaces';
 import { Apps } from '../../types';

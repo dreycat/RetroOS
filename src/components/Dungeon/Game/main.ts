@@ -1,16 +1,16 @@
 import Player from './player';
 import Enemy from './enemy';
 import Painter from './painter';
-import levels from './levels';
-import getPlayerDirection from './getPlayerDirection';
-import opener from './opener';
-import getNextStep from './getNextStep';
-import deepClone from '../../../utils/deepClone';
-import random from '../../../utils/random';
+import { levels } from './levels';
+import { getPlayerDirection } from './getPlayerDirection';
+import { opener } from './opener';
+import { getNextStep } from './getNextStep';
+import { deepClone } from '../../../utils/deepClone';
+import { random } from '../../../utils/random';
 import { Direction, Map } from '../types';
 import { Cell } from '../enums';
 
-export default (
+export const main = (
   ctx: CanvasRenderingContext2D,
   level: number,
   teleport: () => void,
@@ -88,7 +88,7 @@ export default (
   const render = () => {
     painter.drawMap(map);
     painter.drawStatusBar(keys, totalKeys, level, player.lives);
-    enemies.forEach(enemy => painter.drawEnemy(enemy.coords.x, enemy.coords.y, enemy.direction));
+    enemies.forEach((enemy) => painter.drawEnemy(enemy.coords.x, enemy.coords.y, enemy.direction));
 
     if (player.isDead) {
       finishGame();
@@ -101,12 +101,12 @@ export default (
 
   requestAnimationID = requestAnimationFrame(render);
 
-  const enemyIDS = enemies.map(enemy => setInterval(() => enemyController(enemy), enemy.speed));
+  const enemyIDS = enemies.map((enemy) => setInterval(() => enemyController(enemy), enemy.speed));
   document.addEventListener('keydown', keydownHandler);
 
   return () => {
     cancelAnimationFrame(requestAnimationID);
-    enemyIDS.forEach(id => clearInterval(id));
+    enemyIDS.forEach((id) => clearInterval(id));
     document.removeEventListener('keydown', keydownHandler);
   };
 };

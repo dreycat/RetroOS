@@ -3,7 +3,7 @@ import { useContext, useCallback } from 'react';
 import { WindowsContext } from '../contexts/WindowsProvider';
 import { Apps } from '../types';
 
-export default (name: Apps) => {
+export const useWindow = (name: Apps) => {
   const { state, dispatch } = useContext(WindowsContext);
 
   const isOpen = state[name] ?? false;
@@ -24,6 +24,6 @@ export default (name: Apps) => {
     isOpen,
     onOpen,
     onClose,
-    toggle
+    toggle,
   };
 };
