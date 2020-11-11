@@ -1,19 +1,19 @@
 :root {
   --main-color: rgb(173, 177, 198);
   --main-bg-color: rgb(100, 98, 145);
-  --main-bg-image: url('/src/assets/images/wallpapers/wp0.jpg');
+  --main-bg-image: url('/src/assets/images/wallpapers/wp0.webp');
 }
 
 :root.green {
   --main-color: rgb(173, 198, 178);
   --main-bg-color: rgb(98, 145, 144);
-  --main-bg-image: url('/src/assets/images/wallpapers/wp1.jpg');
+  --main-bg-image: url('/src/assets/images/wallpapers/wp1.webp');
 }
 
 :root.yellow {
   --main-color: rgb(222, 209, 191);
   --main-bg-color: rgb(98, 145, 128);
-  --main-bg-image: url('/src/assets/images/wallpapers/wp2.jpg');
+  --main-bg-image: url('/src/assets/images/wallpapers/wp2.webp');
 }
 
 :root.colorless {

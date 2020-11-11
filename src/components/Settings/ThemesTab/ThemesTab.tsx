@@ -6,9 +6,9 @@ import { Themes } from '../../../types';
 import { preloadImages } from '../../../utils/preloadImages';
 import styles from './ThemesTab.module.css';
 
-import wallpapers0 from '../../../assets/images/wallpapers/wp0.jpg';
-import wallpapers1 from '../../../assets/images/wallpapers/wp1.jpg';
-import wallpapers2 from '../../../assets/images/wallpapers/wp2.jpg';
+import wallpapers0 from '../../../assets/images/wallpapers/wp0.webp';
+import wallpapers1 from '../../../assets/images/wallpapers/wp1.webp';
+import wallpapers2 from '../../../assets/images/wallpapers/wp2.webp';
 import wallpapers3 from '../../../assets/images/wallpapers/wp3.jpg';
 
 const images = [wallpapers0, wallpapers1, wallpapers2, wallpapers3];
