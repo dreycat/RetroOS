@@ -1,4 +1,4 @@
-import Character from './character';
+import Character from './Character';
 import { Direction, Coords } from '../types';
 import { random } from '../../../utils/random';
 

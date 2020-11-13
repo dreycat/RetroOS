@@ -1,4 +1,4 @@
-import Character from './character';
+import Character from './Character';
 import { Coords, Direction } from '../types';
 
 export default class Player extends Character {

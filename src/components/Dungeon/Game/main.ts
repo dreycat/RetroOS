@@ -1,6 +1,6 @@
-import Player from './player';
-import Enemy from './enemy';
-import Painter from './painter';
+import Player from './Player';
+import Enemy from './Enemy';
+import Painter from './Painter';
 import { levels } from './levels';
 import { getPlayerDirection } from './getPlayerDirection';
 import { opener } from './opener';
