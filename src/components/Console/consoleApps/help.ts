@@ -5,5 +5,10 @@ date
 release
 clear or cls
 reset
-matrix
+player
+dungeon
+mines
+settings
+todo
+screensaver
 `;

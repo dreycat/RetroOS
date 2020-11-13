@@ -5,6 +5,7 @@ import { date } from './date';
 import { help } from './help';
 import { reset } from './reset';
 import { matrix } from './matrix';
+import { emptyLine } from './emptyLine';
 
 const consoleApps = {
   cowsay,
@@ -12,7 +13,12 @@ const consoleApps = {
   date,
   help,
   reset,
-  matrix,
+  screensaver: matrix,
+  player: emptyLine,
+  dungeon: emptyLine,
+  mines: emptyLine,
+  settings: emptyLine,
+  todo: emptyLine,
   default: error,
 };
 
