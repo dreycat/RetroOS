@@ -5,6 +5,8 @@ import { FileRoute } from './fs/FileRoute';
 import { getChildrens, getNode, isDir } from './fs/utils';
 import { ReactComponent as Folder } from './icons/folder.svg';
 import { ReactComponent as File } from './icons/file.svg';
+import { ReactComponent as Home } from './icons/home.svg';
+import { ReactComponent as Up } from './icons/up.svg';
 import styles from './Explorer.module.css';
 
 const route = new FileRoute(fileSystem);
@@ -15,23 +17,29 @@ const Explorer = () => {
 
   return (
     <div className={styles.main}>
-      <pre>{'/' + path.join('/')}</pre>
-      <button
-        onClick={() => {
-          route.goHome();
-          setPath(route.path);
-        }}
-      >
-        home
-      </button>
-      <button
-        onClick={() => {
-          route.up();
-          setPath(route.path);
-        }}
-      >
-        up
-      </button>
+      <div className={styles.navigation}>
+        <button
+          className={styles.button}
+          onClick={() => {
+            route.goHome();
+            setPath(route.path);
+          }}
+        >
+          <Home width={16} height={16} />
+        </button>
+        <button
+          className={styles.button}
+          onClick={() => {
+            route.up();
+            setPath(route.path);
+          }}
+        >
+          <Up width={16} height={16} />
+        </button>
+        <div className={styles.path}>
+          <span>{'/' + path.join('/')}</span>
+        </div>
+      </div>
       <ul className={styles.fileList}>
         {getChildrens(node).map((children) => {
           if (isDir(children)) {
@@ -44,7 +52,9 @@ const Explorer = () => {
                 }}
               >
                 <Folder width={42} height={42} />
-                {children.name}
+                <span className={styles.name} title={children.name}>
+                  {children.name}
+                </span>
               </li>
             );
           }
@@ -52,7 +62,9 @@ const Explorer = () => {
           return (
             <li key={children.id}>
               <File width={42} height={42} />
-              {children.name}
+              <span className={styles.name} title={children.name}>
+                {children.name}
+              </span>
             </li>
           );
         })}

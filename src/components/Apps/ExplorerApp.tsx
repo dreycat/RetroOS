@@ -11,7 +11,7 @@ const ExplorerApp = () => {
   return (
     <Application
       name="explorer"
-      label="Explorer"
+      label="My Computer"
       icon={<Icon width={40} height={40} />}
       defaultIconPosition={defaultIconPosition}
       defaultWindowPosition={defaultWindowPosition}

@@ -11,7 +11,7 @@ export class FileRoute {
   }
 
   goHome() {
-    this._path = ['home'];
+    this._path = ['home', 'user'];
   }
 
   move(dirName: string) {
