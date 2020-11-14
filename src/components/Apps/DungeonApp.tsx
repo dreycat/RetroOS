@@ -2,7 +2,7 @@ import React from 'react';
 
 import Application from '../Application';
 import Dungeon from '../Dungeon';
-import isMobile from '../../utils/isMobile';
+import { isMobile } from '../../utils/isMobile';
 import { ReactComponent as Icon } from './icons/DungeonIcon.svg';
 
 const DungeonApp = () => {

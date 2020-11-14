@@ -2,7 +2,7 @@ import React from 'react';
 
 import Application from '../Application';
 import ToDo from '../ToDo';
-import isMobile from '../../utils/isMobile';
+import { isMobile } from '../../utils/isMobile';
 import { ReactComponent as Icon } from './icons/ToDoIcon.svg';
 
 const ToDoApp = () => {

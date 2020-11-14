@@ -1,15 +1,15 @@
-import getNeighbors from './getNeighbors';
-import deepClone from '../../../utils/deepClone';
+import { getNeighbors } from './getNeighbors';
+import { deepClone } from '../../../utils/deepClone';
 
 import { Field } from './types';
 import { Cell } from './enums';
 
-export default (userField: Field, field: Field, x: number, y: number): Field => {
+export const clicker = (userField: Field, field: Field, x: number, y: number): Field => {
   const cloneUserField: Field = deepClone(userField);
   cloneUserField[y][x] = Cell.Open;
 
   const opener = (x: number, y: number) => {
-    getNeighbors(cloneUserField, x, y).forEach(neighbor => {
+    getNeighbors(cloneUserField, x, y).forEach((neighbor) => {
       const cell = neighbor.value;
       if (cell !== Cell.Flag && cell !== Cell.Open && cell === Cell.Suspense) {
         cloneUserField[neighbor.y][neighbor.x] = Cell.Open;

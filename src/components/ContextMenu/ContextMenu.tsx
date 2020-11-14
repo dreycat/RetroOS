@@ -1,6 +1,6 @@
 import React, { useState, useCallback, useEffect, useRef } from 'react';
 
-import useWindow from '../../hooks/useWindow';
+import { useWindow } from '../../hooks/useWindow';
 import styles from './ContextMenu.module.css';
 
 const SHIFT_MENU = 4;
@@ -21,6 +21,7 @@ const ContextMenu = () => {
   const menuEl = useRef<HTMLUListElement>(null);
   const { onOpen: openSettings } = useWindow('settings');
   const { onOpen: openConsole } = useWindow('console');
+  const { onOpen: openScreensaver } = useWindow('screensaver');
 
   const contextHandler = useCallback((event: React.MouseEvent) => {
     event.preventDefault();
@@ -53,6 +54,9 @@ const ContextMenu = () => {
         >
           <li className={styles.item} onClick={openSettings}>
             Settings
+          </li>
+          <li className={styles.item} onClick={openScreensaver}>
+            Screensaver
           </li>
           <li className={styles.item} onClick={openConsole}>
             Console

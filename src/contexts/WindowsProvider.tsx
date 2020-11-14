@@ -1,6 +1,6 @@
 import React, { FC, useReducer, createContext, useEffect } from 'react';
 
-import getStorageData from '../utils/getStarogeData';
+import { getStorageData } from '../utils/getStorageData';
 import { Apps } from '../types';
 
 const initialState = {
@@ -11,6 +11,7 @@ const initialState = {
   settings: false,
   todo: false,
   dungeon: false,
+  screensaver: false,
 };
 
 const STORAGE_KEY = 'windows_state';

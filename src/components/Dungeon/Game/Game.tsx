@@ -1,6 +1,6 @@
 import React, { FC, useRef, useEffect } from 'react';
 
-import main from './main';
+import { main } from './main';
 
 const scale = window.devicePixelRatio || 2;
 const width = 512;

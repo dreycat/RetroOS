@@ -5,7 +5,9 @@ interface IWithOpenProps {
   isOpen: boolean;
 }
 
-export default (timeout: number, classNames: string) => <P extends object>(WrappedComponent: React.ComponentType<P>) =>
+export const withTransition = (timeout: number, classNames: string) => <P extends object>(
+  WrappedComponent: React.ComponentType<P>
+) =>
   class withTransition extends React.Component<P & IWithOpenProps> {
     render() {
       const { isOpen, ...props } = this.props;

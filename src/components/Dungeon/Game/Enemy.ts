@@ -1,6 +1,6 @@
-import Character from './character';
+import Character from './Character';
 import { Direction, Coords } from '../types';
-import random from '../../../utils/random';
+import { random } from '../../../utils/random';
 
 export default class Enemy extends Character {
   private directions: Direction[];

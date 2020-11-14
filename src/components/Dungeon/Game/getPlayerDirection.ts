@@ -1,6 +1,6 @@
 import { Direction } from '../types';
 
-export default (code: string): Direction | null => {
+export const getPlayerDirection = (code: string): Direction | null => {
   switch (code) {
     case 'ArrowUp':
     case 'KeyW':

@@ -6,10 +6,10 @@ const conf = {
   year: 'numeric',
   hour: 'numeric',
   minute: 'numeric',
-  hour12: false
+  hour12: false,
 };
 
-export default () => {
+export const date = () => {
   const date = new Date();
   return date.toLocaleDateString('en-US', conf);
 };

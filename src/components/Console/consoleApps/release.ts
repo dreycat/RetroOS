@@ -1,3 +1,3 @@
-export default () => `OS Release: 0.1.3
+export const release = () => `OS Release: 0.1.3
 Codename: Bionic Cat
 `;

@@ -2,7 +2,7 @@ import React from 'react';
 
 import Application from '../Application';
 import AudioPlayer from '../AudioPlayer';
-import isMobile from '../../utils/isMobile';
+import { isMobile } from '../../utils/isMobile';
 import { ReactComponent as Icon } from './icons/AudioPlayerIcon.svg';
 
 const AudioPlayerApp = () => {

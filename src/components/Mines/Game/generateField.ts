@@ -1,13 +1,10 @@
-import getNeighbors from './getNeighbors';
+import { getNeighbors } from './getNeighbors';
 import compose from '../../../utils/compose';
-import deepClone from '../../../utils/deepClone';
-import random from '../../../utils/random';
+import { deepClone } from '../../../utils/deepClone';
+import { random } from '../../../utils/random';
 
 import { Field, Neighbor } from './types';
 import { Cell } from './enums';
-
-const getEmptyField = (fieldWidth: number, fieldHeight: number, fill: number | string) => (): Field =>
-  Array.from({ length: fieldHeight }, () => Array(fieldWidth).fill(fill));
 
 const setMines = (mines: number) => (field: Field) => {
   field = deepClone(field);
@@ -42,6 +39,8 @@ const calc = (field: Field) => {
   return field;
 };
 
-export { getEmptyField };
-export default (fieldWidth: number, fieldHeight: number, mines: number) =>
+export const getEmptyField = (fieldWidth: number, fieldHeight: number, fill: number | string) => (): Field =>
+  Array.from({ length: fieldHeight }, () => Array(fieldWidth).fill(fill));
+
+export const generateField = (fieldWidth: number, fieldHeight: number, mines: number) =>
   compose(calc, setMines(mines), getEmptyField(fieldWidth, fieldHeight, 0));

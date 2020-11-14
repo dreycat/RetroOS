@@ -1,13 +1,13 @@
 import React, { useRef, useState, useMemo, useEffect, useCallback } from 'react';
 
-import getStorageData from '../utils/getStarogeData';
+import { getStorageData } from '../utils/getStorageData';
 import compose from '../utils/compose';
 import { ITrack } from '../interfaces';
 
 enum Keys {
   Volume = 'audio_player_volume',
   Muted = 'audio_player_is_muted',
-  Track = 'audio_player_track_id'
+  Track = 'audio_player_track_id',
 }
 
 const checkTrack = (playlist: ITrack[]) => (trackId: number) => {
@@ -15,7 +15,7 @@ const checkTrack = (playlist: ITrack[]) => (trackId: number) => {
   return index === -1 ? 0 : trackId;
 };
 
-export default (playlist: ITrack[]) => {
+export const useAudio = (playlist: ITrack[]) => {
   const ref = useRef<HTMLAudioElement>(null);
   const [time, setTime] = useState(0);
   const [duration, setDuration] = useState(0);
@@ -33,7 +33,7 @@ export default (playlist: ITrack[]) => {
       controls: false,
       preload: 'metadata',
       onTimeUpdate: () => setTime(ref.current!.currentTime),
-      onDurationChange: () => setDuration(ref.current!.duration)
+      onDurationChange: () => setDuration(ref.current!.duration),
     });
   }, [trackId, playlist]);
 
@@ -61,7 +61,7 @@ export default (playlist: ITrack[]) => {
         .then(() => {
           setError(false);
         })
-        .catch(error => {
+        .catch((error) => {
           setPlaying(false);
           setError(true);
           console.log('AudioPlayer Error: ', error);
@@ -111,7 +111,7 @@ export default (playlist: ITrack[]) => {
       trackId,
       curentTrack: playlist[trackId],
       isRadio: playlist[trackId].isRadio,
-      error
+      error,
     },
     controlls: {
       play: () => setPlaying(true),
@@ -122,7 +122,7 @@ export default (playlist: ITrack[]) => {
       setTrack,
       nextTrack,
       prevTrack,
-      seek
-    }
+      seek,
+    },
   };
 };

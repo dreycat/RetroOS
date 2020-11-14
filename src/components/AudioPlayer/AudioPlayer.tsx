@@ -7,7 +7,7 @@ import Progress from './Progress';
 import Controlls from './Controlls';
 import VolumeControl from './VolumeControl';
 import HeaderLayout from './Layouts/HeaderLayout';
-import useAudio from '../../hooks/useAudio';
+import { useAudio } from '../../hooks/useAudio';
 import playlist from './playlist';
 import styles from './AudioPlayer.module.css';
 

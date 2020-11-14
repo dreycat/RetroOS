@@ -1,6 +1,7 @@
-import React, { FC, useRef, useCallback, useEffect } from 'react';
+import React, { FC, useRef, useCallback, useEffect, useMemo } from 'react';
 
-import useConsole from '../../hooks/useConsole';
+import { useConsole } from '../../hooks/useConsole';
+import { useWindow } from '../../hooks/useWindow';
 import { IWindowSize } from '../../interfaces';
 import styles from './Console.module.css';
 
@@ -8,9 +9,28 @@ interface IProps {
   size: IWindowSize;
 }
 
+type Mapper = { [key: string]: () => void };
+
 const Console: FC<IProps> = ({ size }) => {
   const inputEl = useRef<HTMLInputElement>(null);
   const { messages, dispatch } = useConsole();
+  const { onOpen: openTodo } = useWindow('todo');
+  const { onOpen: openMines } = useWindow('mines');
+  const { onOpen: openDungeon } = useWindow('dungeon');
+  const { onOpen: openSettings } = useWindow('settings');
+  const { onOpen: openAudioplayer } = useWindow('audioplayer');
+  const { onOpen: openScreensaver } = useWindow('screensaver');
+
+  const mapper: Mapper = useMemo(() => {
+    return {
+      todo: openTodo,
+      mines: openMines,
+      dungeon: openDungeon,
+      settings: openSettings,
+      player: openAudioplayer,
+      screensaver: openScreensaver,
+    };
+  }, [openScreensaver, openAudioplayer, openDungeon, openMines, openSettings, openTodo]);
 
   const handleKeyPress = useCallback(
     ({ key, currentTarget }: React.KeyboardEvent<HTMLInputElement>) => {
@@ -18,12 +38,13 @@ const Console: FC<IProps> = ({ size }) => {
         const raw = currentTarget.value;
         const line = raw.trim();
         if (line === '') return;
+        mapper[line]?.();
         const [command, ...arg] = line.split(' ');
         dispatch(command, arg.join(' '), raw);
         currentTarget.value = '';
       }
     },
-    [dispatch]
+    [dispatch, mapper]
   );
 
   const handleClick = useCallback(() => {

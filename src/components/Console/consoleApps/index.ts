@@ -1,9 +1,11 @@
-import cowsay from './cowsay';
-import error from './error';
-import release from './release';
-import date from './date';
-import help from './help';
-import reset from './reset';
+import { cowsay } from './cowsay';
+import { error } from './error';
+import { release } from './release';
+import { date } from './date';
+import { help } from './help';
+import { reset } from './reset';
+import { matrix } from './matrix';
+import { emptyLine } from './emptyLine';
 
 const consoleApps = {
   cowsay,
@@ -11,7 +13,13 @@ const consoleApps = {
   date,
   help,
   reset,
-  default: error
+  screensaver: matrix,
+  player: emptyLine,
+  dungeon: emptyLine,
+  mines: emptyLine,
+  settings: emptyLine,
+  todo: emptyLine,
+  default: error,
 };
 
 export default consoleApps;
