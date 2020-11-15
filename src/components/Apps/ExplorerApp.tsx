@@ -1,24 +1,23 @@
 import React from 'react';
 
-import Application from '../Application';
 import Explorer from '../Explorer';
+import Application from '../Application';
+import { isMobile } from '../../utils/isMobile';
 import { ReactComponent as Icon } from './icons/ComputerIcon.svg';
 
-const ExplorerApp = () => {
-  const defaultIconPosition = { top: 67, left: 200 };
-  const defaultWindowPosition = { top: 70, left: 175 };
+const defaultIconPosition = isMobile() ? { top: 53, left: 30 } : { top: 60, left: 59 };
+const defaultWindowPosition = { top: 103, left: 566 };
 
-  return (
-    <Application
-      name="explorer"
-      label="My Computer"
-      icon={<Icon width={40} height={40} />}
-      defaultIconPosition={defaultIconPosition}
-      defaultWindowPosition={defaultWindowPosition}
-    >
-      <Explorer />
-    </Application>
-  );
-};
+const ExplorerApp = () => (
+  <Application
+    name="explorer"
+    label="My Computer"
+    icon={<Icon width={40} height={40} />}
+    defaultIconPosition={defaultIconPosition}
+    defaultWindowPosition={defaultWindowPosition}
+  >
+    <Explorer />
+  </Application>
+);
 
 export default ExplorerApp;
