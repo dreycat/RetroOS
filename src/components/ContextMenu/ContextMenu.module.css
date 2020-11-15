@@ -23,12 +23,24 @@
 
 .item {
   color: rgb(34, 34, 34);
-  padding: 0 12px 0 24px;
   font-size: 14px;
   line-height: 28px;
   cursor: pointer;
 }
+
 .item:hover {
   background-color: rgb(74, 72, 109);
   color: #faebd7;
+}
+
+.title {
+  padding: 0 12px;
+}
+
+.line {
+  margin: 0;
+  padding: 0;
+  border: none;
+  background-color: rgba(255, 255, 255, 0.8);
+  height: 1px;
 }

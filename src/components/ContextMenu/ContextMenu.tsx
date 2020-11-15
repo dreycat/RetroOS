@@ -52,17 +52,18 @@ const ContextMenu = () => {
           onContextMenu={(e) => e.preventDefault()}
           onClick={() => setOpen(false)}
         >
+          <li className={styles.item} onClick={openConsole}>
+            <span className={styles.title}>Console</span>
+          </li>
           <li className={styles.item} onClick={openSettings}>
-            Settings
+            <span className={styles.title}>Settings</span>
           </li>
           <li className={styles.item} onClick={openScreensaver}>
-            Screensaver
-          </li>
-          <li className={styles.item} onClick={openConsole}>
-            Console
+            <span className={styles.title}>Screensaver</span>
           </li>
           <li className={styles.item} onClick={reset}>
-            Reset
+            <hr className={styles.line} />
+            <span className={styles.title}>Reset</span>
           </li>
         </ul>
       )}
