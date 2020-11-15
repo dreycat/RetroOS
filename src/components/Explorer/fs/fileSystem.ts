@@ -2,23 +2,35 @@ import { makeDir, makeFile } from './utils';
 
 // prettier-ignore
 const fileSystem = makeDir('/', [
+  makeDir('boot', [
+    makeFile('kernel')
+  ]),
   makeDir('home', [
     makeDir('user', [
-      makeFile('todos.txt'),
-      makeFile('cat.jpg')
+      makeDir('Games', [
+        makeFile('dungeon'),
+        makeFile('mines'),
+      ]),
+      makeDir('Pictures', [
+        makeFile('cat.jpg')
+      ]),
+      makeDir('Documents', [
+        makeFile('todos.txt'),
+      ]),
+      makeDir('Videos')
     ])
   ]),
   makeDir('etc', [
-      makeDir('nginx', [
-      makeFile('main.conf')
-    ]),
-    makeFile('hosts')
+    makeFile('hosts'),
   ]),
   makeDir('usr', [
     makeDir('bin', [
-      makeFile('htop'),
-      makeFile('gnome-shell'),
-      makeFile('echo')
+      makeFile('reset'),
+      makeFile('screensaver'),
+      makeFile('player'),
+      makeFile('settings'),
+      makeFile('console'),
+      makeFile('todo'),
     ])
   ], {
     hidden: true
