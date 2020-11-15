@@ -50,7 +50,7 @@ const Explorer = () => {
           return isDir(children) ? (
             <Directory key={children.id} openDirectory={openDirectory} name={children.name} />
           ) : (
-            <File key={children.id} name={children.name} extension={children.meta.extension} />
+            <File key={children.id} name={children.name} extension={children.meta.extension || 'unknown'} />
           );
         })}
       </ul>

@@ -10,11 +10,11 @@ import { Extensions } from './fs/types';
 
 interface IProps {
   name: string;
-  extension?: Extensions;
+  extension: Extensions;
 }
 
 type Icons = {
-  [k: string]: React.FunctionComponent<
+  [k in Extensions]: React.FunctionComponent<
     React.SVGProps<SVGSVGElement> & {
       title?: string | undefined;
     }
@@ -28,8 +28,8 @@ const icons: Icons = {
   unknown: UnknownIcon,
 };
 
-const File: FC<IProps> = ({ name, extension = 'unknown' }) => {
-  const Icon = icons[extension];
+const File: FC<IProps> = ({ name, extension }) => {
+  const Icon = icons[extension] ?? icons.unknown;
 
   return (
     <li className={styles.file}>
