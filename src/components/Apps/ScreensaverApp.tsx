@@ -1,8 +1,8 @@
 import React, { useCallback, useEffect } from 'react';
 
+import Screensaver from '../Screensaver';
 import { useWindow } from '../../hooks/useWindow';
 import ApplicationErrorBoundary from '../ApplicationErrorBoundary';
-import Screensaver from '../Screensaver';
 
 const ScreensaverApp = () => {
   const { isOpen, onClose } = useWindow('screensaver');

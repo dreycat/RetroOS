@@ -4,6 +4,7 @@ import { getStorageData } from '../utils/getStorageData';
 import { Apps } from '../types';
 
 const initialState = {
+  explorer: false,
   audioplayer: false,
   console: false,
   mines: false,
