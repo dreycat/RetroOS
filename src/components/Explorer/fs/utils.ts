@@ -1,8 +1,8 @@
-import { INode } from './interfaces';
+import { INode, Meta } from './types';
 
 const makeId = () => Math.trunc(Math.random() * 1e12);
 
-export const makeDir = (name: string, childrens: INode[] = [], meta = {}): INode => ({
+export const makeDir = (name: string, childrens: INode[] = [], meta: Meta = {}): INode => ({
   id: makeId(),
   type: 'dir',
   name,
@@ -10,7 +10,7 @@ export const makeDir = (name: string, childrens: INode[] = [], meta = {}): INode
   meta,
 });
 
-export const makeFile = (name: string, meta = {}): INode => ({
+export const makeFile = (name: string, meta: Meta): INode => ({
   id: makeId(),
   type: 'file',
   name,

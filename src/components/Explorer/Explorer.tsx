@@ -1,12 +1,12 @@
-import React, { useState } from 'react';
+import React, { useCallback, useState } from 'react';
 
+import File from './File';
+import Directory from './Directory';
 import fileSystem from './fs/fileSystem';
 import { FileRoute } from './fs/FileRoute';
 import { getChildrens, getNode, isDir } from './fs/utils';
-import { ReactComponent as Folder } from './icons/folder.svg';
-import { ReactComponent as File } from './icons/file.svg';
-import { ReactComponent as Home } from './icons/home.svg';
-import { ReactComponent as Up } from './icons/up.svg';
+import { ReactComponent as UpIcon } from './icons/up.svg';
+import { ReactComponent as HomeIcon } from './icons/home.svg';
 import styles from './Explorer.module.css';
 
 const route = new FileRoute(fileSystem);
@@ -14,6 +14,11 @@ const route = new FileRoute(fileSystem);
 const Explorer = () => {
   const [path, setPath] = useState(route.path);
   const node = getNode(fileSystem, path);
+
+  const openDirectory = useCallback((name: string) => {
+    route.move(name);
+    setPath(route.path);
+  }, []);
 
   return (
     <div className={styles.main}>
@@ -25,7 +30,7 @@ const Explorer = () => {
             setPath(route.path);
           }}
         >
-          <Home width={16} height={16} />
+          <HomeIcon width={16} height={16} />
         </button>
         <button
           className={styles.button}
@@ -34,7 +39,7 @@ const Explorer = () => {
             setPath(route.path);
           }}
         >
-          <Up width={16} height={16} />
+          <UpIcon width={16} height={16} />
         </button>
         <div className={styles.path}>
           <span>{'/' + path.join('/')}</span>
@@ -42,30 +47,10 @@ const Explorer = () => {
       </div>
       <ul className={styles.fileList}>
         {getChildrens(node).map((children) => {
-          if (isDir(children)) {
-            return (
-              <li
-                key={children.id}
-                onClick={() => {
-                  route.move(children.name);
-                  setPath(route.path);
-                }}
-              >
-                <Folder width={42} height={42} />
-                <span className={styles.name} title={children.name}>
-                  {children.name}
-                </span>
-              </li>
-            );
-          }
-
-          return (
-            <li key={children.id}>
-              <File width={42} height={42} />
-              <span className={styles.name} title={children.name}>
-                {children.name}
-              </span>
-            </li>
+          return isDir(children) ? (
+            <Directory key={children.id} openDirectory={openDirectory} name={children.name} />
+          ) : (
+            <File key={children.id} name={children.name} extension={children.meta.extension} />
           );
         })}
       </ul>

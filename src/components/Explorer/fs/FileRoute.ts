@@ -1,5 +1,5 @@
 import { getNode, isDir } from './utils';
-import { INode } from './interfaces';
+import { INode } from './types';
 
 export class FileRoute {
   private _path: string[] = [];
