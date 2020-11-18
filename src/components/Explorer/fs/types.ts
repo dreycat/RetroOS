@@ -1,4 +1,4 @@
-export type Extensions = 'bin' | 'image' | 'text' | 'unknown';
+export type Extensions = 'bin' | 'image' | 'text' | 'video' | 'unknown';
 
 export type Meta = {
   extension?: Extensions;

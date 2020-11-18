@@ -15,6 +15,7 @@ const initialState: State = {
   dungeon: false,
   screensaver: false,
   notepad: false,
+  videoplayer: false,
 };
 
 const STORAGE_KEY = 'windows_state';

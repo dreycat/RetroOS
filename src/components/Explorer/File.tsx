@@ -3,6 +3,7 @@ import React, { FC } from 'react';
 import { ReactComponent as BinIcon } from './icons/bin.svg';
 import { ReactComponent as TextIcon } from './icons/text.svg';
 import { ReactComponent as ImageIcon } from './icons/image.svg';
+import { ReactComponent as VideoIcon } from './icons/avi.svg';
 import { ReactComponent as UnknownIcon } from './icons/unknown.svg';
 import styles from './Explorer.module.css';
 
@@ -26,6 +27,7 @@ const icons: Icons = {
   image: ImageIcon,
   bin: BinIcon,
   text: TextIcon,
+  video: VideoIcon,
   unknown: UnknownIcon,
 };
 

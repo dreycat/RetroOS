@@ -17,23 +17,17 @@ const fileSystem = makeDir('/', [
       makeDir('Documents', [
         makeFile('author.txt', {extension: 'text'}),
       ]),
-      makeDir('Videos')
+      makeDir('Videos', [
+        makeFile('best.avi', {extension: 'video'}),
+      ])
     ])
   ]),
-  makeDir('etc', [
-    makeFile('hosts', {extension: 'text'}),
-  ]),
-  makeDir('usr', [
-    makeDir('bin', [
-      makeFile('screensaver', {extension: 'bin'}),
+  makeDir('bin', [
       makeFile('player', {extension: 'bin'}),
       makeFile('settings', {extension: 'bin'}),
       makeFile('console', {extension: 'bin'}),
       makeFile('todo', {extension: 'bin'}),
-    ])
-  ], {
-    hidden: true
-  })
+  ])
 ]);
 
 export default fileSystem;

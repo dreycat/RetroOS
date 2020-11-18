@@ -12,6 +12,7 @@ import ScreensaverApp from '../Apps/ScreensaverApp';
 import ContexMenu from '../ContextMenu';
 import styles from './Desktop.module.css';
 import NotepadApp from '../Apps/NotepadApp';
+import VideoPlayerApp from '../Apps/VideoPlayerApp';
 
 const Desktop: FC = () => (
   <div className={styles.main}>
@@ -26,6 +27,7 @@ const Desktop: FC = () => (
     <ScreensaverApp />
     <ContexMenu />
     <NotepadApp />
+    <VideoPlayerApp />
   </div>
 );
 

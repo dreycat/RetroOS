@@ -7,5 +7,6 @@ export type Apps =
   | 'dungeon'
   | 'screensaver'
   | 'explorer'
-  | 'notepad';
+  | 'notepad'
+  | 'videoplayer';
 export type Themes = 'default' | 'green' | 'yellow' | 'colorless';

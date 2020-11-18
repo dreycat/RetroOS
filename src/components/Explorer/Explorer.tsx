@@ -26,6 +26,7 @@ const Explorer = () => {
   const { onOpen: openSettings } = useWindow('settings');
   const { onOpen: openAudioplayer } = useWindow('audioplayer');
   const { onOpen: openScreensaver } = useWindow('screensaver');
+  const { onOpen: openVideoPlayer } = useWindow('videoplayer');
 
   const mapper: Mapper = useMemo(() => {
     return {
@@ -35,7 +36,8 @@ const Explorer = () => {
       settings: openSettings,
       console: openConsole,
       player: openAudioplayer,
-      screensaver: openScreensaver,
+      kernel: openScreensaver,
+      videoplayer: openScreensaver,
     };
   }, [openScreensaver, openAudioplayer, openDungeon, openMines, openSettings, openTodo, openConsole]);
 
@@ -52,8 +54,11 @@ const Explorer = () => {
       if (extension === 'text') {
         openNotepad();
       }
+      if (extension === 'video') {
+        openVideoPlayer();
+      }
     },
-    [mapper, openNotepad]
+    [mapper, openNotepad, openVideoPlayer]
   );
 
   return (
