@@ -11,6 +11,7 @@ import ExplorerApp from '../Apps/ExplorerApp';
 import ScreensaverApp from '../Apps/ScreensaverApp';
 import ContexMenu from '../ContextMenu';
 import styles from './Desktop.module.css';
+import NotepadApp from '../Apps/NotepadApp';
 
 const Desktop: FC = () => (
   <div className={styles.main}>
@@ -24,6 +25,7 @@ const Desktop: FC = () => (
     <DungeonApp />
     <ScreensaverApp />
     <ContexMenu />
+    <NotepadApp />
   </div>
 );
 

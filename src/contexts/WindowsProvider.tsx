@@ -3,7 +3,9 @@ import React, { FC, useReducer, createContext, useEffect } from 'react';
 import { getStorageData } from '../utils/getStorageData';
 import { Apps } from '../types';
 
-const initialState = {
+type State = { [k in Apps]: boolean };
+
+const initialState: State = {
   explorer: false,
   audioplayer: false,
   console: false,
@@ -12,11 +14,11 @@ const initialState = {
   todo: false,
   dungeon: false,
   screensaver: false,
+  notepad: false,
 };
 
 const STORAGE_KEY = 'windows_state';
 
-type State = typeof initialState;
 type Action = { type: 'open'; payload: Apps } | { type: 'close'; payload: Apps } | { type: 'toggle'; payload: Apps };
 type ContextProps = { state: State; dispatch: React.Dispatch<Action> };
 

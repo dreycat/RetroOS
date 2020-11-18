@@ -1,0 +1,29 @@
+.main {
+  width: 390px;
+  padding: 8px;
+  font-family: 'Roboto Mono', monospace;
+  color: #222b35;
+}
+
+.title {
+  margin: 0;
+  font-size: 16px;
+  font-weight: normal;
+  margin-bottom: 4px;
+}
+
+.list {
+  margin: 0;
+  padding: 0;
+}
+
+.url {
+  color: #222b35;
+}
+
+.listItem {
+  display: flex;
+  justify-content: space-between;
+  padding: 4px 0;
+  font-size: 14px;
+}

@@ -1,24 +1,60 @@
-import React, { useCallback, useState } from 'react';
+import React, { useCallback, useMemo, useState } from 'react';
 
 import File from './File';
 import Directory from './Directory';
 import fileSystem from './fs/fileSystem';
 import { FileRoute } from './fs/FileRoute';
 import { getChildrens, getNode, isDir } from './fs/utils';
-import { ReactComponent as UpIcon } from './icons/up.svg';
+import { useWindow } from '../../hooks/useWindow';
+import { Extensions } from './fs/types';
 import { ReactComponent as HomeIcon } from './icons/home.svg';
+import { ReactComponent as UpIcon } from './icons/up.svg';
 import styles from './Explorer.module.css';
 
 const route = new FileRoute(fileSystem);
 
+type Mapper = { [key: string]: () => void };
+
 const Explorer = () => {
   const [path, setPath] = useState(route.path);
   const node = getNode(fileSystem, path);
+  const { onOpen: openTodo } = useWindow('todo');
+  const { onOpen: openMines } = useWindow('mines');
+  const { onOpen: openConsole } = useWindow('console');
+  const { onOpen: openNotepad } = useWindow('notepad');
+  const { onOpen: openDungeon } = useWindow('dungeon');
+  const { onOpen: openSettings } = useWindow('settings');
+  const { onOpen: openAudioplayer } = useWindow('audioplayer');
+  const { onOpen: openScreensaver } = useWindow('screensaver');
+
+  const mapper: Mapper = useMemo(() => {
+    return {
+      todo: openTodo,
+      mines: openMines,
+      dungeon: openDungeon,
+      settings: openSettings,
+      console: openConsole,
+      player: openAudioplayer,
+      screensaver: openScreensaver,
+    };
+  }, [openScreensaver, openAudioplayer, openDungeon, openMines, openSettings, openTodo, openConsole]);
 
   const openDirectory = useCallback((name: string) => {
     route.move(name);
     setPath(route.path);
   }, []);
+
+  const openApp = useCallback(
+    (name: string, extension: Extensions) => {
+      if (extension === 'bin') {
+        mapper[name]?.();
+      }
+      if (extension === 'text') {
+        openNotepad();
+      }
+    },
+    [mapper, openNotepad]
+  );
 
   return (
     <div className={styles.main}>
@@ -50,7 +86,12 @@ const Explorer = () => {
           return isDir(children) ? (
             <Directory key={children.id} openDirectory={openDirectory} name={children.name} />
           ) : (
-            <File key={children.id} name={children.name} extension={children.meta.extension || 'unknown'} />
+            <File
+              openApp={openApp}
+              key={children.id}
+              name={children.name}
+              extension={children.meta.extension || 'unknown'}
+            />
           );
         })}
       </ul>

@@ -15,7 +15,7 @@ const fileSystem = makeDir('/', [
         makeFile('cat.jpg', {extension: 'image'})
       ]),
       makeDir('Documents', [
-        makeFile('todos.txt', {extension: 'text'}),
+        makeFile('author.txt', {extension: 'text'}),
       ]),
       makeDir('Videos')
     ])
@@ -25,7 +25,6 @@ const fileSystem = makeDir('/', [
   ]),
   makeDir('usr', [
     makeDir('bin', [
-      makeFile('reset', {extension: 'bin'}),
       makeFile('screensaver', {extension: 'bin'}),
       makeFile('player', {extension: 'bin'}),
       makeFile('settings', {extension: 'bin'}),
