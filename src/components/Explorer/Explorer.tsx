@@ -27,6 +27,7 @@ const Explorer = () => {
   const { onOpen: openAudioplayer } = useWindow('audioplayer');
   const { onOpen: openScreensaver } = useWindow('screensaver');
   const { onOpen: openVideoPlayer } = useWindow('videoplayer');
+  const { onOpen: openImageViewer } = useWindow('imageviewer');
 
   const mapper: Mapper = useMemo(() => {
     return {
@@ -57,8 +58,11 @@ const Explorer = () => {
       if (extension === 'video') {
         openVideoPlayer();
       }
+      if (extension === 'image') {
+        openImageViewer();
+      }
     },
-    [mapper, openNotepad, openVideoPlayer]
+    [mapper, openNotepad, openVideoPlayer, openImageViewer]
   );
 
   return (

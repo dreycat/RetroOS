@@ -8,5 +8,6 @@ export type Apps =
   | 'screensaver'
   | 'explorer'
   | 'notepad'
-  | 'videoplayer';
+  | 'videoplayer'
+  | 'imageviewer';
 export type Themes = 'default' | 'green' | 'yellow' | 'colorless';

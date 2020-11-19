@@ -1,0 +1,10 @@
+.main {
+  width: 320px;
+  height: 440px;
+}
+
+.image {
+  object-fit: cover;
+  height: 100%;
+  width: 100%;
+}

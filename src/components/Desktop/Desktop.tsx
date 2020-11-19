@@ -10,9 +10,10 @@ import DungeonApp from '../Apps/DungeonApp';
 import ExplorerApp from '../Apps/ExplorerApp';
 import ScreensaverApp from '../Apps/ScreensaverApp';
 import ContexMenu from '../ContextMenu';
-import styles from './Desktop.module.css';
 import NotepadApp from '../Apps/NotepadApp';
 import VideoPlayerApp from '../Apps/VideoPlayerApp';
+import ImageViewerApp from '../Apps/ImageViewerApp';
+import styles from './Desktop.module.css';
 
 const Desktop: FC = () => (
   <div className={styles.main}>
@@ -28,6 +29,7 @@ const Desktop: FC = () => (
     <ContexMenu />
     <NotepadApp />
     <VideoPlayerApp />
+    <ImageViewerApp />
   </div>
 );
 
