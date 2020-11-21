@@ -1,4 +1,4 @@
-import React, { FC, useReducer, createContext, useEffect } from 'react';
+import React, { FC, useReducer, createContext, useEffect, useMemo } from 'react';
 
 import { getStorageData } from '../utils/getStorageData';
 import { Apps } from '../types';
@@ -48,7 +48,15 @@ const WindowsProvider: FC = ({ children }) => {
     localStorage.setItem(STORAGE_KEY, JSON.stringify(state));
   }, [state]);
 
-  return <WindowsContext.Provider value={{ state, dispatch }}>{children}</WindowsContext.Provider>;
+  const value = useMemo(
+    () => ({
+      state,
+      dispatch,
+    }),
+    [state, dispatch]
+  );
+
+  return <WindowsContext.Provider value={value}>{children}</WindowsContext.Provider>;
 };
 
 export { WindowsContext };
