@@ -7,12 +7,12 @@ import { ReactComponent as VideoIcon } from './icons/avi.svg';
 import { ReactComponent as UnknownIcon } from './icons/unknown.svg';
 import styles from './Explorer.module.css';
 
-import { Extensions } from './fs/types';
+import { Meta, Extensions } from './fs/types';
 
 interface IProps {
   name: string;
-  extension: Extensions;
-  openApp: (name: string, extension: Extensions) => void;
+  meta: Meta;
+  openApp: (name: string, meta: Meta) => void;
 }
 
 type Icons = {
@@ -31,11 +31,11 @@ const icons: Icons = {
   unknown: UnknownIcon,
 };
 
-const File: FC<IProps> = ({ name, extension, openApp }) => {
-  const Icon = icons[extension] ?? icons.unknown;
+const File: FC<IProps> = ({ name, meta, openApp }) => {
+  const Icon = icons[meta.extension ?? 'unknown'];
 
   return (
-    <li className={styles.file} onClick={() => openApp(name, extension)}>
+    <li className={styles.file} onClick={() => openApp(name, meta)}>
       <Icon width={42} height={42} />
       <span className={styles.name} title={name}>
         {name}

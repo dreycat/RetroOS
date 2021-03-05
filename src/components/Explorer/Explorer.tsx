@@ -1,12 +1,13 @@
-import React, { useCallback, useMemo, useState } from 'react';
+import React, { useCallback, useContext, useMemo, useState } from 'react';
 
 import File from './File';
 import Directory from './Directory';
 import fileSystem from './fs/fileSystem';
 import { FileRoute } from './fs/FileRoute';
+import { Meta } from './fs/types';
 import { getChildrens, getNode, isDir } from './fs/utils';
+import { FileLinksContext } from '../../contexts/FileLinksProvider';
 import { useWindow } from '../../hooks/useWindow';
-import { Extensions } from './fs/types';
 import { ReactComponent as HomeIcon } from './icons/home.svg';
 import { ReactComponent as UpIcon } from './icons/up.svg';
 import styles from './Explorer.module.css';
@@ -28,6 +29,7 @@ const Explorer = () => {
   const { onOpen: openScreensaver } = useWindow('screensaver');
   const { onOpen: openVideoPlayer } = useWindow('videoplayer');
   const { onOpen: openImageViewer } = useWindow('imageviewer');
+  const { dispatch: setFileLink } = useContext(FileLinksContext);
 
   const mapper: Mapper = useMemo(() => {
     return {
@@ -48,21 +50,23 @@ const Explorer = () => {
   }, []);
 
   const openApp = useCallback(
-    (name: string, extension: Extensions) => {
+    (name: string, { extension, link }: Meta) => {
       if (extension === 'bin') {
         mapper[name]?.();
       }
       if (extension === 'text') {
         openNotepad();
       }
-      if (extension === 'video') {
+      if (extension === 'video' && link) {
+        setFileLink({ type: 'set', payload: { name: 'videoplayer', link } });
         openVideoPlayer();
       }
-      if (extension === 'image') {
+      if (extension === 'image' && link) {
+        setFileLink({ type: 'set', payload: { name: 'imageviewer', link } });
         openImageViewer();
       }
     },
-    [mapper, openNotepad, openVideoPlayer, openImageViewer]
+    [mapper, openNotepad, openVideoPlayer, openImageViewer, setFileLink]
   );
 
   return (
@@ -95,12 +99,7 @@ const Explorer = () => {
           return isDir(children) ? (
             <Directory key={children.id} openDirectory={openDirectory} name={children.name} />
           ) : (
-            <File
-              openApp={openApp}
-              key={children.id}
-              name={children.name}
-              extension={children.meta.extension || 'unknown'}
-            />
+            <File openApp={openApp} key={children.id} name={children.name} meta={children.meta} />
           );
         })}
       </ul>
