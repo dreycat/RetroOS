@@ -8,11 +8,11 @@ import Controlls from './Controlls';
 import VolumeControl from './VolumeControl';
 import HeaderLayout from './Layouts/HeaderLayout';
 import { useAudio } from '../../hooks/useAudio';
-import playlist from './playlist';
+import { stationList } from './stationList';
 import styles from './AudioPlayer.module.css';
 
 const AudioPlayer = () => {
-  const { audio, state, controlls } = useAudio(playlist);
+  const { audio, state, controlls } = useAudio(stationList);
 
   return (
     <div className={styles.main}>
@@ -34,7 +34,7 @@ const AudioPlayer = () => {
           <Progress duration={state.duration} time={state.time} isRadio={state.isRadio} seek={controlls.seek} />
         }
       />
-      <Playlist list={playlist} setTrack={controlls.setTrack} currentTrack={state.trackId} />
+      <Playlist list={stationList} setTrack={controlls.setTrack} currentTrack={state.trackId} />
     </div>
   );
 };

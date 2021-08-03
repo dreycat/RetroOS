@@ -1,6 +1,6 @@
 import { ITrack } from '../../interfaces';
 
-const playlist: ITrack[] = [
+export const stationList: ITrack[] = [
   {
     id: 0,
     name: 'SomaFM: Lush',
@@ -58,5 +58,3 @@ const playlist: ITrack[] = [
     isRadio: false,
   },
 ];
-
-export default playlist;
