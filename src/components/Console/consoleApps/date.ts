@@ -1,4 +1,4 @@
-const conf = {
+const conf: Intl.DateTimeFormatOptions = {
   weekday: 'short',
   day: 'numeric',
   month: 'short',

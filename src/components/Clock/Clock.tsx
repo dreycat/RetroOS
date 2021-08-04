@@ -3,7 +3,7 @@ import Popup from './Popup';
 
 import styles from './Clock.module.css';
 
-const conf = {
+const conf: Intl.DateTimeFormatOptions = {
   weekday: 'short',
   day: 'numeric',
   month: 'short',
