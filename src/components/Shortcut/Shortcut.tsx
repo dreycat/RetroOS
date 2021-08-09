@@ -1,17 +1,17 @@
 import React, { Component } from 'react';
 
 import { ICoords } from '../../interfaces';
-import styles from './Icon.module.css';
+import styles from './Shortcut.module.css';
 
 interface IProps {
   label: string;
   top: number;
   left: number;
-  saveIconPosition: (coords: ICoords) => void;
+  saveShortcutPosition: (coords: ICoords) => void;
   onClick: () => void;
 }
 
-class Icon extends Component<IProps> {
+export class Shortcut extends Component<IProps> {
   private mainEl = React.createRef<HTMLDivElement>();
   private documentWidth!: number;
   private documentHeight!: number;
@@ -50,9 +50,9 @@ class Icon extends Component<IProps> {
   stopDrag = () => {
     this.mainEl.current!.style.cursor = 'pointer';
     this.clear();
-    this.props.saveIconPosition({
+    this.props.saveShortcutPosition({
       top: parseInt(this.mainEl.current!.style.top, 10),
-      left: parseInt(this.mainEl.current!.style.left, 10)
+      left: parseInt(this.mainEl.current!.style.left, 10),
     });
   };
 
@@ -97,7 +97,7 @@ class Icon extends Component<IProps> {
         style={{ top, left }}
         onMouseDown={this.startDrag}
         onClick={this.handleOpen}
-        onContextMenu={e => e.preventDefault()}
+        onContextMenu={(e) => e.preventDefault()}
       >
         {this.props.children}
         <span className={styles.name}>{label}</span>
@@ -105,5 +105,3 @@ class Icon extends Component<IProps> {
     );
   }
 }
-
-export default Icon;

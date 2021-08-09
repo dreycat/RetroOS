@@ -4,16 +4,16 @@ import { getStorageData } from '../utils/getStorageData';
 import { ICoords } from '../interfaces';
 import { Apps } from '../types';
 
-export const useIcon = (name: Apps, defaultPosition: ICoords) => {
+export const useShortcut = (name: Apps, defaultPosition: ICoords) => {
   const storageName = useMemo(() => `${name}_icon_coords`, [name]);
-  const [storeIconCoords] = useState<ICoords>(getStorageData(storageName, defaultPosition));
+  const [storeShortcutCoords] = useState<ICoords>(getStorageData(storageName, defaultPosition));
 
-  const saveIconPosition = useCallback(
+  const saveShortcutPosition = useCallback(
     (coords: ICoords) => {
       localStorage.setItem(storageName, JSON.stringify(coords));
     },
     [storageName]
   );
 
-  return { storeIconCoords, saveIconPosition };
+  return { storeShortcutCoords, saveShortcutPosition };
 };

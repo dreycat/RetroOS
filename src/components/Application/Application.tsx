@@ -1,9 +1,9 @@
 import React, { FC } from 'react';
 
-import Icon from '../Icon';
 import Window from '../Window';
+import { Shortcut } from '../Shortcut';
 import { useWindow } from '../../hooks/useWindow';
-import { useIcon } from '../../hooks/useIcon';
+import { useShortcut } from '../../hooks/useShortcut';
 import ApplicationErrorBoundary from '../ApplicationErrorBoundary';
 import { ICoords } from '../../interfaces';
 import { Apps } from '../../types';
@@ -18,22 +18,22 @@ interface IProps {
 
 const Application: FC<IProps> = ({ name, label, icon, defaultWindowPosition, defaultIconPosition, children }) => {
   const { isOpen, toggle, onClose } = useWindow(name);
-  const { storeIconCoords, saveIconPosition } = useIcon(name, defaultIconPosition);
+  const { storeShortcutCoords, saveShortcutPosition } = useShortcut(name, defaultIconPosition);
 
   return (
     <>
       <Window isOpen={isOpen} name={name} label={label} onClose={onClose} defaultPosition={defaultWindowPosition}>
         <ApplicationErrorBoundary>{children}</ApplicationErrorBoundary>
       </Window>
-      <Icon
+      <Shortcut
         label={label}
-        top={storeIconCoords.top}
-        left={storeIconCoords.left}
+        top={storeShortcutCoords.top}
+        left={storeShortcutCoords.left}
         onClick={toggle}
-        saveIconPosition={saveIconPosition}
+        saveShortcutPosition={saveShortcutPosition}
       >
         {icon}
-      </Icon>
+      </Shortcut>
     </>
   );
 };
