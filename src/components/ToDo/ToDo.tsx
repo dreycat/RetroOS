@@ -1,5 +1,5 @@
 import React, { FC, useState, useCallback, useEffect, useRef } from 'react';
-import { v4 as uuid } from 'uuid';
+import { nanoid } from 'nanoid';
 
 import { getStorageData } from '../../utils/getStorageData';
 import { ReactComponent as DeleteIcon } from './images/delete.svg';
@@ -30,7 +30,7 @@ const ToDo: FC<IProps> = ({ size }) => {
       event.preventDefault();
       const str = text.trim();
       if (!str) return;
-      setList([...list, { id: uuid(), text: str, done: false }]);
+      setList([...list, { id: nanoid(), text: str, done: false }]);
       setText('');
       setTimeout(() => {
         if (listEl.current) {
