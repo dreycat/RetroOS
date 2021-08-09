@@ -5,7 +5,7 @@ import Directory from './Directory';
 import fileSystem from './fs/fileSystem';
 import { FileRoute } from './fs/FileRoute';
 import { Meta } from './fs/types';
-import { getChildrens, getNode, isDir } from './fs/utils';
+import { getChildren, getNode, isDir } from './fs/utils';
 import { FileLinksContext } from '../../contexts/FileLinksProvider';
 import { useWindow } from '../../hooks/useWindow';
 import { ReactComponent as HomeIcon } from './icons/home.svg';
@@ -95,7 +95,7 @@ const Explorer = () => {
         </div>
       </div>
       <ul className={styles.fileList}>
-        {getChildrens(node).map((children) => {
+        {getChildren(node).map((children) => {
           return isDir(children) ? (
             <Directory key={children.id} openDirectory={openDirectory} name={children.name} />
           ) : (
