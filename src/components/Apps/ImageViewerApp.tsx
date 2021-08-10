@@ -1,13 +1,9 @@
-import React from 'react';
-
 import ImageViewer from '../ImageViewer';
 import ContextApplication from '../ContextApplication';
+import { windowPositions } from './positions';
 
-const defaultWindowPosition = { top: 160, left: 663 };
-
-const ImageViewerApp = () => (
-  <ContextApplication name="imageviewer" label="ImageViewer" defaultWindowPosition={defaultWindowPosition}>
+export const ImageViewerApp = () => (
+  <ContextApplication name="imageviewer" label="ImageViewer" defaultWindowPosition={windowPositions.imageviewer}>
     <ImageViewer />
   </ContextApplication>
 );
-export default ImageViewerApp;

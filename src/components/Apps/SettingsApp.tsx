@@ -1,13 +1,9 @@
-import React from 'react';
-
 import Settings from '../Settings';
 import ContextApplication from '../ContextApplication';
+import { windowPositions } from './positions';
 
-const defaultWindowPosition = { top: 163, left: 716 };
-
-const SettingsApp = () => (
-  <ContextApplication name="settings" label="Settings" defaultWindowPosition={defaultWindowPosition}>
+export const SettingsApp = () => (
+  <ContextApplication name="settings" label="Settings" defaultWindowPosition={windowPositions.settings}>
     <Settings />
   </ContextApplication>
 );
-export default SettingsApp;

@@ -1,13 +1,9 @@
-import React from 'react';
-
 import VideoPlayer from '../VideoPlayer';
 import ContextApplication from '../ContextApplication';
+import { windowPositions } from './positions';
 
-const defaultWindowPosition = { top: 171, left: 763 };
-
-const VideoPlayerApp = () => (
-  <ContextApplication name="videoplayer" label="VideoPlayer" defaultWindowPosition={defaultWindowPosition}>
+export const VideoPlayerApp = () => (
+  <ContextApplication name="videoplayer" label="VideoPlayer" defaultWindowPosition={windowPositions.videoplayer}>
     <VideoPlayer />
   </ContextApplication>
 );
-export default VideoPlayerApp;

@@ -1,17 +1,12 @@
-import React, { FC, useRef, useCallback, useEffect, useMemo } from 'react';
+import React, { useRef, useCallback, useEffect, useMemo } from 'react';
 
 import { useConsole } from '../../hooks/useConsole';
 import { useWindow } from '../../hooks/useWindow';
-import { IWindowSize } from '../../interfaces';
 import styles from './Console.module.css';
-
-interface IProps {
-  size: IWindowSize;
-}
 
 type Mapper = { [key: string]: () => void };
 
-const Console: FC<IProps> = ({ size }) => {
+export const Console = () => {
   const inputEl = useRef<HTMLInputElement>(null);
   const { messages, dispatch } = useConsole();
   const { onOpen: openTodo } = useWindow('todo');
@@ -56,7 +51,7 @@ const Console: FC<IProps> = ({ size }) => {
   }, [messages]);
 
   return (
-    <div className={`${styles.main} border`} onClick={handleClick} style={{ height: size.height, width: size.width }}>
+    <div className={`${styles.main} border`} onClick={handleClick}>
       <ul className={styles.list}>
         {messages.map(({ text }, id) => (
           <li className={styles.item} key={id}>
@@ -70,5 +65,3 @@ const Console: FC<IProps> = ({ size }) => {
     </div>
   );
 };
-
-export default Console;

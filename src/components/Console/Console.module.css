@@ -1,4 +1,6 @@
 .main {
+  height: 312px;
+  width: 500px;
   overflow-x: hidden;
   overflow-y: scroll;
   background-color: rgb(33, 32, 47);
@@ -61,4 +63,11 @@
   top: 50%;
   left: 4px;
   transform: translateY(-50%);
+}
+
+@media (max-width: 950px) {
+  .main {
+    height: 200px;
+    width: 300px;
+  }
 }

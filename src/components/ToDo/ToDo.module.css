@@ -1,6 +1,8 @@
 .main {
   display: flex;
   flex-direction: column;
+  height: 360px;
+  width: 460px;
   background-color: #fdf6e3;
 }
 
@@ -77,4 +79,11 @@
   line-height: 26px;
   overflow: hidden;
   text-overflow: ellipsis;
+}
+
+@media (max-width: 950px) {
+  .main {
+    height: 292px;
+    width: 275px;
+  }
 }

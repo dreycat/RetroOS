@@ -13,12 +13,19 @@ interface IProps {
   label: string;
   icon: React.ReactNode;
   defaultWindowPosition: ICoords;
-  defaultIconPosition: ICoords;
+  defaultShortcutPosition: ICoords;
 }
 
-const Application: FC<IProps> = ({ name, label, icon, defaultWindowPosition, defaultIconPosition, children }) => {
+export const Application: FC<IProps> = ({
+  name,
+  label,
+  icon,
+  defaultWindowPosition,
+  defaultShortcutPosition,
+  children,
+}) => {
   const { isOpen, toggle, onClose } = useWindow(name);
-  const { storeShortcutCoords, saveShortcutPosition } = useShortcut(name, defaultIconPosition);
+  const { storeShortcutCoords, saveShortcutPosition } = useShortcut(name, defaultShortcutPosition);
 
   return (
     <>
@@ -37,5 +44,3 @@ const Application: FC<IProps> = ({ name, label, icon, defaultWindowPosition, def
     </>
   );
 };
-
-export default Application;

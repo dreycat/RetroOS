@@ -1,10 +1,10 @@
-import React, { useCallback, useEffect } from 'react';
+import { useCallback, useEffect } from 'react';
 
 import Screensaver from '../Screensaver';
 import { useWindow } from '../../hooks/useWindow';
 import ApplicationErrorBoundary from '../ApplicationErrorBoundary';
 
-const ScreensaverApp = () => {
+export const ScreensaverApp = () => {
   const { isOpen, onClose } = useWindow('screensaver');
 
   const escHandler = useCallback(
@@ -33,5 +33,3 @@ const ScreensaverApp = () => {
     </ApplicationErrorBoundary>
   ) : null;
 };
-
-export default ScreensaverApp;

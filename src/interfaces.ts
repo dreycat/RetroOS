@@ -10,8 +10,3 @@ export interface ITrack {
   title: string;
   isRadio: boolean;
 }
-
-export interface IWindowSize {
-  height: number;
-  width: number;
-}

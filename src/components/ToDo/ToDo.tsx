@@ -1,4 +1,4 @@
-import React, { FC, useState, useCallback, useEffect, useRef } from 'react';
+import React, { useState, useCallback, useEffect, useRef } from 'react';
 import { nanoid } from 'nanoid';
 
 import { getStorageData } from '../../utils/getStorageData';
@@ -13,14 +13,7 @@ type ListItem = {
   done: boolean;
 };
 
-interface IProps {
-  size: {
-    height: number;
-    width: number;
-  };
-}
-
-const ToDo: FC<IProps> = ({ size }) => {
+const ToDo = () => {
   const [list, setList] = useState<ListItem[]>(getStorageData('todos', []));
   const [text, setText] = useState('');
   const listEl = useRef<HTMLUListElement>(null);
@@ -60,7 +53,7 @@ const ToDo: FC<IProps> = ({ size }) => {
   }, [list]);
 
   return (
-    <div className={`${styles.main} border`} style={{ height: size.height, width: size.width }}>
+    <div className={`${styles.main} border`}>
       <ul className={styles.list} ref={listEl}>
         {list.map(({ id, text, done }) => (
           <li className={done ? `${styles.item} ${styles.done}` : styles.item} key={id}>
