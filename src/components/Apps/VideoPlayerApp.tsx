@@ -1,5 +1,5 @@
-import VideoPlayer from '../VideoPlayer';
-import ContextApplication from '../ContextApplication';
+import { VideoPlayer } from '../VideoPlayer';
+import { ContextApplication } from '../ContextApplication';
 import { windowPositions } from './positions';
 
 export const VideoPlayerApp = () => (

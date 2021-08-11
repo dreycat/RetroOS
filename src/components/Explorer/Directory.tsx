@@ -1,4 +1,4 @@
-import React, { FC } from 'react';
+import type { FC } from 'react';
 
 import { ReactComponent as Icon } from './icons/folder.svg';
 import styles from './Explorer.module.css';
@@ -8,7 +8,7 @@ interface IProps {
   openDirectory: (name: string) => void;
 }
 
-const Directory: FC<IProps> = ({ name, openDirectory }) => (
+export const Directory: FC<IProps> = ({ name, openDirectory }) => (
   <li className={styles.directory} onClick={() => openDirectory(name)}>
     <Icon width={42} height={42} />
     <span className={styles.name} title={name}>
@@ -16,5 +16,3 @@ const Directory: FC<IProps> = ({ name, openDirectory }) => (
     </span>
   </li>
 );
-
-export default Directory;

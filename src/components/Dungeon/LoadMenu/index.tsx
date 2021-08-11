@@ -1,1 +1,1 @@
-export { default } from './LoadMenu';
+export * from './LoadMenu';

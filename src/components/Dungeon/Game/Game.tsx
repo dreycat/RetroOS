@@ -1,5 +1,5 @@
-import React, { FC, useRef, useEffect } from 'react';
-
+import { useRef, useEffect } from 'react';
+import type { FC } from 'react';
 import { main } from './main';
 
 const scale = window.devicePixelRatio || 2;
@@ -13,7 +13,7 @@ interface IProps {
   win: () => void;
 }
 
-const Game: FC<IProps> = ({ level, teleport, finishGame, win }) => {
+export const Game: FC<IProps> = ({ level, teleport, finishGame, win }) => {
   const canvas = useRef<HTMLCanvasElement>(null);
 
   useEffect(() => {
@@ -29,5 +29,3 @@ const Game: FC<IProps> = ({ level, teleport, finishGame, win }) => {
 
   return <canvas ref={canvas} style={{ width, height }} />;
 };
-
-export default Game;

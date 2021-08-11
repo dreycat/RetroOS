@@ -1,1 +1,1 @@
-export { default } from './ContextApplication';
+export * from './ContextApplication';

@@ -1,7 +1,7 @@
-import React, { FC } from 'react';
+import { FC } from 'react';
 
 import Window from '../Window';
-import ApplicationErrorBoundary from '../ApplicationErrorBoundary';
+import { ApplicationErrorBoundary } from '../ApplicationErrorBoundary';
 import { useWindow } from '../../hooks/useWindow';
 import { ICoords } from '../../interfaces';
 import { Apps } from '../../types';
@@ -12,7 +12,7 @@ interface IProps {
   defaultWindowPosition: ICoords;
 }
 
-const ContextApplication: FC<IProps> = ({ name, label, defaultWindowPosition, children }) => {
+export const ContextApplication: FC<IProps> = ({ name, label, defaultWindowPosition, children }) => {
   const { isOpen, onClose } = useWindow(name);
 
   return (
@@ -21,5 +21,3 @@ const ContextApplication: FC<IProps> = ({ name, label, defaultWindowPosition, ch
     </Window>
   );
 };
-
-export default ContextApplication;

@@ -1,4 +1,4 @@
-import React, { FC } from 'react';
+import type { FC } from 'react';
 
 import styles from './FirstScreen.module.css';
 
@@ -7,7 +7,7 @@ interface IProps {
   sellSize: number;
 }
 
-const FirstScreen: FC<IProps> = ({ handleClick, sellSize }) => (
+export const FirstScreen: FC<IProps> = ({ handleClick, sellSize }) => (
   <div className={styles.main}>
     <button className={styles.button} onClick={() => handleClick(8, 8, 10)}>
       8:8
@@ -34,5 +34,3 @@ const FirstScreen: FC<IProps> = ({ handleClick, sellSize }) => (
     </button>
   </div>
 );
-
-export default FirstScreen;

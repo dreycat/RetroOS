@@ -1,6 +1,4 @@
-import React, { FC } from 'react';
-
-import Taskbar from '../Taskbar';
+import { Taskbar } from '../Taskbar';
 import { AudioPlayerApp } from '../Apps/AudioPlayerApp';
 import { ConsoleApp } from '../Apps/ConsoleApp';
 import { ToDoApp } from '../Apps/ToDoApp';
@@ -12,10 +10,10 @@ import { ScreensaverApp } from '../Apps/ScreensaverApp';
 import { NotepadApp } from '../Apps/NotepadApp';
 import { VideoPlayerApp } from '../Apps/VideoPlayerApp';
 import { ImageViewerApp } from '../Apps/ImageViewerApp';
-import ContexMenu from '../ContextMenu';
+import { ContextMenu } from '../ContextMenu';
 import styles from './Desktop.module.css';
 
-const Desktop: FC = () => (
+export const Desktop = () => (
   <div className={styles.main}>
     <Taskbar />
     <ExplorerApp />
@@ -26,11 +24,9 @@ const Desktop: FC = () => (
     <SettingsApp />
     <DungeonApp />
     <ScreensaverApp />
-    <ContexMenu />
+    <ContextMenu />
     <NotepadApp />
     <VideoPlayerApp />
     <ImageViewerApp />
   </div>
 );
-
-export default Desktop;

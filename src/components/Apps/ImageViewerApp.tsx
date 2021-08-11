@@ -1,5 +1,5 @@
-import ImageViewer from '../ImageViewer';
-import ContextApplication from '../ContextApplication';
+import { ImageViewer } from '../ImageViewer';
+import { ContextApplication } from '../ContextApplication';
 import { windowPositions } from './positions';
 
 export const ImageViewerApp = () => (

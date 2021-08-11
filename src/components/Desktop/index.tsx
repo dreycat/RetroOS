@@ -1,1 +1,1 @@
-export { default } from './Desktop';
+export * from './Desktop';

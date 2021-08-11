@@ -1,6 +1,6 @@
 import sinon from 'sinon';
-import Calendar from '../Calendar';
-import presenter from '../presenter';
+import { Calendar } from '../Calendar';
+import { presenter } from '../presenter';
 
 let clock: any;
 

@@ -3,7 +3,7 @@ type Coord = {
   y: number;
 };
 
-const drawMine = (ctx: CanvasRenderingContext2D, x: number, y: number, sellSize: number) => {
+export const drawMine = (ctx: CanvasRenderingContext2D, x: number, y: number, sellSize: number) => {
   const drawCircle = ({ radius = 1.25, fillStyle = '#a8a5a4', strokeStyle = '#000', lineWidth = 0.5 }) => {
     const cx = x * sellSize;
     const cy = y * sellSize;
@@ -69,5 +69,3 @@ const drawMine = (ctx: CanvasRenderingContext2D, x: number, y: number, sellSize:
   drawTriangle({ x: 7.875, y: 15.75 }, { x: 9.375, y: 15.25 }, { x: 9.375, y: 16.25 });
   drawTriangle({ x: 23.625, y: 15.75 }, { x: 22, y: 15.25 }, { x: 22, y: 16.25 });
 };
-
-export default drawMine;

@@ -1,13 +1,13 @@
-import React, { FC, ChangeEvent } from 'react';
+import type { FC, ChangeEvent, Dispatch, SetStateAction } from 'react';
 
-import Range from '../Range';
+import { Range } from '../Range';
 
 interface IProps {
-  setVolume: React.Dispatch<React.SetStateAction<number>>;
+  setVolume: Dispatch<SetStateAction<number>>;
   volume: number;
 }
 
-const VolumeControl: FC<IProps> = ({ setVolume, volume }) => (
+export const VolumeControl: FC<IProps> = ({ setVolume, volume }) => (
   <Range
     type="range"
     name="track"
@@ -19,5 +19,3 @@ const VolumeControl: FC<IProps> = ({ setVolume, volume }) => (
     onChange={(e: ChangeEvent<HTMLInputElement>) => setVolume(parseFloat(e.target.value))}
   />
 );
-
-export default VolumeControl;

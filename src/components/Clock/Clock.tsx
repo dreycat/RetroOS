@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import Popup from './Popup';
 
 import styles from './Clock.module.css';
@@ -16,7 +16,7 @@ const getTime = () => {
   return `${date.toLocaleDateString('en-US', conf)} ${hours}:${(minutes < 10 ? '0' : '') + minutes}`;
 };
 
-const Clock = () => {
+export const Clock = () => {
   const [time, setTime] = useState(getTime);
   const [isOpen, setOpen] = useState(false);
   const popupEl = useRef<HTMLDivElement>(null);
@@ -52,4 +52,3 @@ const Clock = () => {
     </>
   );
 };
-export default Clock;

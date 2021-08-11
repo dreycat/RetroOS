@@ -1,5 +1,5 @@
-import Notepad from '../Notepad';
-import ContextApplication from '../ContextApplication';
+import { Notepad } from '../Notepad';
+import { ContextApplication } from '../ContextApplication';
 import { windowPositions } from './positions';
 
 export const NotepadApp = () => (

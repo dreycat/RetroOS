@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import { useContext } from 'react';
 import { FileLinksContext } from '../../contexts/FileLinksProvider';
 
 import styles from './VideoPlayer.module.css';
@@ -6,7 +6,7 @@ import styles from './VideoPlayer.module.css';
 const defaultSrc = 'https://www.youtube.com/embed/BfCgF10C58Q';
 const flags = 'controls=0&autoplay=1&disablekb=1&modestbranding=1&loop=1&start=0';
 
-const VideoPlayer = () => {
+export const VideoPlayer = () => {
   const { state } = useContext(FileLinksContext);
   const src = state.videoplayer ?? defaultSrc;
 
@@ -25,5 +25,3 @@ const VideoPlayer = () => {
     </div>
   );
 };
-
-export default VideoPlayer;

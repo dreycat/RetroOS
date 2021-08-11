@@ -1,14 +1,14 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 
-import Calendar from './Calendar';
-import presenter from './presenter';
+import { Calendar } from './Calendar';
+import { presenter } from './presenter';
 import { isToday } from '../../utils/date';
 import styles from './Calendar.module.css';
 
 const firstLetters = ['S', 'M', 'T', 'W', 'T', 'F', 'S'];
 const calendar = new Calendar(presenter);
 
-const CalendarComponent = () => {
+export const CalendarComponent = () => {
   const [page, setPage] = useState(() => calendar.currentPage());
 
   return (
@@ -53,5 +53,3 @@ const CalendarComponent = () => {
     </div>
   );
 };
-
-export default CalendarComponent;

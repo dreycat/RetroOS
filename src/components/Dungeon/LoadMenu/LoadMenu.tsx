@@ -1,4 +1,4 @@
-import React, { FC } from 'react';
+import type { FC } from 'react';
 
 import { StatusGame } from '../enums';
 import { levels } from '../Game/levels';
@@ -10,7 +10,7 @@ interface IProps {
   setLevel: (level: number) => void;
 }
 
-const LoadMenu: FC<IProps> = ({ setStatusGame, setLevel }) => {
+export const LoadMenu: FC<IProps> = ({ setStatusGame, setLevel }) => {
   const savedLevel = getStorageData('dungeon_level', 0)();
 
   return (
@@ -32,5 +32,3 @@ const LoadMenu: FC<IProps> = ({ setStatusGame, setLevel }) => {
     </ul>
   );
 };
-
-export default LoadMenu;

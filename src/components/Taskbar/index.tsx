@@ -1,1 +1,1 @@
-export { default } from './Taskbar';
+export * from './Taskbar';

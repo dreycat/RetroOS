@@ -1,7 +1,8 @@
-import React, { FC, useRef, useEffect } from 'react';
+import { useRef, useEffect } from 'react';
+import type { FC, MouseEvent } from 'react';
 
-import renderCell from '../Cell';
-import renderGrid from './renderGrid';
+import { renderCell } from '../Cell';
+import { renderGrid } from './renderGrid';
 import { Field } from '../types';
 import styles from './Board.module.css';
 
@@ -17,14 +18,14 @@ interface IProps {
 
 const SCALE = window.devicePixelRatio || 2;
 
-const Board: FC<IProps> = ({
+export const Board: FC<IProps> = ({
   fieldWidth,
   fieldHeight,
   sellSize,
   field,
   zIndex,
   handleLeftClick = () => {},
-  handleRightClick = () => {}
+  handleRightClick = () => {},
 }) => {
   const canvas = useRef<HTMLCanvasElement>(null);
 
@@ -46,7 +47,7 @@ const Board: FC<IProps> = ({
     renderGrid(ctx, width, height, sellSize);
   }, [canvas, width, height, field, sellSize]);
 
-  const onClick = (event: React.MouseEvent) => {
+  const onClick = (event: MouseEvent) => {
     const x = Math.floor(event.nativeEvent.offsetX / sellSize);
     const y = Math.floor(event.nativeEvent.offsetY / sellSize);
 
@@ -67,5 +68,3 @@ const Board: FC<IProps> = ({
     />
   );
 };
-
-export default Board;

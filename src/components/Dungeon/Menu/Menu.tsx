@@ -1,7 +1,6 @@
-import React, { FC } from 'react';
+import type { FC } from 'react';
 
 import { StatusGame } from '../enums';
-
 import styles from './Menu.module.css';
 
 interface IProps {
@@ -10,7 +9,7 @@ interface IProps {
   setLevel: (level: number) => void;
 }
 
-const Menu: FC<IProps> = ({ statusGame, setStatusGame, setLevel }) => (
+export const Menu: FC<IProps> = ({ statusGame, setStatusGame, setLevel }) => (
   <>
     <ul className={styles.menu}>
       {statusGame === StatusGame.Fail && (
@@ -43,5 +42,3 @@ const Menu: FC<IProps> = ({ statusGame, setStatusGame, setLevel }) => (
     </ul>
   </>
 );
-
-export default Menu;

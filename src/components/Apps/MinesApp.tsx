@@ -1,4 +1,4 @@
-import Mines from '../Mines';
+import { Mines } from '../Mines';
 import { Application } from '../Application';
 import { ReactComponent as Icon } from './icons/MinesIcon.svg';
 import { shortcutPositions, windowPositions } from './positions';

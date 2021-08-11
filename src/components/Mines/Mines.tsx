@@ -1,11 +1,11 @@
-import React, { useState, useCallback } from 'react';
+import { useState, useCallback } from 'react';
 
-import Game from './Game';
-import FirstScreen from './FirstScreen';
+import { Game } from './Game';
+import { FirstScreen } from './FirstScreen';
 
 const CELL_SIZE = 32;
 
-const Mines = () => {
+export const Mines = () => {
   const [fieldWidth, setFieldWidth] = useState(8);
   const [fieldHeight, setFieldHeight] = useState(8);
   const [mines, setMines] = useState(10);
@@ -24,5 +24,3 @@ const Mines = () => {
     <FirstScreen handleClick={handleClick} sellSize={CELL_SIZE} />
   );
 };
-
-export default Mines;

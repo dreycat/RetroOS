@@ -3,7 +3,7 @@ const font =
   '16px -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, ' +
   'Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif';
 
-const drawNumber = (ctx: CanvasRenderingContext2D, x: number, y: number, value: any, sellSize: number) => {
+export const drawNumber = (ctx: CanvasRenderingContext2D, x: number, y: number, value: any, sellSize: number) => {
   const cx = x * sellSize;
   const cy = y * sellSize;
 
@@ -21,7 +21,7 @@ const drawNumber = (ctx: CanvasRenderingContext2D, x: number, y: number, value: 
   }
 };
 
-const drawFlag = (ctx: CanvasRenderingContext2D, x: number, y: number, sellSize: number) => {
+export const drawFlag = (ctx: CanvasRenderingContext2D, x: number, y: number, sellSize: number) => {
   const cx = x * sellSize;
   const cy = y * sellSize;
 
@@ -41,18 +41,16 @@ const drawFlag = (ctx: CanvasRenderingContext2D, x: number, y: number, sellSize:
   ctx.closePath();
 };
 
-const drawSuspense = (ctx: CanvasRenderingContext2D, x: number, y: number, sellSize: number) => {
+export const drawSuspense = (ctx: CanvasRenderingContext2D, x: number, y: number, sellSize: number) => {
   ctx.fillStyle = '#dee1e6';
   ctx.fillRect(x * sellSize, y * sellSize, sellSize, sellSize);
 };
 
-const drawOpenCell = (ctx: CanvasRenderingContext2D, x: number, y: number, sellSize: number) => {
+export const drawOpenCell = (ctx: CanvasRenderingContext2D, x: number, y: number, sellSize: number) => {
   ctx.clearRect(x * sellSize, y * sellSize, sellSize, sellSize);
 };
 
-const drawMine = (ctx: CanvasRenderingContext2D, x: number, y: number, sellSize: number) => {
+export const drawMine = (ctx: CanvasRenderingContext2D, x: number, y: number, sellSize: number) => {
   ctx.fillStyle = 'red';
   ctx.fillRect(x * sellSize, y * sellSize, sellSize, sellSize);
 };
-
-export { drawOpenCell, drawSuspense, drawFlag, drawNumber, drawMine };

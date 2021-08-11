@@ -1,4 +1,4 @@
-export default class Calendar<T> {
+export class Calendar<T> {
   private date: Date;
   private cursor: number;
 

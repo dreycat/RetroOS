@@ -1,7 +1,8 @@
-import React, { FC, useState, useCallback } from 'react';
+import { useState, useCallback } from 'react';
+import type { FC } from 'react';
 
-import Board from './Board';
-import Header from './Header';
+import { Board } from './Board';
+import { Header } from './Header';
 import { getEmptyField, generateField } from './generateField';
 import { hasUserWon } from './hasUserWon';
 import { clicker } from './clicker';
@@ -17,7 +18,7 @@ interface IProps {
   sellSize: number;
 }
 
-const Game: FC<IProps> = ({ fieldWidth, fieldHeight, mines, sellSize }) => {
+export const Game: FC<IProps> = ({ fieldWidth, fieldHeight, mines, sellSize }) => {
   const [field, setField] = useState<Field>(generateField(fieldWidth, fieldHeight, mines));
   const [userField, setUserField] = useState<Field>(getEmptyField(fieldWidth, fieldHeight, Cell.Suspense));
   const [statusGame, setStatusGame] = useState<StatusGame>(StatusGame.Start);
@@ -101,5 +102,3 @@ const Game: FC<IProps> = ({ fieldWidth, fieldHeight, mines, sellSize }) => {
     </div>
   );
 };
-
-export default Game;

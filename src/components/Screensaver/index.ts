@@ -1,1 +1,1 @@
-export { default } from './Screensaver';
+export * from './Screensaver';

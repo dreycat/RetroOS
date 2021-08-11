@@ -1,4 +1,4 @@
-import ToDo from '../ToDo';
+import { ToDo } from '../ToDo';
 import { Application } from '../Application';
 import { ReactComponent as Icon } from './icons/ToDoIcon.svg';
 import { shortcutPositions, windowPositions } from './positions';

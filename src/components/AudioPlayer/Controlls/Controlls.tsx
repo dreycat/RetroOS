@@ -1,4 +1,4 @@
-import React, { FC } from 'react';
+import type { FC } from 'react';
 
 import { ReactComponent as PlayIcon } from './images/play.svg';
 import { ReactComponent as PauseIcon } from './images/pause.svg';
@@ -15,7 +15,7 @@ interface IProps {
 
 const ICON_SIZE = 24;
 
-const Controlls: FC<IProps> = ({ play, pause, isPlaing, prevTrack, nextTrack }) => (
+export const Controlls: FC<IProps> = ({ play, pause, isPlaing, prevTrack, nextTrack }) => (
   <div>
     <button className={styles.control}>
       <NextIcon className={styles.mirror} width={ICON_SIZE} height={ICON_SIZE} onClick={() => prevTrack()} />
@@ -34,5 +34,3 @@ const Controlls: FC<IProps> = ({ play, pause, isPlaing, prevTrack, nextTrack }) 
     </button>
   </div>
 );
-
-export default Controlls;

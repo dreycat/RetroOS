@@ -1,4 +1,4 @@
-import React, { useRef, useState, useMemo, useEffect, useCallback } from 'react';
+import { useRef, useState, useMemo, useEffect, useCallback, createElement } from 'react';
 
 import { getStorageData } from '../utils/getStorageData';
 import compose from '../utils/compose';
@@ -27,7 +27,7 @@ export const useAudio = (playlist: ITrack[]) => {
 
   const audio = useMemo(() => {
     const src = playlist.find(({ id }) => id === trackId)?.url ?? playlist[0].url;
-    return React.createElement('audio', {
+    return createElement('audio', {
       ref,
       src,
       controls: false,
@@ -71,7 +71,6 @@ export const useAudio = (playlist: ITrack[]) => {
     }
   }, [isPlaying, audio]);
 
-  // TODO: rewrite nextTrack and prevTrack
   const nextTrack = useCallback(() => {
     const len = playlist.length;
     if (len === 0) return;

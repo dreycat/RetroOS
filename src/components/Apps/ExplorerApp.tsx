@@ -1,4 +1,4 @@
-import Explorer from '../Explorer';
+import { Explorer } from '../Explorer';
 import { Application } from '../Application';
 import { ReactComponent as Icon } from './icons/ComputerIcon.svg';
 import { shortcutPositions, windowPositions } from './positions';

@@ -1,1 +1,1 @@
-export { default } from './Controlls';
+export * from './Controlls';

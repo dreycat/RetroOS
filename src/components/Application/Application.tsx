@@ -1,17 +1,17 @@
-import React, { FC } from 'react';
+import type { FC, ReactNode } from 'react';
 
 import Window from '../Window';
 import { Shortcut } from '../Shortcut';
 import { useWindow } from '../../hooks/useWindow';
 import { useShortcut } from '../../hooks/useShortcut';
-import ApplicationErrorBoundary from '../ApplicationErrorBoundary';
+import { ApplicationErrorBoundary } from '../ApplicationErrorBoundary';
 import { ICoords } from '../../interfaces';
 import { Apps } from '../../types';
 
 interface IProps {
   name: Apps;
   label: string;
-  icon: React.ReactNode;
+  icon: ReactNode;
   defaultWindowPosition: ICoords;
   defaultShortcutPosition: ICoords;
 }

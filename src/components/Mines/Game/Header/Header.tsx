@@ -1,6 +1,6 @@
-import React, { FC } from 'react';
+import type { FC } from 'react';
 
-import Timer from '../../../Timer';
+import { Timer } from '../../../Timer';
 import { ReactComponent as FlagIcon } from './images/flag.svg';
 import { ReactComponent as Balloon } from './images/balloon.svg';
 import { ReactComponent as BalloonTwo } from './images/balloon2.svg';
@@ -13,7 +13,7 @@ interface IProps {
   statusGame: StatusGame;
 }
 
-const Header: FC<IProps> = ({ flags, mines, statusGame }) => (
+export const Header: FC<IProps> = ({ flags, mines, statusGame }) => (
   <div className={`${styles.main} boarder`}>
     <Timer isActive={statusGame === StatusGame.Start} />
     {statusGame === StatusGame.Fail && <span>Fail</span>}
@@ -29,5 +29,3 @@ const Header: FC<IProps> = ({ flags, mines, statusGame }) => (
     </div>
   </div>
 );
-
-export default Header;

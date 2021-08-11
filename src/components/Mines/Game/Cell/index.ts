@@ -1,5 +1,5 @@
 import { drawFlag, drawNumber, drawOpenCell, drawSuspense } from './painter';
-import drawMine from './drawMine';
+import { drawMine } from './drawMine';
 
 import { Cell } from '../enums';
 
@@ -8,10 +8,10 @@ const mapper = {
   [Cell.Mine]: drawMine,
   [Cell.Open]: drawOpenCell,
   [Cell.Suspense]: drawSuspense,
-  default: () => {}
+  default: () => {},
 };
 
-const renderCell = (ctx: CanvasRenderingContext2D, x: number, y: number, value: any, sellSize: number) => {
+export const renderCell = (ctx: CanvasRenderingContext2D, x: number, y: number, value: any, sellSize: number) => {
   if (typeof value === 'number') {
     drawNumber(ctx, x, y, value, sellSize);
   } else if (typeof value === 'string') {
@@ -19,5 +19,3 @@ const renderCell = (ctx: CanvasRenderingContext2D, x: number, y: number, value: 
     handler(ctx, x, y, sellSize);
   }
 };
-
-export default renderCell;

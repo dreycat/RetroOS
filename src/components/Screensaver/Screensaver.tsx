@@ -1,4 +1,5 @@
-import React, { FC, useEffect, useRef } from 'react';
+import { useEffect, useRef } from 'react';
+import type { FC } from 'react';
 
 import { architect } from './matrix';
 import styles from './Screensaver.module.css';
@@ -7,7 +8,7 @@ interface IProps {
   onClick: () => void;
 }
 
-const Screensaver: FC<IProps> = ({ onClick }) => {
+export const Screensaver: FC<IProps> = ({ onClick }) => {
   const canvas = useRef<HTMLCanvasElement>(null);
 
   useEffect(() => {
@@ -27,5 +28,3 @@ const Screensaver: FC<IProps> = ({ onClick }) => {
     />
   );
 };
-
-export default Screensaver;

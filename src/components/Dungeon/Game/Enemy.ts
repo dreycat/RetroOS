@@ -1,8 +1,8 @@
-import Character from './Character';
+import { Character } from './Character';
 import { Direction, Coords } from '../types';
 import { random } from '../../../utils/random';
 
-export default class Enemy extends Character {
+export class Enemy extends Character {
   private directions: Direction[];
   constructor(coords: Coords, direction: Direction = 'left', public speed: number) {
     super(coords, direction);

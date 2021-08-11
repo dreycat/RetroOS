@@ -1,5 +1,5 @@
-import Settings from '../Settings';
-import ContextApplication from '../ContextApplication';
+import { Settings } from '../Settings';
+import { ContextApplication } from '../ContextApplication';
 import { windowPositions } from './positions';
 
 export const SettingsApp = () => (

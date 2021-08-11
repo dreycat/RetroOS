@@ -1,4 +1,5 @@
-import React, { useRef, useCallback, useEffect, useMemo } from 'react';
+import { useRef, useCallback, useEffect, useMemo } from 'react';
+import type { KeyboardEvent } from 'react';
 
 import { useConsole } from '../../hooks/useConsole';
 import { useWindow } from '../../hooks/useWindow';
@@ -28,7 +29,7 @@ export const Console = () => {
   }, [openScreensaver, openAudioplayer, openDungeon, openMines, openSettings, openTodo]);
 
   const handleKeyPress = useCallback(
-    ({ key, currentTarget }: React.KeyboardEvent<HTMLInputElement>) => {
+    ({ key, currentTarget }: KeyboardEvent<HTMLInputElement>) => {
       if (key === 'Enter') {
         const raw = currentTarget.value;
         const line = raw.trim();

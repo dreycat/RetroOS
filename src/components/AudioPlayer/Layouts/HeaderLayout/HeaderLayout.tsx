@@ -1,16 +1,16 @@
-import React, { FC } from 'react';
+import type { FC, ReactNode } from 'react';
 
 import styles from './HeaderLayout.module.css';
 
 interface IProps {
-  controlls: React.ReactNode;
-  screen: React.ReactNode;
-  marquee: React.ReactNode;
-  volumeControl: React.ReactNode;
-  progress: React.ReactNode;
+  controlls: ReactNode;
+  screen: ReactNode;
+  marquee: ReactNode;
+  volumeControl: ReactNode;
+  progress: ReactNode;
 }
 
-const HeaderLayout: FC<IProps> = ({ controlls, screen, marquee, volumeControl, progress }) => (
+export const HeaderLayout: FC<IProps> = ({ controlls, screen, marquee, volumeControl, progress }) => (
   <div className={styles.main}>
     <div className={styles.row}>
       <div className={styles.screen}>{screen}</div>
@@ -23,5 +23,3 @@ const HeaderLayout: FC<IProps> = ({ controlls, screen, marquee, volumeControl, p
     {progress}
   </div>
 );
-
-export default HeaderLayout;

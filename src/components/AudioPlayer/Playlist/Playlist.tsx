@@ -1,4 +1,4 @@
-import React, { FC } from 'react';
+import type { FC, Dispatch, SetStateAction } from 'react';
 
 import styles from './Playlist.module.css';
 import { ITrack } from '../../../interfaces';
@@ -6,10 +6,10 @@ import { ITrack } from '../../../interfaces';
 interface IProps {
   list: ITrack[];
   currentTrack: number;
-  setTrack: React.Dispatch<React.SetStateAction<number>>;
+  setTrack: Dispatch<SetStateAction<number>>;
 }
 
-const Playlist: FC<IProps> = ({ list, currentTrack, setTrack }) => (
+export const Playlist: FC<IProps> = ({ list, currentTrack, setTrack }) => (
   <div className={styles.main}>
     <ul className={`${styles.playlist} border`}>
       {list.map(({ name, title, id }) => (
@@ -25,5 +25,3 @@ const Playlist: FC<IProps> = ({ list, currentTrack, setTrack }) => (
     </ul>
   </div>
 );
-
-export default Playlist;

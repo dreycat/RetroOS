@@ -1,4 +1,4 @@
-import React, { FC } from 'react';
+import type { FC, SVGProps } from 'react';
 
 import { ReactComponent as BinIcon } from './icons/bin.svg';
 import { ReactComponent as TextIcon } from './icons/text.svg';
@@ -16,8 +16,8 @@ interface IProps {
 }
 
 type Icons = {
-  [k in Extensions]: React.FunctionComponent<
-    React.SVGProps<SVGSVGElement> & {
+  [k in Extensions]: FC<
+    SVGProps<SVGSVGElement> & {
       title?: string | undefined;
     }
   >;
@@ -31,7 +31,7 @@ const icons: Icons = {
   unknown: UnknownIcon,
 };
 
-const File: FC<IProps> = ({ name, meta, openApp }) => {
+export const File: FC<IProps> = ({ name, meta, openApp }) => {
   const Icon = icons[meta.extension ?? 'unknown'];
 
   return (
@@ -43,5 +43,3 @@ const File: FC<IProps> = ({ name, meta, openApp }) => {
     </li>
   );
 };
-
-export default File;

@@ -1,4 +1,5 @@
-import React, { useState, useCallback, useEffect, useRef } from 'react';
+import { useState, useCallback, useEffect, useRef } from 'react';
+import type { FormEvent, ChangeEvent } from 'react';
 import { nanoid } from 'nanoid';
 
 import { getStorageData } from '../../utils/getStorageData';
@@ -13,13 +14,13 @@ type ListItem = {
   done: boolean;
 };
 
-const ToDo = () => {
+export const ToDo = () => {
   const [list, setList] = useState<ListItem[]>(getStorageData('todos', []));
   const [text, setText] = useState('');
   const listEl = useRef<HTMLUListElement>(null);
 
   const handleSubmit = useCallback(
-    (event: React.FormEvent) => {
+    (event: FormEvent) => {
       event.preventDefault();
       const str = text.trim();
       if (!str) return;
@@ -74,7 +75,7 @@ const ToDo = () => {
           autoFocus
           type="text"
           value={text}
-          onChange={(event: React.ChangeEvent<HTMLInputElement>) => {
+          onChange={(event: ChangeEvent<HTMLInputElement>) => {
             setText(event.target.value);
           }}
         />
@@ -82,5 +83,3 @@ const ToDo = () => {
     </div>
   );
 };
-
-export default ToDo;

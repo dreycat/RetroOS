@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import { Component, createRef } from 'react';
 
 import { withTransition } from '../../hocs/withTransition';
 import { getStorageData } from '../../utils/getStorageData';
@@ -14,8 +14,8 @@ interface IProps {
 }
 
 class Window extends Component<IProps> {
-  private mainEl = React.createRef<HTMLDivElement>();
-  private headerEl = React.createRef<HTMLDivElement>();
+  private mainEl = createRef<HTMLDivElement>();
+  private headerEl = createRef<HTMLDivElement>();
   private shiftX = 0;
   private shiftY = 0;
 

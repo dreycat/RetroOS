@@ -1,5 +1,3 @@
-import React from 'react';
-
 import { ReactComponent as SquareIcon } from './images/square.svg';
 import styles from './FullScreen.module.css';
 
@@ -17,10 +15,8 @@ const toggleFullscreen = () => {
   }
 };
 
-const FullScreen = () => (
+export const FullScreen = () => (
   <div className={styles.main} onClick={toggleFullscreen}>
     <SquareIcon width={16} height={16} />
   </div>
 );
-
-export default FullScreen;

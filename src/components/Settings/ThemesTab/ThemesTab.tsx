@@ -1,5 +1,3 @@
-import React from 'react';
-
 import { getCurrentTheme, setTheme, themes } from '../../../utils/themes';
 import { capitalize } from '../../../utils/capitalize';
 import { Themes } from '../../../types';
@@ -13,7 +11,7 @@ import wallpapers3 from '../../../assets/images/wallpapers/wp3.jpg';
 
 const images = [wallpapers0, wallpapers1, wallpapers2, wallpapers3];
 
-const ThemesTab = () => {
+export const ThemesTab = () => {
   preloadImages(images);
 
   return (
@@ -33,5 +31,3 @@ const ThemesTab = () => {
     </fieldset>
   );
 };
-
-export default ThemesTab;

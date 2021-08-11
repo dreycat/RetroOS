@@ -1,8 +1,6 @@
-import React from 'react';
-
 import styles from './Author.module.css';
 
-const Author = () => (
+export const Author = () => (
   <div className={styles.main}>
     <h2 className={styles.title}>Contacts:</h2>
     <ul className={styles.list}>
@@ -21,5 +19,3 @@ const Author = () => (
     </ul>
   </div>
 );
-
-export default Author;

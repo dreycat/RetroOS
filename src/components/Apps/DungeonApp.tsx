@@ -1,4 +1,4 @@
-import Dungeon from '../Dungeon';
+import { Dungeon } from '../Dungeon';
 import { Application } from '../Application';
 import { ReactComponent as Icon } from './icons/DungeonIcon.svg';
 import { shortcutPositions, windowPositions } from './positions';

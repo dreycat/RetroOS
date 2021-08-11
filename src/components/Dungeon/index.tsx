@@ -1,1 +1,1 @@
-export { default } from './Dungeon';
+export * from './Dungeon';

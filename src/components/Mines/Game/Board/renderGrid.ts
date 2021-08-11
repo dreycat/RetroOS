@@ -1,4 +1,4 @@
-const renderGrid = (ctx: CanvasRenderingContext2D, width: number, height: number, sellSize: number) => {
+export const renderGrid = (ctx: CanvasRenderingContext2D, width: number, height: number, sellSize: number) => {
   ctx.beginPath();
   ctx.strokeStyle = '#acb1c6';
   ctx.lineWidth = 0.5;
@@ -13,5 +13,3 @@ const renderGrid = (ctx: CanvasRenderingContext2D, width: number, height: number
   ctx.stroke();
   ctx.closePath();
 };
-
-export default renderGrid;

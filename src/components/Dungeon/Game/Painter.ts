@@ -5,7 +5,7 @@ import sprite from './images/sprite.png';
 type Mapper = { [K in Square]: (x: number, y: number) => void };
 type CharacterDriver = { [K in Direction]: (x: number, y: number) => void };
 
-export default class Painter {
+export class Painter {
   private readonly sprite: HTMLImageElement;
   private readonly mapper: Mapper;
   private readonly enemyDriver: CharacterDriver;
@@ -21,7 +21,7 @@ export default class Painter {
       D: this.drawDoor,
       P: this.drawPortal,
       B: this.drawBox,
-      G: this.drawGold
+      G: this.drawGold,
     };
     this.enemyDriver = this.createCharacterDriver(32, 0, 64, 96);
     this.playerDriver = this.createCharacterDriver(448, 416, 352, 384);
@@ -32,7 +32,7 @@ export default class Painter {
       right: (x: number, y: number) => this.drawCell(x, y, right),
       left: (x: number, y: number) => this.drawCell(x, y, left),
       down: (x: number, y: number) => this.drawCell(x, y, down),
-      up: (x: number, y: number) => this.drawCell(x, y, up)
+      up: (x: number, y: number) => this.drawCell(x, y, up),
     };
   };
 

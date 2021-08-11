@@ -1,8 +1,8 @@
-import React, { useCallback, useContext, useMemo, useState } from 'react';
+import { useCallback, useContext, useMemo, useState } from 'react';
 
-import File from './File';
-import Directory from './Directory';
-import fileSystem from './fs/fileSystem';
+import { File } from './File';
+import { Directory } from './Directory';
+import { fileSystem } from './fs/fileSystem';
 import { FileRoute } from './fs/FileRoute';
 import { Meta } from './fs/types';
 import { getChildren, getNode, isDir } from './fs/utils';
@@ -16,7 +16,7 @@ const route = new FileRoute(fileSystem);
 
 type Mapper = { [key: string]: () => void };
 
-const Explorer = () => {
+export const Explorer = () => {
   const [path, setPath] = useState(route.path);
   const node = getNode(fileSystem, path);
   const { onOpen: openTodo } = useWindow('todo');
@@ -106,5 +106,3 @@ const Explorer = () => {
     </div>
   );
 };
-
-export default Explorer;

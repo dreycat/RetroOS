@@ -1,7 +1,7 @@
 import { makeDir, makeFile } from './utils';
 
 // prettier-ignore
-const fileSystem = makeDir('/', [
+export const fileSystem = makeDir('/', [
   makeDir('boot', [
     makeFile('kernel', {extension: 'bin'})
   ]),
@@ -37,5 +37,3 @@ const fileSystem = makeDir('/', [
       makeFile('todo', {extension: 'bin'}),
   ])
 ]);
-
-export default fileSystem;

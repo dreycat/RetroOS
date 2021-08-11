@@ -1,1 +1,1 @@
-export { default } from './Mines';
+export * from './Mines';

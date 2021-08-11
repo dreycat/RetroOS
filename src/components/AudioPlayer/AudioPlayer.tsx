@@ -1,17 +1,15 @@
-import React from 'react';
-
-import Screen from './Screen';
-import Marquee from './Marquee';
-import Playlist from './Playlist';
-import Progress from './Progress';
-import Controlls from './Controlls';
-import VolumeControl from './VolumeControl';
-import HeaderLayout from './Layouts/HeaderLayout';
+import { Screen } from './Screen';
+import { Marquee } from './Marquee';
+import { Playlist } from './Playlist';
+import { Progress } from './Progress';
+import { Controlls } from './Controlls';
+import { VolumeControl } from './VolumeControl';
+import { HeaderLayout } from './Layouts/HeaderLayout';
 import { useAudio } from '../../hooks/useAudio';
 import { stationList } from './stationList';
 import styles from './AudioPlayer.module.css';
 
-const AudioPlayer = () => {
+export const AudioPlayer = () => {
   const { audio, state, controlls } = useAudio(stationList);
 
   return (
@@ -38,5 +36,3 @@ const AudioPlayer = () => {
     </div>
   );
 };
-
-export default AudioPlayer;

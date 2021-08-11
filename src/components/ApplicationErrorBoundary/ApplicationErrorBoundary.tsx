@@ -1,9 +1,9 @@
-import React, { Component } from 'react';
+import { Component } from 'react';
 
 import { ReactComponent as ErrorIcon } from './images/error.svg';
 import styles from './ApplicationErrorBoundary.module.css';
 
-class ApplicationErrorBoundary extends Component {
+export class ApplicationErrorBoundary extends Component {
   state = { hasError: false };
 
   static getDerivedStateFromError() {
@@ -27,5 +27,3 @@ class ApplicationErrorBoundary extends Component {
     return this.props.children;
   }
 }
-
-export default ApplicationErrorBoundary;

@@ -1,14 +1,14 @@
-import React, { useState, useCallback } from 'react';
+import { useState, useCallback } from 'react';
 
-import Game from './Game';
-import Menu from './Menu';
-import LoadMenu from './LoadMenu';
+import { Game } from './Game';
+import { Menu } from './Menu';
+import { LoadMenu } from './LoadMenu';
 import { StatusGame } from './enums';
 import { getStorageData } from '../../utils/getStorageData';
 import { levels } from './Game/levels';
 import styles from './Dungeon.module.css';
 
-const Dungeon = () => {
+export const Dungeon = () => {
   const [level, setLevel] = useState(0);
   const [statusGame, setStatusGame] = useState(StatusGame.Init);
 
@@ -45,5 +45,3 @@ const Dungeon = () => {
     </div>
   );
 };
-
-export default Dungeon;

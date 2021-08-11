@@ -1,4 +1,5 @@
-import React, { FC, useReducer, createContext, useEffect, useMemo } from 'react';
+import { useReducer, createContext, useEffect, useMemo } from 'react';
+import type { FC, Dispatch } from 'react';
 
 import { getStorageData } from '../utils/getStorageData';
 import { Apps } from '../types';
@@ -13,9 +14,9 @@ const initialState: State = {
 const STORAGE_KEY = 'file_links';
 
 type Action = { type: 'set'; payload: { name: Apps; link: string | null } };
-type ContextProps = { state: State; dispatch: React.Dispatch<Action> };
+type ContextProps = { state: State; dispatch: Dispatch<Action> };
 
-const FileLinksContext = createContext({} as ContextProps);
+export const FileLinksContext = createContext({} as ContextProps);
 
 const reducer = (state: State, action: Action) => {
   switch (action.type) {
@@ -28,7 +29,7 @@ const reducer = (state: State, action: Action) => {
 
 const init = (initialState: State) => getStorageData(STORAGE_KEY, initialState)();
 
-const FileLinksProvider: FC = ({ children }) => {
+export const FileLinksProvider: FC = ({ children }) => {
   const [state, dispatch] = useReducer(reducer, initialState, init);
 
   useEffect(() => {
@@ -45,6 +46,3 @@ const FileLinksProvider: FC = ({ children }) => {
 
   return <FileLinksContext.Provider value={value}>{children}</FileLinksContext.Provider>;
 };
-
-export { FileLinksContext };
-export default FileLinksProvider;

@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import { Component, createRef } from 'react';
 
 import { ICoords } from '../../interfaces';
 import styles from './Shortcut.module.css';
@@ -12,7 +12,7 @@ interface IProps {
 }
 
 export class Shortcut extends Component<IProps> {
-  private mainEl = React.createRef<HTMLDivElement>();
+  private mainEl = createRef<HTMLDivElement>();
   private documentWidth!: number;
   private documentHeight!: number;
   private initTop!: number;

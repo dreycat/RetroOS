@@ -1,6 +1,6 @@
-import React, { FC, ChangeEvent } from 'react';
+import type { FC, ChangeEvent } from 'react';
 
-import Range from '../Range';
+import { Range } from '../Range';
 
 interface IProps {
   duration: number;
@@ -9,7 +9,7 @@ interface IProps {
   seek: (time: number) => void;
 }
 
-const Progress: FC<IProps> = ({ isRadio, duration, time, seek }) => (
+export const Progress: FC<IProps> = ({ isRadio, duration, time, seek }) => (
   <Range
     type="range"
     name="track"
@@ -22,5 +22,3 @@ const Progress: FC<IProps> = ({ isRadio, duration, time, seek }) => (
     disabled={isRadio}
   />
 );
-
-export default Progress;

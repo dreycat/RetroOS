@@ -1,5 +1,4 @@
-import React, { useState, useCallback, useEffect, useRef } from 'react';
-
+import { useState, useCallback, useEffect, useRef } from 'react';
 import { useWindow } from '../../hooks/useWindow';
 import styles from './ContextMenu.module.css';
 
@@ -15,7 +14,7 @@ type Coords = {
   y: number;
 };
 
-const ContextMenu = () => {
+export const ContextMenu = () => {
   const [coords, setCoords] = useState<Coords>({ x: 0, y: 0 });
   const [isOpen, setOpen] = useState(false);
   const menuEl = useRef<HTMLUListElement>(null);
@@ -70,5 +69,3 @@ const ContextMenu = () => {
     </>
   );
 };
-
-export default ContextMenu;

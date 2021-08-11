@@ -1,5 +1,5 @@
-import React, { FC, useReducer, createContext, useEffect, useMemo } from 'react';
-
+import { useReducer, createContext, useEffect, useMemo } from 'react';
+import type { FC, Dispatch } from 'react';
 import { getStorageData } from '../utils/getStorageData';
 import { Apps } from '../types';
 
@@ -18,13 +18,12 @@ const initialState: State = {
   videoplayer: false,
   imageviewer: false,
 };
-
 const STORAGE_KEY = 'windows_state';
 
 type Action = { type: 'open'; payload: Apps } | { type: 'close'; payload: Apps } | { type: 'toggle'; payload: Apps };
-type ContextProps = { state: State; dispatch: React.Dispatch<Action> };
+type ContextProps = { state: State; dispatch: Dispatch<Action> };
 
-const WindowsContext = createContext({} as ContextProps);
+export const WindowsContext = createContext({} as ContextProps);
 
 const reducer = (state: State, action: Action) => {
   switch (action.type) {
@@ -41,7 +40,7 @@ const reducer = (state: State, action: Action) => {
 
 const init = (initialState: State) => getStorageData(STORAGE_KEY, initialState)();
 
-const WindowsProvider: FC = ({ children }) => {
+export const WindowsProvider: FC = ({ children }) => {
   const [state, dispatch] = useReducer(reducer, initialState, init);
 
   useEffect(() => {
@@ -58,6 +57,3 @@ const WindowsProvider: FC = ({ children }) => {
 
   return <WindowsContext.Provider value={value}>{children}</WindowsContext.Provider>;
 };
-
-export { WindowsContext };
-export default WindowsProvider;

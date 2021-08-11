@@ -7,7 +7,7 @@ import { reset } from './reset';
 import { matrix } from './matrix';
 import { emptyLine } from './emptyLine';
 
-const consoleApps = {
+export const consoleApps = {
   cowsay,
   release,
   date,
@@ -21,5 +21,3 @@ const consoleApps = {
   todo: emptyLine,
   default: error,
 };
-
-export default consoleApps;

@@ -1,11 +1,11 @@
-import React, { useContext } from 'react';
+import { useContext } from 'react';
 
 import { FileLinksContext } from '../../contexts/FileLinksProvider';
 import styles from './ImageViewer.module.css';
 
 const defaultSrc = '/images/cat.webp';
 
-const ImageViewer = () => {
+export const ImageViewer = () => {
   const { state } = useContext(FileLinksContext);
   const src = state.imageviewer ?? defaultSrc;
 
@@ -15,5 +15,3 @@ const ImageViewer = () => {
     </div>
   );
 };
-
-export default ImageViewer;

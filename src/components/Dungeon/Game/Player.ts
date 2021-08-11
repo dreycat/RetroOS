@@ -1,7 +1,7 @@
-import Character from './Character';
+import { Character } from './Character';
 import { Coords, Direction } from '../types';
 
-export default class Player extends Character {
+export class Player extends Character {
   private _dead: boolean;
 
   constructor(coords: Coords, direction: Direction = 'down', public lives = 3) {

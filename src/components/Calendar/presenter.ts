@@ -20,7 +20,7 @@ const getPrettyDay = (number: number): string => {
   return number.toString();
 };
 
-const presenter = (date: Date) => {
+export const presenter = (date: Date) => {
   const rows = 6;
   const firstDayOfMonth = 1;
   const daysInWeek = 7;
@@ -52,5 +52,3 @@ const presenter = (date: Date) => {
 
   return page;
 };
-
-export default presenter;
