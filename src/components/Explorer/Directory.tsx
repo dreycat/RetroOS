@@ -9,10 +9,12 @@ interface IProps {
 }
 
 export const Directory: FC<IProps> = ({ name, openDirectory }) => (
-  <li className={styles.directory} onClick={() => openDirectory(name)}>
-    <Icon width={42} height={42} />
-    <span className={styles.name} title={name}>
-      {name}
-    </span>
+  <li>
+    <button className={styles.directory} onClick={() => openDirectory(name)}>
+      <Icon width={42} height={42} />
+      <span className={styles.name} title={name}>
+        {name}
+      </span>
+    </button>
   </li>
 );

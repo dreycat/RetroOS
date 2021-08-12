@@ -2,11 +2,14 @@
   font-size: 14px;
   line-height: 24px;
   padding: 0 8px;
+  border: none;
+  outline: none;
+  background: transparent;
   transition: background-color 0.3s;
 }
 
 .clock:hover,
 .clock:focus {
-  background-color: rgba(255, 255, 255, 0.2);
+  background-color: var(--focus-color);
   cursor: pointer;
 }

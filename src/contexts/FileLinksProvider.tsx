@@ -27,7 +27,7 @@ const reducer = (state: State, action: Action) => {
   }
 };
 
-const init = (initialState: State) => getStorageData(STORAGE_KEY, initialState)();
+const init = (initialState: State) => getStorageData(STORAGE_KEY, initialState);
 
 export const FileLinksProvider: FC = ({ children }) => {
   const [state, dispatch] = useReducer(reducer, initialState, init);

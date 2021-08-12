@@ -5,6 +5,7 @@
   justify-content: center;
   cursor: pointer;
   position: fixed;
+  outline: none;
   z-index: 2;
 }
 
@@ -13,4 +14,10 @@
   font-size: 14px;
   line-height: 1;
   color: #fff;
+  padding: 2px 4px;
+  border-radius: 6px;
+}
+
+.main:focus-visible > .name {
+  background-color: var(--main-color);
 }

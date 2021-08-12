@@ -35,11 +35,13 @@ export const File: FC<IProps> = ({ name, meta, openApp }) => {
   const Icon = icons[meta.extension ?? 'unknown'];
 
   return (
-    <li className={styles.file} onClick={() => openApp(name, meta)}>
-      <Icon width={42} height={42} />
-      <span className={styles.name} title={name}>
-        {name}
-      </span>
+    <li>
+      <button className={styles.file} onClick={() => openApp(name, meta)}>
+        <Icon width={42} height={42} />
+        <span className={styles.name} title={name}>
+          {name}
+        </span>
+      </button>
     </li>
   );
 };

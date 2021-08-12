@@ -17,8 +17,8 @@ const ICON_SIZE = 24;
 
 export const Controlls: FC<IProps> = ({ play, pause, isPlaing, prevTrack, nextTrack }) => (
   <div>
-    <button className={styles.control}>
-      <NextIcon className={styles.mirror} width={ICON_SIZE} height={ICON_SIZE} onClick={() => prevTrack()} />
+    <button className={styles.control} onClick={prevTrack}>
+      <NextIcon className={styles.mirror} width={ICON_SIZE} height={ICON_SIZE} />
     </button>
     {isPlaing ? (
       <button className={styles.control} onClick={pause}>
@@ -29,8 +29,8 @@ export const Controlls: FC<IProps> = ({ play, pause, isPlaing, prevTrack, nextTr
         <PlayIcon width={ICON_SIZE} height={ICON_SIZE} />
       </button>
     )}
-    <button className={styles.control}>
-      <NextIcon width={ICON_SIZE} height={ICON_SIZE} onClick={() => nextTrack()} />
+    <button className={styles.control} onClick={nextTrack}>
+      <NextIcon width={ICON_SIZE} height={ICON_SIZE} />
     </button>
   </div>
 );

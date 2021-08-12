@@ -51,13 +51,19 @@
   width: 24px;
   padding: 0;
   margin: 0;
+  flex-shrink: 0;
   border: none;
+  border-radius: 50%;
   line-height: 1;
   margin-right: 8px;
   background-color: transparent;
   cursor: pointer;
   outline: none;
   fill: #fff;
+}
+
+.button:focus-visible {
+  background-color: var(--focus-color);
 }
 
 .directory,
@@ -68,7 +74,12 @@
   justify-content: center;
   width: 84px;
   height: 84px;
+  padding: 0;
+  margin: 0;
+  border: none;
   cursor: pointer;
+  outline: none;
+  background-color: transparent;
 }
 
 .name {
@@ -79,4 +90,11 @@
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
+  padding: 0 4px;
+  border-radius: 6px;
+}
+
+.directory:focus > .name,
+.file:focus > .name {
+  background-color: var(--main-color);
 }

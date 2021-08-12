@@ -17,7 +17,7 @@ export const Dungeon = () => {
       const nextLevel = level + 1;
       setLevel(nextLevel);
       setStatusGame(StatusGame.Start);
-      const savedLevel = getStorageData('dungeon_level', 0)();
+      const savedLevel = getStorageData('dungeon_level', 0);
       if (nextLevel > savedLevel) {
         localStorage.setItem('dungeon_level', nextLevel.toString());
       }

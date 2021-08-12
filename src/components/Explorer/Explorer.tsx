@@ -1,4 +1,4 @@
-import { useCallback, useContext, useMemo, useState } from 'react';
+import { useCallback, useContext, useEffect, useMemo, useState } from 'react';
 
 import { File } from './File';
 import { Directory } from './Directory';
@@ -6,6 +6,7 @@ import { fileSystem } from './fs/fileSystem';
 import { FileRoute } from './fs/FileRoute';
 import { Meta } from './fs/types';
 import { getChildren, getNode, isDir } from './fs/utils';
+import { isActiveApp } from '../../utils/isActiveApp';
 import { FileLinksContext } from '../../contexts/FileLinksProvider';
 import { useWindow } from '../../hooks/useWindow';
 import { ReactComponent as HomeIcon } from './icons/home.svg';
@@ -69,25 +70,40 @@ export const Explorer = () => {
     [mapper, openNotepad, openVideoPlayer, openImageViewer, setFileLink]
   );
 
+  const goHome = () => {
+    route.goHome();
+    setPath(route.path);
+  };
+
+  const up = () => {
+    route.up();
+    setPath(route.path);
+  };
+
+  useEffect(() => {
+    const keydownHandler = ({ code }: KeyboardEvent) => {
+      if (!isActiveApp('explorer')) return;
+
+      if (code === 'Home') {
+        goHome();
+      }
+      if (code === 'Backspace' || code === 'ArrowUp') {
+        up();
+      }
+    };
+    document.addEventListener('keydown', keydownHandler);
+    return () => {
+      document.removeEventListener('keydown', keydownHandler);
+    };
+  }, []);
+
   return (
     <div className={styles.main}>
       <div className={styles.navigation}>
-        <button
-          className={styles.button}
-          onClick={() => {
-            route.goHome();
-            setPath(route.path);
-          }}
-        >
+        <button className={styles.button} onClick={goHome}>
           <HomeIcon width={16} height={16} />
         </button>
-        <button
-          className={styles.button}
-          onClick={() => {
-            route.up();
-            setPath(route.path);
-          }}
-        >
+        <button className={styles.button} onClick={up}>
           <UpIcon width={16} height={16} />
         </button>
         <div className={styles.path}>

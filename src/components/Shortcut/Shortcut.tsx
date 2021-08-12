@@ -1,4 +1,4 @@
-import { Component, createRef } from 'react';
+import React, { Component, createRef } from 'react';
 
 import { ICoords } from '../../interfaces';
 import styles from './Shortcut.module.css';
@@ -8,7 +8,7 @@ interface IProps {
   top: number;
   left: number;
   saveShortcutPosition: (coords: ICoords) => void;
-  onClick: () => void;
+  toggle: () => void;
 }
 
 export class Shortcut extends Component<IProps> {
@@ -77,10 +77,18 @@ export class Shortcut extends Component<IProps> {
     document.removeEventListener('mouseup', this.stopDrag);
   };
 
-  handleOpen = () => {
+  handleClick = () => {
     const { top, left } = this.mainEl.current!.getBoundingClientRect();
+
     if (this.initTop === top && this.initLeft === left) {
-      this.props.onClick();
+      this.props.toggle();
+    }
+  };
+
+  keyUpHandler = (event: React.KeyboardEvent) => {
+    const code = event.nativeEvent.code;
+    if (code === 'Enter' || code === 'Space') {
+      this.props.toggle();
     }
   };
 
@@ -96,8 +104,10 @@ export class Shortcut extends Component<IProps> {
         ref={this.mainEl}
         style={{ top, left }}
         onMouseDown={this.startDrag}
-        onClick={this.handleOpen}
+        onClick={this.handleClick}
         onContextMenu={(e) => e.preventDefault()}
+        onKeyUp={this.keyUpHandler}
+        tabIndex={0}
       >
         {this.props.children}
         <span className={styles.name}>{label}</span>

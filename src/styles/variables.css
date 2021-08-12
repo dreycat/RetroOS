@@ -3,6 +3,7 @@
   --main-bg-color: rgb(100, 98, 145);
   --explorer-bg-color: rgb(143, 141, 173);
   --main-bg-image: url('/src/assets/images/wallpapers/wp0.webp');
+  --focus-color: rgba(255, 255, 255, 0.4);
 }
 
 :root.green {

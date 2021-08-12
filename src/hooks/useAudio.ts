@@ -20,9 +20,9 @@ export const useAudio = (playlist: ITrack[]) => {
   const [time, setTime] = useState(0);
   const [duration, setDuration] = useState(0);
   const [isPlaying, setPlaying] = useState(false);
-  const [volume, setVolume] = useState<number>(getStorageData(Keys.Volume, 1));
-  const [isMuted, setMuted] = useState<boolean>(getStorageData(Keys.Muted, false));
-  const [trackId, setTrack] = useState<number>(compose(checkTrack(playlist), getStorageData(Keys.Track, 0)));
+  const [volume, setVolume] = useState<number>(() => getStorageData(Keys.Volume, 1));
+  const [isMuted, setMuted] = useState<boolean>(() => getStorageData(Keys.Muted, false));
+  const [trackId, setTrack] = useState<number>(compose(checkTrack(playlist), () => getStorageData(Keys.Track, 0)));
   const [error, setError] = useState(false);
 
   const audio = useMemo(() => {

@@ -20,7 +20,7 @@ export const Clock = () => {
   const [time, setTime] = useState(getTime);
   const [isOpen, setOpen] = useState(false);
   const popupEl = useRef<HTMLDivElement>(null);
-  const clockEl = useRef<HTMLSpanElement>(null);
+  const clockEl = useRef<HTMLButtonElement>(null);
 
   useEffect(() => {
     const id = setInterval(() => {
@@ -30,6 +30,18 @@ export const Clock = () => {
       clearInterval(id);
     };
   }, []);
+
+  useEffect(() => {
+    const keydownHandler = ({ code }: KeyboardEvent) => {
+      if (code === 'Escape' && isOpen) {
+        setOpen(false);
+      }
+    };
+    document.addEventListener('keydown', keydownHandler);
+    return () => {
+      document.removeEventListener('keydown', keydownHandler);
+    };
+  }, [isOpen]);
 
   useEffect(() => {
     const onClickOutsideHandler = (event: MouseEvent) => {
@@ -45,9 +57,9 @@ export const Clock = () => {
 
   return (
     <>
-      <span className={styles.clock} ref={clockEl} onClick={() => setOpen(!isOpen)}>
+      <button className={styles.clock} ref={clockEl} onClick={() => setOpen(!isOpen)}>
         {time}
-      </span>
+      </button>
       <Popup isOpen={isOpen} popupEl={popupEl} />
     </>
   );

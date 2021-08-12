@@ -16,7 +16,7 @@ const toggleFullscreen = () => {
 };
 
 export const FullScreen = () => (
-  <div className={styles.main} onClick={toggleFullscreen}>
+  <button className={styles.main} onClick={toggleFullscreen}>
     <SquareIcon width={16} height={16} />
-  </div>
+  </button>
 );

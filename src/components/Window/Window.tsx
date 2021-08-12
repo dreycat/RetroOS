@@ -76,7 +76,7 @@ class Window extends Component<IProps> {
   };
 
   setPositionFromStorage = () => {
-    const coords = getStorageData<ICoords>(`${this.props.name}_window_coords`, this.props.defaultPosition)();
+    const coords = getStorageData<ICoords>(`${this.props.name}_window_coords`, this.props.defaultPosition);
     this.applyCoords(coords);
   };
 
@@ -128,7 +128,7 @@ class Window extends Component<IProps> {
             {label}
           </h2>
           <div className={styles.decor} />
-          <button className={styles.close} onClick={onClose} />
+          <button className={styles.close} onClick={onClose} autoFocus />
         </div>
         <div className={styles.body}>{children}</div>
       </div>

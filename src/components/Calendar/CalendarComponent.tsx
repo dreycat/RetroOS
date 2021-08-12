@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
 import { Calendar } from './Calendar';
 import { presenter } from './presenter';
@@ -11,14 +11,32 @@ const calendar = new Calendar(presenter);
 export const CalendarComponent = () => {
   const [page, setPage] = useState(() => calendar.currentPage());
 
+  const showPreviousMonth = () => setPage(calendar.prevPage());
+  const showNextMonth = () => setPage(calendar.nextPage());
+
+  useEffect(() => {
+    const keydownHandler = ({ code }: KeyboardEvent) => {
+      if (code === 'ArrowLeft') {
+        showPreviousMonth();
+      }
+      if (code === 'ArrowRight') {
+        showNextMonth();
+      }
+    };
+    document.addEventListener('keydown', keydownHandler);
+    return () => {
+      document.removeEventListener('keydown', keydownHandler);
+    };
+  }, []);
+
   return (
     <div className={styles.main}>
       <div className={styles.header}>
-        <button className={styles.prev} onClick={() => setPage(calendar.prevPage())}></button>
+        <button className={styles.prev} onClick={showPreviousMonth}></button>
         <h2 className={styles.month}>
           {page.date.toLocaleString('default', { month: 'long' })} {page.date.getFullYear()}
         </h2>
-        <button className={styles.next} onClick={() => setPage(calendar.nextPage())}></button>
+        <button className={styles.next} onClick={showNextMonth}></button>
       </div>
       <div className={styles.calendar}>
         {firstLetters.map((letter, index) => (

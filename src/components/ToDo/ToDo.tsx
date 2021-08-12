@@ -15,7 +15,7 @@ type ListItem = {
 };
 
 export const ToDo = () => {
-  const [list, setList] = useState<ListItem[]>(getStorageData('todos', []));
+  const [list, setList] = useState<ListItem[]>(() => getStorageData('todos', []));
   const [text, setText] = useState('');
   const listEl = useRef<HTMLUListElement>(null);
 

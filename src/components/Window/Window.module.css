@@ -40,6 +40,7 @@
   width: 16px;
   padding: 0;
   border: none;
+  border-radius: 50%;
   background-color: transparent;
   outline: none;
   cursor: pointer;
@@ -62,6 +63,10 @@
 
 .close::after {
   transform: translate(-50%, -50%) rotate(45deg);
+}
+
+.close:focus {
+  background-color: var(--focus-color);
 }
 
 .body {

@@ -11,7 +11,7 @@ interface IProps {
 }
 
 export const LoadMenu: FC<IProps> = ({ setStatusGame, setLevel }) => {
-  const savedLevel = getStorageData('dungeon_level', 0)();
+  const savedLevel = getStorageData('dungeon_level', 0);
 
   return (
     <ul className={styles.loadMenu}>

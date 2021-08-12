@@ -36,7 +36,7 @@ export const Application: FC<IProps> = ({
         label={label}
         top={storeShortcutCoords.top}
         left={storeShortcutCoords.left}
-        onClick={toggle}
+        toggle={toggle}
         saveShortcutPosition={saveShortcutPosition}
       >
         {icon}

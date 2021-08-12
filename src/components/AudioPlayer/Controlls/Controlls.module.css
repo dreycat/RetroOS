@@ -6,6 +6,12 @@
   padding: 4px;
   cursor: pointer;
   font-size: 0;
+  color: #faebd7;
+  transition: color 200ms;
+}
+
+.control:focus-visible {
+  color: #fff;
 }
 
 .control:first-child {
