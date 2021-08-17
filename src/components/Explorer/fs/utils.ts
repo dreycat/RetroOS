@@ -24,10 +24,8 @@ export const isFile = (node: INode) => node?.type === 'file';
 export const getChildren = (node?: INode) => node?.children ?? [];
 
 export const getNode = (fileSystem: INode, path: string[] = []): INode | undefined => {
-  // @ts-ignore
   return path.reduce(
-    // @ts-ignore
-    (node, curr) => (isDir(node) ? getChildren(node).find(({ name }) => name === curr) : node),
-    fileSystem
+    (node, curr) => (node && isDir(node) ? getChildren(node).find(({ name }) => name === curr) : node),
+    fileSystem as INode | undefined
   );
 };
