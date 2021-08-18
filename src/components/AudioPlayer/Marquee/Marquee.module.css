@@ -1,5 +1,5 @@
 .main {
-  background-color: rgb(33, 32, 47);
+  background-color: var(--blueGrey-900);
   padding: 0 4px;
   width: 116px;
 }
@@ -8,7 +8,7 @@
   line-height: 14px;
   height: 16px;
   overflow: hidden;
-  color: #acb1c6;
+  color: var(--indigo-200);
   font-size: 10px;
   white-space: nowrap;
 }
@@ -22,7 +22,7 @@
 }
 
 .error {
-  color: red;
+  color: var(--red-900);
 }
 
 @keyframes marquee {

@@ -2,7 +2,7 @@
   width: 390px;
   padding: 8px;
   font-family: 'Roboto Mono', monospace;
-  color: #222b35;
+  color: var(--blueGrey-900);
 }
 
 .title {
@@ -18,7 +18,7 @@
 }
 
 .url {
-  color: #222b35;
+  color: var(--blueGrey-900);
 }
 
 .listItem {

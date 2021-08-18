@@ -1,8 +1,8 @@
 .main {
   position: fixed;
   min-width: 200px;
-  border: 1px solid rgba(0, 0, 0, 0.5);
-  box-shadow: inset 1px 1px 1px 0 rgba(255, 255, 255, 0.8), 5px 6px 0 rgba(0, 0, 0, 0.24);
+  border: 1px solid var(--opacity-black-05);
+  box-shadow: inset 1px 1px 1px 0 var(--opacity-white-08), 5px 6px 0 var(--opacity-black-02);
   transform: translate3d(0, 0, 0);
   animation: slide-in-bottom 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
   background-color: var(--main-color);
@@ -15,7 +15,7 @@
   align-items: center;
   height: 24px;
   padding: 0 8px;
-  color: #222b35;
+  color: var(--blueGrey-900);
   cursor: grab;
 }
 
@@ -54,7 +54,7 @@
   left: 50%;
   width: 12px;
   height: 1px;
-  background-color: #2c3e50;
+  background-color: var(--blueGrey-900);
 }
 
 .close::before {
@@ -65,7 +65,7 @@
   transform: translate(-50%, -50%) rotate(45deg);
 }
 
-.close:focus {
+.close:focus-visible {
   background-color: var(--focus-color);
 }
 

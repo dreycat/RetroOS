@@ -1,8 +1,8 @@
 .border {
-  border-bottom: 1px solid #dbdbdb;
-  border-right: 1px solid #dbdbdb;
-  border-top: 1px solid #616161;
-  border-left: 1px solid #616161;
+  border-bottom: 1px solid var(--gray-50);
+  border-right: 1px solid var(--gray-50);
+  border-top: 1px solid var(--gray-700);
+  border-left: 1px solid var(--gray-700);
 }
 
 .window-exit-active {
@@ -18,16 +18,16 @@
 }
 
 ::-webkit-scrollbar-track {
-  box-shadow: inset 0 0 2px rgba(0, 0, 0, 0.2);
-  background: rgba(255, 255, 255, 0.1);
+  box-shadow: inset 0 0 2px var(--opacity-black-02);
+  background: var(--opacity-white-01);
 }
 
 ::-webkit-scrollbar-thumb {
   background: var(--main-color);
-  border-bottom: 1px solid #7d7d7d;
-  border-top: 1px solid #fff;
-  border-left: 1px solid #fff;
-  border-right: 1px solid #7d7d7d;
+  border-bottom: 1px solid var(--light-gray);
+  border-top: 1px solid var(--white);
+  border-left: 1px solid var(--white);
+  border-right: 1px solid var(--light-gray);
 }
 
 @keyframes slide-out-bottom {

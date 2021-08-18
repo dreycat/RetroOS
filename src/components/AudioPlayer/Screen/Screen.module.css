@@ -6,15 +6,15 @@
   flex-shrink: 0;
   width: 116px;
   height: 53px;
-  background-color: #21202f;
-  color: #faebd7;
+  background-color: var(--blueGrey-900);
+  color: var(--yellow-50);
 }
 
 .radio {
   position: absolute;
   top: 2px;
   left: 82px;
-  color: #faebd7;
+  color: var(--yellow-50);
   font-size: 9px;
   font-family: 'Roboto Mono', monospace;
 }
@@ -27,7 +27,7 @@
   background: transparent;
   width: 6px;
   height: 6px;
-  color: #fff;
+  color: var(--white);
 }
 
 .play::after {
@@ -36,7 +36,7 @@
   left: 0px;
   top: 0px;
   border: 3px solid transparent;
-  border-left: 6px solid #faebd7;
+  border-left: 6px solid var(--yellow-50);
 }
 
 .pause {
@@ -46,7 +46,7 @@
   left: 5px;
   width: 6px;
   height: 6px;
-  color: #faebd7;
+  color: var(--yellow-50);
   font-size: 9px;
   font-weight: 700;
 }
@@ -59,7 +59,7 @@
   height: 6px;
   width: 1px;
   border-radius: 1px;
-  background-color: #faebd7;
+  background-color: var(--yellow-50);
 }
 
 .pause::before {

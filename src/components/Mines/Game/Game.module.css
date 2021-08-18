@@ -8,7 +8,7 @@
   left: 0;
   bottom: 0;
   right: 0;
-  background-color: rgba(0, 0, 0, 0.5);
+  background-color: var(--opacity-black-05);
   z-index: 12;
 }
 
@@ -19,15 +19,15 @@
   padding: 6px 12px;
   font-family: 'Roboto Mono', monospace;
   font-size: 16px;
-  color: #21202f;
+  color: var(--blueGrey-900);
   line-height: 1;
   transform: translate(-50%, -50%);
   background-color: var(--main-color);
   transition: background-color 0.5s;
-  border-bottom: 2px solid #7d7d7d;
-  border-top: 2px solid #fff;
-  border-left: 2px solid #fff;
-  border-right: 2px solid #7d7d7d;
+  border-bottom: 2px solid var(--light-gray);
+  border-top: 2px solid var(--white);
+  border-left: 2px solid var(--white);
+  border-right: 2px solid var(--light-gray);
   outline: none;
   z-index: 13;
 }

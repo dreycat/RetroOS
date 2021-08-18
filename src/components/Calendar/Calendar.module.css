@@ -15,7 +15,7 @@
   padding: 0;
   font-size: 16px;
   font-weight: normal;
-  color: #222b35;
+  color: var(--blueGrey-900);
 }
 
 .calendar {
@@ -38,17 +38,17 @@
 
 .day,
 .letter {
-  color: #fdf6e3;
+  color: var(--yellow-50);
 }
 
 .shadow {
-  color: #222b35;
+  color: var(--blueGrey-900);
 }
 
 .today {
   border-radius: 50%;
-  background-color: #fdf6e3;
-  color: #222b35;
+  background-color: var(--yellow-50);
+  color: var(--blueGrey-900);
 }
 
 .prev,
@@ -68,9 +68,9 @@
 }
 
 .prev::after {
-  border-right: 4px solid #222b35;
+  border-right: 4px solid var(--blueGrey-900);
 }
 
 .next::after {
-  border-left: 4px solid #222b35;
+  border-left: 4px solid var(--blueGrey-900);
 }

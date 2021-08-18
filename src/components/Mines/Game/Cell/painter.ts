@@ -25,7 +25,7 @@ export const drawFlag = (ctx: CanvasRenderingContext2D, x: number, y: number, se
   const cx = x * sellSize;
   const cy = y * sellSize;
 
-  ctx.fillStyle = '#dee1e6';
+  ctx.fillStyle = '#eceff1';
   ctx.fillRect(cx, cy, sellSize, sellSize);
   ctx.fillStyle = '#353535';
   ctx.fillRect(cx + 15, cy + 8, 2, 12);
@@ -42,7 +42,7 @@ export const drawFlag = (ctx: CanvasRenderingContext2D, x: number, y: number, se
 };
 
 export const drawSuspense = (ctx: CanvasRenderingContext2D, x: number, y: number, sellSize: number) => {
-  ctx.fillStyle = '#dee1e6';
+  ctx.fillStyle = '#eceff1';
   ctx.fillRect(x * sellSize, y * sellSize, sellSize, sellSize);
 };
 

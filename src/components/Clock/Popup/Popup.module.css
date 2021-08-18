@@ -4,7 +4,7 @@
   right: 14px;
   background-color: var(--main-color);
   border-radius: 3px;
-  box-shadow: inset 1px 1px 1px 0 rgba(255, 255, 255, 0.8), 5px 6px 0 rgba(0, 0, 0, 0.24);
+  box-shadow: inset 1px 1px 1px 0 var(--opacity-white-08), 5px 6px 0 var(--opacity-black-02);
   animation: fade-in 0.3s cubic-bezier(0.55, 0.085, 0.68, 0.53) both;
 }
 
@@ -27,7 +27,7 @@
 .popup::before {
   top: -16px;
   right: 62px;
-  border-bottom: 16px solid rgba(255, 255, 255, 0.8);
+  border-bottom: 16px solid var(--opacity-white-08);
   z-index: 999;
 }
 

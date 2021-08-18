@@ -4,8 +4,8 @@
   justify-content: space-between;
   width: 100%;
   padding: 8px;
-  background-color: rgb(33, 32, 47);
-  color: #faebd7;
+  background-color: var(--blueGrey-900);
+  color: var(--yellow-50);
   line-height: 1;
   font-family: 'Roboto Mono', monospace;
   overflow: hidden;

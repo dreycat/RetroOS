@@ -1,28 +1,51 @@
 :root {
-  --main-color: rgb(173, 177, 198);
-  --main-bg-color: rgb(100, 98, 145);
-  --explorer-bg-color: rgb(143, 141, 173);
+  --main-color: #adb1c6;
+  --main-bg-color: #646291;
+  --explorer-bg-color: #8f8dad;
   --main-bg-image: url('/src/assets/images/wallpapers/wp0.webp');
   --focus-color: rgba(255, 255, 255, 0.4);
+  --white: #fff;
+  --yellow-50: #fdf6e3;
+  --indigo-200: #acb1c6;
+  --blueGrey-50: #eceff1;
+  --bluGrey-500: #4a486d;
+  --blueGrey-700: #2c3d50;
+  --blueGrey-900: #222b35;
+  --gray-50: #dbdbdb;
+  --gray-100: #ccc;
+  --gray-400: #a5a5a5;
+  --gray-700: #616161;
+  --gray-900: #232323;
+  --brown-100: #bdb4b4;
+  --brown-200: #928483;
+  --brown-300: #635757;
+  --brown-900: #562425;
+  --red-900: #b71c1c;
+  --opacity-black-01: rgba(0, 0, 0, 0.1);
+  --opacity-black-02: rgba(0, 0, 0, 0.2);
+  --opacity-black-05: rgba(0, 0, 0, 0.5);
+  --opacity-grey-07: rgba(125, 125, 125, 0.7);
+  --opacity-white-01: rgba(255, 255, 255, 0.1);
+  --opacity-white-08: rgba(255, 255, 255, 0.8);
 }
 
 :root.green {
-  --main-color: rgb(173, 198, 178);
-  --main-bg-color: rgb(98, 145, 144);
-  --explorer-bg-color: rgb(98, 145, 144);
+  --main-color: #adc6b2;
+  --main-bg-color: #629190;
+  --explorer-bg-color: #629190;
   --main-bg-image: url('/src/assets/images/wallpapers/wp1.webp');
 }
 
 :root.yellow {
-  --main-color: rgb(222, 209, 191);
-  --main-bg-color: rgb(98, 145, 128);
-  --explorer-bg-color: rgb(134, 162, 148);
+  --main-color: #ded1bf;
+  --main-bg-color: #629180;
+  --explorer-bg-color: #86a294;
   --main-bg-image: url('/src/assets/images/wallpapers/wp2.webp');
 }
 
 :root.colorless {
-  --main-color: rgb(186, 186, 186);
-  --main-bg-color: rgb(119, 119, 126);
-  --explorer-bg-color: rgb(149, 149, 160);
+  --main-color: #bababa;
+  --main-bg-color: #77777e;
+  --explorer-bg-color: #9595a0;
   --main-bg-image: url('/src/assets/images/wallpapers/wp3.jpg');
 }

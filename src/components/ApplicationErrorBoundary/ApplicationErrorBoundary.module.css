@@ -5,6 +5,6 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background-color: rgb(33, 32, 47);
-  color: #fdf6e3;
+  background-color: var(--blueGrey-900);
+  color: var(--yellow-50);
 }

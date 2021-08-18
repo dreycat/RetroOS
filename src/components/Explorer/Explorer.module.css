@@ -16,10 +16,10 @@
   padding: 0;
   list-style: none;
   background-color: var(--explorer-bg-color);
-  border-bottom: 1px solid #dbdbdb;
-  border-right: 1px solid #dbdbdb;
-  border-top: 1px solid #545454;
-  border-left: 1px solid #545454;
+  border-bottom: 1px solid var(--gray-50);
+  border-right: 1px solid var(--gray-50);
+  border-top: 1px solid var(--gray-700);
+  border-left: 1px solid var(--gray-700);
 }
 
 .navigation {
@@ -34,7 +34,7 @@
   align-items: center;
   width: 100%;
   padding: 0 8px;
-  background-color: #fff;
+  background-color: var(--white);
   border-radius: 3px;
   height: 24px;
 }
@@ -42,7 +42,7 @@
 .path > span {
   font-size: 12px;
   line-height: 1;
-  color: #2c3d50;
+  color: var(--blueGrey-700);
   letter-spacing: 0.05em;
 }
 
@@ -59,7 +59,7 @@
   background-color: transparent;
   cursor: pointer;
   outline: none;
-  fill: #fff;
+  fill: var(--white);
 }
 
 .button:focus-visible {
@@ -84,7 +84,7 @@
 
 .name {
   font-size: 14px;
-  color: #fff;
+  color: var(--white);
   margin-top: 2px;
   max-width: 82px;
   white-space: nowrap;

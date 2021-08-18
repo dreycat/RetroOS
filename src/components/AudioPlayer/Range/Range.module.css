@@ -11,40 +11,40 @@
   width: 100%;
   height: 6px;
   cursor: pointer;
-  box-shadow: inset 1px 1px #562425, inset -1px -1px #562425;
-  background: #928483;
+  box-shadow: inset 1px 1px var(--brown-900), inset -1px -1px var(--brown-900);
+  background: var(--brown-200);
   border-radius: 0px;
 }
 .main::-webkit-slider-thumb {
-  border: 1px solid #562425;
+  border: 1px solid var(--brown-900);
   height: 12px;
   width: 21px;
   border-radius: 0px;
-  background: #fdf6e3;
+  background: var(--yellow-50);
   cursor: pointer;
   -webkit-appearance: none;
   margin-top: -3px;
   box-sizing: border-box;
 }
 .main:focus::-webkit-slider-runnable-track {
-  background: #bdb4b4;
+  background: var(--brown-100);
 }
 .main::-moz-range-track {
   box-sizing: border-box;
   width: 100%;
   height: 6px;
   cursor: pointer;
-  box-shadow: inset 1px 1px #562425, inset -1px -1px #562425;
-  background: #928483;
+  box-shadow: inset 1px 1px var(--brown-900), inset -1px -1px var(--brown-900);
+  background: var(--brown-200);
   border-radius: 0px;
 }
 .main::-moz-range-thumb {
   box-sizing: border-box;
-  border: 1px solid #562425;
+  border: 1px solid var(--brown-900);
   height: 12px;
   width: 21px;
   border-radius: 0px;
-  background: #fdf6e3;
+  background: var(--yellow-50);
   cursor: pointer;
 }
 .main::-ms-track {
@@ -56,27 +56,27 @@
   color: transparent;
 }
 .main::-ms-fill-lower {
-  background: #635757;
-  box-shadow: inset 1px 1px #562425, inset -1px -1px #562425;
+  background: var(--brown-300);
+  box-shadow: inset 1px 1px var(--brown-900), inset -1px -1px var(--brown-900);
   border-radius: 0px;
 }
 .main::-ms-fill-upper {
-  background: #928483;
-  box-shadow: inset 1px 1px #562425, inset -1px -1px #562425;
+  background: var(--brown-200);
+  box-shadow: inset 1px 1px var(--brown-900), inset -1px -1px var(--brown-900);
   border-radius: 0px;
 }
 .main::-ms-thumb {
-  border: 1px solid #562425;
+  border: 1px solid var(--brown-900);
   height: 12px;
   width: 21px;
   border-radius: 0px;
-  background: #fdf6e3;
+  background: var(--yellow-50);
   cursor: pointer;
   height: 6px;
 }
 .main:focus::-ms-fill-lower {
-  background: #928483;
+  background: var(--brown-200);
 }
 .main:focus::-ms-fill-upper {
-  background: #bdb4b4;
+  background: var(--brown-100);
 }

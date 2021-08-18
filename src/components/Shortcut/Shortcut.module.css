@@ -13,7 +13,7 @@
   margin-top: 14px;
   font-size: 14px;
   line-height: 1;
-  color: #fff;
+  color: var(--white);
   padding: 2px 4px;
   border-radius: 6px;
 }

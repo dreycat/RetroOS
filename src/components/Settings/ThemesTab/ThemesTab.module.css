@@ -1,12 +1,12 @@
 .fieldset {
-  border: 1px solid #222b35;
+  border: 1px solid var(--blueGrey-900);
   padding: 20px;
   margin: 8px;
   min-width: 216px;
 }
 
 .legend {
-  color: #222b35;
+  color: var(--blueGrey-900);
   line-height: 24px;
   font-size: 14px;
   font-weight: 400;
@@ -20,7 +20,7 @@
   outline: none;
   border-radius: 0;
   padding: 4px;
-  background-color: #faebd7;
-  color: #222b35;
+  background-color: var(--yellow-50);
+  color: var(--blueGrey-900);
   cursor: pointer;
 }

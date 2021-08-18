@@ -14,23 +14,23 @@
   width: 160px;
   background-color: var(--main-color);
   transition: background-color 0.5s;
-  border: 1px solid rgba(0, 0, 0, 0.5);
-  box-shadow: inset 1px 1px 1px 0 rgba(255, 255, 255, 0.8), 5px 6px 0 rgba(0, 0, 0, 0.24);
+  border: 1px solid var(--opacity-black-05);
+  box-shadow: inset 1px 1px 1px 0 var(--opacity-white-08), 5px 6px 0 var(--opacity-black-02);
   list-style: none;
   outline: none;
   z-index: 1000000;
 }
 
 .item {
-  color: rgb(34, 34, 34);
+  color: var(--blueGrey-900);
   font-size: 14px;
   line-height: 28px;
   cursor: pointer;
 }
 
 .item:hover {
-  background-color: rgb(74, 72, 109);
-  color: #faebd7;
+  background-color: var(--bluGrey-500);
+  color: var(--yellow-50);
 }
 
 .title {
@@ -41,6 +41,6 @@
   margin: 0;
   padding: 0;
   border: none;
-  background-color: rgba(255, 255, 255, 0.8);
+  background-color: var(--opacity-white-08);
   height: 1px;
 }

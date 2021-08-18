@@ -3,7 +3,7 @@
   width: 500px;
   overflow-x: hidden;
   overflow-y: scroll;
-  background-color: rgb(33, 32, 47);
+  background-color: var(--blueGrey-900);
   cursor: text;
 }
 
@@ -14,7 +14,7 @@
 }
 
 .item {
-  color: #faebd7;
+  color: var(--yellow-50);
   padding: 0 4px;
   margin: 0;
 }
@@ -24,7 +24,7 @@
 .wrapper::after {
   font-size: 14px;
   font-family: 'Roboto Mono', monospace;
-  color: #faebd7;
+  color: var(--yellow-50);
   line-height: 20px;
   letter-spacing: 0.16px;
 }
@@ -36,8 +36,8 @@
 }
 
 .pre::selection {
-  color: rgb(33, 32, 47);
-  background-color: #faebd7;
+  color: var(--blueGrey-900);
+  background-color: var(--yellow-50);
 }
 
 .input {
@@ -47,7 +47,7 @@
   padding: 0;
   background-color: transparent;
   border: none;
-  caret-color: #faebd7;
+  caret-color: var(--yellow-50);
   outline: none;
 }
 

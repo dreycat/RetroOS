@@ -11,7 +11,7 @@
   margin: 0;
   padding: 0;
   font-size: 16px;
-  background-color: #ccc;
+  background-color: var(--gray-100);
   background-image: url(../Game/images/init.jpg);
   background-repeat: no-repeat;
   background-position: center;
@@ -26,22 +26,22 @@
   align-items: center;
   width: 128px;
   height: 128px;
-  border: 2px solid #a5a5a5;
+  border: 2px solid var(--gray-400);
   transition: background-color 0.5s;
-  color: #fff;
+  color: var(--white);
   font-size: 16px;
   font-family: 'Roboto Mono', monospace;
 }
 
 .level {
-  background-color: rgba(125, 125, 125, 0.7);
+  background-color: var(--opacity-grey-07);
 }
 
 .savedLevel {
   cursor: pointer;
-  background-color: #918580;
+  background-color: var(--brown-200);
 }
 
 .savedLevel:hover {
-  background-color: #a5a5a5;
+  background-color: var(--gray-400);
 }
