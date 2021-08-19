@@ -100,10 +100,10 @@ export const Explorer = () => {
   return (
     <div className={styles.main}>
       <div className={styles.navigation}>
-        <button className={styles.button} onClick={goHome}>
+        <button className={styles.button} onClick={goHome} aria-label="open home folder">
           <HomeIcon width={16} height={16} />
         </button>
-        <button className={styles.button} onClick={up}>
+        <button className={styles.button} onClick={up} aria-label="go to the parent folder">
           <UpIcon width={16} height={16} />
         </button>
         <div className={styles.path}>

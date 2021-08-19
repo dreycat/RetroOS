@@ -32,11 +32,11 @@ export const CalendarComponent = () => {
   return (
     <div className={styles.main}>
       <div className={styles.header}>
-        <button className={styles.prev} onClick={showPreviousMonth}></button>
+        <button className={styles.prev} onClick={showPreviousMonth} aria-label="show previous month" />
         <h2 className={styles.month}>
           {page.date.toLocaleString('default', { month: 'long' })} {page.date.getFullYear()}
         </h2>
-        <button className={styles.next} onClick={showNextMonth}></button>
+        <button className={styles.next} onClick={showNextMonth} aria-label="show next month" />
       </div>
       <div className={styles.calendar}>
         {firstLetters.map((letter, index) => (

@@ -32,11 +32,11 @@ export const Dungeon = () => {
     setStatusGame(StatusGame.Win);
   }, []);
 
+  const showMemu = statusGame !== StatusGame.Start && statusGame !== StatusGame.Load;
+
   return (
     <div className={styles.main}>
-      {statusGame !== StatusGame.Start && (
-        <Menu setLevel={setLevel} setStatusGame={setStatusGame} statusGame={statusGame} />
-      )}
+      {showMemu && <Menu setLevel={setLevel} setStatusGame={setStatusGame} statusGame={statusGame} />}
       {statusGame === StatusGame.Load && <LoadMenu setLevel={setLevel} setStatusGame={setStatusGame} />}
       {statusGame === StatusGame.Start && <Game level={level} finishGame={finishGame} teleport={teleport} win={win} />}
       {statusGame === StatusGame.Init && <div className={styles.init} />}

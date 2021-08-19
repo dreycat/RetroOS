@@ -31,6 +31,7 @@
   color: var(--white);
   font-size: 16px;
   font-family: 'Roboto Mono', monospace;
+  outline: none;
 }
 
 .level {
@@ -42,6 +43,7 @@
   background-color: var(--brown-200);
 }
 
-.savedLevel:hover {
+.savedLevel:hover,
+.savedLevel:focus {
   background-color: var(--gray-400);
 }

@@ -17,14 +17,15 @@ export const LoadMenu: FC<IProps> = ({ setStatusGame, setLevel }) => {
     <ul className={styles.loadMenu}>
       {Array.from({ length: levels.length }, (_, i) => i).map((level) => {
         return savedLevel >= level ? (
-          <li
-            className={styles.savedLevel}
-            key={level}
-            onClick={() => {
-              setLevel(level);
-              setStatusGame(StatusGame.Start);
-            }}
-          >{`Level: ${level + 1}`}</li>
+          <li key={level}>
+            <button
+              className={styles.savedLevel}
+              onClick={() => {
+                setLevel(level);
+                setStatusGame(StatusGame.Start);
+              }}
+            >{`Level: ${level + 1}`}</button>
+          </li>
         ) : (
           <li className={styles.level} key={level}>{`Level: ${level + 1}`}</li>
         );

@@ -115,7 +115,7 @@ class Window extends Component<IProps> {
   }
 
   render() {
-    const { label, children, onClose } = this.props;
+    const { label, children, onClose, name } = this.props;
     return (
       <div
         className={styles.main}
@@ -128,7 +128,13 @@ class Window extends Component<IProps> {
             {label}
           </h2>
           <div className={styles.decor} />
-          <button className={styles.close} onClick={onClose} autoFocus />
+          <button
+            className={styles.close}
+            onClick={onClose}
+            autoFocus
+            type="button"
+            aria-label={`close ${name} application`}
+          />
         </div>
         <div className={styles.body}>{children}</div>
       </div>

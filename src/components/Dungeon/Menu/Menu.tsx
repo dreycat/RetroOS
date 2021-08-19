@@ -13,31 +13,27 @@ export const Menu: FC<IProps> = ({ statusGame, setStatusGame, setLevel }) => (
   <>
     <ul className={styles.menu}>
       {statusGame === StatusGame.Fail && (
-        <li
+        <li>
+          <button className={styles.menuItem} onClick={() => setStatusGame(StatusGame.Start)}>
+            Try again
+          </button>
+        </li>
+      )}
+      <li>
+        <button
           className={styles.menuItem}
           onClick={() => {
+            setLevel(0);
             setStatusGame(StatusGame.Start);
           }}
         >
-          Try again
-        </li>
-      )}
-      <li
-        className={styles.menuItem}
-        onClick={() => {
-          setLevel(0);
-          setStatusGame(StatusGame.Start);
-        }}
-      >
-        New Game
+          New Game
+        </button>
       </li>
-      <li
-        className={styles.menuItem}
-        onClick={() => {
-          setStatusGame(StatusGame.Load);
-        }}
-      >
-        Load
+      <li>
+        <button className={styles.menuItem} onClick={() => setStatusGame(StatusGame.Load)}>
+          Load
+        </button>
       </li>
     </ul>
   </>

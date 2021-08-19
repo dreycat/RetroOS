@@ -3,11 +3,8 @@
   bottom: 24px;
   left: 50%;
   transform: translateX(-50%);
-  font-size: 24px;
-  color: var(--white);
   list-style: none;
   text-align: center;
-  font-family: 'Roboto Mono', monospace;
   z-index: 11;
   margin: 0;
   padding: 0;
@@ -15,12 +12,19 @@
 }
 
 .menuItem {
+  font-size: 24px;
+  color: var(--white);
   padding: 8px 12px;
+  font-family: 'Roboto Mono', monospace;
   cursor: pointer;
   transition: color 0.5s;
+  border: none;
+  outline: none;
+  background-color: transparent;
 }
 
-.menuItem:hover {
+.menuItem:hover,
+.menuItem:focus {
   color: gold;
 }
 

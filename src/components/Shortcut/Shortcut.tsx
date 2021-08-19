@@ -108,6 +108,7 @@ export class Shortcut extends Component<IProps> {
         onContextMenu={(e) => e.preventDefault()}
         onKeyUp={this.keyUpHandler}
         tabIndex={0}
+        aria-label={`open ${label}`}
       >
         {this.props.children}
         <span className={styles.name}>{label}</span>

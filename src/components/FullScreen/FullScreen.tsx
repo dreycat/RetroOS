@@ -16,7 +16,7 @@ const toggleFullscreen = () => {
 };
 
 export const FullScreen = () => (
-  <button className={styles.main} onClick={toggleFullscreen}>
+  <button className={styles.main} onClick={toggleFullscreen} aria-label="switch to full screen">
     <SquareIcon width={16} height={16} />
   </button>
 );
