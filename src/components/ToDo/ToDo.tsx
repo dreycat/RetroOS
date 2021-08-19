@@ -58,11 +58,11 @@ export const ToDo = () => {
       <ul className={styles.list} ref={listEl}>
         {list.map(({ id, text, done }) => (
           <li className={done ? `${styles.item} ${styles.done}` : styles.item} key={id}>
-            <button className={styles.toggle} onClick={() => handleToggle(id)}>
+            <button className={styles.toggle} onClick={() => handleToggle(id)} aria-label="task switch">
               {done ? <DoneIcon width={20} height={20} /> : <NotDoneIcon width={20} height={20} />}
             </button>
             <p className={styles.text}>{text}</p>
-            <button className={styles.delete} onClick={() => handleDelete(id)}>
+            <button className={styles.delete} onClick={() => handleDelete(id)} aria-label="delete task">
               <DeleteIcon width={16} height={16} />
             </button>
           </li>
@@ -70,7 +70,11 @@ export const ToDo = () => {
       </ul>
       <form className={styles.form} onSubmit={handleSubmit}>
         <div className={styles.line} />
+        <label htmlFor="todo-input" className="visuallyhidden">
+          Enter your task
+        </label>
         <input
+          id="todo-input"
           className={styles.input}
           autoFocus
           type="text"

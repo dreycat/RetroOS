@@ -61,7 +61,17 @@ export const Console = () => {
         ))}
       </ul>
       <div className={styles.wrapper}>
-        <input className={styles.input} type="text" onKeyPress={handleKeyPress} ref={inputEl} autoFocus />
+        <label htmlFor="console-input" className="visuallyhidden">
+          Enter the command
+        </label>
+        <input
+          id="console-input"
+          className={styles.input}
+          type="text"
+          onKeyPress={handleKeyPress}
+          ref={inputEl}
+          autoFocus
+        />
       </div>
     </div>
   );
