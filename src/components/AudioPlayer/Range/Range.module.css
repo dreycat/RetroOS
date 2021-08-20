@@ -4,31 +4,36 @@
   margin: 3px 0;
   height: 6px;
 }
+
 .main:focus {
   outline: none;
 }
+
 .main::-webkit-slider-runnable-track {
   width: 100%;
   height: 6px;
   cursor: pointer;
   box-shadow: inset 1px 1px var(--brown-900), inset -1px -1px var(--brown-900);
   background: var(--brown-200);
-  border-radius: 0px;
+  border-radius: 0;
 }
+
 .main::-webkit-slider-thumb {
   border: 1px solid var(--brown-900);
   height: 12px;
   width: 21px;
-  border-radius: 0px;
+  border-radius: 0;
   background: var(--yellow-50);
   cursor: pointer;
   -webkit-appearance: none;
   margin-top: -3px;
   box-sizing: border-box;
 }
+
 .main:focus::-webkit-slider-runnable-track {
   background: var(--brown-100);
 }
+
 .main::-moz-range-track {
   box-sizing: border-box;
   width: 100%;
@@ -36,17 +41,19 @@
   cursor: pointer;
   box-shadow: inset 1px 1px var(--brown-900), inset -1px -1px var(--brown-900);
   background: var(--brown-200);
-  border-radius: 0px;
+  border-radius: 0;
 }
+
 .main::-moz-range-thumb {
   box-sizing: border-box;
   border: 1px solid var(--brown-900);
   height: 12px;
   width: 21px;
-  border-radius: 0px;
+  border-radius: 0;
   background: var(--yellow-50);
   cursor: pointer;
 }
+
 .main::-ms-track {
   width: 100%;
   height: 6px;
@@ -55,28 +62,32 @@
   border-color: transparent;
   color: transparent;
 }
+
 .main::-ms-fill-lower {
   background: var(--brown-300);
   box-shadow: inset 1px 1px var(--brown-900), inset -1px -1px var(--brown-900);
-  border-radius: 0px;
+  border-radius: 0;
 }
+
 .main::-ms-fill-upper {
   background: var(--brown-200);
   box-shadow: inset 1px 1px var(--brown-900), inset -1px -1px var(--brown-900);
-  border-radius: 0px;
+  border-radius: 0;
 }
+
 .main::-ms-thumb {
   border: 1px solid var(--brown-900);
   height: 12px;
   width: 21px;
-  border-radius: 0px;
+  border-radius: 0;
   background: var(--yellow-50);
   cursor: pointer;
-  height: 6px;
 }
+
 .main:focus::-ms-fill-lower {
   background: var(--brown-200);
 }
+
 .main:focus::-ms-fill-upper {
   background: var(--brown-100);
 }

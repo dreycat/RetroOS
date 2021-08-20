@@ -14,12 +14,9 @@
 
 .select {
   width: 100%;
-}
-
-.select {
+  padding: 4px;
   outline: none;
   border-radius: 0;
-  padding: 4px;
   background-color: var(--yellow-50);
   color: var(--blueGrey-900);
   cursor: pointer;

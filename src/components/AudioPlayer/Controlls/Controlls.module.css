@@ -17,6 +17,7 @@
 .control:first-child {
   padding-left: 0;
 }
+
 .mirror {
   transform: rotateY(180deg);
 }

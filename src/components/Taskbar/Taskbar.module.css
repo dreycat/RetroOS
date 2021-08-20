@@ -7,7 +7,7 @@
   height: 24px;
   background-color: var(--main-color);
   transition: background-color 0.5s;
-  box-shadow: 0px 1px var(--opacity-black-05);
+  box-shadow: 0 1px var(--opacity-black-05);
   z-index: 999999999;
 }
 

@@ -45,6 +45,7 @@
   from {
     top: 40px;
   }
+
   to {
     top: -40px;
   }
@@ -54,6 +55,7 @@
   from {
     top: 50px;
   }
+
   to {
     top: -50px;
   }

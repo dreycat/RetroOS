@@ -78,6 +78,7 @@
     transform: translateY(200px) scale(0.3);
     opacity: 0;
   }
+
   100% {
     transform: translateY(0);
     opacity: 1;
