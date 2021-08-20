@@ -1,10 +1,10 @@
 .main {
-  min-height: 300px;
-  min-width: 300px;
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
-  background-color: var(--blueGrey-900);
+  justify-content: center;
+  min-width: 300px;
+  min-height: 300px;
   color: var(--yellow-50);
+  background-color: var(--blueGrey-900);
 }

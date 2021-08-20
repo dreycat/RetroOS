@@ -1,65 +1,65 @@
 .main {
   position: relative;
   display: flex;
+  flex-shrink: 0;
   align-items: center;
   justify-content: center;
-  flex-shrink: 0;
   width: 116px;
   height: 53px;
-  background-color: var(--blueGrey-900);
   color: var(--yellow-50);
+  background-color: var(--blueGrey-900);
 }
 
 .radio {
   position: absolute;
   top: 2px;
   left: 82px;
-  color: var(--yellow-50);
-  font-size: 9px;
   font-family: 'Roboto Mono', monospace;
+  font-size: 9px;
+  color: var(--yellow-50);
 }
 
 .play {
   position: absolute;
-  display: block;
   top: 5px;
   left: 5px;
-  background: transparent;
+  display: block;
   width: 6px;
   height: 6px;
   color: var(--white);
+  background: transparent;
 }
 
 .play::after {
-  content: '';
   position: absolute;
-  left: 0;
   top: 0;
+  left: 0;
+  content: '';
   border: 3px solid transparent;
   border-left: 6px solid var(--yellow-50);
 }
 
 .pause {
   position: absolute;
-  display: block;
   top: 5px;
   left: 5px;
+  display: block;
   width: 6px;
   height: 6px;
-  color: var(--yellow-50);
   font-size: 9px;
   font-weight: 700;
+  color: var(--yellow-50);
 }
 
 .pause::before,
 .pause::after {
-  content: '';
   position: absolute;
   top: 0;
-  height: 6px;
   width: 1px;
-  border-radius: 1px;
+  height: 6px;
+  content: '';
   background-color: var(--yellow-50);
+  border-radius: 1px;
 }
 
 .pause::before {
@@ -71,8 +71,8 @@
 }
 
 .prettyTime {
-  font-family: 'Roboto Mono', monospace;
-  font-weight: 300;
-  font-size: 32px;
   margin-top: -2px;
+  font-family: 'Roboto Mono', monospace;
+  font-size: 32px;
+  font-weight: 300;
 }

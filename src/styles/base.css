@@ -1,7 +1,7 @@
 body {
   margin: 0;
-  font-family: 'IBM Plex Sans', sans-serif;
   overflow: hidden;
+  font-family: 'IBM Plex Sans', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
@@ -19,8 +19,8 @@ pre {
 }
 
 button {
-  cursor: pointer;
   font-family: inherit;
+  cursor: pointer;
 }
 
 img {

@@ -2,13 +2,13 @@
   position: fixed;
   top: 0;
   left: 0;
-  width: 100%;
+  z-index: 999999999;
   display: flex;
+  width: 100%;
   height: 24px;
   background-color: var(--main-color);
-  transition: background-color 0.5s;
   box-shadow: 0 1px var(--opacity-black-05);
-  z-index: 999999999;
+  transition: background-color 0.5s;
 }
 
 .expander {

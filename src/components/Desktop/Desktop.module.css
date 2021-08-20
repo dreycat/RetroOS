@@ -1,10 +1,10 @@
 .main {
-  overflow: hidden;
   min-height: 100vh;
+  overflow: hidden;
   background-color: var(--main-bg-color);
   background-image: var(--main-bg-image);
   background-repeat: no-repeat;
-  background-size: cover;
   background-position: center center;
+  background-size: cover;
   transition: background 0.5s;
 }

@@ -2,6 +2,13 @@
   "name": "retro-os",
   "version": "0.1.0",
   "private": true,
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject",
+    "check": "eslint src && stylelint src/**/*.css"
+  },
   "dependencies": {
     "@testing-library/jest-dom": "^5.14.1",
     "@testing-library/react": "^11.2.7",
@@ -32,11 +39,16 @@
     "workbox-strategies": "^5.1.4",
     "workbox-streams": "^5.1.4"
   },
-  "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject"
+  "devDependencies": {
+    "lint-staged": "^11.1.2",
+    "simple-git-hooks": "^2.6.1",
+    "stylelint": "^13.13.1",
+    "stylelint-config-recess-order": "^2.5.0",
+    "stylelint-config-standard": "^22.0.0",
+    "stylelint-order": "^4.1.0"
+  },
+  "simple-git-hooks": {
+    "pre-commit": "npx lint-staged"
   },
   "eslintConfig": {
     "extends": [
@@ -56,13 +68,14 @@
       "last 1 safari version"
     ]
   },
-  "devDependencies": {
-    "stylelint": "^13.13.1",
-    "stylelint-config-standard": "^22.0.0",
-    "stylelint-order": "^4.1.0"
-  },
   "stylelint": {
-    "extends": "stylelint-config-standard"
+    "plugins": [
+      "stylelint-order"
+    ],
+    "extends": [
+      "stylelint-config-standard",
+      "stylelint-config-recess-order"
+    ]
   },
   "prettier": {
     "trailingComma": "es5",
@@ -70,5 +83,12 @@
     "semi": true,
     "singleQuote": true,
     "printWidth": 120
+  },
+  "lint-staged": {
+    "*.{js,jsx,ts,tsx}": [
+      "prettier --write",
+      "eslint --fix"
+    ],
+    "*.css": "stylelint --fix"
   }
 }

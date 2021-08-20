@@ -1,14 +1,14 @@
 .main {
-  display: flex;
   position: relative;
+  display: flex;
   justify-content: space-between;
   width: 100%;
   padding: 8px;
-  background-color: var(--blueGrey-900);
-  color: var(--yellow-50);
-  line-height: 1;
-  font-family: 'Roboto Mono', monospace;
   overflow: hidden;
+  font-family: 'Roboto Mono', monospace;
+  line-height: 1;
+  color: var(--yellow-50);
+  background-color: var(--blueGrey-900);
 }
 
 .flags {

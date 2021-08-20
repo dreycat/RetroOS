@@ -1,8 +1,8 @@
 .main {
   position: relative;
-  overflow: hidden;
   width: 512px;
   height: 512px;
+  overflow: hidden;
   font-size: 0;
 }
 
@@ -11,14 +11,14 @@
 .init {
   position: absolute;
   top: 0;
-  left: 0;
   right: 0;
   bottom: 0;
+  left: 0;
   z-index: 7;
+  background-color: var(--gray-100);
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
-  background-color: var(--gray-100);
 }
 
 .init {

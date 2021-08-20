@@ -5,29 +5,29 @@
 .background {
   position: absolute;
   top: 0;
-  left: 0;
-  bottom: 0;
   right: 0;
-  background-color: var(--opacity-black-05);
+  bottom: 0;
+  left: 0;
   z-index: 12;
+  background-color: var(--opacity-black-05);
 }
 
 .resetButton {
   position: absolute;
   top: 50%;
   left: 50%;
+  z-index: 13;
   padding: 6px 12px;
   font-family: 'Roboto Mono', monospace;
   font-size: 16px;
-  color: var(--blueGrey-900);
   line-height: 1;
-  transform: translate(-50%, -50%);
+  color: var(--blueGrey-900);
   background-color: var(--main-color);
-  transition: background-color 0.5s;
-  border-bottom: 2px solid var(--light-gray);
   border-top: 2px solid var(--white);
-  border-left: 2px solid var(--white);
   border-right: 2px solid var(--light-gray);
+  border-bottom: 2px solid var(--light-gray);
+  border-left: 2px solid var(--white);
   outline: none;
-  z-index: 13;
+  transition: background-color 0.5s;
+  transform: translate(-50%, -50%);
 }

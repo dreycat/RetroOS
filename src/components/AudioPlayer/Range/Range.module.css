@@ -1,8 +1,8 @@
 .main {
-  -webkit-appearance: none;
   width: 100%;
-  margin: 3px 0;
   height: 6px;
+  margin: 3px 0;
+  -webkit-appearance: none;
 }
 
 .main:focus {
@@ -13,21 +13,21 @@
   width: 100%;
   height: 6px;
   cursor: pointer;
-  box-shadow: inset 1px 1px var(--brown-900), inset -1px -1px var(--brown-900);
   background: var(--brown-200);
   border-radius: 0;
+  box-shadow: inset 1px 1px var(--brown-900), inset -1px -1px var(--brown-900);
 }
 
 .main::-webkit-slider-thumb {
-  border: 1px solid var(--brown-900);
-  height: 12px;
-  width: 21px;
-  border-radius: 0;
-  background: var(--yellow-50);
-  cursor: pointer;
-  -webkit-appearance: none;
-  margin-top: -3px;
   box-sizing: border-box;
+  width: 21px;
+  height: 12px;
+  margin-top: -3px;
+  cursor: pointer;
+  background: var(--yellow-50);
+  border: 1px solid var(--brown-900);
+  border-radius: 0;
+  -webkit-appearance: none;
 }
 
 .main:focus::-webkit-slider-runnable-track {
@@ -39,49 +39,49 @@
   width: 100%;
   height: 6px;
   cursor: pointer;
-  box-shadow: inset 1px 1px var(--brown-900), inset -1px -1px var(--brown-900);
   background: var(--brown-200);
   border-radius: 0;
+  box-shadow: inset 1px 1px var(--brown-900), inset -1px -1px var(--brown-900);
 }
 
 .main::-moz-range-thumb {
   box-sizing: border-box;
-  border: 1px solid var(--brown-900);
-  height: 12px;
   width: 21px;
-  border-radius: 0;
-  background: var(--yellow-50);
+  height: 12px;
   cursor: pointer;
+  background: var(--yellow-50);
+  border: 1px solid var(--brown-900);
+  border-radius: 0;
 }
 
 .main::-ms-track {
   width: 100%;
   height: 6px;
+  color: transparent;
   cursor: pointer;
   background: transparent;
   border-color: transparent;
-  color: transparent;
 }
 
 .main::-ms-fill-lower {
   background: var(--brown-300);
-  box-shadow: inset 1px 1px var(--brown-900), inset -1px -1px var(--brown-900);
   border-radius: 0;
+  box-shadow: inset 1px 1px var(--brown-900), inset -1px -1px var(--brown-900);
 }
 
 .main::-ms-fill-upper {
   background: var(--brown-200);
-  box-shadow: inset 1px 1px var(--brown-900), inset -1px -1px var(--brown-900);
   border-radius: 0;
+  box-shadow: inset 1px 1px var(--brown-900), inset -1px -1px var(--brown-900);
 }
 
 .main::-ms-thumb {
-  border: 1px solid var(--brown-900);
-  height: 12px;
   width: 21px;
-  border-radius: 0;
-  background: var(--yellow-50);
+  height: 12px;
   cursor: pointer;
+  background: var(--yellow-50);
+  border: 1px solid var(--brown-900);
+  border-radius: 0;
 }
 
 .main:focus::-ms-fill-lower {

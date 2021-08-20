@@ -8,17 +8,17 @@
 
 .fileList {
   display: flex;
-  flex-wrap: wrap;
   flex-grow: 1;
+  flex-wrap: wrap;
   align-content: flex-start;
-  overflow-y: auto;
-  margin: 0;
   padding: 0;
+  margin: 0;
+  overflow-y: auto;
   list-style: none;
   background-color: var(--explorer-bg-color);
-  border-bottom: 1px solid var(--gray-50);
-  border-right: 1px solid var(--gray-50);
   border-top: 1px solid var(--gray-700);
+  border-right: 1px solid var(--gray-50);
+  border-bottom: 1px solid var(--gray-50);
   border-left: 1px solid var(--gray-700);
 }
 
@@ -33,10 +33,10 @@
   display: flex;
   align-items: center;
   width: 100%;
+  height: 24px;
   padding: 0 8px;
   background-color: var(--white);
   border-radius: 3px;
-  height: 24px;
 }
 
 .path > span {
@@ -47,17 +47,17 @@
 }
 
 .button {
-  height: 24px;
+  flex-shrink: 0;
   width: 24px;
+  height: 24px;
   padding: 0;
   margin: 0;
-  flex-shrink: 0;
+  margin-right: 8px;
+  line-height: 1;
+  cursor: pointer;
+  background-color: transparent;
   border: none;
   border-radius: 50%;
-  line-height: 1;
-  margin-right: 8px;
-  background-color: transparent;
-  cursor: pointer;
   outline: none;
   fill: var(--white);
 }
@@ -76,21 +76,21 @@
   height: 84px;
   padding: 0;
   margin: 0;
-  border: none;
   cursor: pointer;
-  outline: none;
   background-color: transparent;
+  border: none;
+  outline: none;
 }
 
 .name {
+  max-width: 82px;
+  padding: 0 4px;
+  margin-top: 2px;
+  overflow: hidden;
   font-size: 14px;
   color: var(--white);
-  margin-top: 2px;
-  max-width: 82px;
-  white-space: nowrap;
-  overflow: hidden;
   text-overflow: ellipsis;
-  padding: 0 4px;
+  white-space: nowrap;
   border-radius: 6px;
 }
 

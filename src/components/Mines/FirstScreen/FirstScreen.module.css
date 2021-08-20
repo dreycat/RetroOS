@@ -8,7 +8,6 @@
 }
 
 .button {
-  border: none;
   width: calc(50% - 32px);
   padding: 16px 0;
   margin: 16px;
@@ -16,6 +15,7 @@
   font-size: 18px;
   line-height: 26px;
   background-color: var(--main-color);
+  border: none;
   transition: background-color 0.5s;
 }
 

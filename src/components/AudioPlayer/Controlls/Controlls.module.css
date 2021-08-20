@@ -1,12 +1,12 @@
 .control {
-  border: none;
-  background-color: transparent;
-  outline: none;
-  margin: 0;
   padding: 4px;
-  cursor: pointer;
+  margin: 0;
   font-size: 0;
   color: var(--yellow-50);
+  cursor: pointer;
+  background-color: transparent;
+  border: none;
+  outline: none;
   transition: color 200ms;
 }
 

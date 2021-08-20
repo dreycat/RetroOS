@@ -1,8 +1,8 @@
 .main {
   display: flex;
   flex-direction: column;
-  height: 360px;
   width: 460px;
+  height: 360px;
   background-color: var(--yellow-50);
 }
 
@@ -10,9 +10,9 @@
   flex-grow: 1;
   padding: 0;
   margin: 0;
+  overflow-y: auto;
   list-style: none;
   background-color: var(--yellow-50);
-  overflow-y: auto;
 }
 
 .item {
@@ -31,18 +31,18 @@
 .input {
   width: 100%;
   padding: 8px 24px;
-  border-radius: 0;
-  border: none;
-  outline: none;
   font-size: 16px;
   background-color: var(--yellow-50);
+  border: none;
+  border-radius: 0;
+  outline: none;
 }
 
 .form {
+  position: relative;
   padding: 0;
   margin: 0;
   font-size: 0;
-  position: relative;
 }
 
 .line {
@@ -60,30 +60,30 @@
 
 .delete,
 .toggle {
+  padding: 4px 8px;
+  line-height: 1;
   cursor: pointer;
   background-color: transparent;
   border: none;
-  padding: 4px 8px;
-  line-height: 1;
   outline: none;
 }
 
 .text {
   display: inline-block;
+  flex-grow: 1;
   padding: 0 8px;
   margin: 0;
-  flex-grow: 1;
-  user-select: text;
-  cursor: text;
+  overflow: hidden;
   font-size: 16px;
   line-height: 26px;
-  overflow: hidden;
   text-overflow: ellipsis;
+  cursor: text;
+  user-select: text;
 }
 
 @media (max-width: 950px) {
   .main {
-    height: 292px;
     width: 275px;
+    height: 292px;
   }
 }

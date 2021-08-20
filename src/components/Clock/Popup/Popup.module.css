@@ -13,22 +13,22 @@
   position: absolute;
   display: block;
   content: '';
-  border-left: 16px solid transparent;
   border-right: 16px solid transparent;
+  border-left: 16px solid transparent;
 }
 
 .popup::after {
   top: -14px;
   right: 62px;
-  border-bottom: 16px solid var(--main-color);
   z-index: 1000;
+  border-bottom: 16px solid var(--main-color);
 }
 
 .popup::before {
   top: -16px;
   right: 62px;
-  border-bottom: 16px solid var(--opacity-white-08);
   z-index: 999;
+  border-bottom: 16px solid var(--opacity-white-08);
 }
 
 @keyframes fade-in {

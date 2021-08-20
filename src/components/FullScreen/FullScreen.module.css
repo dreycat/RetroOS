@@ -1,13 +1,13 @@
 .main {
   display: flex;
-  width: 42px;
-  justify-content: center;
   align-items: center;
+  justify-content: center;
+  width: 42px;
   padding: 0;
   cursor: pointer;
+  background: transparent;
   border: none;
   outline: none;
-  background: transparent;
   transition: background-color 0.3s;
 }
 

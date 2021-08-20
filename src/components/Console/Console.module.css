@@ -1,37 +1,37 @@
 .main {
-  height: 312px;
   width: 500px;
+  height: 312px;
   overflow-x: hidden;
   overflow-y: scroll;
-  background-color: var(--blueGrey-900);
   cursor: text;
+  background-color: var(--blueGrey-900);
 }
 
 .list {
-  list-style: none;
   padding: 0;
   margin: 0;
+  list-style: none;
 }
 
 .item {
-  color: var(--yellow-50);
   padding: 0 4px;
   margin: 0;
+  color: var(--yellow-50);
 }
 
 .input,
 .pre,
 .wrapper::after {
-  font-size: 14px;
   font-family: 'Roboto Mono', monospace;
-  color: var(--yellow-50);
+  font-size: 14px;
   line-height: 20px;
+  color: var(--yellow-50);
   letter-spacing: 0.16px;
 }
 
 .pre {
-  margin: 0;
   padding: 0;
+  margin: 0;
   user-select: text;
 }
 
@@ -41,14 +41,14 @@
 }
 
 .input {
-  height: 20px;
   width: 100%;
-  margin: 0;
+  height: 20px;
   padding: 0;
+  margin: 0;
   background-color: transparent;
   border: none;
-  caret-color: var(--yellow-50);
   outline: none;
+  caret-color: var(--yellow-50);
 }
 
 .wrapper {
@@ -58,16 +58,16 @@
 }
 
 .wrapper::after {
-  content: 'root >';
   position: absolute;
   top: 50%;
   left: 4px;
+  content: 'root >';
   transform: translateY(-50%);
 }
 
 @media (max-width: 950px) {
   .main {
-    height: 200px;
     width: 300px;
+    height: 200px;
   }
 }

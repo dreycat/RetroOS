@@ -2,19 +2,19 @@
   position: absolute;
   width: 1px;
   height: 1px;
-  margin: -1px;
-  border: 0;
   padding: 0;
-  white-space: nowrap;
-  clip-path: inset(100%);
-  clip: rect(0 0 0 0);
+  margin: -1px;
   overflow: hidden;
+  clip: rect(0 0 0 0);
+  clip-path: inset(100%);
+  white-space: nowrap;
+  border: 0;
 }
 
 .border {
-  border-bottom: 1px solid var(--gray-50);
-  border-right: 1px solid var(--gray-50);
   border-top: 1px solid var(--gray-700);
+  border-right: 1px solid var(--gray-50);
+  border-bottom: 1px solid var(--gray-50);
   border-left: 1px solid var(--gray-700);
 }
 
@@ -31,27 +31,27 @@
 }
 
 ::-webkit-scrollbar-track {
-  box-shadow: inset 0 0 2px var(--opacity-black-02);
   background: var(--opacity-white-01);
+  box-shadow: inset 0 0 2px var(--opacity-black-02);
 }
 
 ::-webkit-scrollbar-thumb {
   background: var(--main-color);
-  border-bottom: 1px solid var(--light-gray);
   border-top: 1px solid var(--white);
-  border-left: 1px solid var(--white);
   border-right: 1px solid var(--light-gray);
+  border-bottom: 1px solid var(--light-gray);
+  border-left: 1px solid var(--white);
 }
 
 @keyframes slide-out-bottom {
   0% {
-    transform: translateY(0);
     opacity: 1;
+    transform: translateY(0);
   }
 
   100% {
-    transform: translateY(200px) scale(0.3);
     opacity: 0;
+    transform: translateY(200px) scale(0.3);
   }
 }
 
