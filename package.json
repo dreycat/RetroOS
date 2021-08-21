@@ -41,6 +41,7 @@
   },
   "devDependencies": {
     "lint-staged": "^11.1.2",
+    "prettier": "^2.3.2",
     "simple-git-hooks": "^2.6.1",
     "stylelint": "^13.13.1",
     "stylelint-config-recess-order": "^2.5.0",
