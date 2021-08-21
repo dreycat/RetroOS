@@ -2,18 +2,16 @@ import { Component, createRef } from 'react';
 
 import { withTransition } from '../../hocs/withTransition';
 import { getStorageData } from '../../utils/getStorageData';
-import { ICoords } from '../../interfaces';
-import { Apps } from '../../types';
 import styles from './Window.module.css';
 
-interface IProps {
+interface WindowProps {
   name: Apps;
   label: string;
   onClose: () => void;
-  defaultPosition: ICoords;
+  defaultPosition: Position;
 }
 
-class Window extends Component<IProps> {
+class Window extends Component<WindowProps> {
   private mainEl = createRef<HTMLDivElement>();
   private headerEl = createRef<HTMLDivElement>();
   private shiftX = 0;
@@ -76,7 +74,7 @@ class Window extends Component<IProps> {
   };
 
   setPositionFromStorage = () => {
-    const coords = getStorageData<ICoords>(`${this.props.name}_window_coords`, this.props.defaultPosition);
+    const coords = getStorageData<Position>(`${this.props.name}_window_coords`, this.props.defaultPosition);
     this.applyCoords(coords);
   };
 
@@ -100,7 +98,7 @@ class Window extends Component<IProps> {
     }
   };
 
-  applyCoords = ({ left, top }: ICoords) => {
+  applyCoords = ({ left, top }: Position) => {
     this.mainEl.current!.style.left = `${left}px`;
     this.mainEl.current!.style.top = `${top}px`;
   };

@@ -6,14 +6,14 @@ const scale = window.devicePixelRatio || 2;
 const width = 512;
 const height = 512;
 
-interface IProps {
+interface GameProps {
   level: number;
   teleport: () => void;
   finishGame: () => void;
   win: () => void;
 }
 
-export const Game: FC<IProps> = ({ level, teleport, finishGame, win }) => {
+export const Game: FC<GameProps> = ({ level, teleport, finishGame, win }) => {
   const canvas = useRef<HTMLCanvasElement>(null);
 
   useEffect(() => {

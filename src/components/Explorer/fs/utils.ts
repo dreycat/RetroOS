@@ -1,8 +1,8 @@
-import { INode, Meta } from './types';
+import type { Node, Meta } from './types';
 
 const makeId = () => Math.trunc(Math.random() * 1e12);
 
-export const makeDir = (name: string, children: INode[] = [], meta: Meta = {}): INode => ({
+export const makeDir = (name: string, children: Node[] = [], meta: Meta = {}): Node => ({
   id: makeId(),
   type: 'dir',
   name,
@@ -10,22 +10,22 @@ export const makeDir = (name: string, children: INode[] = [], meta: Meta = {}): 
   meta,
 });
 
-export const makeFile = (name: string, meta: Meta): INode => ({
+export const makeFile = (name: string, meta: Meta): Node => ({
   id: makeId(),
   type: 'file',
   name,
   meta,
 });
 
-export const isDir = (node: INode) => node?.type === 'dir';
+export const isDir = (node: Node) => node?.type === 'dir';
 
-export const isFile = (node: INode) => node?.type === 'file';
+export const isFile = (node: Node) => node?.type === 'file';
 
-export const getChildren = (node?: INode) => node?.children ?? [];
+export const getChildren = (node?: Node) => node?.children ?? [];
 
-export const getNode = (fileSystem: INode, path: string[] = []): INode | undefined => {
+export const getNode = (fileSystem: Node, path: string[] = []): Node | undefined => {
   return path.reduce(
     (node, curr) => (node && isDir(node) ? getChildren(node).find(({ name }) => name === curr) : node),
-    fileSystem as INode | undefined
+    fileSystem as Node | undefined
   );
 };

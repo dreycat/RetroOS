@@ -1,4 +1,4 @@
-import { Direction } from '../types';
+import type { Direction } from '../types';
 
 export const getPlayerDirection = (code: string): Direction | null => {
   switch (code) {

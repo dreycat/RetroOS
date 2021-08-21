@@ -1,17 +1,16 @@
 import React, { Component, createRef } from 'react';
 
-import { ICoords } from '../../interfaces';
 import styles from './Shortcut.module.css';
 
-interface IProps {
+interface ShortcutProps {
   label: string;
   top: number;
   left: number;
-  saveShortcutPosition: (coords: ICoords) => void;
+  saveShortcutPosition: (position: Position) => void;
   toggle: () => void;
 }
 
-export class Shortcut extends Component<IProps> {
+export class Shortcut extends Component<ShortcutProps> {
   private mainEl = createRef<HTMLDivElement>();
   private documentWidth!: number;
   private documentHeight!: number;

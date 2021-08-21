@@ -7,13 +7,13 @@ import { ReactComponent as BalloonTwo } from './images/balloon2.svg';
 import { StatusGame } from '../enums';
 import styles from './Header.module.css';
 
-interface IProps {
+interface HeaderProps {
   flags: number;
   mines: number;
   statusGame: StatusGame;
 }
 
-export const Header: FC<IProps> = ({ flags, mines, statusGame }) => (
+export const Header: FC<HeaderProps> = ({ flags, mines, statusGame }) => (
   <div className={`${styles.main} boarder`}>
     <Timer isActive={statusGame === StatusGame.Start} />
     {statusGame === StatusGame.Fail && <span>Fail</span>}

@@ -3,11 +3,11 @@ import type { FC } from 'react';
 
 import { transformTime } from '../../utils/transformTime';
 
-interface IProps {
+interface TimerProps {
   isActive: boolean;
 }
 
-export const Timer: FC<IProps> = ({ isActive }) => {
+export const Timer: FC<TimerProps> = ({ isActive }) => {
   const [seconds, setSeconds] = useState(0);
 
   useEffect(() => {

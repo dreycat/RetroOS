@@ -1,10 +1,10 @@
 import { getNode, isDir } from './utils';
-import { INode } from './types';
+import type { Node } from './types';
 
 export class FileRoute {
   private _path: string[] = [];
 
-  constructor(private readonly _fileSystem: INode) {}
+  constructor(private readonly _fileSystem: Node) {}
 
   up() {
     this._path = this._path.slice(0, -1);

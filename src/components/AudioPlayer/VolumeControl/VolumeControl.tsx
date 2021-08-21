@@ -2,14 +2,13 @@ import type { FC, ChangeEvent, Dispatch, SetStateAction } from 'react';
 
 import { Range } from '../Range';
 
-interface IProps {
+interface VolumeControlProps {
   setVolume: Dispatch<SetStateAction<number>>;
   volume: number;
 }
 
-export const VolumeControl: FC<IProps> = ({ setVolume, volume }) => (
+export const VolumeControl: FC<VolumeControlProps> = ({ setVolume, volume }) => (
   <Range
-    type="range"
     name="track"
     min="0"
     max="1"

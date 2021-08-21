@@ -4,11 +4,12 @@ import { File } from './File';
 import { Directory } from './Directory';
 import { fileSystem } from './fs/fileSystem';
 import { FileRoute } from './fs/FileRoute';
-import { Meta } from './fs/types';
 import { getChildren, getNode, isDir } from './fs/utils';
 import { isActiveApp } from '../../utils/isActiveApp';
 import { FileLinksContext } from '../../contexts/FileLinksProvider';
 import { useWindow } from '../../hooks/useWindow';
+import type { Meta } from './fs/types';
+
 import { ReactComponent as HomeIcon } from './icons/home.svg';
 import { ReactComponent as UpIcon } from './icons/up.svg';
 import styles from './Explorer.module.css';

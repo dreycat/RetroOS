@@ -1,4 +1,4 @@
-import { Map, Level } from '../types';
+import type { Map, Level } from '../types';
 
 const map1: Map = [
   [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],

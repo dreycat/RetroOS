@@ -1,7 +1,6 @@
 import { useContext, useCallback } from 'react';
 
 import { WindowsContext } from '../contexts/WindowsProvider';
-import { Apps } from '../types';
 
 export const useWindow = (name: Apps) => {
   const { state, dispatch } = useContext(WindowsContext);

@@ -2,7 +2,6 @@ import { useRef, useState, useMemo, useEffect, useCallback, createElement } from
 
 import { getStorageData } from '../utils/getStorageData';
 import compose from '../utils/compose';
-import { ITrack } from '../interfaces';
 
 enum Keys {
   Volume = 'audio_player_volume',
@@ -10,12 +9,12 @@ enum Keys {
   Track = 'audio_player_track_id',
 }
 
-const checkTrack = (playlist: ITrack[]) => (trackId: number) => {
+const checkTrack = (playlist: Track[]) => (trackId: number) => {
   const index = playlist.findIndex(({ id }) => id === trackId);
   return index === -1 ? 0 : trackId;
 };
 
-export const useAudio = (playlist: ITrack[]) => {
+export const useAudio = (playlist: Track[]) => {
   const ref = useRef<HTMLAudioElement>(null);
   const [time, setTime] = useState(0);
   const [duration, setDuration] = useState(0);

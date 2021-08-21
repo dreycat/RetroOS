@@ -1,14 +1,14 @@
-import { Direction, Coords } from '../types';
+import type { Direction } from '../types';
 
-type Mapper = { [K in Direction]: (coords: Coords) => Coords };
+type Mapper = { [K in Direction]: (coords: Point2D) => Point2D };
 
 const mapper: Mapper = {
-  up: (coords: Coords) => ({ ...coords, y: coords.y - 1 }),
-  down: (coords: Coords) => ({ ...coords, y: coords.y + 1 }),
-  left: (coords: Coords) => ({ ...coords, x: coords.x - 1 }),
-  right: (coords: Coords) => ({ ...coords, x: coords.x + 1 }),
+  up: (coords: Point2D) => ({ ...coords, y: coords.y - 1 }),
+  down: (coords: Point2D) => ({ ...coords, y: coords.y + 1 }),
+  left: (coords: Point2D) => ({ ...coords, x: coords.x - 1 }),
+  right: (coords: Point2D) => ({ ...coords, x: coords.x + 1 }),
 };
 
-export const getNextStep = (coords: Coords, direction: Direction) => {
+export const getNextStep = (coords: Point2D, direction: Direction) => {
   return mapper[direction]?.(coords);
 };

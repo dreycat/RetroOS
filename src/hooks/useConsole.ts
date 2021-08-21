@@ -4,14 +4,14 @@ import { consoleApps } from '../components/Console/consoleApps';
 
 type ConsoleApps = keyof typeof consoleApps;
 
-interface IMessage {
+interface Message {
   text: string;
 }
 
 const userPrefix = 'root >';
 
 export const useConsole = () => {
-  const [messages, setMessages] = useState<IMessage[]>([]);
+  const [messages, setMessages] = useState<Message[]>([]);
 
   const dispatch = useCallback(
     (command: string, arg: string, raw: string) => {

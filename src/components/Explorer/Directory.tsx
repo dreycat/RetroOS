@@ -3,12 +3,12 @@ import type { FC } from 'react';
 import { ReactComponent as Icon } from './icons/folder.svg';
 import styles from './Explorer.module.css';
 
-interface IProps {
+interface DirectoryProps {
   name: string;
   openDirectory: (name: string) => void;
 }
 
-export const Directory: FC<IProps> = ({ name, openDirectory }) => (
+export const Directory: FC<DirectoryProps> = ({ name, openDirectory }) => (
   <li>
     <button className={styles.directory} onClick={() => openDirectory(name)}>
       <Icon width={42} height={42} />

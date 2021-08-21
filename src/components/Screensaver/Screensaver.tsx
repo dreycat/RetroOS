@@ -4,11 +4,11 @@ import type { FC } from 'react';
 import { architect } from './matrix';
 import styles from './Screensaver.module.css';
 
-interface IProps {
+interface ScreensaverProps {
   onClick: () => void;
 }
 
-export const Screensaver: FC<IProps> = ({ onClick }) => {
+export const Screensaver: FC<ScreensaverProps> = ({ onClick }) => {
   const canvas = useRef<HTMLCanvasElement>(null);
 
   useEffect(() => {

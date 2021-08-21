@@ -2,7 +2,7 @@ import type { FC, ReactNode } from 'react';
 
 import styles from './HeaderLayout.module.css';
 
-interface IProps {
+interface HeaderLayoutProps {
   controlls: ReactNode;
   screen: ReactNode;
   marquee: ReactNode;
@@ -10,7 +10,7 @@ interface IProps {
   progress: ReactNode;
 }
 
-export const HeaderLayout: FC<IProps> = ({ controlls, screen, marquee, volumeControl, progress }) => (
+export const HeaderLayout: FC<HeaderLayoutProps> = ({ controlls, screen, marquee, volumeControl, progress }) => (
   <div className={styles.main}>
     <div className={styles.row}>
       <div className={styles.screen}>{screen}</div>

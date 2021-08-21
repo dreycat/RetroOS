@@ -1,8 +1,3 @@
-type Coord = {
-  x: number;
-  y: number;
-};
-
 export const drawMine = (ctx: CanvasRenderingContext2D, x: number, y: number, sellSize: number) => {
   const drawCircle = ({ radius = 1.25, fillStyle = '#a8a5a4', strokeStyle = '#000', lineWidth = 0.5 }) => {
     const cx = x * sellSize;
@@ -18,7 +13,7 @@ export const drawMine = (ctx: CanvasRenderingContext2D, x: number, y: number, se
     ctx.closePath();
   };
 
-  const drawTriangle = (moveTo: Coord, dotOne: Coord, dotTwo: Coord) => {
+  const drawTriangle = (moveTo: Point2D, dotOne: Point2D, dotTwo: Point2D) => {
     const cx = x * sellSize;
     const cy = y * sellSize;
 
@@ -36,7 +31,7 @@ export const drawMine = (ctx: CanvasRenderingContext2D, x: number, y: number, se
     ctx.closePath();
   };
 
-  const drawLine = (moveTo: Coord, lineTo: Coord, lineWidth = 0.5) => {
+  const drawLine = (moveTo: Point2D, lineTo: Point2D, lineWidth = 0.5) => {
     const cx = x * sellSize;
     const cy = y * sellSize;
 

@@ -2,12 +2,12 @@ import type { FC } from 'react';
 
 import styles from './FirstScreen.module.css';
 
-interface IProps {
+interface FirstScreenProps {
   handleClick: (width: number, height: number, mines: number) => void;
   sellSize: number;
 }
 
-export const FirstScreen: FC<IProps> = ({ handleClick, sellSize }) => (
+export const FirstScreen: FC<FirstScreenProps> = ({ handleClick, sellSize }) => (
   <div className={styles.main}>
     <button className={styles.button} onClick={() => handleClick(8, 8, 10)}>
       8:8

@@ -1,7 +1,7 @@
 import { getNeighbors } from './getNeighbors';
 import { deepClone } from '../../../utils/deepClone';
 
-import { Field } from './types';
+import type { Field } from './types';
 import { Cell } from './enums';
 
 export const clicker = (userField: Field, field: Field, x: number, y: number): Field => {

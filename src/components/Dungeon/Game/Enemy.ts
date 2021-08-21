@@ -1,10 +1,10 @@
 import { Character } from './Character';
-import { Direction, Coords } from '../types';
 import { random } from '../../../utils/random';
+import type { Direction } from '../types';
 
 export class Enemy extends Character {
   private directions: Direction[];
-  constructor(coords: Coords, direction: Direction = 'left', public speed: number) {
+  constructor(coords: Point2D, direction: Direction = 'left', public speed: number) {
     super(coords, direction);
     this.directions = ['down', 'left', 'right', 'up'];
   }

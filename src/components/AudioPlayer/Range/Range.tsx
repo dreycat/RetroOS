@@ -1,5 +1,7 @@
-import type { FC } from 'react';
+import type { FC, InputHTMLAttributes } from 'react';
 
 import styles from './Range.module.css';
 
-export const Range: FC<any> = (props) => <input className={styles.main} type="range" {...props} />;
+interface RangeProps extends InputHTMLAttributes<HTMLInputElement> {}
+
+export const Range: FC<RangeProps> = (props) => <input className={styles.main} type="range" {...props} />;

@@ -1,6 +1,4 @@
-import { ITrack } from '../../interfaces';
-
-export const stationList: ITrack[] = [
+export const stationList: Track[] = [
   {
     id: 0,
     name: 'SomaFM: Lush',

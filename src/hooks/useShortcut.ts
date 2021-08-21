@@ -1,16 +1,14 @@
 import { useState, useCallback, useMemo } from 'react';
 
 import { getStorageData } from '../utils/getStorageData';
-import { ICoords } from '../interfaces';
-import { Apps } from '../types';
 
-export const useShortcut = (name: Apps, defaultPosition: ICoords) => {
+export const useShortcut = (name: Apps, defaultPosition: Position) => {
   const storageName = useMemo(() => `${name}_icon_coords`, [name]);
-  const [storeShortcutCoords] = useState<ICoords>(() => getStorageData(storageName, defaultPosition));
+  const [storeShortcutCoords] = useState<Position>(() => getStorageData(storageName, defaultPosition));
 
   const saveShortcutPosition = useCallback(
-    (coords: ICoords) => {
-      localStorage.setItem(storageName, JSON.stringify(coords));
+    (position: Position) => {
+      localStorage.setItem(storageName, JSON.stringify(position));
     },
     [storageName]
   );

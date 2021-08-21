@@ -5,7 +5,7 @@ import { ReactComponent as PauseIcon } from './images/pause.svg';
 import { ReactComponent as NextIcon } from './images/next.svg';
 import styles from './Controlls.module.css';
 
-interface IProps {
+interface ControllsProps {
   isPlaing: boolean;
   play: () => void;
   pause: () => void;
@@ -15,7 +15,7 @@ interface IProps {
 
 const ICON_SIZE = 24;
 
-export const Controlls: FC<IProps> = ({ play, pause, isPlaing, prevTrack, nextTrack }) => (
+export const Controlls: FC<ControllsProps> = ({ play, pause, isPlaing, prevTrack, nextTrack }) => (
   <div>
     <button className={styles.control} onClick={prevTrack} aria-label="previous track">
       <NextIcon className={styles.mirror} width={ICON_SIZE} height={ICON_SIZE} />

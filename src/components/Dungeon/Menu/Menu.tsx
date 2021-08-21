@@ -3,13 +3,13 @@ import type { FC } from 'react';
 import { StatusGame } from '../enums';
 import styles from './Menu.module.css';
 
-interface IProps {
+interface MenuProps {
   statusGame: StatusGame;
   setStatusGame: (statusGame: StatusGame) => void;
   setLevel: (level: number) => void;
 }
 
-export const Menu: FC<IProps> = ({ statusGame, setStatusGame, setLevel }) => (
+export const Menu: FC<MenuProps> = ({ statusGame, setStatusGame, setLevel }) => (
   <>
     <ul className={styles.menu}>
       {statusGame === StatusGame.Fail && (

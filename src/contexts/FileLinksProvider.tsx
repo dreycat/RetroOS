@@ -2,7 +2,6 @@ import { useReducer, createContext, useEffect, useMemo } from 'react';
 import type { FC, Dispatch } from 'react';
 
 import { getStorageData } from '../utils/getStorageData';
-import { Apps } from '../types';
 
 type State = Partial<{ [k in Apps]: string | null }>;
 

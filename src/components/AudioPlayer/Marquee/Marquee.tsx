@@ -2,11 +2,11 @@ import type { FC } from 'react';
 
 import styles from './Marquee.module.css';
 
-interface IProps {
+interface MarqueeProps {
   error: boolean;
 }
 
-export const Marquee: FC<IProps> = ({ children, error }) => (
+export const Marquee: FC<MarqueeProps> = ({ children, error }) => (
   <div className={`${styles.main} border`}>
     <div className={styles.inner}>
       <p className={styles.text}>

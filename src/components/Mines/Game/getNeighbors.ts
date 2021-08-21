@@ -1,4 +1,4 @@
-import { Field, Neighbor } from './types';
+import type { Field, Neighbor } from './types';
 
 const getСell = (field: Field, x: number, y: number) => {
   return field[y] && field[y][x] !== undefined ? { x, y, value: field[y][x] } : null;

@@ -6,10 +6,10 @@ export type Meta = {
   link?: string;
 };
 
-export interface INode {
+export interface Node {
   id: number;
   type: 'dir' | 'file';
   name: string;
-  children?: INode[];
+  children?: Node[];
   meta: Meta;
 }

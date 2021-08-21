@@ -1,5 +1,7 @@
 import type { FC, SVGProps } from 'react';
 
+import type { Meta, Extensions } from './fs/types';
+
 import { ReactComponent as BinIcon } from './icons/bin.svg';
 import { ReactComponent as TextIcon } from './icons/text.svg';
 import { ReactComponent as ImageIcon } from './icons/image.svg';
@@ -7,9 +9,7 @@ import { ReactComponent as VideoIcon } from './icons/avi.svg';
 import { ReactComponent as UnknownIcon } from './icons/unknown.svg';
 import styles from './Explorer.module.css';
 
-import { Meta, Extensions } from './fs/types';
-
-interface IProps {
+interface FileProps {
   name: string;
   meta: Meta;
   openApp: (name: string, meta: Meta) => void;
@@ -31,7 +31,7 @@ const icons: Icons = {
   unknown: UnknownIcon,
 };
 
-export const File: FC<IProps> = ({ name, meta, openApp }) => {
+export const File: FC<FileProps> = ({ name, meta, openApp }) => {
   const Icon = icons[meta.extension ?? 'unknown'];
 
   return (

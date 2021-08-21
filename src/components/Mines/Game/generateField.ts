@@ -3,7 +3,7 @@ import compose from '../../../utils/compose';
 import { deepClone } from '../../../utils/deepClone';
 import { random } from '../../../utils/random';
 
-import { Field, Neighbor } from './types';
+import type { Field, Neighbor } from './types';
 import { Cell } from './enums';
 
 const setMines = (mines: number) => (field: Field) => {

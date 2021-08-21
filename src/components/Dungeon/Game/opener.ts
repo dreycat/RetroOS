@@ -1,5 +1,5 @@
-import { Map } from '../types';
 import { Cell } from '../enums';
+import type { Map } from '../types';
 
 export const opener = (map: Map) => {
   for (let y = 0; y < map.length; y++) {

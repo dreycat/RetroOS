@@ -1,4 +1,3 @@
-import type { Apps } from '../types';
 import { getStorageData } from './getStorageData';
 
 export const isActiveApp = (name: Apps) => {

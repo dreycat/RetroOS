@@ -3,16 +3,14 @@ import { FC } from 'react';
 import Window from '../Window';
 import { ApplicationErrorBoundary } from '../ApplicationErrorBoundary';
 import { useWindow } from '../../hooks/useWindow';
-import { ICoords } from '../../interfaces';
-import { Apps } from '../../types';
 
-interface IProps {
+interface ContextApplicationProps {
   name: Apps;
   label: string;
-  defaultWindowPosition: ICoords;
+  defaultWindowPosition: Position;
 }
 
-export const ContextApplication: FC<IProps> = ({ name, label, defaultWindowPosition, children }) => {
+export const ContextApplication: FC<ContextApplicationProps> = ({ name, label, defaultWindowPosition, children }) => {
   const { isOpen, onClose } = useWindow(name);
 
   return (

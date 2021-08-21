@@ -1,6 +1,5 @@
 import { getCurrentTheme, setTheme, themes } from '../../../utils/themes';
 import { capitalize } from '../../../utils/capitalize';
-import { Themes } from '../../../types';
 import { preloadImages } from '../../../utils/preloadImages';
 import styles from './ThemesTab.module.css';
 

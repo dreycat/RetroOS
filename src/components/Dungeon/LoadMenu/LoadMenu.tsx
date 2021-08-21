@@ -5,12 +5,12 @@ import { levels } from '../Game/levels';
 import { getStorageData } from '../../../utils/getStorageData';
 import styles from './LoadMenu.module.css';
 
-interface IProps {
+interface LoadMenuProps {
   setStatusGame: (statusGame: StatusGame) => void;
   setLevel: (level: number) => void;
 }
 
-export const LoadMenu: FC<IProps> = ({ setStatusGame, setLevel }) => {
+export const LoadMenu: FC<LoadMenuProps> = ({ setStatusGame, setLevel }) => {
   const savedLevel = getStorageData('dungeon_level', 0);
 
   return (

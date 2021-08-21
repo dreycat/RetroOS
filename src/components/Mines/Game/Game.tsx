@@ -7,18 +7,18 @@ import { getEmptyField, generateField } from './generateField';
 import { hasUserWon } from './hasUserWon';
 import { clicker } from './clicker';
 import { deepClone } from '../../../utils/deepClone';
-import { Field } from './types';
 import { Cell, StatusGame } from './enums';
+import type { Field } from './types';
 import styles from './Game.module.css';
 
-interface IProps {
+interface GameProps {
   fieldWidth: number;
   fieldHeight: number;
   mines: number;
   sellSize: number;
 }
 
-export const Game: FC<IProps> = ({ fieldWidth, fieldHeight, mines, sellSize }) => {
+export const Game: FC<GameProps> = ({ fieldWidth, fieldHeight, mines, sellSize }) => {
   const [field, setField] = useState<Field>(generateField(fieldWidth, fieldHeight, mines));
   const [userField, setUserField] = useState<Field>(getEmptyField(fieldWidth, fieldHeight, Cell.Suspense));
   const [statusGame, setStatusGame] = useState<StatusGame>(StatusGame.Start);

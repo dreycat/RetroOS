@@ -9,13 +9,8 @@ const reset = () => {
   window.location.reload();
 };
 
-type Coords = {
-  x: number;
-  y: number;
-};
-
 export const ContextMenu = () => {
-  const [coords, setCoords] = useState<Coords>({ x: 0, y: 0 });
+  const [coords, setCoords] = useState<Point2D>({ x: 0, y: 0 });
   const [isOpen, setOpen] = useState(false);
   const menuEl = useRef<HTMLUListElement>(null);
   const { onOpen: openSettings } = useWindow('settings');

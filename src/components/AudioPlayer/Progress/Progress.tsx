@@ -2,16 +2,15 @@ import type { FC, ChangeEvent } from 'react';
 
 import { Range } from '../Range';
 
-interface IProps {
+interface ProgressProps {
   duration: number;
   isRadio: boolean;
   time: number;
   seek: (time: number) => void;
 }
 
-export const Progress: FC<IProps> = ({ isRadio, duration, time, seek }) => (
+export const Progress: FC<ProgressProps> = ({ isRadio, duration, time, seek }) => (
   <Range
-    type="range"
     name="track"
     aria-label="progress"
     min="0"

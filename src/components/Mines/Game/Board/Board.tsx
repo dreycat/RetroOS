@@ -3,10 +3,10 @@ import type { FC, MouseEvent } from 'react';
 
 import { renderCell } from '../Cell';
 import { renderGrid } from './renderGrid';
-import { Field } from '../types';
+import type { Field } from '../types';
 import styles from './Board.module.css';
 
-interface IProps {
+interface BoardProps {
   fieldWidth: number;
   fieldHeight: number;
   sellSize: number;
@@ -18,7 +18,7 @@ interface IProps {
 
 const SCALE = window.devicePixelRatio || 2;
 
-export const Board: FC<IProps> = ({
+export const Board: FC<BoardProps> = ({
   fieldWidth,
   fieldHeight,
   sellSize,

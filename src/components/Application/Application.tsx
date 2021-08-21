@@ -5,18 +5,16 @@ import { Shortcut } from '../Shortcut';
 import { useWindow } from '../../hooks/useWindow';
 import { useShortcut } from '../../hooks/useShortcut';
 import { ApplicationErrorBoundary } from '../ApplicationErrorBoundary';
-import { ICoords } from '../../interfaces';
-import { Apps } from '../../types';
 
-interface IProps {
+interface ApplicationProps {
   name: Apps;
   label: string;
   icon: ReactNode;
-  defaultWindowPosition: ICoords;
-  defaultShortcutPosition: ICoords;
+  defaultWindowPosition: Position;
+  defaultShortcutPosition: Position;
 }
 
-export const Application: FC<IProps> = ({
+export const Application: FC<ApplicationProps> = ({
   name,
   label,
   icon,

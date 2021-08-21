@@ -1,5 +1,5 @@
-import { Field } from './types';
 import { Cell } from './enums';
+import type { Field } from './types';
 
 export const hasUserWon = (field: Field, mines: number) => {
   const undiscoveredСells = field

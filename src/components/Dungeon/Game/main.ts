@@ -7,8 +7,8 @@ import { opener } from './opener';
 import { getNextStep } from './getNextStep';
 import { deepClone } from '../../../utils/deepClone';
 import { random } from '../../../utils/random';
-import { Direction, Map } from '../types';
 import { Cell } from '../enums';
+import type { Direction, Map } from '../types';
 
 export const main = (
   ctx: CanvasRenderingContext2D,

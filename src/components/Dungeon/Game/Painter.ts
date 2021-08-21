@@ -1,4 +1,4 @@
-import { Map, Direction, Square } from '../types';
+import type { Map, Direction, Square } from '../types';
 
 import sprite from './images/sprite.png';
 

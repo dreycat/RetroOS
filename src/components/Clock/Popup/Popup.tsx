@@ -4,11 +4,11 @@ import { CalendarComponent } from '../../Calendar';
 import { withTransition } from '../../../hocs/withTransition';
 import styles from './Popup.module.css';
 
-interface IProps {
+interface PopupProps {
   popupEl: RefObject<HTMLDivElement>;
 }
 
-const Popup: FC<IProps> = ({ popupEl }) => (
+const Popup: FC<PopupProps> = ({ popupEl }) => (
   <div className={styles.popup} ref={popupEl}>
     <CalendarComponent />
   </div>
