@@ -3,4 +3,4 @@ export * from './cloneDate';
 export * from './getDay';
 export * from './getDate';
 export * from './moveToLastDayOfMonth';
-export * from './getPreviusMonth';
+export * from './getPreviousMonth';

@@ -14,7 +14,7 @@ export const Console = () => {
   const { onOpen: openMines } = useWindow('mines');
   const { onOpen: openDungeon } = useWindow('dungeon');
   const { onOpen: openSettings } = useWindow('settings');
-  const { onOpen: openAudioplayer } = useWindow('audioplayer');
+  const { onOpen: openAudioPlayer } = useWindow('audioplayer');
   const { onOpen: openScreensaver } = useWindow('screensaver');
 
   const mapper: Mapper = useMemo(() => {
@@ -23,10 +23,10 @@ export const Console = () => {
       mines: openMines,
       dungeon: openDungeon,
       settings: openSettings,
-      player: openAudioplayer,
+      player: openAudioPlayer,
       screensaver: openScreensaver,
     };
-  }, [openScreensaver, openAudioplayer, openDungeon, openMines, openSettings, openTodo]);
+  }, [openScreensaver, openAudioPlayer, openDungeon, openMines, openSettings, openTodo]);
 
   const handleKeyPress = useCallback(
     ({ key, currentTarget }: KeyboardEvent<HTMLInputElement>) => {

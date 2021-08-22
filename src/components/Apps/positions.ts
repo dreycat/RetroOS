@@ -1,6 +1,6 @@
 import { isMobile } from '../../utils/isMobile';
 
-const desctopShortcutPositions = {
+const desktopShortcutPositions = {
   audioplayer: { top: 170, left: 65 },
   console: { top: 287, left: 77 },
   dungeon: { top: 637, left: 76 },
@@ -18,7 +18,7 @@ const mobileShortcutPositions = {
   todo: { top: 249, left: 52 },
 };
 
-const desctopWindowPositions = {
+const desktopWindowPositions = {
   audioplayer: { top: 70, left: 692 },
   console: { top: 70, left: 175 },
   dungeon: { top: 70, left: 175 },
@@ -44,5 +44,5 @@ const mobileWindowPositions = {
   videoplayer: { top: 100, left: window.innerWidth - 562 },
 };
 
-export const windowPositions = isMobile() ? mobileWindowPositions : desctopWindowPositions;
-export const shortcutPositions = isMobile() ? mobileShortcutPositions : desctopShortcutPositions;
+export const windowPositions = isMobile() ? mobileWindowPositions : desktopWindowPositions;
+export const shortcutPositions = isMobile() ? mobileShortcutPositions : desktopShortcutPositions;

@@ -1,10 +1,10 @@
-import { getPreviusMonth, getDay, getDate, moveToLastDayOfMonth } from '../../utils/date';
+import { getPreviousMonth, getDay, getDate, moveToLastDayOfMonth } from '../../utils/date';
 import compose from '../../utils/compose';
 
 const getDaysInMonth = compose(getDate, moveToLastDayOfMonth);
-const getDaysInPreviusMonth = compose(getDate, moveToLastDayOfMonth, getPreviusMonth);
+const getDaysInPreviousMonth = compose(getDate, moveToLastDayOfMonth, getPreviousMonth);
 const getLastDayOfMonth = compose(getDay, moveToLastDayOfMonth);
-const getLastDayOfPreviusMonth = compose(getDay, moveToLastDayOfMonth, getPreviusMonth);
+const getLastDayOfPreviousMonth = compose(getDay, moveToLastDayOfMonth, getPreviousMonth);
 
 type Page = {
   date: Date;
@@ -25,9 +25,9 @@ export const presenter = (date: Date) => {
   const firstDayOfMonth = 1;
   const daysInWeek = 7;
   const daysInMonth = getDaysInMonth(date);
-  const daysInPreviusMonth = getDaysInPreviusMonth(date);
+  const daysInPreviousMonth = getDaysInPreviousMonth(date);
   const lastDayOfMonth = getLastDayOfMonth(date);
-  const lastDayOfPreviusMonth = getLastDayOfPreviusMonth(date);
+  const lastDayOfPreviousMonth = getLastDayOfPreviousMonth(date);
   const page: Page = {
     date,
     prevMonth: [],
@@ -35,7 +35,7 @@ export const presenter = (date: Date) => {
     nextMonth: [],
   };
 
-  for (let i = daysInPreviusMonth - lastDayOfPreviusMonth; i <= daysInPreviusMonth; i++) {
+  for (let i = daysInPreviousMonth - lastDayOfPreviousMonth; i <= daysInPreviousMonth; i++) {
     page.prevMonth.push(getPrettyDay(i));
   }
 

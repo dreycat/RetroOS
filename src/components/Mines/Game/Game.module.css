@@ -24,8 +24,8 @@
   color: var(--blueGrey-900);
   background-color: var(--main-color);
   border-top: 2px solid var(--white);
-  border-right: 2px solid var(--light-gray);
-  border-bottom: 2px solid var(--light-gray);
+  border-right: 2px solid var(--gray-500);
+  border-bottom: 2px solid var(--gray-500);
   border-left: 2px solid var(--white);
   outline: none;
   transition: background-color 0.5s;

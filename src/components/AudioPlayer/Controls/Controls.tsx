@@ -3,10 +3,10 @@ import type { FC } from 'react';
 import { ReactComponent as PlayIcon } from './images/play.svg';
 import { ReactComponent as PauseIcon } from './images/pause.svg';
 import { ReactComponent as NextIcon } from './images/next.svg';
-import styles from './Controlls.module.css';
+import styles from './Controls.module.css';
 
-interface ControllsProps {
-  isPlaing: boolean;
+interface ControlsProps {
+  isPlaying: boolean;
   play: () => void;
   pause: () => void;
   prevTrack: () => void;
@@ -15,12 +15,12 @@ interface ControllsProps {
 
 const ICON_SIZE = 24;
 
-export const Controlls: FC<ControllsProps> = ({ play, pause, isPlaing, prevTrack, nextTrack }) => (
+export const Controls: FC<ControlsProps> = ({ play, pause, isPlaying, prevTrack, nextTrack }) => (
   <div>
     <button className={styles.control} onClick={prevTrack} aria-label="previous track">
       <NextIcon className={styles.mirror} width={ICON_SIZE} height={ICON_SIZE} />
     </button>
-    {isPlaing ? (
+    {isPlaying ? (
       <button className={styles.control} onClick={pause} aria-label="pause">
         <PauseIcon width={ICON_SIZE} height={ICON_SIZE} />
       </button>

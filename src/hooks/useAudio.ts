@@ -107,11 +107,11 @@ export const useAudio = (playlist: Track[]) => {
       isPlaying,
       isMuted,
       trackId,
-      curentTrack: playlist[trackId],
+      currentTrack: playlist[trackId],
       isRadio: playlist[trackId].isRadio,
       error,
     },
-    controlls: {
+    controls: {
       play: () => setPlaying(true),
       pause: () => setPlaying(false),
       mute: () => setMuted(true),

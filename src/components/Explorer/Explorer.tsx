@@ -27,7 +27,7 @@ export const Explorer = () => {
   const { onOpen: openNotepad } = useWindow('notepad');
   const { onOpen: openDungeon } = useWindow('dungeon');
   const { onOpen: openSettings } = useWindow('settings');
-  const { onOpen: openAudioplayer } = useWindow('audioplayer');
+  const { onOpen: openAudioPlayer } = useWindow('audioplayer');
   const { onOpen: openScreensaver } = useWindow('screensaver');
   const { onOpen: openVideoPlayer } = useWindow('videoplayer');
   const { onOpen: openImageViewer } = useWindow('imageviewer');
@@ -40,11 +40,10 @@ export const Explorer = () => {
       dungeon: openDungeon,
       settings: openSettings,
       console: openConsole,
-      player: openAudioplayer,
+      player: openAudioPlayer,
       kernel: openScreensaver,
-      videoplayer: openScreensaver,
     };
-  }, [openScreensaver, openAudioplayer, openDungeon, openMines, openSettings, openTodo, openConsole]);
+  }, [openScreensaver, openAudioPlayer, openDungeon, openMines, openSettings, openTodo, openConsole]);
 
   const openDirectory = useCallback((name: string) => {
     route.move(name);

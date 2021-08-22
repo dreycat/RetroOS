@@ -1,6 +1,6 @@
 import { cloneDate } from './cloneDate';
 
-export const getPreviusMonth = (date: Date) => {
+export const getPreviousMonth = (date: Date) => {
   const newDate = cloneDate(date);
   const year = newDate.getFullYear();
   const monthIndex = newDate.getMonth();
