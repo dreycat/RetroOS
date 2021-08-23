@@ -3,7 +3,7 @@ export enum StatusGame {
   Fail = 'fail',
   Start = 'start',
   Init = 'init',
-  Load = 'load'
+  Load = 'load',
 }
 
 export enum Cell {
@@ -13,5 +13,5 @@ export enum Cell {
   Door = 'D',
   Portal = 'P',
   Box = 'B',
-  Gold = 'G'
+  Gold = 'G',
 }

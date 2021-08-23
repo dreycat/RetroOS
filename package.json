@@ -7,7 +7,8 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "check": "eslint src && stylelint src/**/*.css"
+    "lint": "eslint src && prettier src --check && stylelint 'src/**/*.css'",
+    "format": "prettier src --write && stylelint 'src/**/*.css' --fix"
   },
   "dependencies": {
     "@testing-library/jest-dom": "^5.14.1",
