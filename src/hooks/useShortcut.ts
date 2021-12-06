@@ -1,17 +1,14 @@
-import { useState, useCallback, useMemo } from 'react';
+import { useState } from 'react';
 
 import { getStorageData } from '../utils/getStorageData';
 
 export const useShortcut = (name: Apps, defaultPosition: Position) => {
-  const storageName = useMemo(() => `${name}_icon_coords`, [name]);
+  const storageName = `${name}_icon_coords`;
   const [storeShortcutCoords] = useState<Position>(() => getStorageData(storageName, defaultPosition));
 
-  const saveShortcutPosition = useCallback(
-    (position: Position) => {
-      localStorage.setItem(storageName, JSON.stringify(position));
-    },
-    [storageName]
-  );
+  const saveShortcutPosition = (position: Position) => {
+    localStorage.setItem(storageName, JSON.stringify(position));
+  };
 
   return { storeShortcutCoords, saveShortcutPosition };
 };
